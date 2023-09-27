@@ -10,6 +10,7 @@
 void write_12_family_table(FILE *fs,  long **pair_stat, double sum1);
 void statistics(long i, long k, char **pair_type, long **type_stat);
 
+extern char FILEOUT[BUF512];
 /* ===========================================================*/
 
 void print_edge_stat(FILE *fs,  long *A, long *U, long *G,long *C, long *T,
@@ -518,7 +519,8 @@ void base_edge_stat(char *pdbfile, long *A, long *U,long *G,long *C,long *T,
     long i, nl, nl_tot=0;
 
 /*    del_extension(pdbfile, parfile); */
-    sprintf(inpfile, "%s.out", pdbfile);
+/*    sprintf(inpfile, "%s.out", pdbfile);*/
+    sprintf(inpfile, "%s.out", FILEOUT);
 
     nl_tot = nline(inpfile);/* get the number of lines for memery alocation */
     str_pair = cmatrix(0, nl_tot, 0, 70);  /* line width */
@@ -962,7 +964,8 @@ void write_single_Hbond_stat(char *pdbfile, char *bseq, long **pair_stat)
     FILE *finp;
 
             /*  del_extension(pdbfile, parfile);*/
-    sprintf(inpfile, "%s.out", pdbfile);
+/*    sprintf(inpfile, "%s.out", pdbfile);*/
+    sprintf(inpfile, "%s.out", FILEOUT);
 
     if((finp=fopen(inpfile,"r"))==NULL) {        
         printf("Can not open the INPUT file %s\n", inpfile);  

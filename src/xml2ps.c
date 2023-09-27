@@ -23,6 +23,9 @@ the chains.
 # define XBIG 1.0e+18   
 # define FALSE 0 
 # define TRUE 1
+
+extern char FILEOUT[512];
+
     
 char **RESNAME;    
 long **AUTH_SEQ, *AUTH_SEQ_IDX, NMOL, *MOLSEQ, **SUGAR_SYN;
@@ -54,13 +57,19 @@ void xml2ps(char *pdbfile, long resid_num, long XML)
     double **xy, **xy0, **o3_prime_xyz, **p_xyz;
     double helix_width,default_size,ps_size, ps_width;
 
-    if(XML==0){		
+    if(XML==0){
+            /*
         sprintf(inpfile, "%s.xml", pdbfile);
         sprintf(outfile, "%s.ps",pdbfile);
+            */
+        sprintf(inpfile, "%s.xml", FILEOUT);
+        sprintf(outfile, "%s.ps",FILEOUT);
+
+        
     }else{
         strcpy(inpfile, pdbfile);
-/*        strcpy(inpfile, "ur0012-A-mod.xml");*/
-        sprintf(outfile, "%s.ps",pdbfile);
+/*        sprintf(outfile, "%s.ps",pdbfile);*/
+        sprintf(outfile, "%s.ps",FILEOUT);
         resid_num = resid_num_fix;        
     }
     

@@ -11,6 +11,7 @@ extern long VERB;
 void  LW_Saenger_correspond(char bs1, char bs2, char *type, char *corresp);
 
 
+
 void all_pairs(char *pdbfile, FILE *fout, long num_residue, long *RY,
                double **Nxyz, double **orien, double **org, double *BPRS,
                long **seidx, double **xyz, char **AtomName, char **ResName,
@@ -120,7 +121,6 @@ void all_pairs(char *pdbfile, FILE *fout, long num_residue, long *RY,
      /* change this condition if used 
         protein_rna_interact(BPRS[1],num_residue, seidx, xyz,AtomName, prot_rna);
     */
-    
 
     syn_or_anti(num_residue, AtomName, seidx, xyz,RY, sugar_syn);
     

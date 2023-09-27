@@ -14,6 +14,9 @@ typedef struct{
     char pair[20][70];
 }patterns;
 
+extern char FILEOUT[BUF512];
+
+
 void pattern_search(long max_npatt, char *outfile, char *parfile);
 
 void token_str(char *str, char *token, long *nstr, char **line);
@@ -44,9 +47,12 @@ void motif(char *pdbfile)
     long i, j,n, k, nl,nl_tot=0;
     long np, non_wc, *npatt, **patt, max_npatt;
     FILE *output;
-
+/*
     sprintf(inpfile, "%s.out", pdbfile);
     sprintf(outfile, "%s_patt_tmp.out", pdbfile);
+*/    
+    sprintf(inpfile, "%s.out", FILEOUT);
+    sprintf(outfile, "%s_patt_tmp.out", FILEOUT);
 
     output=fopen(outfile, "w");
 
@@ -316,7 +322,8 @@ void pattern_search(long max_npatt, char *inpfile, char *parfile)
    
     finp = fopen(inpfile, "r");
 
-    sprintf(outfile, "%s_patt.out", parfile);
+/*    sprintf(outfile, "%s_patt.out", parfile);*/
+    sprintf(outfile, "%s_patt.out", FILEOUT);
     
     fout = fopen(outfile, "w");
     

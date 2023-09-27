@@ -8,13 +8,12 @@
 #include <sys/types.h>
 #include "nrutil.h"
 #include "rna.h"
-long PS=0, VRML=0, ANAL=0, CHAIN=0, ALL=0; /*globle variables */
-long ARGC=0, XML=0, HETA=1; /* include all Heta atoms */
-char **ARGV; 
 
-void process_single_file(int argc, char *argv[]);
-void process_multiple_file(int argc, char *argv[]); 
-void rna_select(char *pdbfile, double resolution, long *yes); 
+long PS=1, VRML=0, ANAL=0, XML=0, HETA=1, VERB=1; /*globle variables */
+char FILEOUT[BUF512];
+
+
+
 void base_edge_stat(char *pdbfile, long *A, long *U,long *G,long *C,long *T,
                     long *P, long *I);
 void print_edge_stat(FILE *fs,  long *A, long *U, long *G,long *C, long *T,
@@ -26,127 +25,181 @@ void sixteen_pair_statistics(long num_pair_tot,long **bs_pairs_tot, char *bseq,
 void write_single_Hbond_stat(char *pdbfile, char *bseq, long **pair_stat);
 void delete_file(char *pdbfile, char *extension);
 
+long clean_inpfile(char *inpfile, char *chain_in, float reso_in, char *file_new);
+
+
 int main(int argc, char *argv[])
-/*int main()*/
 {
     clock_t start, finish;
-    long i;
+    char inpfile[BUF512], pdbfile_new[BUF512], chain[80], str[BUF512];
     
-    ARGV=cmatrix(0, 6, 0, 40);/*6 argument and 40 length each */
-    
-    ARGC=argc;
-    for(i=0; i<argc; i++){
-        strcpy(ARGV[i], argv[i]);
-    }
-    
-    start = clock();
-/*    
-    printf("Command argument!: %d  %s %s\n",argc,argv[0],argv[1]);
-*/
-    if(argc<=1 || (argc==2 && strstr(argv[1], "-h")))
-       usage();
-    
-    if( strstr(argv[1], "a") || strstr(argv[1], "A") ){
-        printf("Processing a file list containing all the PDB files\n");
-        process_multiple_file(argc, argv); 
-    }else{
-        if(XML==0)
-            printf("Processing a single PDB file\n");
-        else
-            printf("Processing a single RNAML file\n");
-        process_single_file(argc, argv);
-    }
-
-    finish = clock();
-    printf( "\nTime used: %.2f seconds\n",
-            ((double) (finish - start)) / CLOCKS_PER_SEC);
-    fprintf(stderr, "\nJOB finished! Time used: %.2f seconds\n",
-            ((double) (finish - start)) / CLOCKS_PER_SEC);
-    free_cmatrix(ARGV, 0, 6, 0,40);
-
-    
-    return 0;    
-}
-
-void process_single_file(int argc, char *argv[])
-/* processing a single PDB (or CIF or RNAML) file */
-{
-    char inpfile[BUF512],pdbfile[BUF512], outfile[BUF512];
-    long i, j,  key, base_all;
+    long i, j,n,  key, base_all, npdb, nxml;
     long type_stat[20]; /* maxmum 20 different pairs */
     long **pair_stat; /* maxmum 20 different pairs */
     static long A[4],U[4],G[4],C[4],T[4],P[4],I[4];
-    FILE  *fstat;
+    float reso;
+    
+    FILE  *fstat, *fp;
+
+    start = clock();
 
     fstat=fopen("base_pair_statistics.out", "w");
     
+    if(argc<=1 || (argc==2 && strstr(argv[1], "-h"))) usage();
+
+    strcpy(chain,"");
+    for(i=1; i<argc; i++){
+        upperstr(argv[i]);        
+        if(!strcmp(argv[i],"-F")|| !strcmp(argv[i],"-P")
+           ||!strcmp(argv[i],"-PX")){
+            strcpy(inpfile,argv[i+1]);
+            strcpy(FILEOUT,argv[i+1]);
+            
+        }else if(!strcmp(argv[i],"-C")){
+            strcpy(chain,argv[i+1]);
+            upperstr(chain);
+            
+        }else if(!strcmp(argv[i],"-V")){
+            VRML=1;
+        }else if(!strcmp(argv[i],"-A")){
+            ANAL=1;
+        }else if(!strcmp(argv[i],"-B")){
+            VERB=0;
+        }else if(!strcmp(argv[i],"-R")){
+            reso=atof(argv[i+1]);
+        }
+    }
+
+    if((fp=fopen(inpfile, "r"))==NULL){
+        printf("Error! can not open file (%s)\n", inpfile);
+        return 0;
+    }
+
     pair_stat = lmatrix(0, 20, 0, 40);
     for (i = 0; i < 20; i++){
         type_stat[i] =0;        
     }
-        /* i for A-A ... pairs (16);  j for Leontis-Westhof base-pairs */
+    
+ /* i for A-A ... pairs (16);  j for Leontis-Westhof base-pairs */
     for (i = 0; i <20; i++) 
         for (j = 0; j <40; j++)
             pair_stat[i][j]=0;
-    
- /* ps>0 draw 2D RNA/DNA;
-    vrml>0 draw 3D  RNA/DNA;
-    anal>0 calculate morphorlogy
- */ 
-    
-    cmdline(argc, argv, inpfile);
-    ARGC  = argc;
 
-    if(CHAIN==0){
-        
-        if(argc == 2){
-            strcpy(pdbfile, argv[1]);
+    npdb=0;
+    nxml=0;
+    while (fgets(str, sizeof str, fp) != NULL) {
+        if(!strncmp(str, "ATOM", 4) || !strncmp(str, "HETATM", 4) ){
+            if(npdb++>10){
+                break;
+            }
+        }else if(strstr(str, "<!DOCTYPE rnaml") || strstr(str, "<rnaml") ||
+                 strstr(str, "<molecule") || strstr(str, "<base-pair")){
+            if(nxml++>10){
+                XML=1;
+                break;
+            }
         }
-        else if(argc == 3){
-            strcpy(pdbfile, argv[2]);
-        }else
-            usage();
+    }
+    
+    if(nxml>10){ /* read information from RNAML and write into PS */
+        xml2ps(inpfile, 0, 1); 
+        fclose(fp);
+        return 0;
+        
+    }else if(npdb>=10 && nxml<10){
+        printf("Processing a single file ...\n");
+
+        sprintf(pdbfile_new, "%s_new", inpfile);
+        n=clean_inpfile(inpfile,chain, reso, pdbfile_new);
+        rna(pdbfile_new, type_stat, pair_stat, &base_all);
+        base_edge_stat(pdbfile_new, A, U, G, C, T, P, I);
     }else{
+        printf("Processing multiple files ...\n");
+        rewind(fp);
         
-        if(argc == 3){
-            strcpy(pdbfile, argv[2]);
+/* file contains a list of PDB file */        
+        while (fgets(str, sizeof str, fp) != NULL) {
+            sprintf(pdbfile_new, "%s_new", str);
+            n=clean_inpfile(str,chain, reso, pdbfile_new);
+            rna(pdbfile_new, type_stat, pair_stat, &base_all);
+            base_edge_stat(pdbfile_new, A, U, G, C, T, P, I);
         }
-        else if(argc == 4){
-            strcpy(pdbfile, argv[3]);
-        }else
-            usage();
     }
-    
+    fclose(fp);
 
-/*	strcpy(pdbfile,"P4-P6-A.pdb");	*/
-    
-/*    check_cif(pdbfile, &yes);    
-    finp = fopen(pdbfile,"r");
-*/
-    check_nmr_xray(pdbfile, &key, outfile); /* key=0 nmr; key=1 xray */
-    if(key==0){
-        strcpy(pdbfile, outfile);
-    }
-    
-    rna(pdbfile, type_stat, pair_stat, &base_all);
-    if(XML==0)
-        base_edge_stat(pdbfile, A, U, G, C, T, P, I);
 
     fprintf(fstat,"\nNumber of the total bases = %d\n", base_all);
     print_statistic(fstat, type_stat, pair_stat);
     print_edge_stat(fstat, A, U, G, C, T, P, I);
     fclose(fstat);
+    
     free_lmatrix(pair_stat,0, 20, 0, 40);
 
+    
     delete_file("", "pattern_tmp.out");
     delete_file("", "best_pair.out");
-    delete_file(pdbfile, "_patt_tmp.out");
-/*    delete_file(pdbfile, ".xml");*/
-    delete_file(pdbfile, "_sort.out");/* do not delete for web*/
-    delete_file(pdbfile, "_patt.out");/* do not delete for web*/
-    delete_file(pdbfile, "_tmp.pdb");/* do not delete for web*/
+    delete_file(inpfile, "_new"); 
+    delete_file(inpfile, "_new_sort.out");
+    delete_file(inpfile, "_patt_tmp.out");
+
     
+    finish = clock();
+    printf( "\nTime used: %.2f seconds\n",
+            ((double) (finish - start)) / CLOCKS_PER_SEC);
+    fprintf(stderr, "\nJOB finished! Time used: %.2f seconds\n",
+            ((double) (finish - start)) / CLOCKS_PER_SEC);
+
     
+    return 0;    
+}
+
+long clean_inpfile(char *inpfile, char *chain_in, float reso_in, char *inpfile_new)
+/* Get single pdb file with one alt conformer.
+   It is selected by chain, resolution, only one model.
+*/
+{
+    char str[256];
+    int npdb=1, n;
+    float reso;
+    FILE *fr, *fw;
+
+    fr=fopen(inpfile, "r");
+    fw=fopen(inpfile_new, "w");
+
+    while (fgets(str, sizeof str, fr) != NULL) {
+        if(!strncmp(str, "ENDMDL", 6))break;
+        if(reso_in>0.1){
+            if(strstr(str, "REMARK   3   RESOLUTION RANGE HIGH (ANGSTROMS) :")){
+                n=sscanf(strstr(str, ":")+1, "f", &reso);
+                if(n==1 && reso>reso_in){
+                    npdb=0;/*not satisfy resolution*/
+                    break;
+                }
+            }
+        }
+        if(!strncmp(str, "ANISOU", 6)) continue;
+        
+        if(!strncmp(str, "ATOM  ", 6) || !strncmp(str, "HETATM", 6) ){
+            if(strlen(chain_in)>0){ /*rid of chain out of range*/
+                if(!strchr(chain_in, str[21])){
+                    continue;
+                }
+            }
+
+            if(str[17]==' ' && str[18]=='D'){
+                if(str[19]=='A' || str[19]=='T' || str[19]=='G' || str[19]=='C'){
+                    str[17]=' ';
+                    str[18]=' ';
+                }
+            }
+        }
+        fprintf(fw,"%s", str);
+        
+    }
+    fclose(fr);
+    fclose(fw);
+    
+    return npdb;
 }
 
 void delete_file(char *pdbfile, char *extension)
@@ -160,444 +213,296 @@ void delete_file(char *pdbfile, char *extension)
     return;
 }
 
-    
-void process_multiple_file(int argc, char *argv[])
-/* processing a multiple PDB file lists (containing a list of PDB files,
-   seperated by a space */
-{
-    char str[BUF512], inpfile[BUF512],pdbfile[BUF512], outfile[BUF512],**line;
-    long i, j,  key, n, yes=0, nstr=0, strlength, base_all;
-    long type_stat[20]; /* maxmum 20 different pairs */
-    long **pair_stat; /* maxmum 20 different pairs */
-    static long A[4],U[4],G[4],C[4],T[4],P[4],I[4];
-    
-    double resolution;
-    FILE  *finp, *fstat;
-
-    fstat=fopen("base_pair_statistics.out", "w");
-    line=cmatrix(0,20,1,100);
-    pair_stat = lmatrix(0, 20, 0, 40);
-    for (i = 0; i < 20; i++){
-        type_stat[i] =0;        
-    }
-        /* i for A-A ... pairs (16);  j for Leontis-Westhof base-pairs */
-    for (i = 0; i <20; i++) 
-        for (j = 0; j <40; j++)
-            pair_stat[i][j]=0;
-    
- /* ps>0 draw 2D RNA/DNA;
-    vrml>0 draw 3D  RNA/DNA;
-    anal>0 calculate morphorlogy
- */ 
-		
-    cmdline(argc, argv, inpfile);
-    ARGC  = argc;
-
-    if(CHAIN==0){        
-        if(argc == 3){
-            strcpy(inpfile, argv[2]);
-            resolution = 0;  /* No resolution limit */
-        }else if(argc == 4 ){
-            strcpy(inpfile, argv[2]);
-            resolution = atof(argv[3]);
-        }else
-            usage();
-    }else{
-        if(argc == 4){
-            strcpy(inpfile, argv[3]);
-            resolution = 0;  /* No resolution limit */
-        }else if(argc == 5 ){
-            strcpy(inpfile, argv[3]);
-            resolution = atof(argv[4]);
-        }else
-            usage();
-    }
-    
-    
-    finp = fopen(inpfile,"r");
-    n = 0;   
-    while (fgets(str, sizeof str, finp) != NULL) {
-        strlength= strlen(str);
-        for(i=0; i<strlength; i++){
-            if(!isspace(str[i])) 
-                str[i]=str[i];
-            else
-                str[i]=' ';
-        }
-        str[strlength]='\0';
-        
-        token_str(str, " ", &nstr, line);        
-        for(j = 0; j<nstr; j++){
-            yes=0;            
-            strcpy(pdbfile, line[j]);
-        
-            if(resolution >0.001) /* input 0 for NMR */
-                rna_select(pdbfile, resolution, &yes);  /*set resolution limit */
-            else
-                yes = 1;
-            if(yes==1) {
-                check_nmr_xray(pdbfile, &key, outfile); /*key=0 nmr;key=1 xray*/
-                if(key==0){
-                    strcpy(pdbfile, outfile);
-                }
-                n++;
-                rna (pdbfile, type_stat, pair_stat, &base_all);
-                if(XML==0)
-                    base_edge_stat(pdbfile, A, U, G, C, T, P, I);
-            }
-        }            
-        
-    }
-    
-    printf("\nNumber of structure used for calculation = %d\n", n);
-    fprintf(fstat,"\nNumber of structure used for calculation = %d\n", n);
-    fprintf(fstat,"\nNumber of the total bases = %d\n", base_all);
-        /*
-    print_statistic(fstat, type_stat_tot, pair_stat);
-        */
-    print_statistic(fstat, type_stat, pair_stat);
-    print_edge_stat(fstat, A, U, G, C, T, P, I);
-    fclose(fstat);
-    
-    free_cmatrix(line, 0,20,1,100);
-    free_lmatrix(pair_stat , 0, 20, 0, 40);
-} 
-
-void rna_select(char *pdbfile, double resolution, long *yes)
-/* select rna by resolution */
-{
-    FILE *fp;    
-    char str[BUF512];
-    long num;    
-    float resol; 
-
-    *yes=1; /* default */
-
-    if(resolution<0.0001){
-        *yes = 1;
-        return;
-    }
-    
-    fp=fopen(pdbfile, "r");
-    if(fp ==NULL)
-        printf("Can not open the pdbfile %s (routine:rna_select)\n",pdbfile);
-    
-    while (fgets(str, sizeof str, fp) != NULL) { /* get resolution */
-        upperstr(str);
-        if(strstr(str, "REMARK   3   RESOLUTION RANGE HIGH (ANGSTROMS) :")){
-            
-            num=sscanf(str, "%*s %*s %*s %*s %*s %*s %*s %f", &resol);
-            if(num == 1){
-                if(resol<= resolution){
-                    *yes = 1;
-                    break;
-                }
-                else{
-                    *yes = 0;
-                    break;
-                }
-            }else{
-                *yes = 0;
-                break;
-            }
-        }else if(!strncmp(str,"ATOM",4) ){
-            *yes = 0;
-            break;
-        }
-    }
-    fclose(fp);
-
-}
-
-
-void check_nmr_xray(char *inpfile, long *key, char *outfile)
-{
-    long yes=0;
-    char str[256];
-    FILE *fp;
-    
-    *key = -1;
-    
-/*    del_extension(inpfile, parfile);*/ 
-   
-    sprintf(outfile, "%s_nmr.pdb", inpfile);
-    
-    if((fp=fopen(inpfile, "r"))==NULL) {        
-        printf("Can not open the INPUT file %s (routine:check_nmr_xray)\n", inpfile);
-        return;
-    }
-    
-    while (fgets(str, sizeof str, fp) != NULL) {
-        upperstr(str);
-        if(!strncmp(str, "EXPDTA", 6) && strstr(str, "  X-RAY")){
-            *key = 1;            
-            fclose(fp);
-            return;
-        }else if (!strncmp(str, "EXPDTA", 6) && strstr(str, "  NMR")){           
-            *key = 0;            
-            extract_nmr_coord(inpfile,  outfile);
-            fclose(fp);
-            return;
-        }
-    }
-    if(*key == -1){  /* no EXPDTA term */
-        fp=fopen(inpfile, "r");
-        check_model(fp, &yes);
-        if(yes==1) {    /* nmr structure */
-            *key = 0;            
-            extract_nmr_coord(inpfile,  outfile);
-            fclose(fp);
-            return;
-        } else {            
-            *key = 1;            
-            fclose(fp);
-            return;            
-        }
-        
-    }
-
-}
 
 void usage(void)
 {
-    printf("\nUsage: executable [option]  input_file\n");
+    printf("\nUsage: rnaview -f filename \n");
 
-    contact_msg();
-}
-
-void contact_msg(void)
-{
     printf(  "--------------------------------------------------------------\n"
-            "                 Options of the RNAview program\n");
+             "        Options of the rnaview program\n");
     printf(
             "+-------------------------------------------------------------+\n"
-            "| (1) If no [option] is given, it only generate the fully     |\n"
-            "|     annotated base pair lists.                              |\n"
-            "|     Example:    rnaview  pdbfile_name                       |\n"
+            "| (1) -f followed by the file name.                           |\n"
+            "|     The filename is either a single PDB file or a single XML|\n"
+            "|     file or a file containing a list of many PDB files      |\n"
+            "|     Example:    rnaview  -f filename                        |\n"
             "|                                                             |\n"
-            "| (2) [option] -p to generate fully annotated 2D structure in |\n"
-            "|     postscript format. Detailed information is given in XML |\n"
-            "|     format(RNAML)                                           |\n"
-            "|     Example:    rnaview  -p pdbfile_name                    |\n"
+            "| (2) -c followed by a string of chain IDs                    |\n"
+            "|     For a complicated structure, you may only select several|\n"
+            "|     chains for clear display of the 2D graphic.             |\n"
             "|                                                             |\n"
-            "| (3) [option] -v to generate a 3D structure in VRML format.  |\n"
+            "|     Example:    rnaview  -f pdbfile -c AB                   |\n"
+            "|     Here only chain A & B are selected for calculations.    |\n"
+            "|     There should be no space between chain A & B.           |\n"
+            "|                                                             |\n"
+            "| (3) -r followed by a high resolution limit                  |\n"
+            "|     This option is useful to calculate a list of pdbfiles.  |\n"
+            "|     The PDB file with resolution lower than the given value |\n"
+            "|     will be filtered out.                                   |\n"
+            "|                                                             |\n"
+            "|     Example:    rnaview  -f file.list  -r 3.0               |\n"
+            "|     It means that only the pdbfiles with resolution value   |\n"
+            "|     < 3.0A are selected for calculation.                    |\n"
+            "|                                                             |\n"
+            "| (4) -v  to generate a 3D structure in VRML format.          |\n"
             "|     It can be displayed on internet (with VRML plug in).    |\n"
-            "|     Example:    rnaview  -v pdbfile_name                    |\n"
+            "|     Example:    rnaview  -f pdbfile  -v                     |\n"
             "|                                                             |\n"
-            "| (4) [option] -c to select chains for calculation. -c should |\n"
-            "|     be followed by chain IDs. If select several chains, they|\n"
-            "|     should be put together, like ABC.                       |\n"
-            "|     This option is useful, when drawing a single copy of 2D |\n"
-            "|     structure from a dimer or trimer PDB file.              |\n"
-            "|     Example:    rnaview  -pc ABC pdbfile_name               |\n"
-            "|                                                             |\n"
-            "| (5) [option] -a to process many pdbfiles. The pdbfile names |\n"
-            "|     must be put in one file (like  file.list) and seperated |\n"
-            "|     by a space. You may give the resolution after file.list |\n"
-            "|     If you do not give (or give 0), it means resolution is  |\n"
-            "|     ignored                                                 |\n"
-            "|     Example:    rnaview  -a file.list 3.0                   |\n"
-            "|     It means that only the pdbfiles with resolution < 3.0   |\n"
-            "|     are selected for calculation.                           |\n"
-            "|                                                             |\n"
-            "| (6) [option] -x to input XML (RNAML) file.  Normally this   |\n"
-            "|     option is combined with -p to generate a 2D structure.  |\n"
-            "|     Example:    rnaview  -px RNAML_file_name                |\n"
+            "| (5) -a  to calculate  Shear  Stretch  Stagger Buckle ...    |\n"
+            "|     The program 3DNA is used to get all the parameters.     |\n"
+            "|     Example:    rnaview  -f  pdbfile -a                     |\n"
             "|                                                             |\n"
             "| For further information please contact:                     |\n"
-            "| hyang@rcsb.rutgers.edu                                      |\n"
+            "| ndbadmin@ndbserver.rutgers.edu                              |\n"
             "+-------------------------------------------------------------+\n");
     exit (1);
+}
+
+double  get_torsion(long o3p_i0, long p, long o5p, long c5p, double **xyz)
+{
+    long  n;
+    double  **xyz4;
     
+    xyz4 = dmatrix(1, 4, 1, 3);
+    
+    for (n = 1; n <= 3; n++){
+        xyz4[1][n] = xyz[o3p_i0][n];
+        xyz4[2][n] = xyz[p][n];
+        xyz4[3][n] = xyz[o5p][n];
+        xyz4[4][n] = xyz[c5p][n];
+    }
+    return torsion(xyz4);
 }
 
 
-void extract_nmr_coord(char *inpfile,  char *outfile)
-/* extract the nmr coordinate. If found the best, write the best to
-   parfile_nmr.pdb, if not , write the first model to parfile_nmr.pdb
+void bb_angle(long nres, char **AtomName, long **seidx,double **xyz,
+              long *RY, char *ChainID,long *ResSeq, char **ResName)
+{
+    char c2c4[5],  n1n9[5], c6c8[5], *idmsg="";
+    long chi[10], ib, ie,  idx, i, m,n=0,j;
+    long o3p_i0, p, o5p, c5p, c4p, c3p, o3p, p_i1, o5p_i1, n9, c2, c6;
+    
+    double chi_angle,  **xyz4, alpha;
+/*     
+Note: alpha:   O3'(i-1)-P-O5'-C5'
+      beta:    P-O5'-C5'-C4'
+      gamma:   O5'-C5'-C4'-C3'
+      delta:   C5'-C4'-C3'-O3'
+      epsilon: C4'-C3'-O3'-P(i+1)
+      zeta:    C3'-O3'-P(i+1)-O5'(i+1)
+
+      chi for pyrimidines(Y): O4'-C1'-N1-C2
+          chi for purines(R): O4'-C1'-N9-C4
+
 */
+    
+    xyz4 = dmatrix(1, 4, 1, 3);
+
+    for (i = 1; i <= nres-1; i++) {
+        continue;
+    
+        ib = seidx[i][1];
+        ie = seidx[i][2];
+        
+ /* backbone: P-O5'-C5'-C4'-C3'-O3' */
+        for(j = ib; j <= ie; j++){
+            printf("%5ld %4s %3s %c %4ld  %8.3lf%8.3lf%8.3lf\n", 
+                   j, AtomName[j], ResName[j], ChainID[j], ResSeq[j],  xyz[j][1],
+                   xyz[j][2], xyz[j][3]);
+        }
+        
+        continue;
+
+        
+        p = find_1st_atom(" P  ", AtomName, ib, ie, idmsg);
+        o5p = find_1st_atom(" O5'", AtomName, ib, ie, idmsg);
+        c5p = find_1st_atom(" C5'", AtomName, ib, ie, idmsg);
+        c4p = find_1st_atom(" C4'", AtomName, ib, ie, idmsg);
+        c3p = find_1st_atom(" C3'", AtomName, ib, ie, idmsg);
+        o3p = find_1st_atom(" O3'", AtomName, ib, ie, idmsg);
+        
+        printf("p=%4ld, %4ld, %4ld,  %4ld , %4ld, %4ld, %4ld, %4ld\n",ib,ie, p,o5p,c5p,c4p,c3p,o3p);
+        continue;
+        
+        /* chi(R): O4'-C1'-N9-C4; chi(Y): O4'-C1'-N1-C2 */
+        if (RY[i] == 1) {
+            strcpy(n1n9, " N9 ");
+            strcpy(c2c4, " C4 ");
+            strcpy(c6c8, " C8 ");
+        } else if (RY[i] == 0) {
+            strcpy(n1n9, " N1 ");
+            strcpy(c2c4, " C2 ");
+            strcpy(c6c8, " C6 ");
+        }
+
+        n9 = find_1st_atom(n1n9, AtomName, ib, ie, "");
+        c2 = find_1st_atom(c2c4, AtomName, ib, ie, "");
+        c6 = find_1st_atom(c6c8, AtomName, ib, ie, "");
+
+
+        if(i>1){
+            ib = seidx[i-1][1];
+            ie = seidx[i-1][2];
+            o3p_i0 =  find_1st_atom(" O3'", AtomName, ib, ie, idmsg);
+        }
+        ib = seidx[i+1][1];
+        ie = seidx[i+1][2];
+        p_i1 = find_1st_atom(" P  ", AtomName, ib, ie, idmsg);
+        o5p_i1 = find_1st_atom(" O5'", AtomName, ib, ie, idmsg);
+        
+        idx = p;
+        printf("%s  (%8.2f %8.2f %8.2f)\n",  AtomName[idx], xyz4[idx][1],xyz4[idx][2],xyz4[idx][3]  );
+/*
+  alpha = get_torsion(o3p_i0, p, o5p, c5p,xyz); 
+
+   
+        printf("%5d %5d %5d %5d %5d   %8.2f\n", i, chi[1],chi[2],chi[3],chi[4],chi_angle );
+*/        
+    }
+
+}
+
+
+void rna_dna_bb_angle(long nchain, long **chain_idx, long **seidx, long *RY, char **AtomName,
+                      char *ChainID,long *ResSeq, char **ResName, double **xyz)
 {
-    long i, j,  model;
-    char str[256],substr[80];
-    FILE *fp, *fout;
-    
-    fout = fopen(outfile, "w");
-    
-    if((fp=fopen(inpfile, "r"))==NULL) {        
-        printf("Can not open the INPUT file %s(routine:extract_nmr_coord)\n", inpfile);
-        exit(0);
-    }
+    char c2c4[5],  n1n9[5], c6c8[5], *idmsg="";
+    long i,j, k,m, n=0, ib, ie, nb, ne, dna_rna=0;
+    long o3p_i0, p, o5p, c5p, c4p, c3p, o3p, p_i1, o5p_i1, n9, c2, c6;
+    double alpha, beta, gamma, delta,epsilon, zeta ;
 
-    model = -999;
-    while (fgets(str, sizeof str, fp) != NULL) {
-        upperstr(str);
-        if(!strncmp(str, "REMARK", 6) &&
-           strstr(str, "BEST REPRESENTATIVE CONFORMER IN THIS ENSEMBLE :") ){
-            strcpy(substr, strstr(str,":")+1);
-            if(sscanf(substr, "%ld", &j)==1) {
-                model=j;
-            }else
-                model = -999;
-        }
-        if(!strncmp(str, "ATOM", 4)  || !strncmp(str, "HETA", 4) )
-            break;
-    }
-    if(model == -999)
-        printf("The best NMR model is not available. The first model is used.!\n");
-    else
-        printf("The best representative of NMR model = %d\n", model);
+/*     
+Note: alpha:   O3'(i-1)-P-O5'-C5'
+      beta:    P-O5'-C5'-C4'
+      gamma:   O5'-C5'-C4'-C3'
+      delta:   C5'-C4'-C3'-O3'
+      epsilon: C4'-C3'-O3'-P(i+1)
+      zeta:    C3'-O3'-P(i+1)-O5'(i+1)
 
-    rewind(fp);
-    if(model == -999){
-        fprintf(fout,"REMARK   NMR structrue:    model = 1\n"); 
-        while (fgets(str, sizeof str, fp) != NULL) {
-            upperstr(str);
-            if(!strncmp(str, "ATOM", 4)  || !strncmp(str, "HETA", 4) ){
-                fprintf(fout,"%s", str);
-                while (fgets(str, sizeof str, fp) != NULL) {
-                    if(!strncmp(str, "MODEL", 5) || !strncmp(str, "ENDMDL", 6)
-                       || !strncmp(str, "END", 3)){
-                        fprintf(fout,"END\n");
-                        fclose(fout);
-                        return;
-                    }
-                    fprintf(fout,"%s", str);
-                }
+      chi for pyrimidines(Y): O4'-C1'-N1-C2
+          chi for purines(R): O4'-C1'-N9-C4
+
+*/
+    
+    for (i=1; i<=nchain; i++){ /* rid of ligand */
+        if((chain_idx[i][2] - chain_idx[i][1]) <= 0)continue;
+    
+        for (k=chain_idx[i][1]; k<=chain_idx[i][2]; k++){ /*residue #*/
+            ib = seidx[k][1];
+            ie = seidx[k][2];
+            dna_rna = residue_ident(AtomName, xyz, ib, ie);
+            if (dna_rna <0) continue; /*only DNA/RNA */
+
+            
+            
+            p = find_1st_atom(" P  ", AtomName, ib, ie, idmsg);
+            o5p = find_1st_atom(" O5'", AtomName, ib, ie, idmsg);
+            c5p = find_1st_atom(" C5'", AtomName, ib, ie, idmsg);
+            c4p = find_1st_atom(" C4'", AtomName, ib, ie, idmsg);
+            c3p = find_1st_atom(" C3'", AtomName, ib, ie, idmsg);
+            o3p = find_1st_atom(" O3'", AtomName, ib, ie, idmsg);
+
+        /* chi(R): O4'-C1'-N9-C4; chi(Y): O4'-C1'-N1-C2 */
+            if (RY[k] == 1) {
+                strcpy(n1n9, " N9 ");
+                strcpy(c2c4, " C4 ");
+                strcpy(c6c8, " C8 ");
+            } else if (RY[k] == 0) {
+                strcpy(n1n9, " N1 ");
+                strcpy(c2c4, " C2 ");
+                strcpy(c6c8, " C6 ");
             }
-        }
-    }else{
-        j=-999;
-        while (fgets(str, sizeof str, fp) != NULL) {
-            if(!strncmp(str, "MODEL", 5) && sscanf(str, "%*s %ld", &j)==1){
-                if(j == model) break;
+
+            n9 = find_1st_atom(n1n9, AtomName, ib, ie, "");
+            c2 = find_1st_atom(c2c4, AtomName, ib, ie, "");
+            c6 = find_1st_atom(c6c8, AtomName, ib, ie, "");
+
+
+            printf("p=i,k, %4ld, %4ld, %4ld, %4ld, %4ld, %4ld, %4ld, %4ld, %4ld, %4ld, %4ld, %4ld \n",
+                   i, k, p,o5p,c5p,c4p,c3p,o3p, n9,c2,c6,RY[k] );
+
+            if(k>1){
+                nb = seidx[k-1][1];
+                ne = seidx[k-1][2];
+                o3p_i0 =  find_1st_atom(" O3'", AtomName, nb, ne, idmsg);
             }
-        }
-        if(j != -999){ /*found model*/
-            fprintf(fout,"REMARK  NMR structrue: (the best model = %d ).\n",j); 
+            if(k<chain_idx[i][2]){
+                nb = seidx[k+1][1];
+                ne = seidx[k+1][2];
+                p_i1 = find_1st_atom(" P  ", AtomName, nb, ne, idmsg);
+                o5p_i1 = find_1st_atom(" O5'", AtomName, nb, ne, idmsg);
+            }
+            
+/*     
+Note: alpha:   O3'(i-1)-P-O5'-C5'
+      beta:    P-O5'-C5'-C4'
+      gamma:   O5'-C5'-C4'-C3'
+      delta:   C5'-C4'-C3'-O3'
+      epsilon: C4'-C3'-O3'-P(i+1)
+      zeta:    C3'-O3'-P(i+1)-O5'(i+1)
+
+      chi for pyrimidines(Y): O4'-C1'-N1-C2
+          chi for purines(R): O4'-C1'-N9-C4
+
+*/
+
+            
+            if(o3p_i0 !=0&&  p!=0 && o5p!=0  && c5p!=0 )alpha = get_torsion(o3p_i0, p, o5p, c5p,xyz); 
+            if(p!=0 && o5p!=0 && c5p!=0 && c4p!=0 ) beta = get_torsion(p, o5p, c5p,c4p, xyz); 
+            if(o5p!=0 && c5p!=0 && c4p!=0 && c3p!=0) gamma = get_torsion(o5p, c5p,c4p,c3p, xyz); 
+            if(c5p!=0 && c4p!=0 && c3p!=0 && o3p!=0) delta = get_torsion(c5p,c4p,c3p,o3p, xyz); 
+            if(c4p!=0 && c3p!=0 && o3p!=0 && p_i1!=0) epsilon = get_torsion(c4p,c3p,o3p,p_i1, xyz); 
+            if(c3p!=0 && o3p!=0 && p_i1!=0 && o5p_i1!=0) zeta = get_torsion(c3p,o3p,p_i1,o5p_i1, xyz); 
+
+             printf("p= %8.2f %8.2f %8.2f %8.2f %8.2f %8.2f\n",
+                    alpha, beta, gamma , delta, epsilon, zeta);
+        
+            continue;
+       
+            for(j = ib; j <= ie; j++){
+                n++;
+                strcpy(AtomName[n], AtomName[j]);
+                strcpy(ResName[n], ResName[j]);
+                ChainID[n] = ChainID[j];
+                ResSeq[n] = ResSeq[j];
+                for(m = 1 ; m <=3; m++) xyz[n][m] = xyz[j][m];
+                       
+/*                    
+            printf("k, ib, ie= %5ld %5ld %5ld\n", k, ib, ie);
+            
+                printf("%5ld %4s %3s %c %4ld  %8.3lf%8.3lf%8.3lf\n", 
+                       n, AtomName[n], 
+                       ResName[n], ChainID[n], ResSeq[n],  xyz[n][1],
+                       xyz[n][2], xyz[n][3]);
                         
-            while (fgets(str, sizeof str, fp) != NULL) {
-                if(!strncmp(str, "MODEL", 5) || !strncmp(str, "ENDMDL", 6)
-                   || !strncmp(str, "END", 3)){
-                    fprintf(fout,"END\n");
-                    fclose(fout);
-                    return;
-                }
-                fprintf(fout,"%s", str);
-            }
-        }else{ /* not found model*/
-            rewind(fp);
-            while (fgets(str, sizeof str, fp) != NULL) {
-                fprintf(fout,"%s", str);
-            }
-        }
-                
-    }
-    
-}
-    
-
-void check_model(FILE *fp, long *yes)
-{
-    long i=0;
-    char str[256];
-    
-    *yes= 0;
-    while (fgets(str, sizeof str, fp) != NULL) {
-        upperstr(str);
-        if(!strncmp(str, "MODEL ", 6) ){
-            i++;
+*/                
             
-                /*   
-            while (fgets(str, sizeof str, fp) != NULL) {
-                if(!strncmp(str, "ATOM", 4)  ||!strncmp(str, "HETA", 4) ){
-                    j++;                    
-                    if(j>2) break;
-                }
             }
-             */
             
-            if(i>=2) {
-                *yes = 1;
-                break;
-            }
         }
     }
 }
 
-    
-    
-void cmdline(int argc, char *argv[], char *inpfile)
-{
-    long i, j;
 
-    if (argc <2 || argc > 5 ){
-    usage();
-    }
-    
-    else {
-        for (i = 1; i < argc; i++)
-            if (*argv[i] == '-') {
-                upperstr(argv[i]);
-                for (j = 1; j < (long) strlen(argv[i]); j++)  /* skip - */
-                    if (argv[i][j] == 'P' )
-                        PS = 1;
-                    else if (argv[i][j] == 'V')
-                        VRML = 1;
-                    else if (argv[i][j] == 'L')
-                        ANAL = 1;
-                    else if (argv[i][j] == 'A')
-                        ALL = 1;
-                    else if (argv[i][j] == 'T')
-                        HETA = 1;
-                    else if (argv[i][j] == 'C')
-                        CHAIN = 1;
-                    else if (argv[i][j] == 'X')
-                        XML = 1;
-                    else
-                        usage();
-            } else
-                break;
-            /*
-        if (argc == i + 1) {
-            strcpy(inpfile, argv[i]);
-        } else
-            usage();
-            */
-    }
-    if(XML == 1 && PS != 1){
-        printf("Currently, if using XML file, you only generate 2D structure\n");
-        printf("You must give [option] -xp\n");
-        exit(0);
-    }
-    
-}
 
     
 void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
 /* do all sorts of calculations */
 {
     char outfile[BUF512], str[BUF512];
-    char HB_ATOM[BUF512], ALT_LIST[BUF512], user_chain[20];
+    char HB_ATOM[BUF512], ALT_LIST[BUF512];
     char *ChainID, *bseq, **AtomName, **ResName, **Miscs;
     long i, j, k,m,n, ie, ib, dna_rna, num, num_residue, nres, bs_atoms;
     long *ResSeq, *RY, **seidx, num_modify, *modify_idx, nprot_atom=0;
     long **chain_idx,nchain;
     double HB_UPPER[2], **xyz;
     static long base_all;    
-    FILE *fout, *prot_out;
-    if(PS==1 && XML==1){
-        xml2ps(pdbfile, 0, XML); /* read information from RNAML */
-        return;
-            /*
-        exit(0);
-            */
-    }
+    FILE *fout;
     
-    sprintf(outfile, "%s.out", pdbfile);
-
+/*    sprintf(outfile, "%s.out", pdbfile);*/
+    sprintf(outfile, "%s.out", FILEOUT);
     fout=fopen(outfile, "w");
-/*    prot_out = fopen("protein.pdb", "w");*/
-     
+    
 /* read in H-bond length upper limit etc from <misc_rna.par> */    
     hb_crt_alt(HB_UPPER, HB_ATOM, ALT_LIST);
 
@@ -619,13 +524,6 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
    seidx[i][j]; i = 1-num_residue  j=1,2
 */
     seidx = residue_idx(num, ResSeq, Miscs, ChainID, ResName, &num_residue);
-    
-    if(CHAIN==1){ 
-        strcpy(user_chain, ARGV[2]);
-        upperstr(user_chain);
-    }
-    
-            
         
 /* Below is only for nucleic acids ie RY >= 0*/  
     bs_atoms = 0;
@@ -634,45 +532,27 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
         ie = seidx[i][2];
         dna_rna = residue_ident(AtomName, xyz, ib, ie);
        
-        if (dna_rna >= 0){         
+        if (dna_rna >= 0){
             for(j = seidx[i][1]; j <= seidx[i][2]; j++){
-                if(CHAIN==0){ 
-                    bs_atoms++;
-                    strcpy(AtomName[bs_atoms], AtomName[j]);
-                    strcpy(ResName[bs_atoms], ResName[j]);
-                    ChainID[bs_atoms] = ChainID[j];
-                    ResSeq[bs_atoms] = ResSeq[j];
-                    for(k = 0 ; k <=NMISC; k++)
-                        Miscs[bs_atoms][k] = Miscs[j][k];
-                    for(k = 1 ; k <=3; k++)
-                        xyz[bs_atoms][k] = xyz[j][k];
-                }else{ /* user select chainiD */
-                    if(!strchr(user_chain, toupper(ChainID[j]) ) )continue;
-                    bs_atoms++;
-                    strcpy(AtomName[bs_atoms], AtomName[j]);
-                    strcpy(ResName[bs_atoms], ResName[j]);
-                    ChainID[bs_atoms] = ChainID[j];
-                    ResSeq[bs_atoms] = ResSeq[j];
-                    for(k = 0 ; k <=NMISC; k++)
-                        Miscs[bs_atoms][k] = Miscs[j][k];
-                    for(k = 1 ; k <=3; k++)
-                        xyz[bs_atoms][k] = xyz[j][k];
-                }
+                bs_atoms++;
+                strcpy(AtomName[bs_atoms], AtomName[j]);
+                strcpy(ResName[bs_atoms], ResName[j]);
+                ChainID[bs_atoms] = ChainID[j];
+                ResSeq[bs_atoms] = ResSeq[j];
+/*                printf("%c %4s %4ld\n", ChainID[j], ResName[bs_atoms], ResSeq[bs_atoms]);*/
+                
+
+                       
+                for(k = 0 ; k <=NMISC; k++)
+                    Miscs[bs_atoms][k] = Miscs[j][k];
+                for(k = 1 ; k <=3; k++)
+                    xyz[bs_atoms][k] = xyz[j][k];
                 
             }
         }
-/* uncomment this if used 
-        else{
-            pdb_record(ib,ie, &nprot_atom, 0, AtomName, ResName, ChainID, ResSeq,
-                       xyz, Miscs, prot_out); 
-        }
-*/        
     }
-/*    fclose(prot_out);*/
-    
     
 /* get the new  numbering information of each residue */
-    
 /* get base sequence, RY identification */
 /* identifying a residue as follows:  RY[j]
  *  R-base  Y-base  amino-acid, others [default] 
@@ -687,6 +567,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
 
     chain_idx = lmatrix(1,500 , 1, 2);  /* # of chains max = 200 */    
     get_chain_idx(nres, seidx, ChainID, &nchain, chain_idx);
+
 /*    
     for (i=1; i<=nchain; i++){ 
         for (k=chain_idx[i][1]; k<=chain_idx[i][2]; k++){
@@ -696,6 +577,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
     }
 */
 
+    
     bs_atoms = 0;
     for (i=1; i<=nchain; i++){ /* rid of ligand */
         if((chain_idx[i][2] - chain_idx[i][1]) <= 0)continue;
@@ -722,21 +604,20 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
                     for(m = 1 ; m <=3; m++)
                         xyz[bs_atoms][m] = xyz[j][m];
                     n=bs_atoms;
-                        /*
-                    
+                       
+/*                    
          printf("%s%5ld %4s%c%3s %c%4ld%c   %8.3lf%8.3lf%8.3lf\n", 
                  "ATOM  ", n, AtomName[n], Miscs[n][1],
                 ResName[n], ChainID[n], ResSeq[n], Miscs[n][2], xyz[n][1],
                 xyz[n][2], xyz[n][3]);
-                        */
-                    
+                        
+*/                    
                 }
             }
             
         }
         
     }
-    
     
     nres=0;    
     seidx=residue_idx(bs_atoms, ResSeq, Miscs, ChainID, ResName, &nres);
@@ -745,7 +626,17 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
     modify_idx = lvector(1, num_residue);    
     get_seq(fout,nres, seidx, AtomName, ResName, ChainID, ResSeq, Miscs,
             xyz, bseq, RY, &num_modify,modify_idx);  /* get the new RY */
+ 
+    rna_dna_bb_angle(nchain, chain_idx, seidx, RY, AtomName, ChainID,  ResSeq, ResName,xyz);
 
+/*
+    rna_dna_bb_angle(num_residue, seidx, RY, AtomName, ChainID,  ResSeq, ResName,xyz);
+    rna_dna_bb_angle(nchain, chain_idx, seidx, RY, AtomName, ChainID,  ResSeq, ResName,xyz);
+    
+    bb_angle(num_residue, AtomName, seidx, xyz, RY, ChainID, ResSeq, ResName);
+
+*/
+    
     work_horse(pdbfile, fout, nres, bs_atoms, bseq, seidx, RY, AtomName,
                ResName, ChainID, ResSeq, Miscs, xyz,num_modify, modify_idx,  
                type_stat, pair_stat);
@@ -753,8 +644,8 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
     base_all=base_all+nres; /* acculate all the bases */
     *bs_all=base_all;
     
-    if(!(PS>0 || VRML>0 || XML>0 || ALL>0) )
-        write_tmp_pdb(pdbfile,nres,seidx,AtomName,ResName,ChainID,ResSeq,xyz);
+//    if(!(PS>0 || VRML>0 || XML>0 || ALL>0) )
+    write_tmp_pdb(pdbfile,nres,seidx,AtomName,ResName,ChainID,ResSeq,xyz);
  
     
     free_cmatrix(AtomName, 1, num, 0, 4);
@@ -935,7 +826,7 @@ void work_horse(char *pdbfile, FILE *fout, long num_residue, long num,
             return;
         }
         
-        write_xml(pdbfile, num_residue, bseq, seidx, AtomName, ResName,
+        write_xml(FILEOUT, num_residue, bseq, seidx, AtomName, ResName,
                   ChainID, ResSeq, Miscs, xyz, xml_nh, xml_helix,
                   xml_helix_len, xml_ns, xml_bases, num_pair_tot,
                   bs_pairs_tot,pair_type, base_xy, num_modify,
@@ -1001,7 +892,8 @@ void write_tmp_pdb(char *pdbfile,long nres, long **seidx, char **AtomName,
     FILE *fp;
 
 
-    sprintf(parfile, "%s_tmp.pdb", pdbfile);
+/*    sprintf(parfile, "%s_tmp.pdb", pdbfile);*/
+    sprintf(parfile, "%s_tmp.pdb", FILEOUT);
     fp = fopen(parfile, "w");
 
     for (i = 1; i <= nres; i++) {
@@ -1027,9 +919,12 @@ void print_sorted_pair(long ntot, char *pdbfile)
     str_pair = cmatrix(0, ntot, 0, 120);
     str_tmp = cmatrix(0, ntot, 0, 120);   
     index=lmatrix(0,25, 0, ntot); 
-
+/*
     sprintf(inpfile, "%s.out", pdbfile);
     sprintf(outfile, "%s_sort.out", pdbfile);
+*/
+    sprintf(inpfile, "%s.out", FILEOUT);
+    sprintf(outfile, "%s_sort.out", FILEOUT);
     
     fout = fopen(outfile, "w");
     finp = fopen(inpfile, "r");

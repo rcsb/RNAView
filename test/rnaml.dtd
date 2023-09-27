@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- FORMAT ********************************************************** -->
+
+<!-- RNAML: The root of any rnaml document. ************************** -->
+<!ELEMENT rnaml (molecule | molecule-class | interactions | reference |
+                 database-entry | analysis | revision)*>
+<!ATTLIST rnaml
+          version (1.0)   #REQUIRED
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- MOLECULE: A given RNA molecule. ********************************* -->
+<!ELEMENT molecule (identity?, sequence?, structure?)>
+<!ATTLIST molecule
+          id             ID           #REQUIRED
+	  type	         (rna | dna)  "rna"
+	  comment        CDATA        #IMPLIED   
+          reference-ids  IDREFS       #IMPLIED
+	  analysis-ids   IDREFS       #IMPLIED
+          database-ids   IDREFS       #IMPLIED>
+
+
+<!-- IDENTITY: The symbolic description of the RNA molecule.           -->
+<!ELEMENT identity (name, taxonomy?)>
+<!ATTLIST identity 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT name (#PCDATA)>		             <!-- type: string -->
+
+<!-- SEQUENCE: A description of the rna sequence.                      -->
+<!ELEMENT sequence (numbering-system*, seq-data?, seq-annotation?)>
+<!ATTLIST sequence
+          length    CDATA          #IMPLIED
+ 	  circular  (true | false) #IMPLIED
+          comment        CDATA     #IMPLIED
+          reference-ids  IDREFS    #IMPLIED
+	  analysis-ids   IDREFS    #IMPLIED
+          database-ids   IDREFS    #IMPLIED>
+
+
+<!-- NUMBERING SYSTEM: A numbering-system provides how the bases are   -->
+<!-- numbered.  used-in-file indicates if the numbering-system is the  -->
+<!-- one used throughout the file.  If no numbering system is provided -->
+<!-- or used-in-file, the numbering from 1 to N is used.               -->
+<!ELEMENT numbering-system ((numbering-range)* | numbering-table)>
+<!ATTLIST numbering-system
+          id            ID     #REQUIRED
+          used-in-file  (true | false) "false"
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT numbering-range (start, (end | length))>
+<!ATTLIST numbering-range 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT numbering-table (#PCDATA)> <!-- type: space delimited integers -->
+<!ATTLIST numbering-table
+          length    CDATA   #REQUIRED
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- SEQ-DATA: The actual data for a sequence.  The IUPAC (1984)       -->
+<!-- symbols should be used:                                           -->
+<!--	G=G, A=A, U=U, C=C, R=G|A, Y=U|C, M=A|C, K=G|U,                -->
+<!--	S=G|C, W=A|U, H=A|C|U, B=G|U|C,                                --> 
+<!--	V=G|C|A, D=G|A|U, N=G|A|U|C                                    -->
+
+<!ELEMENT seq-data (#PCDATA)>                        <!-- type: string -->
+<!ATTLIST seq-data
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- SEQ-ANNOTATION                                                    -->
+<!ELEMENT seq-annotation (modification | segment)*>
+<!ATTLIST seq-annotation 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT modification  (base-id, modified-type)>
+<!ATTLIST modification  
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT modified-type (#PCDATA)>                   <!-- type: string -->
+
+<!ELEMENT segment  (seg-name?, base-id-5p, (base-id-3p | length))>
+<!ATTLIST segment  
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT seg-name (#PCDATA)>                        <!-- type: string -->
+
+<!-- STRUCTURE: A description of the structure of the rna.             -->
+<!-- name: A description of the structure.                             -->
+<!ELEMENT structure (model)*>
+<!ATTLIST structure 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!-- MODEL: A model for the RNA structure.                             -->
+<!ELEMENT model (model-info?, base*, str-annotation?, secondary-structure-display?)>
+<!ATTLIST model
+          id  ID  #IMPLIED
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+	  
+<!ELEMENT model-info (method?, resolution?, free-energy*)> 
+<!ATTLIST model-info 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT method      (#PCDATA)>                     <!-- type: string -->
+<!ATTLIST method
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT resolution  (#PCDATA)>     <!-- type: float, unit: angstroms -->
+<!ATTLIST resolution
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT free-energy (#PCDATA)>     <!-- type: float, unit: kcal/mole -->
+<!ATTLIST free-energy
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!-- BASE: A base is a residue in secondary or tertiary structure.     -->
+<!ELEMENT base      (position, base-type?, alt-loc?, insertion?, atom*)>
+<!ATTLIST base      
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT base-type (#PCDATA)>                       <!-- type: string -->
+<!ELEMENT alt-loc   (#PCDATA)>                       <!-- type: char   -->
+<!ELEMENT insertion (#PCDATA)>                       <!-- type: char   -->
+
+
+<!-- ATOM: An atom with support for PDB fields.                        -->
+<!ELEMENT atom (atom-type, coordinates?, occupancy?, 
+                temp-factor?, seg-id?, element?, charge?)>
+<!ATTLIST atom 
+          serial         CDATA   #IMPLIED
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT atom-type   (#PCDATA)>                     <!-- type: string -->
+<!ELEMENT coordinates (#PCDATA)>     <!-- three space delimited floats -->
+<!ELEMENT occupancy   (#PCDATA)>                     <!-- type: float  -->
+<!ELEMENT temp-factor (#PCDATA)>                     <!-- type: float  -->
+<!ELEMENT seg-id      (#PCDATA)>                     <!-- type: string -->
+<!ELEMENT element     (#PCDATA)>                     <!-- type: string -->
+<!ELEMENT charge      (#PCDATA)>                     <!-- type: string -->
+
+
+<!-- STR-ANNOTATION:                                                   -->
+<!ELEMENT str-annotation ((base-conformation | base-pair |
+                           base-triple | base-stack | helix |
+			   pseudoknot |
+			   single-strand | distance-constraint |
+			   surface-constraint)*)>
+<!ATTLIST str-annotation 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- BASE-CONFORMATION:                                                -->
+<!ELEMENT base-conformation (base-id, pucker?, glycosyl?,
+                             base-torsion-angles?)>
+<!ATTLIST base-conformation  
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT pucker   (#PCDATA)>                        <!-- type: string -->
+<!ELEMENT glycosyl (#PCDATA)>			     <!-- type: string -->
+
+<!ELEMENT base-torsion-angles (alpha?, beta?, gamma?, delta?, epsilon?, 
+                               zeta?, chi?, nu0?, nu1?, nu2?, nu3?, nu4?)>
+<!ATTLIST base-torsion-angles 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT alpha   (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT beta    (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT gamma   (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT delta   (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT epsilon (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT zeta    (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT chi     (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT nu0     (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT nu1     (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT nu2     (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT nu3     (#PCDATA)>           <!-- type: float, unit: degrees -->
+<!ELEMENT nu4     (#PCDATA)>           <!-- type: float, unit: degrees -->
+
+
+<!-- BASE-PAIR: A base pair requires two bases from the same molecule  -->
+<!-- (molecule id unnecessary) or from two molecules.                  -->
+<!ELEMENT base-pair (base-id-5p, base-id-3p, edge-5p?, edge-3p?,
+                     bond-orientation?, strand-orientation?)>
+<!ATTLIST base-pair
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+<!ELEMENT base-id-5p         (base-id)>              <!-- type: string -->
+<!ELEMENT base-id-3p         (base-id)>              <!-- type: string -->
+<!ELEMENT edge-5p            (#PCDATA)>              <!-- type: string -->
+<!ELEMENT edge-3p            (#PCDATA)>              <!-- type: string -->
+<!ELEMENT bond-orientation   (#PCDATA)>              <!-- type: string -->
+<!ELEMENT strand-orientation (#PCDATA)>              <!-- type: string -->
+
+
+<!-- BASE-TRIPLE: A base triple is formed of two or three base-pairs.  -->
+<!ELEMENT base-triple ((base-pair | base-pair-id),
+                       (base-pair | base-pair-id),
+		       (base-pair | base-pair-id))>
+<!ATTLIST base-triple
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!-- BASE-STACK:                                                       -->
+<!ELEMENT base-stack (base-id, base-id)>
+<!ATTLIST base-stack
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!-- HELIX:                                                            -->
+<!ELEMENT helix (base-id-5p, base-id-3p, length)>
+<!ATTLIST helix
+          id ID  #IMPLIED
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!-- PSEUDOKNOT:                                                       -->
+<!ELEMENT pseudoknot (helix-id, helix-id)>
+<!ATTLIST pseudoknot 
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!ELEMENT helix-id EMPTY>
+<!ATTLIST helix-id
+          ref            IDREF   #REQUIRED
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- SINGLE-STRAND: A single strand is a segment!                      -->
+<!ELEMENT single-strand (segment)>
+<!ATTLIST single-strand 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- DISTANCE-CONSTRAINT:                                              -->
+<!ELEMENT distance-constraint (base-id, atom-type, 
+                               base-id, atom-type,
+			       mean, range?, weight?)>
+<!ATTLIST distance-constraint 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>	      
+<!ELEMENT mean   (#PCDATA)>          <!-- type: float, unit: angstroms -->
+<!ELEMENT range  (#PCDATA)>          <!-- type: float, unit: angstroms -->
+<!ELEMENT weight (#PCDATA)>                           <!-- type: float -->
+
+
+<!-- SURFACE-CONSTRAINT:                                               -->
+<!ELEMENT surface-constraint (base-id, atom-type, surface-value?)>
+<!ATTLIST surface-constraint 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+<!ELEMENT surface-value (#PCDATA)>                    <!-- type: float -->
+
+
+<!-- SECONDARY-STRUCTURE-DISPLAY                                       -->
+<!-- X,Y coordinates can be defined for the sequence and then          -->
+<!-- used to display the secondary structure.			       -->
+<!ELEMENT secondary-structure-display (ss-base-coord)*>
+<!ATTLIST secondary-structure-display comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+<!-- This provides an x,y position for a base.  	               -->
+<!ELEMENT ss-base-coord (base-id, coordinates)>
+<!ATTLIST ss-base-coord 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- MOLECULE-CLASS ************************************************** -->
+<!-- A molecule-class is used to group molecules that represents       -->
+<!-- the same  RNA in various organisms.  The numbering system is a    -->
+<!-- numbering accepted in all molecules of the class and used in the  -->
+<!-- alignment.                                                        -->
+<!ELEMENT molecule-class (identity?, (molecule | molecule-id | 
+                          numbering-system |
+                          consensus-molecule | alignment)*)>
+<!ATTLIST molecule-class  
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- CONSENSUS MOLECULE:                                               -->
+<!ELEMENT consensus-molecule (alignment-id, molecule)>
+<!ATTLIST consensus-molecule 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- ALIGNMENT: An alignment is defined explicitly by using a          -->
+<!-- numbering table.                                                  -->
+<!ELEMENT alignment (ali-sequence*)>
+<!ATTLIST alignment 
+          id   ID   #REQUIRED
+	  comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- ALI-SEQUENCE: A sequence description in the alignment             -->
+<!ELEMENT ali-sequence (molecule-id, seq-data)>
+<!ATTLIST ali-sequence 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- INTERACTIONS represent chemical interactions between two          -->
+<!-- molecule and is implemented as structural annotation of the       -->
+<!-- corresponding structures.                                         -->
+<!ELEMENT interactions (str-annotation)*>
+<!ATTLIST interactions 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+
+<!-- TAXONOMY: The identification of the molecule. -->
+<!ELEMENT taxonomy (domain?, kingdom?, phylum?, class?, 
+                    order?, family?, genus?, species?, strain?)>
+<!ATTLIST taxonomy 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+<!ELEMENT domain  (#PCDATA)>                         <!-- type: string -->
+<!ELEMENT kingdom (#PCDATA)>                         <!-- type: string -->
+<!ELEMENT phylum  (#PCDATA)>                         <!-- type: string -->
+<!ELEMENT class   (#PCDATA)>                         <!-- type: string -->
+<!ELEMENT order   (#PCDATA)>                         <!-- type: string -->
+<!ELEMENT family  (#PCDATA)>                         <!-- type: string -->
+<!ELEMENT genus   (#PCDATA)>                         <!-- type: string -->
+<!ELEMENT species (#PCDATA)>                         <!-- type: string -->
+<!ELEMENT strain  (#PCDATA)>                         <!-- type: string -->
+
+
+<!-- REFERENCE:                                                        -->
+<!ELEMENT reference (author | title | journal | 
+                     date | pubmed-id |
+		     book-title | editor | volume | 
+		     issue | pages | path)*>
+<!ATTLIST reference
+	  id       ID     #REQUIRED
+	  comment  CDATA  #IMPLIED>
+
+<!ELEMENT author     (person)>
+<!ELEMENT title      (#PCDATA)>                      <!-- type: string -->
+<!ELEMENT journal    (#PCDATA)>                      <!-- type: string -->
+<!ELEMENT pubmed-id  (#PCDATA)>                      <!-- type: string -->
+<!ELEMENT book-title (#PCDATA)>                      <!-- type: string -->
+<!ELEMENT editor     (#PCDATA)>                      <!-- type: string -->
+<!ELEMENT volume     (#PCDATA)>                     <!-- type: integer -->
+<!ELEMENT issue      (#PCDATA)>                     <!-- type: integer -->
+<!ELEMENT pages      (#PCDATA)>     <!-- type: comma delimited integers-->
+
+
+<!-- DATABASE-ENTRY:                                                   -->
+<!ELEMENT database-entry (database, entry, path?)>
+<!ATTLIST database-entry 
+          id       ID     #REQUIRED
+	  comment  CDATA  #IMPLIED
+	  reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+<!ELEMENT database (#PCDATA)>                        <!-- type: string -->
+<!ELEMENT entry    (#PCDATA)>                        <!-- type: string -->
+
+
+<!-- ANALYSIS:                                                         -->
+<!ELEMENT analysis (program | date | author | reference)*>
+<!ATTLIST analysis 
+          id      ID    #REQUIRED
+	  comment        CDATA   #IMPLIED
+	  reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- REVISION:                                                         -->
+<!ELEMENT revision (#PCDATA | date)*>
+<!ATTLIST revision 
+          comment        CDATA   #IMPLIED
+          reference-ids  IDREFS  #IMPLIED
+	  analysis-ids   IDREFS  #IMPLIED
+          database-ids   IDREFS  #IMPLIED>
+
+
+<!-- GENERAL ELEMENTS ************************************************ -->
+
+<!ELEMENT url  (#PCDATA)>                            <!-- type: string -->
+<!ELEMENT file (#PCDATA)>                            <!-- type: string -->
+
+<!ELEMENT path (url | file)>
+
+<!ELEMENT person (first-name, last-name, affiliation*)>
+<!ELEMENT first-name   (#PCDATA)>                    <!-- type: string -->
+<!ELEMENT last-name    (#PCDATA)>		     <!-- type: string -->
+<!ELEMENT affiliation (#PCDATA)>                     <!-- type: string -->
+
+<!ELEMENT program (prog-name | prog-version | reference)*>
+<!ELEMENT prog-name    (#PCDATA)>                    <!-- type: string -->
+<!ELEMENT prog-version (#PCDATA)>		     <!-- type: string -->
+
+<!ELEMENT date (day?, month?, year)>		     
+<!ELEMENT day   (#PCDATA)>                          <!-- type: integer -->
+<!ELEMENT month (#PCDATA)>			    <!-- type: integer -->
+<!ELEMENT year  (#PCDATA)>			    <!-- type: integer -->
+
+<!ELEMENT position (#PCDATA)>			    <!-- type: integer -->
+<!ELEMENT start  (#PCDATA)>                         <!-- type: integer -->
+<!ELEMENT end    (#PCDATA)>			    <!-- type: integer -->
+<!ELEMENT length (#PCDATA)>			    <!-- type: integer -->
+
+<!ELEMENT base-id (molecule-id?, model-id?, position)>
+
+<!ELEMENT molecule-id EMPTY>
+<!ATTLIST molecule-id
+          ref  IDREF  #REQUIRED>
+
+<!ELEMENT model-id EMPTY>
+<!ATTLIST model-id
+          ref  IDREF  #IMPLIED>
+
+<!ELEMENT base-pair-id EMPTY>
+<!ATTLIST base-pair-id
+          ref  IDREF  #REQUIRED>
+
+<!ELEMENT alignment-id EMPTY>
+<!ATTLIST alignment-id
+          ref  IDREF  #REQUIRED>

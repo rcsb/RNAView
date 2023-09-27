@@ -9,6 +9,8 @@
 #include "rna.h"
 char *getenv(const char *name);
 extern long HETA;
+
+
 struct {
     char sAtomNam[20][4];
     long sNatom;
@@ -2269,7 +2271,7 @@ void multiplets(long num_ple, long max_ple, long num_residue,
         }
     }
         
-    fprintf(fp, "END_multiplets\n");
+    fprintf(fp, "END_multiplets\n\n");
         
    
     *num_multi =  n_unique;

@@ -8,6 +8,9 @@
 #include "nrutil.h"
 #include "rna.h"
 /* =====================================*/
+
+extern char FILEOUT[BUF512];
+
 void write_multiplets(char *pdbfile)
 
 {
@@ -18,9 +21,12 @@ void write_multiplets(char *pdbfile)
     long **work_num;
     long i, j, k, n1, n2, nl_tot=0, nstr, nmul, npair;
     FILE *fout, *finp;
-    
+/*    
     sprintf(inpfile, "%s.out", pdbfile);
     sprintf(outfile, "%s_multiplet.out", pdbfile);
+*/         
+    sprintf(inpfile, "%s.out", FILEOUT);
+    sprintf(outfile, "%s_multiplet.out", FILEOUT);
          
        
     fout=fopen(outfile, "w");
