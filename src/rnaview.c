@@ -8,11 +8,11 @@
 #include <sys/types.h>
 #include "nrutil.h"
 #include "rna.h"
-
+#include "cifparse.c"
+long ARGC=0, AUTH=1, PDB=-1; /* include all Heta atoms */
 long PS=1, VRML=0, ANAL=0, XML=0, HETA=1, VERB=1; /*globle variables */
 char FILEOUT[BUF512];
-
-
+char **ARGV;
 
 void base_edge_stat(char *pdbfile, long *A, long *U,long *G,long *C,long *T,
                     long *P, long *I);
@@ -50,11 +50,9 @@ int main(int argc, char *argv[])
     strcpy(chain,"");
     for(i=1; i<argc; i++){
         upperstr(argv[i]);        
-        if(!strcmp(argv[i],"-F")|| !strcmp(argv[i],"-P")
-           ||!strcmp(argv[i],"-PX")){
-            strcpy(inpfile,argv[i+1]);
-            strcpy(FILEOUT,argv[i+1]);
-            
+        if (argv[i][0] != '-') {
+            strcpy(inpfile,argv[i]);
+            strcpy(FILEOUT,argv[i]);
         }else if(!strcmp(argv[i],"-C")){
             strcpy(chain,argv[i+1]);
             upperstr(chain);
@@ -68,6 +66,24 @@ int main(int argc, char *argv[])
         }else if(!strcmp(argv[i],"-R")){
             reso=atof(argv[i+1]);
         }
+        else if (!strcmp(argv[i], "--LABEL")) {
+            if (PDB == 1) {
+                printf("Wrong input file format\n");
+                usage();
+            } else {
+                AUTH = 0;
+            }
+        }
+        else if (!strcmp(argv[i], "--PDB")) {
+            if (AUTH == 0) {
+                printf("Wrong input file format\n");
+                usage();
+            } else {
+                PDB = 1;
+            }
+        }
+        else if (!strcmp(argv[i], "--CIF"))
+            PDB = 0;
     }
 
     if((fp=fopen(inpfile, "r"))==NULL){
@@ -419,9 +435,18 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
     long i, j, k,m,n, ie, ib, dna_rna, num, num_residue, nres, bs_atoms;
     long *ResSeq, *RY, **seidx, num_modify, *modify_idx, nprot_atom=0;
     long **chain_idx,nchain;
+    char **AtomName_uf, **ResName_uf, **x_uf, **y_uf, **z_uf, **ResSeq_uf, **ChainID_uf, **CurrModel_uf;
+    char **AltLoc_uf, **ICode_uf, **Occupancy_uf, **TempFac_uf, **Element_uf, **Charge_uf, **Group_uf;
+    char *temp_string;
+    char *exptlMethod;
+    char *conformerId, *representativeConformer, *bestModel;
     double HB_UPPER[2], **xyz;
-    static long base_all;    
-    FILE *fout;
+    int index_uf, curr_index, isCifNMR;
+    index_uf=0;
+    num=0;
+    curr_index=1;
+    static long base_all;
+    FILE *fout, *prot_out;
     
 /*    sprintf(outfile, "%s.out", pdbfile);*/
     sprintf(outfile, "%s.out", FILEOUT);
@@ -431,18 +456,176 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all)
     hb_crt_alt(HB_UPPER, HB_ATOM, ALT_LIST);
 
 /* read in the PDB file */
-    num = number_of_atoms(pdbfile);
-    AtomName = cmatrix(1, num, 0, 4);
-    ResName = cmatrix(1, num, 0, 3);
-    ChainID = cvector(1, num);
-    ResSeq = lvector(1, num);
-    xyz = dmatrix(1, num, 1, 3);
-    Miscs = cmatrix(1, num, 0, NMISC);
-    
-    printf("\nPDB data file name: %s\n",  pdbfile);
-    fprintf(fout,"PDB data file name: %s\n",  pdbfile);
-    num = read_pdb(pdbfile,AtomName, ResName, ChainID, ResSeq, xyz, Miscs,
-                   ALT_LIST);
+    if (PDB)
+    {
+        num = number_of_atoms(pdbfile);
+        AtomName = cmatrix(1, num, 0, 4);
+        ResName = cmatrix(1, num, 0, 3);
+        ChainID = cvector(1, num);
+        ResSeq = lvector(1, num);
+        xyz = dmatrix(1, num, 1, 3);
+        Miscs = cmatrix(1, num, 0, NMISC);
+        
+        printf("\nPDB data file name: %s\n",  pdbfile);
+        fprintf(fout,"PDB data file name: %s\n",  pdbfile);
+        num = read_pdb(pdbfile,AtomName, ResName, ChainID, ResSeq, xyz, Miscs,
+                    ALT_LIST);
+    }
+    else
+    {
+        /*
+            if _exptl.method contains 'NMR', then
+                _pdbx_nmr_representative.conformer_id         1 
+                _pdbx_nmr_ensemble.representative_conformer                      ? 
+                Both absent, then pick the model = 1
+                Compare with _atom_site.pdbx_PDB_model_num and consider rows with value = id
+        */
+        cifparse(pdbfile, "_exptl.");
+        exptlMethod = parse_value("_exptl.method");
+
+        isCifNMR = strstr(exptlMethod, "NMR") != NULL;
+
+        if (isCifNMR) {
+            cifparse(pdbfile, "_pdbx_nmr_representative.");
+            conformerId = parse_value("_pdbx_nmr_representative.conformer_id");
+            cifparse(pdbfile, "_pdbx_nmr_ensemble.");
+            representativeConformer = parse_value("_pdbx_nmr_ensemble.representative_conformer");
+
+            if (conformerId != NULL) {
+                bestModel = conformerId;
+            } else if (representativeConformer != NULL) {
+                bestModel = representativeConformer;
+            } else {
+                bestModel = "1";
+            }
+        }
+
+        cifparse(pdbfile, "_atom_site.");
+        //Extract Columns AtomName, ResName, ChainID, ResSeq
+        if(AUTH == 0)
+        {
+            AtomName_uf = parse_values("_atom_site.label_atom_id", &num);
+            ResName_uf = parse_values("_atom_site.label_comp_id", &num);
+            ChainID_uf = parse_values("_atom_site.label_asym_id", &num);
+            ResSeq_uf = parse_values("_atom_site.label_seq_id", &num);
+        }
+        else
+        {
+            AtomName_uf = parse_values("_atom_site.auth_atom_id", &num);
+            ResName_uf = parse_values("_atom_site.auth_comp_id", &num);
+            ChainID_uf = parse_values("_atom_site.auth_asym_id", &num);
+            ResSeq_uf = parse_values("_atom_site.auth_seq_id", &num);
+        }
+        AtomName = cmatrix(1, num, 0, 4);
+        ResName = cmatrix(1, num, 0, 3);
+
+        ChainID = cvector(1, num);
+        ResSeq = lvector(1, num);
+
+        xyz = dmatrix(1, num, 1, 3);
+        AltLoc_uf = parse_values("_atom_site.label_alt_id", &num);
+        ICode_uf = parse_values("_atom_site.pdbx_PDB_ins_code", &num);
+        CurrModel_uf = parse_values("_atom_site.pdbx_PDB_model_num", &num);
+
+        Occupancy_uf = parse_values("_atom_site.occupancy", &num);
+        TempFac_uf = parse_values("_atom_site.B_iso_or_equiv", &num);
+        Element_uf = parse_values("_atom_site.type_symbol", &num);
+        Charge_uf = parse_values("_atom_site.pdbx_formal_charge", &num);
+
+        Group_uf = parse_values("_atom_site.group_PDB", &num);
+        Miscs = cmatrix(1, num, 0, NMISC);
+
+        x_uf = parse_values("_atom_site.Cartn_x", &num);
+        y_uf = parse_values("_atom_site.Cartn_y", &num);
+        z_uf = parse_values("_atom_site.Cartn_z", &num);
+
+        printf("\nPDB data file name: %s\n",  pdbfile);
+        fprintf(fout,"PDB data file name: %s\n",  pdbfile);
+
+        for(index_uf = 0; index_uf < num; index_uf++)
+        {
+            if (!strncmp(ResName_uf[index_uf], "HOH", 3) || !strncmp(ResName_uf[index_uf], "WAT", 3))
+                continue; /*get ride of WATER */
+            
+            if (AtomName_uf[index_uf][0] == 'H')
+                continue;  /*get ride of H atoms */
+
+            if (isCifNMR) {
+                if (strcmp(bestModel, CurrModel_uf[index_uf])) {
+                    continue;
+                }
+            }
+
+            ChainID[curr_index] = ChainID_uf[index_uf][0];
+
+            int atomNameLength, resNameLength, atomNameShift, resNameShift;
+
+            atomNameLength = strlen(AtomName_uf[index_uf]);
+            resNameLength = strlen(ResName_uf[index_uf]);
+
+            switch(atomNameLength) {
+                case 1:
+                    atomNameShift = 1;
+                    break;
+                case 2:
+                    atomNameShift = 1;
+                    break;
+                case 3:
+                    atomNameShift = 1;
+                    break;
+                case 4:
+                    atomNameShift = 0;
+                    break;
+            }
+
+            switch(resNameLength) {
+                case 1:
+                    resNameShift = 2;
+                    break;
+                case 2:
+                    resNameShift = 1;
+                    break;
+                case 3:
+                    resNameShift = 0;
+                    break;
+            }
+
+            strncpy(AtomName[curr_index] + atomNameShift, AtomName_uf[index_uf], strlen(AtomName_uf[index_uf]));
+            strncpy(ResName[curr_index] + resNameShift, ResName_uf[index_uf], strlen(ResName_uf[index_uf]));
+
+            if(sscanf(ResSeq_uf[index_uf], "%4ld", &ResSeq[curr_index]) != 1)
+                ResSeq[index_uf] = 9999;
+            if(sscanf(x_uf[index_uf], "%8lf", &xyz[curr_index][1]) != 1)
+                nrerror("error reading xyz-coordinate");
+            if(sscanf(y_uf[index_uf], "%8lf", &xyz[curr_index][2]) != 1)
+                nrerror("error reading xyz-coordinate");
+            if(sscanf(z_uf[index_uf], "%8lf", &xyz[curr_index][3]) != 1)
+                nrerror("error reading xyz-coordinate");
+
+            memset(Miscs[curr_index], ' ', NMISC);
+
+            Miscs[curr_index][0] = Group_uf[index_uf][0];
+            Miscs[curr_index][1] = (strlen(AltLoc_uf[index_uf]) != 0) ? AltLoc_uf[index_uf][0] : ' ';
+            Miscs[curr_index][2] = (strlen(ICode_uf[index_uf]) != 0) ? ICode_uf[index_uf][0] : ' ';
+
+            temp_string = Occupancy_uf[index_uf];
+            strncpy(Miscs[curr_index] + 3 + (6 - strlen(temp_string)), temp_string, strlen(temp_string));
+
+            temp_string = TempFac_uf[index_uf];
+            strncpy(Miscs[curr_index] + 9 + (6 - strlen(temp_string)), temp_string, strlen(temp_string));
+
+            temp_string = Element_uf[index_uf];
+            strncpy(Miscs[curr_index] + 25 + (2 - strlen(temp_string)), temp_string, strlen(temp_string));
+
+            temp_string = Charge_uf[index_uf];
+            strncpy(Miscs[curr_index] + 27 + (2 - strlen(temp_string)), temp_string, strlen(temp_string));
+
+            Miscs[curr_index][NMISC] = '\0';
+            curr_index++;
+        }
+
+        num = curr_index - 1;
+    }
 
 /* get the numbering information of each residue.
    seidx[i][j]; i = 1-num_residue  j=1,2
