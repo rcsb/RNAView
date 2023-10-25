@@ -50,34 +50,33 @@ int main(int argc, char *argv[])
     strcpy(chain, "");
     for (i = 1; i < argc; i++)
     {
-        upperstr(argv[i]);
         if (argv[i][0] != '-')
         {
             strcpy(inpfile, argv[i]);
             strcpy(FILEOUT, argv[i]);
         }
-        else if (!strcmp(argv[i], "-C"))
+        else if (!strcmp(argv[i], "-c"))
         {
             strcpy(chain, argv[i + 1]);
             upperstr(chain);
         }
-        else if (!strcmp(argv[i], "-V"))
+        else if (!strcmp(argv[i], "-v"))
         {
             VRML = 1;
         }
-        else if (!strcmp(argv[i], "-A"))
+        else if (!strcmp(argv[i], "-a"))
         {
             ANAL = 1;
         }
-        else if (!strcmp(argv[i], "-B"))
+        else if (!strcmp(argv[i], "-b"))
         {
             VERB = 0;
         }
-        else if (!strcmp(argv[i], "-R"))
+        else if (!strcmp(argv[i], "-r"))
         {
             reso = atof(argv[i + 1]);
         }
-        else if (!strcmp(argv[i], "--LABEL"))
+        else if (!strcmp(argv[i], "--label"))
         {
             if (PDB == 1)
             {
@@ -89,7 +88,7 @@ int main(int argc, char *argv[])
                 AUTH = 0;
             }
         }
-        else if (!strcmp(argv[i], "--PDB"))
+        else if (!strcmp(argv[i], "--pdb"))
         {
             if (AUTH == 0)
             {
@@ -101,7 +100,7 @@ int main(int argc, char *argv[])
                 PDB = 1;
             }
         }
-        else if (!strcmp(argv[i], "--CIF"))
+        else if (!strcmp(argv[i], "--cif"))
             PDB = 0;
     }
 
