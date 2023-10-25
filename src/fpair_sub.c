@@ -10,27 +10,29 @@
 char *getenv(const char *name);
 extern long HETA;
 
-
-struct {
+struct
+{
     char sAtomNam[20][4];
     long sNatom;
     double sxyz[20][3];
-}std[7];
+} std[7];
 
-void get_chain_idx(long num_residue, long **seidx, char *ChainID, 
+void get_chain_idx(long num_residue, long **seidx, char *ChainID,
                    long *nchain, long **chain_idx)
 /* get chain index */
 {
 
     long n, j, k1, k2;
-    
+
     chain_idx[1][1] = 1;
-    n=1;
-    for (j=2; j<=num_residue; j++){
-        k1 = seidx[j-1][1];
+    n = 1;
+    for (j = 2; j <= num_residue; j++)
+    {
+        k1 = seidx[j - 1][1];
         k2 = seidx[j][1];
-        chain_idx[n][2] = j-1;
-        if(ChainID[k1] != ChainID[k2]){
+        chain_idx[n][2] = j - 1;
+        if (ChainID[k1] != ChainID[k2])
+        {
             n++;
             chain_idx[n][1] = j;
         }
@@ -39,57 +41,55 @@ void get_chain_idx(long num_residue, long **seidx, char *ChainID,
     *nchain = n;
 }
 
-
-
 void get_reference_pdb(char *BDIR)
 {
     char **sAtomName, spdb[80];
     char ref[] = "AGCUTIP";
-    long i,j,k,snum;
-    double  **sx;
+    long i, j, k, snum;
+    double **sx;
 
     sAtomName = cmatrix(1, 20, 0, 4);
     sx = dmatrix(1, 20, 1, 3);
-    
-    for(i=0; i<7; i++){ /* read the reference pdb files */
+
+    for (i = 0; i < 7; i++)
+    { /* read the reference pdb files */
         sprintf(spdb, "%sAtomic_%c.pdb", BDIR, ref[i]);
         snum = read_pdb_ref(spdb, sAtomName, sx);
         std[i].sNatom = snum;
-        for(j=1; j<=snum; j++){
-            for(k=1; k<=3; k++)
-                std[i].sxyz[j][k] = sx[j][k];            
+        for (j = 1; j <= snum; j++)
+        {
+            for (k = 1; k <= 3; k++)
+                std[i].sxyz[j][k] = sx[j][k];
             strcpy(std[i].sAtomNam[j], sAtomName[j]);
         }
     }
     free_dmatrix(sx, 1, 20, 1, 3);
     free_cmatrix(sAtomName, 1, 20, 0, 4);
-    
 }
 
-long  ref_idx(char resnam)
+long ref_idx(char resnam)
 /* get the index of reference frame */
 {
     long ii;
-    
-        if     (resnam=='A' || resnam=='a')
-            ii = 0;
-        else if(resnam=='G' || resnam=='g')
-            ii = 1;
-        else if(resnam=='C' || resnam=='c')
-            ii = 2;
-        else if(resnam=='U' || resnam=='u')
-            ii = 3;
-        else if(resnam=='T' || resnam=='t')
-            ii = 4;
-        else if(resnam=='I')
-            ii = 5;
-        else if(resnam=='P')
-            ii = 6;
-        else
-            printf("Warning!! Bseq[j] is not assigned. \n");
-        return ii;
-}
 
+    if (resnam == 'A' || resnam == 'a')
+        ii = 0;
+    else if (resnam == 'G' || resnam == 'g')
+        ii = 1;
+    else if (resnam == 'C' || resnam == 'c')
+        ii = 2;
+    else if (resnam == 'U' || resnam == 'u')
+        ii = 3;
+    else if (resnam == 'T' || resnam == 't')
+        ii = 4;
+    else if (resnam == 'I')
+        ii = 5;
+    else if (resnam == 'P')
+        ii = 6;
+    else
+        printf("Warning!! Bseq[j] is not assigned. \n");
+    return ii;
+}
 
 void dswap(double *pa, double *pb)
 {
@@ -136,17 +136,19 @@ FILE *open_file(char *filename, char *filemode)
         fp = stdin;
     else if (!strcmp(filename, "stdout"))
         fp = stdout;
-    else {
+    else
+    {
         fp = fopen(filename, filemode);
-        if (fp == NULL) {
-            printf( "open_file <%s> failed: %s\n", filename, strerror(errno));
+        if (fp == NULL)
+        {
+            printf("open_file <%s> failed: %s\n", filename, strerror(errno));
             nrerror("");
         }
     }
     return fp;
 }
 
-long close_file(FILE * fp)
+long close_file(FILE *fp)
 {
     long i;
 
@@ -154,7 +156,8 @@ long close_file(FILE * fp)
         return 0;
     errno = 0;
     i = fclose(fp);
-    if (i == EOF) {
+    if (i == EOF)
+    {
         perror("close_file failed");
         nrerror("");
     }
@@ -166,15 +169,15 @@ long upperstr(char *a)
 {
     long nlen = 0;
 
-    while (*a) {
+    while (*a)
+    {
         nlen++;
-        if (islower((int) *a))
+        if (islower((int)*a))
             *a = toupper(*a);
         a++;
     }
     return nlen;
 }
-
 
 long number_of_atoms(char *pdbfile)
 /* number of atom records in a PDB file */
@@ -183,20 +186,21 @@ long number_of_atoms(char *pdbfile)
     long n = 0, nlen;
     FILE *fp;
 
-    if((fp = fopen(pdbfile, "r"))==NULL){
-        printf("Can not open the file %s (routine: number_of_atoms)\n",pdbfile);
+    if ((fp = fopen(pdbfile, "r")) == NULL)
+    {
+        printf("Can not open the file %s (routine: number_of_atoms)\n", pdbfile);
         return 0;
     }
-	
-    while (fgets(str, sizeof str, fp) != NULL) {
+
+    while (fgets(str, sizeof str, fp) != NULL)
+    {
         nlen = upperstr(str);
-        if (!strncmp(str+17, "HOH", 3) || !strncmp(str+17, "WAT", 3))
-            continue; /*get ride of WATER */  
+        if (!strncmp(str + 17, "HOH", 3) || !strncmp(str + 17, "WAT", 3))
+            continue; /*get ride of WATER */
         if (str[13] == 'H')
-            continue;  /*get ride of H atoms */
-		
-        if (nlen >= 54 && !strncmp(str, "ATOM", 4) 
-            || (!strncmp(str, "HETATM", 6) && HETA>0) )
+            continue; /*get ride of H atoms */
+
+        if (nlen >= 54 && !strncmp(str, "ATOM", 4) || (!strncmp(str, "HETATM", 6) && HETA > 0))
             n++;
     }
     fclose(fp);
@@ -214,108 +218,121 @@ long read_pdb(char *pdbfile, char **AtomName, char **ResName, char *ChainID,
     long i, n, nlen;
     char atomname[5], resname[4], chainid, resseq[5];
     FILE *fp;
-          
-    if((fp = fopen(pdbfile, "r"))==NULL) {        
-        printf("Can not open the file %s (routine: read_pdb)\n",pdbfile);
+
+    if ((fp = fopen(pdbfile, "r")) == NULL)
+    {
+        printf("Can not open the file %s (routine: read_pdb)\n", pdbfile);
         return 0;
     }
-       
-    n=1;
-    while (fgets(str, sizeof str, fp) != NULL) {
+
+    n = 1;
+    while (fgets(str, sizeof str, fp) != NULL)
+    {
         nlen = upperstr(str);
-        if (!strncmp(str+17, "HOH", 3) || !strncmp(str+17, "WAT", 3))
+        if (!strncmp(str + 17, "HOH", 3) || !strncmp(str + 17, "WAT", 3))
             continue; /*get ride of WATER */
-        
+
         if (str[13] == 'H')
-            continue;  /*get ride of H atoms */
-        
-        if (nlen >= 54 && !strncmp(str, "ATOM", 4) 
-            || (!strncmp(str, "HETATM", 6) && HETA>0) ){
+            continue; /*get ride of H atoms */
+
+        if (nlen >= 54 && !strncmp(str, "ATOM", 4) || (!strncmp(str, "HETATM", 6) && HETA > 0))
+        {
 
             strncpy(atomname, str + 12, 4);
             atomname[4] = '\0';
 
-            strncpy(resname, str + 17, 3);        /* residue name */
+            strncpy(resname, str + 17, 3); /* residue name */
             resname[3] = '\0';
             /* delete ending spaces as in "C  " */
             for (i = 1; i <= 2; i++)
-                if (resname[2] == ' ') {
+                if (resname[2] == ' ')
+                {
                     resname[2] = resname[1];
                     resname[1] = resname[0];
                     resname[0] = ' ';
                 }
-            if (resname[2] == ' ') {
-                printf( "%s\n", str);
+            if (resname[2] == ' ')
+            {
+                printf("%s\n", str);
                 nrerror("==> residue name field empty <==");
             }
 
-            chainid=str[21];
+            chainid = str[21];
 
-            strncpy(resseq, str + 22, 4);    /* residue sequence */
+            strncpy(resseq, str + 22, 4); /* residue sequence */
             resseq[4] = '\0';
 
-            sprintf(str_id, "%s%s%c%s",atomname, resname, chainid, resseq); 
+            sprintf(str_id, "%s%s%c%s", atomname, resname, chainid, resseq);
 
-
-            if(!strcmp(str_id, str_id0) && n>1) continue; /*rid of alternate*/
+            if (!strcmp(str_id, str_id0) && n > 1)
+                continue; /*rid of alternate*/
 
             strcpy(AtomName[n], atomname);
             strcpy(ResName[n], resname);
             ChainID[n] = chainid;
-            if (sscanf(resseq, "%4ld", &ResSeq[n]) != 1) {
-                printf( "residue #? ==> %.54s\n", str);
+            if (sscanf(resseq, "%4ld", &ResSeq[n]) != 1)
+            {
+                printf("residue #? ==> %.54s\n", str);
                 ResSeq[n] = 9999;
             }
 
-            strncpy(temp, str + 30, 25);           /* xyz */
+            strncpy(temp, str + 30, 25); /* xyz */
             temp[25] = '\0';
-            if (sscanf(temp,"%8lf%8lf%8lf",
-                       &xyz[n][1],&xyz[n][2],&xyz[n][3])!=3)
+            if (sscanf(temp, "%8lf%8lf%8lf",
+                       &xyz[n][1], &xyz[n][2], &xyz[n][3]) != 3)
                 nrerror("error reading xyz-coordinate");
-            
-            Miscs[n][0] = str[0];        /* H for HETATM, A for ATOM */
-            Miscs[n][1] = str[16];        /* alternative location indicator */
-            Miscs[n][2] = str[26];        /* code of insertion residues */
+
+            Miscs[n][0] = str[0];  /* H for HETATM, A for ATOM */
+            Miscs[n][1] = str[16]; /* alternative location indicator */
+            Miscs[n][2] = str[26]; /* code of insertion residues */
             strncpy(Miscs[n] + 3, str + 54, NMISC - 3);
             if ((pchar = strrchr(Miscs[n], '\n')) != NULL)
                 Miscs[n][pchar - Miscs[n]] = '\0';
             else
-                Miscs[n][NMISC] = '\0';                /* just to make sure */
-			            
-			
-            if (AtomName[n][3] == '*')        /* * to ' */
+                Miscs[n][NMISC] = '\0'; /* just to make sure */
+
+            if (AtomName[n][3] == '*') /* * to ' */
                 AtomName[n][3] = '\'';
-            if (!strcmp(AtomName[n], " O1'")){        /* O1' to O4' */
+            if (!strcmp(AtomName[n], " O1'"))
+            { /* O1' to O4' */
                 strcpy(AtomName[n], " O4'");
-            }else if (!strcmp(AtomName[n], " OL ")) {       /* OL to O1P */
+            }
+            else if (!strcmp(AtomName[n], " OL "))
+            { /* OL to O1P */
                 strcpy(AtomName[n], " O1P");
-            }else if (!strcmp(AtomName[n], " OR ")) {       /* OR to O2P */
+            }
+            else if (!strcmp(AtomName[n], " OR "))
+            { /* OR to O2P */
                 strcpy(AtomName[n], " O2P");
-            }else if  (!strcmp(AtomName[n], " C5A")){        /* C5A to C5M */
+            }
+            else if (!strcmp(AtomName[n], " C5A"))
+            { /* C5A to C5M */
                 strcpy(AtomName[n], " C5M");
-            }else if (!strcmp(AtomName[n], " O5T")){        /* terminal O5' */
+            }
+            else if (!strcmp(AtomName[n], " O5T"))
+            { /* terminal O5' */
                 strcpy(AtomName[n], " O5'");
-            }else if (!strcmp(AtomName[n], " O3T")){        /* terminal O3' */
+            }
+            else if (!strcmp(AtomName[n], " O3T"))
+            { /* terminal O3' */
                 strcpy(AtomName[n], " O3'");
             }
-/*            
-         printf("%s%5ld %4s%c%3s %c%4ld%c   %8.3lf%8.3lf%8.3lf\n", 
-                 "ATOM  ", n, AtomName[n], Miscs[n][1],
-                ResName[n], ChainID[n], ResSeq[n], Miscs[n][2], xyz[n][1],
-                xyz[n][2], xyz[n][3]);
-*/           
-            
+            /*
+                     printf("%s%5ld %4s%c%3s %c%4ld%c   %8.3lf%8.3lf%8.3lf\n",
+                             "ATOM  ", n, AtomName[n], Miscs[n][1],
+                            ResName[n], ChainID[n], ResSeq[n], Miscs[n][2], xyz[n][1],
+                            xyz[n][2], xyz[n][3]);
+            */
+
             n++;
 
-            sprintf(str_id0, "%s%s%c%s",atomname, resname, chainid, resseq); 
-
+            sprintf(str_id0, "%s%s%c%s", atomname, resname, chainid, resseq);
         }
     }
 
     fclose(fp);
-    return n-1;
+    return n - 1;
 }
-
 
 void reset_xyz(long num, double **xyz, char *fmt)
 /* reset xyz coordinates for PDB and ALCHEMY formats */
@@ -327,30 +344,35 @@ void reset_xyz(long num, double **xyz, char *fmt)
     min_dmatrix(xyz, num, 3, min_xyz);
     ave_dmatrix(xyz, num, 3, ave_xyz);
 
-    if (max_dvector(max_xyz, 3) > 9999.99) {
-        printf( "xyz coordinate over %s limit. reset origin"
-                " to geometrical center\n", fmt);
+    if (max_dvector(max_xyz, 3) > 9999.99)
+    {
+        printf("xyz coordinate over %s limit. reset origin"
+               " to geometrical center\n",
+               fmt);
         move_position(xyz, num, 3, ave_xyz);
-    } else if (min_dvector(min_xyz, 3) < -999.99) {
-        printf( "xyz coordinate under %s limit. reset origin"
-                " to minimum xyz coordinates\n", fmt);
+    }
+    else if (min_dvector(min_xyz, 3) < -999.99)
+    {
+        printf("xyz coordinate under %s limit. reset origin"
+               " to minimum xyz coordinates\n",
+               fmt);
         move_position(xyz, num, 3, min_xyz);
     }
 }
 
 void pdb_record(long ib, long ie, long *inum, long idx, char **AtomName,
                 char **ResName, char *ChainID, long *ResSeq, double **xyz,
-                char **Miscs, FILE * fp)
+                char **Miscs, FILE *fp)
 /* write out ATOM and HETATM record: xyz could be 1 to [ie - ib + 1] */
 {
     char str[BUF512];
     long i, j;
 
-    for (i = ib; i <= ie; i++) {
+    for (i = ib; i <= ie; i++)
+    {
         (Miscs == NULL) ? strcpy(str, "A  ") : strcpy(str, Miscs[i]);
         j = (idx) ? i - ib + 1 : i;
-        fprintf(fp, "%s%5ld %4s%c%3s %c%4ld%c   %8.3f%8.3f%8.3f%s\n", (str[0] == 'A')
-                ? "ATOM  " : "HETATM", ++*inum, AtomName[i], str[1],
+        fprintf(fp, "%s%5ld %4s%c%3s %c%4ld%c   %8.3f%8.3f%8.3f%s\n", (str[0] == 'A') ? "ATOM  " : "HETATM", ++*inum, AtomName[i], str[1],
                 ResName[i], ChainID[i], ResSeq[i], str[2], xyz[j][1],
                 xyz[j][2], xyz[j][3], str + 3);
     }
@@ -372,7 +394,7 @@ void write_pdb(long num, char **AtomName, char **ResName, char *ChainID,
 }
 
 void write_pdbcnt(long num, char **AtomName, char **ResName, char *ChainID,
-      long *ResSeq, double **xyz, long nlinked_atom, long **connect, char *pdbfile)
+                  long *ResSeq, double **xyz, long nlinked_atom, long **connect, char *pdbfile)
 {
     long i, inum = 0, j;
     FILE *fp;
@@ -383,7 +405,8 @@ void write_pdbcnt(long num, char **AtomName, char **ResName, char *ChainID,
     fprintf(fp, "REMARK    %s\n", RNA_VER);
     pdb_record(1, num, &inum, 0, AtomName, ResName, ChainID, ResSeq, xyz, NULL, fp);
 
-    for (i = 1; i <= nlinked_atom; i++) {
+    for (i = 1; i <= nlinked_atom; i++)
+    {
         fprintf(fp, "CONECT%5ld", connect[i][8]);
         for (j = 1; j <= connect[i][7]; j++)
             fprintf(fp, "%5ld", connect[i][j]);
@@ -398,7 +421,8 @@ void max_dmatrix(double **d, long nr, long nc, double *maxdm)
 {
     long i, j;
 
-    for (i = 1; i <= nc; i++) {
+    for (i = 1; i <= nc; i++)
+    {
         maxdm[i] = -XBIG;
         for (j = 1; j <= nr; j++)
             maxdm[i] = dmax(maxdm[i], d[j][i]);
@@ -409,7 +433,8 @@ void min_dmatrix(double **d, long nr, long nc, double *mindm)
 {
     long i, j;
 
-    for (i = 1; i <= nc; i++) {
+    for (i = 1; i <= nc; i++)
+    {
         mindm[i] = XBIG;
         for (j = 1; j <= nr; j++)
             mindm[i] = dmin(mindm[i], d[j][i]);
@@ -420,14 +445,14 @@ void ave_dmatrix(double **d, long nr, long nc, double *avedm)
 {
     long i, j;
 
-    for (i = 1; i <= nc; i++) {
+    for (i = 1; i <= nc; i++)
+    {
         avedm[i] = 0.0;
         for (j = 1; j <= nr; j++)
             avedm[i] += d[j][i];
         avedm[i] /= nr;
     }
 }
-
 
 double max_dvector(double *d, long n)
 {
@@ -467,7 +492,8 @@ double std_dvector(double *d, long n)
     long i;
 
     aved = ave_dvector(d, n);
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++)
+    {
         temp = d[i] - aved;
         dsum += temp * temp;
     }
@@ -484,7 +510,7 @@ void move_position(double **d, long nr, long nc, double *mpos)
             d[i][j] -= mpos[j];
 }
 
-void print_sep(FILE * fp, char x, long n)
+void print_sep(FILE *fp, char x, long n)
 /* print char 'x' n-times to stream fp */
 {
     long i;
@@ -504,23 +530,24 @@ long **residue_idx(long num, long *ResSeq, char **Miscs, char *ChainID,
     char **bidx;
     long i, n, **seidx, *temp;
 
-    bidx = cmatrix(1, num, 0, 12);        /* normally 9 */
+    bidx = cmatrix(1, num, 0, 12); /* normally 9 */
     temp = lvector(1, num);
 
-    for (i = 1; i <= num; i++) {
+    for (i = 1; i <= num; i++)
+    {
         iCode = (Miscs == NULL) ? ' ' : Miscs[i][2];
-        sprintf(bidx[i],"%3s%c%4ld%c",ResName[i],ChainID[i],ResSeq[i], iCode);
+        sprintf(bidx[i], "%3s%c%4ld%c", ResName[i], ChainID[i], ResSeq[i], iCode);
     }
     for (i = 1; i < num; i++)
         temp[i] = strcmp(bidx[i + 1], bidx[i]) ? 1 : 0;
     temp[num] = 1;
 
-    n = 0;                        /* get number of residues */
+    n = 0; /* get number of residues */
     for (i = 1; i <= num; i++)
         if (temp[i])
             ++n;
 
-    seidx = lmatrix(1, n, 1, 2);        /* allocate spaces */
+    seidx = lmatrix(1, n, 1, 2); /* allocate spaces */
     n = 0;
     for (i = 1; i <= num; i++)
         if (temp[i])
@@ -537,7 +564,6 @@ long **residue_idx(long num, long *ResSeq, char **Miscs, char *ChainID,
     return seidx;
 }
 
-
 long residue_ident(char **AtomName, double **xyz, long ib, long ie)
 /* identifying a residue as follows:
  *  R-base  Y-base  amino-acid, others [default]
@@ -552,7 +578,8 @@ long residue_ident(char **AtomName, double **xyz, long ib, long ie)
     N1 = find_1st_atom(" N1 ", AtomName, ib, ie, "");
     C2 = find_1st_atom(" C2 ", AtomName, ib, ie, "");
     C6 = find_1st_atom(" C6 ", AtomName, ib, ie, "");
-    if (N1 && C2 && C6) {
+    if (N1 && C2 && C6)
+    {
         for (i = 1; i <= 3; i++)
             temp[i] = xyz[N1][i] - xyz[C2][i];
         d1 = veclen(temp);
@@ -562,13 +589,15 @@ long residue_ident(char **AtomName, double **xyz, long ib, long ie)
         for (i = 1; i <= 3; i++)
             temp[i] = xyz[C2][i] - xyz[C6][i];
         d3 = veclen(temp);
-        if (d1 <= dcrt && d2 <= dcrt && d3 <= dcrt2) {
+        if (d1 <= dcrt && d2 <= dcrt && d3 <= dcrt2)
+        {
             id = 0;
-            if (N9) {
+            if (N9)
+            {
                 for (i = 1; i <= 3; i++)
                     temp[i] = xyz[N1][i] - xyz[N9][i];
                 d3 = veclen(temp);
-                if (d3 >= 3.5 && d3 <= 4.5)        /* ~4.0 */
+                if (d3 >= 3.5 && d3 <= 4.5) /* ~4.0 */
                     id = 1;
             }
         }
@@ -576,18 +605,18 @@ long residue_ident(char **AtomName, double **xyz, long ib, long ie)
     }
     CA = find_1st_atom(" CA ", AtomName, ib, ie, "");
     C = find_1st_atom(" C  ", AtomName, ib, ie, "");
-    if (!C)                        /* if C does not exist, use N */
+    if (!C) /* if C does not exist, use N */
         C = find_1st_atom(" N  ", AtomName, ib, ie, "");
-    if (CA && C) {
+    if (CA && C)
+    {
         for (i = 1; i <= 3; i++)
             temp[i] = xyz[CA][i] - xyz[C][i];
         if (veclen(temp) <= dcrt)
             id = -1;
         return id;
     }
-    return id;                        /* other cases */
+    return id; /* other cases */
 }
-
 
 void get_seq(FILE *fout, long num_residue, long **seidx, char **AtomName,
              char **ResName, char *ChainID, long *ResSeq, char **Miscs,
@@ -595,51 +624,55 @@ void get_seq(FILE *fout, long num_residue, long **seidx, char **AtomName,
              long *modify_idx)
 /* get base sequence of DNA or RNA.*/
 {
-    
+
     char idmsg[BUF512];
-    long i, n=0, ib, ie, ry;
-    
-    for (i = 1; i <= num_residue; i++) {
+    long i, n = 0, ib, ie, ry;
+
+    for (i = 1; i <= num_residue; i++)
+    {
         ib = seidx[i][1];
         ie = seidx[i][2];
         RY[i] = residue_ident(AtomName, xyz, ib, ie);
-        if (RY[i] >= 0) {
+        if (RY[i] >= 0)
+        {
             sprintf(idmsg, "residue %3s %4ld%c on chain %c [#%ld]",
                     ResName[ib], ResSeq[ib], Miscs[ib][2], ChainID[ib], i);
-            
-            if      (!strcmp(ResName[ib],"  A") || !strcmp(ResName[ib],"ADE"))
-               bseq[i] = 'A';
-            else if (!strcmp(ResName[ib],"  G") || !strcmp(ResName[ib],"GUA"))
-               bseq[i] = 'G';
-            else if (!strcmp(ResName[ib],"  U") || !strcmp(ResName[ib],"URA"))
-               bseq[i] = 'U';
-            else if (!strcmp(ResName[ib],"  C") || !strcmp(ResName[ib],"CYT"))
-               bseq[i] = 'C';
-            else if (!strcmp(ResName[ib],"  T") || !strcmp(ResName[ib],"THY"))
-               bseq[i] = 'T';
-            else if (!strcmp(ResName[ib],"  I") || !strcmp(ResName[ib],"INO")){
+
+            if (!strcmp(ResName[ib], "  A") || !strcmp(ResName[ib], "ADE"))
+                bseq[i] = 'A';
+            else if (!strcmp(ResName[ib], "  G") || !strcmp(ResName[ib], "GUA"))
+                bseq[i] = 'G';
+            else if (!strcmp(ResName[ib], "  U") || !strcmp(ResName[ib], "URA"))
+                bseq[i] = 'U';
+            else if (!strcmp(ResName[ib], "  C") || !strcmp(ResName[ib], "CYT"))
+                bseq[i] = 'C';
+            else if (!strcmp(ResName[ib], "  T") || !strcmp(ResName[ib], "THY"))
+                bseq[i] = 'T';
+            else if (!strcmp(ResName[ib], "  I") || !strcmp(ResName[ib], "INO"))
+            {
                 bseq[i] = 'I';
                 n++;
-                modify_idx[n] = i;                
+                modify_idx[n] = i;
                 fprintf(fout, "uncommon %s assigned to: %c\n",
                         idmsg, bseq[i]);
             }
-            else if (!strcmp(ResName[ib],"  P") || !strcmp(ResName[ib],"PSU")){
+            else if (!strcmp(ResName[ib], "  P") || !strcmp(ResName[ib], "PSU"))
+            {
                 bseq[i] = 'P';
                 n++;
-                modify_idx[n] = i;                
+                modify_idx[n] = i;
                 fprintf(fout, "uncommon %s assigned to: %c\n",
                         idmsg, bseq[i]);
             }
-            else{
-                ry=RY[i];
-                
-                bseq[i]= identify_uncommon(ry, AtomName, ib, ie);
+            else
+            {
+                ry = RY[i];
+
+                bseq[i] = identify_uncommon(ry, AtomName, ib, ie);
                 n++;
-                modify_idx[n] = i;                
+                modify_idx[n] = i;
                 fprintf(fout, "uncommon %s assigned to: %c\n",
                         idmsg, bseq[i]);
-                
             }
         }
     }
@@ -651,32 +684,34 @@ char identify_uncommon(long ry, char **AtomName, long ib, long ie)
 {
 
     char c;
-    long N2, C5M, N4, O4,O2p;
+    long N2, C5M, N4, O4, O2p;
 
-    if(ry == 1){    /* Purine (R base) */
+    if (ry == 1)
+    { /* Purine (R base) */
         N2 = find_1st_atom(" N2 ", AtomName, ib, ie, "");
-        if(N2)
-            c='g';
+        if (N2)
+            c = 'g';
         else
-            c='a';
+            c = 'a';
     }
-    if(ry == 0){
+    if (ry == 0)
+    {
         C5M = find_1st_atom(" C5M", AtomName, ib, ie, "");
-        N4  = find_1st_atom(" N4 ", AtomName, ib, ie, "");
-        O4  = find_1st_atom(" O4 ", AtomName, ib, ie, "");
-        O2p  = find_1st_atom(" O2'", AtomName, ib, ie, "");
-        if(!O2p &&( C5M || (C5M && O4)))
-            c='t';
-        else {
-            if(N4)
-                c='c';
+        N4 = find_1st_atom(" N4 ", AtomName, ib, ie, "");
+        O4 = find_1st_atom(" O4 ", AtomName, ib, ie, "");
+        O2p = find_1st_atom(" O2'", AtomName, ib, ie, "");
+        if (!O2p && (C5M || (C5M && O4)))
+            c = 't';
+        else
+        {
+            if (N4)
+                c = 'c';
             else
-                c='u';
+                c = 'u';
         }
     }
     return c;
 }
-
 
 long num_strmatch(char *str, char **strmat, long nb, long ne)
 /*  return number of matchs of str in strmat */
@@ -697,22 +732,22 @@ long find_1st_atom(char *str, char **strmat, long nb, long ne, char *idmsg)
 
     num = num_strmatch(str, strmat, nb, ne);
 
-    if (!num) {
+    if (!num)
+    {
         if (strcmp(idmsg, ""))
-            printf( "missing \"%s\" atom %s\n", str, idmsg);
+            printf("missing \"%s\" atom %s\n", str, idmsg);
         return 0;
     }
-    if (num > 1 && strcmp(idmsg, "")) {
-        printf( "more than one %s atoms %s\n", str, idmsg);
-        printf( "   *****the first atom is used*****\n");
+    if (num > 1 && strcmp(idmsg, ""))
+    {
+        printf("more than one %s atoms %s\n", str, idmsg);
+        printf("   *****the first atom is used*****\n");
     }
     for (i = nb; i <= ne; i++)
         if (!strcmp(str, strmat[i]))
             break;
     return i;
 }
-
-
 
 double vec_ang(double *va, double *vb, double *vref)
 /* angle in degrees between va and vb with vref for sign control
@@ -723,7 +758,8 @@ double vec_ang(double *va, double *vb, double *vref)
     double ang_deg, vc[4], va_cp[4], vb_cp[4];
 
     /* make a copy of va and vb */
-    for (i = 1; i <= 3; i++) {
+    for (i = 1; i <= 3; i++)
+    {
         va_cp[i] = va[i];
         vb_cp[i] = vb[i];
     }
@@ -812,7 +848,8 @@ double magang(double *va, double *vb)
     double ang_deg;
     if (veclen(va) < XEPS || veclen(vb) < XEPS)
         ang_deg = 0.0;
-    else {
+    else
+    {
         vec_norm(va);
         vec_norm(vb);
         ang_deg = dot2ang(dot(va, vb));
@@ -838,33 +875,37 @@ void get_BDIR(char *BDIR, char *filename)
    Note: to use (2), you must set your .cshrc so that you have the env.
    setenv RNAVIEW /home/hyang/rna/RNAVIEW where RNAVIEW is the
    directory containning the RNAVIEW director.
-   
+
 */
 {
     char *temp;
     long iscd = 0;
     FILE *fp;
-            
-    fp = fopen(filename, "r");        /* check current directory */
-    if (fp != NULL){
+
+    fp = fopen(filename, "r"); /* check current directory */
+    if (fp != NULL)
+    {
         iscd = 1;
         fclose(fp);
     }
 
     if (iscd)
-        strcpy(BDIR, "./");        /* (1)current directory*/
-    else if ((temp = getenv("RNAVIEW")) != NULL) {   /*(2)directory of variable RNAVIEW */
+        strcpy(BDIR, "./"); /* (1)current directory*/
+    else if ((temp = getenv("RNAVIEW")) != NULL)
+    { /*(2)directory of variable RNAVIEW */
         strcpy(BDIR, temp);
         check_slash(BDIR);
         strcat(BDIR, "/BASEPARS/");
-    }else if ((temp = getenv("HOME")) != NULL ||        /*(3)home unix! default */
-              (temp = getenv("HOMEDRIVE")) != NULL) {  /* PC! */  
+    }
+    else if ((temp = getenv("HOME")) != NULL || /*(3)home unix! default */
+             (temp = getenv("HOMEDRIVE")) != NULL)
+    { /* PC! */
         strcpy(BDIR, temp);
         check_slash(BDIR);
         strcat(BDIR, "RNAVIEW/BASEPARS/");
-    } else
+    }
+    else
         nrerror("cannot locate base geometry and parameter files(routine:get_BDIR)");
-      
 }
 
 void check_slash(char *BDIR)
@@ -875,7 +916,8 @@ void check_slash(char *BDIR)
 
     pchar = strrchr(BDIR, '/');
     n = strlen(BDIR);
-    if (pchar - BDIR != n - 1) {
+    if (pchar - BDIR != n - 1)
+    {
         BDIR[n] = '/';
         BDIR[n + 1] = '\0';
     }
@@ -897,15 +939,16 @@ void multi_matrix(double **a, long nra, long nca, double **b, long nrb, long ncb
     if (nca != nrb)
         nrerror("matrices a and b do not conform");
 
-    for (i = 1; i <= nra; i++) {
-        for (j = 1; j <= ncb; j++) {
+    for (i = 1; i <= nra; i++)
+    {
+        for (j = 1; j <= ncb; j++)
+        {
             o[i][j] = 0.0;
             for (k = 1; k <= nca; k++)
                 o[i][j] += a[i][k] * b[k][j];
         }
     }
 }
-
 
 void multi_vec_matrix(double *a, long n, double **b, long nr, long nc, double *o)
 /* vector-matrix multiplication */
@@ -915,13 +958,13 @@ void multi_vec_matrix(double *a, long n, double **b, long nr, long nc, double *o
     if (n != nr)
         nrerror("vector and matrix do not conform");
 
-    for (i = 1; i <= nc; i++) {
+    for (i = 1; i <= nc; i++)
+    {
         o[i] = 0.0;
         for (j = 1; j <= n; j++)
             o[i] += a[j] * b[j][i];
     }
 }
-
 
 void transpose_matrix(double **a, long nr, long nc, double **o)
 {
@@ -942,8 +985,8 @@ void cov_matrix(double **a, double **b, long nr, long nc, double **cmtx)
     ave_dmatrix(a, nr, nc, ave_a);
     ave_dmatrix(b, nr, nc, ave_b);
 
-    ta = dmatrix(1, nc, 1, nr);        /* transpose of a */
-    ta_x_b = dmatrix(1, nc, 1, nc);        /* transpose-a multiply b */
+    ta = dmatrix(1, nc, 1, nr);     /* transpose of a */
+    ta_x_b = dmatrix(1, nc, 1, nc); /* transpose-a multiply b */
 
     transpose_matrix(a, nr, nc, ta);
     multi_matrix(ta, nc, nr, b, nr, nc, ta_x_b);
@@ -1023,7 +1066,8 @@ void ls_fitting(double **sxyz, double **exyz, long n, double *rms_value,
 
     /* rms deviation */
     temp = 0.0;
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++)
+    {
         for (j = 1; j <= 3; j++)
             D[j] = exyz[i][j] - fitted_xyz[i][j];
         temp += dot(D, D);
@@ -1061,7 +1105,8 @@ void ls_plane(double **bxyz, long n, double *pnormal, double *ppos,
     if (nml)
         for (i = 1; i <= 3; i++)
             pnormal[i] = V[i][1];
-    else {                        /* V is an identity matrix */
+    else
+    { /* V is an identity matrix */
         pnormal[1] = 0.0;
         pnormal[2] = 0.0;
         pnormal[3] = 1.0;
@@ -1090,7 +1135,8 @@ void identity_matrix(double **d, long n)
 {
     long i, j;
 
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++)
+    {
         for (j = 1; j <= n; j++)
             d[i][j] = 0.0;
         d[i][i] = 1.0;
@@ -1104,11 +1150,12 @@ void arb_rotation(double *va, double ang_deg, double **rot_mtx)
     long i;
 
     vlen = veclen(va);
-    if (vlen < XEPS)                /* [0 0 0] */
+    if (vlen < XEPS) /* [0 0 0] */
         identity_matrix(rot_mtx, 3);
-    else {
+    else
+    {
         for (i = 1; i <= 3; i++)
-            va[i] /= vlen;        /* unit vector */
+            va[i] /= vlen; /* unit vector */
         ang_deg = deg2rad(ang_deg);
         c = cos(ang_deg);
         s = sin(ang_deg);
@@ -1159,12 +1206,14 @@ void eigsrt(double *d, double **v, long n)
     double p;
     long i, j, k;
 
-    for (i = 1; i < n; i++) {
+    for (i = 1; i < n; i++)
+    {
         p = d[k = i];
         for (j = i + 1; j <= n; j++)
             if (d[j] < p)
                 p = d[k = j];
-        if (k != i) {
+        if (k != i)
+        {
             d[k] = d[i];
             d[i] = p;
             for (j = 1; j <= n; j++)
@@ -1181,17 +1230,21 @@ void jacobi(double **a, long n, double *d, double **v)
     b = dvector(1, n);
     z = dvector(1, n);
     identity_matrix(v, n);
-    for (ip = 1; ip <= n; ip++) {
+    for (ip = 1; ip <= n; ip++)
+    {
         b[ip] = d[ip] = a[ip][ip];
         z[ip] = 0.0;
     }
-    for (i = 1; i <= 100; i++) {
+    for (i = 1; i <= 100; i++)
+    {
         sm = 0.0;
-        for (ip = 1; ip <= n - 1; ip++) {
+        for (ip = 1; ip <= n - 1; ip++)
+        {
             for (iq = ip + 1; iq <= n; iq++)
                 sm += fabs(a[ip][iq]);
         }
-        if (sm < XEPS) {
+        if (sm < XEPS)
+        {
             free_dvector(z, 1, n);
             free_dvector(b, 1, n);
             eigsrt(d, v, n);
@@ -1201,17 +1254,20 @@ void jacobi(double **a, long n, double *d, double **v)
             tresh = 0.2 * sm / (n * n);
         else
             tresh = 0.0;
-        for (ip = 1; ip <= n - 1; ip++) {
-            for (iq = ip + 1; iq <= n; iq++) {
+        for (ip = 1; ip <= n - 1; ip++)
+        {
+            for (iq = ip + 1; iq <= n; iq++)
+            {
                 g = 100.0 * fabs(a[ip][iq]);
-                if (i > 4 && (fabs(d[ip]) + g) == fabs(d[ip])
-                    && (fabs(d[iq]) + g) == fabs(d[iq]))
+                if (i > 4 && (fabs(d[ip]) + g) == fabs(d[ip]) && (fabs(d[iq]) + g) == fabs(d[iq]))
                     a[ip][iq] = 0.0;
-                else if (fabs(a[ip][iq]) > tresh) {
+                else if (fabs(a[ip][iq]) > tresh)
+                {
                     h = d[iq] - d[ip];
                     if ((fabs(h) + g) == fabs(h))
                         t = a[ip][iq] / h;
-                    else {
+                    else
+                    {
                         theta = 0.5 * h / a[ip][iq];
                         t = 1.0 / (fabs(theta) + sqrt(1.0 + theta * theta));
                         if (theta < 0.0)
@@ -1237,7 +1293,8 @@ void jacobi(double **a, long n, double *d, double **v)
                 }
             }
         }
-        for (ip = 1; ip <= n; ip++) {
+        for (ip = 1; ip <= n; ip++)
+        {
             b[ip] += z[ip];
             d[ip] = b[ip];
             z[ip] = 0.0;
@@ -1251,11 +1308,12 @@ void dludcmp(double **a, long n, long *indx, double *d)
     double big, dum, sum, temp;
     double *vv;
     long i, j, k;
-    long imax = 0;                /* initialization */
+    long imax = 0; /* initialization */
 
     vv = dvector(1, n);
     *d = 1.0;
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++)
+    {
         big = 0.0;
         for (j = 1; j <= n; j++)
             if ((temp = fabs(a[i][j])) > big)
@@ -1264,25 +1322,30 @@ void dludcmp(double **a, long n, long *indx, double *d)
             nrerror("singular matrix in routine dludcmp");
         vv[i] = 1.0 / big;
     }
-    for (j = 1; j <= n; j++) {
-        for (i = 1; i < j; i++) {
+    for (j = 1; j <= n; j++)
+    {
+        for (i = 1; i < j; i++)
+        {
             sum = a[i][j];
             for (k = 1; k < i; k++)
                 sum -= a[i][k] * a[k][j];
             a[i][j] = sum;
         }
         big = 0.0;
-        for (i = j; i <= n; i++) {
+        for (i = j; i <= n; i++)
+        {
             sum = a[i][j];
             for (k = 1; k < j; k++)
                 sum -= a[i][k] * a[k][j];
             a[i][j] = sum;
-            if ((dum = vv[i] * fabs(sum)) >= big) {
+            if ((dum = vv[i] * fabs(sum)) >= big)
+            {
                 big = dum;
                 imax = i;
             }
         }
-        if (j != imax) {
+        if (j != imax)
+        {
             for (k = 1; k <= n; k++)
                 dswap(&a[imax][k], &a[j][k]);
             *d = -(*d);
@@ -1291,7 +1354,8 @@ void dludcmp(double **a, long n, long *indx, double *d)
         indx[j] = imax;
         if (a[j][j] == 0.0)
             a[j][j] = XEPS;
-        if (j != n) {
+        if (j != n)
+        {
             dum = 1.0 / a[j][j];
             for (i = j + 1; i <= n; i++)
                 a[i][j] *= dum;
@@ -1305,7 +1369,8 @@ void dlubksb(double **a, long n, long *indx, double *b)
     double sum;
     long i, ii = 0, ip, j;
 
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++)
+    {
         ip = indx[i];
         sum = b[ip];
         b[ip] = b[i];
@@ -1316,7 +1381,8 @@ void dlubksb(double **a, long n, long *indx, double *b)
             ii = i;
         b[i] = sum;
     }
-    for (i = n; i >= 1; i--) {
+    for (i = n; i >= 1; i--)
+    {
         sum = b[i];
         for (j = i + 1; j <= n; j++)
             sum -= a[i][j] * b[j];
@@ -1334,7 +1400,8 @@ void dinverse(double **a, long n, double **y)
 
     dludcmp(a, n, indx, &d);
 
-    for (j = 1; j <= n; j++) {
+    for (j = 1; j <= n; j++)
+    {
         for (i = 1; i <= n; i++)
             col[i] = 0.0;
         col[j] = 1.0;
@@ -1347,15 +1414,12 @@ void dinverse(double **a, long n, double **y)
     free_dvector(col, 1, n);
 }
 
-
-
 long get_round(double d)
 {
-    return (long) ((d > 0.0) ? d + 0.5 : d - 0.5);
+    return (long)((d > 0.0) ? d + 0.5 : d - 0.5);
 }
 
-
-void ps_title_cmds(FILE * fp, char *imgfile, long *bbox)
+void ps_title_cmds(FILE *fp, char *imgfile, long *bbox)
 {
     char BDIR[BUF512], str[BUF512];
     char *ps_image_par = "ps_image.par";
@@ -1375,7 +1439,6 @@ void ps_title_cmds(FILE * fp, char *imgfile, long *bbox)
         fprintf(fp, "%6ld", bbox[i]);
     fprintf(fp, "\n\n");
 
-
     /* NP: begin a new path
        DB: draw a box path
        LN: draw a line path
@@ -1386,58 +1449,64 @@ void ps_title_cmds(FILE * fp, char *imgfile, long *bbox)
     fprintf(fp, "/DB {moveto lineto lineto lineto closepath} bind def\n");
     fprintf(fp, "/LN {moveto lineto stroke} bind def\n");
     fprintf(fp, "/FB {setgray fill} bind def\n");
-    fprintf(fp, "/R6 {moveto lineto lineto lineto lineto lineto" " closepath} bind def\n");
+    fprintf(fp, "/R6 {moveto lineto lineto lineto lineto lineto"
+                " closepath} bind def\n");
     fprintf(fp, "/R9 {moveto lineto lineto lineto lineto lineto\n"
-            "     lineto lineto lineto closepath} bind def\n");
+                "     lineto lineto lineto closepath} bind def\n");
 
     /* read in color parameter file */
     get_BDIR(BDIR, ps_image_par);
     strcat(BDIR, ps_image_par);
-/*printf( " ...... reading file: %s ...... \n", ps_image_par);*/
+    /*printf( " ...... reading file: %s ...... \n", ps_image_par);*/
 
-        
-    if((fpp=fopen(BDIR, "r"))==NULL){
-        printf("I can not open file %s (routine:ps_title_cmds)\n",BDIR);
+    if ((fpp = fopen(BDIR, "r")) == NULL)
+    {
+        printf("I can not open file %s (routine:ps_title_cmds)\n", BDIR);
         exit(0);
     }
-        
-    if (fgets(str, sizeof str, fpp) == NULL)        /* skip one line */
+
+    if (fgets(str, sizeof str, fpp) == NULL) /* skip one line */
         nrerror("error in reading comment line");
 
     fprintf(fp, "\n");
-    for (i = 1; i <= 3; i++) {        /* set dot line style */
+    for (i = 1; i <= 3; i++)
+    { /* set dot line style */
         if (fgets(str, sizeof str, fpp) == NULL)
             nrerror("error in reading dot style");
         fprintf(fp, "%s", str);
     }
 
-    for (i = 1; i <= 2; i++)        /* skip two lines */
+    for (i = 1; i <= 2; i++) /* skip two lines */
         if (fgets(str, sizeof str, fpp) == NULL)
             nrerror("error in reading comment lines");
 
-    for (i = 1; i <= 2; i++) {        /* two widths */
+    for (i = 1; i <= 2; i++)
+    { /* two widths */
         if (fgets(str, sizeof str, fpp) == NULL)
             nrerror("error in reading line widths");
         fprintf(fp, "%s", str);
     }
     fprintf(fp, "\n");
 
-    for (i = 1; i <= 2; i++)        /* skip two lines */
+    for (i = 1; i <= 2; i++) /* skip two lines */
         if (fgets(str, sizeof str, fpp) == NULL)
             nrerror("error in reading comment lines");
 
-    for (i = 1; i <= 3; i++) {        /* two saturations + other side */
+    for (i = 1; i <= 3; i++)
+    { /* two saturations + other side */
         if (fgets(str, sizeof str, fpp) == NULL)
             nrerror("error in reading line face specifications");
         fprintf(fp, "%s", str);
     }
     fprintf(fp, "\n");
 
-    if (fgets(str, sizeof str, fpp) == NULL)        /* skip one line */
+    if (fgets(str, sizeof str, fpp) == NULL) /* skip one line */
         nrerror("error in reading separation line");
 
-    for (i = 1; i <= 3; i++) {        /* three sets of 9 lines */
-        for (j = 1; j <= 9; j++) {
+    for (i = 1; i <= 3; i++)
+    { /* three sets of 9 lines */
+        for (j = 1; j <= 9; j++)
+        {
             if (fgets(str, sizeof str, fpp) == NULL)
                 nrerror("error in reading color coding");
             if (j != 1 && j != 9)
@@ -1446,7 +1515,7 @@ void ps_title_cmds(FILE * fp, char *imgfile, long *bbox)
         fprintf(fp, "\n");
     }
 
-    for (i = 1; i <= 2; i++)        /* line styles */
+    for (i = 1; i <= 2; i++) /* line styles */
         if (fgets(str, sizeof str, fpp) == NULL)
             nrerror("error in reading line style");
     fprintf(fp, "%s\n", str);
@@ -1454,17 +1523,14 @@ void ps_title_cmds(FILE * fp, char *imgfile, long *bbox)
     fclose(fpp);
 }
 
-
-
-
-void get_ps_xy(char *imgfile, long *urxy, long frame_box, FILE * fp)
+void get_ps_xy(char *imgfile, long *urxy, long frame_box, FILE *fp)
 /* reset x/y coordinates to PS units */
 {
     char *format = "%6ld%6ld";
     double paper_size[2] =
-    {8.5, 11.0};                /* US letter size */
+        {8.5, 11.0}; /* US letter size */
     long i;
-    long boundary_offset = 5;        /* frame boundary */
+    long boundary_offset = 5; /* frame boundary */
     long bbox[5], llxy[3];
 
     /* centralize the figure on a US letter (8.5in-by-11in) */
@@ -1472,7 +1538,8 @@ void get_ps_xy(char *imgfile, long *urxy, long frame_box, FILE * fp)
         llxy[i] = get_round(0.5 * (paper_size[i - 1] * 72 - urxy[i]));
 
     /* boundary box */
-    for (i = 1; i <= 2; i++) {
+    for (i = 1; i <= 2; i++)
+    {
         bbox[i] = llxy[i] - boundary_offset;
         bbox[i + 2] = urxy[i] + llxy[i] + boundary_offset;
     }
@@ -1481,7 +1548,8 @@ void get_ps_xy(char *imgfile, long *urxy, long frame_box, FILE * fp)
 
     fprintf(fp, "%6ld%6ld translate\n\n", llxy[1], llxy[2]);
 
-    if (frame_box) {
+    if (frame_box)
+    {
         /* draw a box around the figure */
         fprintf(fp, "NP ");
         fprintf(fp, format, -boundary_offset, -boundary_offset);
@@ -1492,20 +1560,19 @@ void get_ps_xy(char *imgfile, long *urxy, long frame_box, FILE * fp)
     }
 }
 
-
 void bring_atoms(long ib, long ie, long rnum, char **AtomName, long *nmatch,
                  long *batom)
 /* get base ring atom index in one residue */
 {
     static char *RingAtom[9] =
-    {" C4 ", " N3 ", " C2 ", " N1 ", " C6 ", " C5 ", " N7 ", " C8 ",
-     " N9 "
-    };
+        {" C4 ", " N3 ", " C2 ", " N1 ", " C6 ", " C5 ", " N7 ", " C8 ",
+         " N9 "};
     long i, j;
 
     *nmatch = 0;
 
-    for (i = 0; i < rnum; i++) {
+    for (i = 0; i < rnum; i++)
+    {
         j = find_1st_atom(RingAtom[i], AtomName, ib, ie, "in base ring atoms");
         if (j)
             batom[++*nmatch] = j;
@@ -1518,14 +1585,17 @@ void all_bring_atoms(long num_residue, long *RY, long **seidx,
 {
     long i, j, nmatch;
 
-    for (i = 1; i <= num_residue; i++) {
-        if (RY[i] < 0) {        /* non-base residue */
+    for (i = 1; i <= num_residue; i++)
+    {
+        if (RY[i] < 0)
+        { /* non-base residue */
             ring_atom[i][10] = -1;
             continue;
         }
         j = (RY[i] == 1) ? 9 : 6;
-        bring_atoms(seidx[i][1], seidx[i][2],j,AtomName,&nmatch,ring_atom[i]);
-        if (nmatch == j) {
+        bring_atoms(seidx[i][1], seidx[i][2], j, AtomName, &nmatch, ring_atom[i]);
+        if (nmatch == j)
+        {
             ring_atom[i][10] = j;
             ++*num_ring;
         }
@@ -1538,12 +1608,15 @@ void base_idx(long num, char *bseq, long *ibase, long single)
     char *cmn_base = "ACGITU", *pchar;
     long i;
 
-    if (single) {                /* for a single case */
+    if (single)
+    { /* for a single case */
         if ((pchar = strchr(cmn_base, toupper(*bseq))) != NULL)
             *ibase = pchar - cmn_base;
         else
             *ibase = NON_WC_IDX;
-    } else {
+    }
+    else
+    {
         for (i = 1; i <= num; i++)
             if ((pchar = strchr(cmn_base, toupper(bseq[i]))) != NULL)
                 ibase[i] = pchar - cmn_base;
@@ -1552,13 +1625,14 @@ void base_idx(long num, char *bseq, long *ibase, long single)
     }
 }
 
-void plane_xyz(long num, double **xyz, double *ppos, double *nml,double **nxyz)
+void plane_xyz(long num, double **xyz, double *ppos, double *nml, double **nxyz)
 /* given plane normal and its center, project all coordinates onto it */
 {
     long i, j;
     double temp, d[4];
 
-    for (i = 1; i <= num; i++) {
+    for (i = 1; i <= num; i++)
+    {
         for (j = 1; j <= 3; j++)
             d[j] = xyz[i][j] - ppos[j];
         temp = dot(d, nml);
@@ -1573,7 +1647,7 @@ void prj2plane(long num, long rnum, char **AtomName, double **xyz, double z0,
 {
     double ang, temp;
     double zaxis[4] =
-    {EMPTY_NUMBER, 0.0, 0.0, 1.0};
+        {EMPTY_NUMBER, 0.0, 0.0, 1.0};
     double adist[10], hinge[4], ppos[4], z[4];
     double **bxyz, **rmtx;
 
@@ -1596,7 +1670,8 @@ void prj2plane(long num, long rnum, char **AtomName, double **xyz, double z0,
 
     /* reorient the structure to make z-coordinate zero */
     rmtx = dmatrix(1, 3, 1, 3);
-    if (z0) {
+    if (z0)
+    {
         cross(z, zaxis, hinge);
         ang = magang(z, zaxis);
         arb_rotation(hinge, ang, rmtx);
@@ -1628,13 +1703,14 @@ void adjust_xy(long num, double **xyz, long nO, double **oxyz,
     if (scale_factor < XEPS)
         scale_factor = default_size / temp;
 
-    printf( "\n ...... scale factor: %.2f ...... \n", scale_factor);
+    printf("\n ...... scale factor: %.2f ...... \n", scale_factor);
 
     move_position(xyz, num, 2, min_xy);
     for (i = 1; i <= num; i++)
         for (j = 1; j <= 2; j++)
             xyz[i][j] *= scale_factor;
-    if (nO) {
+    if (nO)
+    {
         move_position(oxyz, nO, 2, min_xy);
         for (i = 1; i <= nO; i++)
             for (j = 1; j <= 2; j++)
@@ -1648,7 +1724,7 @@ void adjust_xy(long num, double **xyz, long nO, double **oxyz,
 void get_depth(long nobj, long *zval, long *depth)
 {
     double temp;
-    long depth_low = 991, depth_up = 11;        /* depth level */
+    long depth_low = 991, depth_up = 11; /* depth level */
     long i, j;
 
     /* reset zval to [depth_low -- depth_up] for depth level */
@@ -1659,7 +1735,7 @@ void get_depth(long nobj, long *zval, long *depth)
 }
 
 void base_label(double **rxyz, char *label_style, double *rgbv, char bname,
-                FILE * fp)
+                FILE *fp)
 /* label the base in the center of six-membered ring */
 {
     static char *format = "%9.3f";
@@ -1667,7 +1743,7 @@ void base_label(double **rxyz, char *label_style, double *rgbv, char bname,
     long i;
 
     for (i = 1; i <= 3; i++)
-        cxyz[i] = 0.5 * (rxyz[1][i] + rxyz[4][i]);        /* N1 + C4 */
+        cxyz[i] = 0.5 * (rxyz[1][i] + rxyz[4][i]); /* N1 + C4 */
     fprintf(fp, "10\n%s11\n", label_style);        /* label_style has \n */
     for (i = 1; i <= 3; i++)
         fprintf(fp, format, cxyz[i]);
@@ -1675,8 +1751,6 @@ void base_label(double **rxyz, char *label_style, double *rgbv, char bname,
         fprintf(fp, format, rgbv[i]);
     fprintf(fp, "\n%c\n", bname);
 }
-
-
 
 void check_Watson_Crick(long num_bp, char **bp_seq, double **orien,
                         double **org, long *WC_info)
@@ -1688,19 +1762,21 @@ void check_Watson_Crick(long num_bp, char **bp_seq, double **orien,
 {
     char bpi[3];
     static char *WC[9] =
-    {"XX", "AT", "AU", "TA", "UA", "GC", "CG", "IC", "CI"};
+        {"XX", "AT", "AU", "TA", "UA", "GC", "CG", "IC", "CI"};
     double temp[4];
     long i, ioffset, j, k;
 
     /* y- and z-axes of strand II base have been reversed */
-    for (i = 1; i <= num_bp; i++) {
+    for (i = 1; i <= num_bp; i++)
+    {
         ioffset = (i - 1) * 9;
         sprintf(bpi, "%c%c", toupper(bp_seq[1][i]), toupper(bp_seq[2][i]));
         k = dot(&orien[1][ioffset], &orien[2][ioffset]) > 0.0 &&
             dot(&orien[1][ioffset + 3], &orien[2][ioffset + 3]) > 0.0 &&
             dot(&orien[1][ioffset + 6], &orien[2][ioffset + 6]) > 0.0;
-        if (k) {
-            WC_info[i] = 1;        /* WC geometry */
+        if (k)
+        {
+            WC_info[i] = 1; /* WC geometry */
             ioffset = (i - 1) * 3;
             for (j = 1; j <= 3; j++)
                 temp[j] = org[1][ioffset + j] - org[2][ioffset + j];
@@ -1710,7 +1786,6 @@ void check_Watson_Crick(long num_bp, char **bp_seq, double **orien,
     }
 }
 
-
 void base_frame(long num_residue, char *bseq, long **seidx, long *RY,
                 char **AtomName, char **ResName, char *ChainID,
                 long *ResSeq, char **Miscs, double **xyz, char *BDIR,
@@ -1719,77 +1794,78 @@ void base_frame(long num_residue, char *bseq, long **seidx, long *RY,
    included in least-squares fitting. similar to REF_FRAMES */
 {
     static char *RingAtom[9] =
-    {" C4 ", " N3 ", " C2 ", " N1 ", " C6 ", " C5 ", " N7 ", " C8 ",
-     " N9 "
-    };
-    
+        {" C4 ", " N3 ", " C2 ", " N1 ", " C6 ", " C5 ", " N7 ", " C8 ",
+         " N9 "};
+
     char **sAtomName, resnam;
     char idmsg[BUF512];
-    long i,ii, ib, ie, j, k, RingAtom_num;
-    long exp_katom, nmatch, std_katom,num;
+    long i, ii, ib, ie, j, k, RingAtom_num;
+    long exp_katom, nmatch, std_katom, num;
 
     double rms_fit, orgi[4];
-    double **eRing_xyz,  **sRing_xyz, **fitted_xyz, **R;
-
+    double **eRing_xyz, **sRing_xyz, **fitted_xyz, **R;
 
     sAtomName = cmatrix(1, 20, 0, 4);
-    
+
     eRing_xyz = dmatrix(1, 9, 1, 3);
     sRing_xyz = dmatrix(1, 9, 1, 3);
     fitted_xyz = dmatrix(1, 9, 1, 3);
     R = dmatrix(1, 3, 1, 3);
 
     get_reference_pdb(BDIR);
-    
-    
-    for (i = 1; i <= num_residue; i++) {
+
+    for (i = 1; i <= num_residue; i++)
+    {
         if (RY[i] < 0)
-            continue;                /* non-bases */
-	resnam = bseq[i];
+            continue; /* non-bases */
+        resnam = bseq[i];
         ib = seidx[i][1];
         ie = seidx[i][2];
         ii = ref_idx(resnam);
         num = std[ii].sNatom;
-            /*    
-        printf("\nNum = %d RES = %c",num, bseq[i]);
-            */  
-        for(j=1; j<=num; j++){
-            strncpy(sAtomName[j], std[ii].sAtomNam[j],4);
-                /*    printf(" %s ", sAtomName[j]);*/
-                /* Why do I have to use strncpy instead of strcpy? */
+        /*
+    printf("\nNum = %d RES = %c",num, bseq[i]);
+        */
+        for (j = 1; j <= num; j++)
+        {
+            strncpy(sAtomName[j], std[ii].sAtomNam[j], 4);
+            /*    printf(" %s ", sAtomName[j]);*/
+            /* Why do I have to use strncpy instead of strcpy? */
         }
-        
+
         sprintf(idmsg, ": residue name %s, chain %c, number %4ld%c",
                 ResName[ib], ChainID[ib], ResSeq[ib], Miscs[ib][2]);
 
         RingAtom_num = (RY[i] == 1) ? 9 : 6;
         nmatch = 0;
-        for (j = 0; j < RingAtom_num; j++) {
+        for (j = 0; j < RingAtom_num; j++)
+        {
             exp_katom = find_1st_atom(RingAtom[j], AtomName, ib, ie, idmsg);
             std_katom = find_1st_atom(RingAtom[j], sAtomName, 1, num, "");
-            
-            if (exp_katom && std_katom) {
+
+            if (exp_katom && std_katom)
+            {
                 ++nmatch;
-                for (k = 1; k <= 3; k++) {
+                for (k = 1; k <= 3; k++)
+                {
                     eRing_xyz[nmatch][k] = xyz[exp_katom][k];
                     sRing_xyz[nmatch][k] = std[ii].sxyz[std_katom][k];
                 }
             }
         }
-            /*    printf(" %d\n",nmatch);*/
+        /*    printf(" %d\n",nmatch);*/
 
-        ls_fitting(sRing_xyz, eRing_xyz, nmatch, &rms_fit,fitted_xyz, R, orgi);
-        
-        for (j = 1; j <= 3; j++) {
+        ls_fitting(sRing_xyz, eRing_xyz, nmatch, &rms_fit, fitted_xyz, R, orgi);
+
+        for (j = 1; j <= 3; j++)
+        {
             org[i][j] = orgi[j];
-            orien[i][j] = R[j][1];            /* x-axis */
-            orien[i][j + 3] = R[j][2];        /* y-axis */
-            orien[i][j + 6] = R[j][3];        /* z=axis */
+            orien[i][j] = R[j][1];     /* x-axis */
+            orien[i][j + 3] = R[j][2]; /* y-axis */
+            orien[i][j + 6] = R[j][3]; /* z=axis */
         }
-        
     }
-    
-    
+
     free_dmatrix(eRing_xyz, 1, 9, 1, 3);
     free_dmatrix(sRing_xyz, 1, 9, 1, 3);
     free_dmatrix(fitted_xyz, 1, 9, 1, 3);
@@ -1802,33 +1878,32 @@ long read_pdb_ref(char *pdbfile, char **sAtomName, double **sxyz)
     char str[BUF512], temp[BUF512];
     long n = 0;
     FILE *fp;
-          
-    if((fp = fopen(pdbfile, "r"))==NULL) {        
-        printf("Can not open the file %s (routine: read_pdb_ref)\n",pdbfile);
+
+    if ((fp = fopen(pdbfile, "r")) == NULL)
+    {
+        printf("Can not open the file %s (routine: read_pdb_ref)\n", pdbfile);
         return 0;
     }
-       
-    while (fgets(str, sizeof str, fp) != NULL) {
-        if(strncmp(str, "ATOM", 4) )
-           continue;
-           
-            n++;
-            strncpy(sAtomName[n], str + 12, 4);
-            sAtomName[n][4] = '\0';
 
-            strncpy(temp, str + 30, 25);           /* xyz */
-            temp[25] = '\0';
-            if (sscanf(temp,"%8lf%8lf%8lf",
-                       &sxyz[n][1],&sxyz[n][2],&sxyz[n][3])!=3)
-                nrerror("error reading xyz-coordinate");
-            
+    while (fgets(str, sizeof str, fp) != NULL)
+    {
+        if (strncmp(str, "ATOM", 4))
+            continue;
+
+        n++;
+        strncpy(sAtomName[n], str + 12, 4);
+        sAtomName[n][4] = '\0';
+
+        strncpy(temp, str + 30, 25); /* xyz */
+        temp[25] = '\0';
+        if (sscanf(temp, "%8lf%8lf%8lf",
+                   &sxyz[n][1], &sxyz[n][2], &sxyz[n][3]) != 3)
+            nrerror("error reading xyz-coordinate");
     }
 
     fclose(fp);
     return n;
 }
-    
-
 
 void hb_crt_alt(double *HB_UPPER, char *HB_ATOM, char *ALT_LIST)
 /* read in H-bond length upper limit etc from <misc_3dna.par> */
@@ -1839,20 +1914,21 @@ void hb_crt_alt(double *HB_UPPER, char *HB_ATOM, char *ALT_LIST)
     /* read in H-bond length upper limit */
     get_BDIR(BDIR, PAR_FILE);
     strcat(BDIR, PAR_FILE);
-  /*       printf( " ...... reading file: %s ...... \n", PAR_FILE); */
+    /*       printf( " ...... reading file: %s ...... \n", PAR_FILE); */
 
-    if((fp=fopen(BDIR, "r"))==NULL){
-        printf("I can not open file %s (routine:hb_crt_alt)\n",BDIR);
+    if ((fp = fopen(BDIR, "r")) == NULL)
+    {
+        printf("I can not open file %s (routine:hb_crt_alt)\n", BDIR);
         exit(0);
     }
-    
+
     if ((fgets(str, sizeof str, fp) == NULL) ||
-        (sscanf(str,"%lf %lf %s %s",
+        (sscanf(str, "%lf %lf %s %s",
                 &HB_UPPER[0], &HB_UPPER[1], HB_ATOM, ALT_LIST) != 4))
         nrerror("error reading upper HB criteria/alternative indicator");
     upperstr(HB_ATOM);
     upperstr(ALT_LIST);
-    strcat(ALT_LIST, " ");        /* attach space */
+    strcat(ALT_LIST, " "); /* attach space */
 
     fclose(fp);
 }
@@ -1861,13 +1937,12 @@ void atom_info(long idx, char atoms_list[NELE][3], double *covalence_radii,
                double *vdw_radii)
 {
     static char *ALIST[NELE] =
-    {"XX", "C ", "O ", "H ", "N ", "S ", "P ", "F ", "CL", "BR", "I ", "SI"};
+        {"XX", "C ", "O ", "H ", "N ", "S ", "P ", "F ", "CL", "BR", "I ", "SI"};
     static double CRADII[NELE] =
-    {1.200, 0.762, 0.646, 0.352, 0.689, 1.105, 1.000, 0.619, 1.022,
-     1.183, 1.378, 1.105
-    };
+        {1.200, 0.762, 0.646, 0.352, 0.689, 1.105, 1.000, 0.619, 1.022,
+         1.183, 1.378, 1.105};
     static double VRADII[NELE] =
-    {2.00, 1.70, 1.52, 1.20, 1.55, 1.80, 1.80, 1.47, 1.75, 1.85, 1.98, 2.10};
+        {2.00, 1.70, 1.52, 1.20, 1.55, 1.80, 1.80, 1.47, 1.75, 1.85, 1.98, 2.10};
     long i;
 
     if (idx == 1)
@@ -1890,22 +1965,26 @@ void atom_idx(long num, char **AtomName, long *idx)
     long i, j;
 
     atom_info(1, atoms_list, NULL, NULL);
-    for (i = 1; i <= num; i++) {
-        if (AtomName[i][0] == 'H') {        /* e.g. H2'1 */
+    for (i = 1; i <= num; i++)
+    {
+        if (AtomName[i][0] == 'H')
+        { /* e.g. H2'1 */
             idx[i] = 3;
             continue;
         }
-        c2 = isupper((int) AtomName[i][2]) ? AtomName[i][2] : ' ';
-        if (c2 != 'L' && c2 != 'R' && c2 != 'I')        /* CL, BR, SI */
-            c2 = ' ';                /* e.g. "CA" to "C " */
-        for (j = 0; j < NELE; j++) {
-            if (AtomName[i][1] == atoms_list[j][0] && c2 == atoms_list[j][1]) {
+        c2 = isupper((int)AtomName[i][2]) ? AtomName[i][2] : ' ';
+        if (c2 != 'L' && c2 != 'R' && c2 != 'I') /* CL, BR, SI */
+            c2 = ' ';                            /* e.g. "CA" to "C " */
+        for (j = 0; j < NELE; j++)
+        {
+            if (AtomName[i][1] == atoms_list[j][0] && c2 == atoms_list[j][1])
+            {
                 idx[i] = j;
                 break;
             }
         }
         if (j >= NELE)
-            idx[i] = 0;                /* not found: use default */
+            idx[i] = 0; /* not found: use default */
     }
 }
 
@@ -1921,15 +2000,18 @@ void atom_linkage(long ib, long ie, long *idx, double **xyz,
 
     atom_info(2, NULL, covalence_radii, NULL);
     for (j = ib; j <= ie - 1; j++)
-        for (k = j + 1; k <= ie; k++) {
+        for (k = j + 1; k <= ie; k++)
+        {
             dst = BOND_FACTOR * (covalence_radii[idx[j]] + covalence_radii[idx[k]]);
             for (m = 1; m <= 3; m++)
                 if (fabs(dxyz[m] = xyz[j][m] - xyz[k][m]) > dst)
                     break;
-            if (m > 3 && veclen(dxyz) <= dst) {
+            if (m > 3 && veclen(dxyz) <= dst)
+            {
                 if (++*nbond > nbond_estimated)
                     nrerror("too many linkages");
-                else {
+                else
+                {
                     linkage[*nbond][1] = j;
                     linkage[*nbond][2] = k;
                 }
@@ -1946,13 +2028,13 @@ void del_extension(char *pdbfile, char *parfile)
     pchar = strrchr(pdbfile, '.');
     if (pchar == NULL)
         strcpy(parfile, pdbfile);
-    else {
+    else
+    {
         i = pchar - pdbfile;
         strncpy(parfile, pdbfile, i);
         parfile[i] = '\0';
     }
 }
-
 
 void o3_p_xyz(long ib, long ie, char *aname, char **AtomName, double **xyz,
               double *o3_or_p, long idx)
@@ -1961,11 +2043,13 @@ void o3_p_xyz(long ib, long ie, char *aname, char **AtomName, double **xyz,
     long i, j;
 
     i = find_1st_atom(aname, AtomName, ib, ie, "");
-    if (i) {                        /* with O3'/P atom */
+    if (i)
+    { /* with O3'/P atom */
         for (j = 1; j <= 3; j++)
             o3_or_p[idx - 4 + j] = xyz[i][j];
         o3_or_p[idx] = 1.0;
-    } else                        /* without O3'/P atom */
+    }
+    else /* without O3'/P atom */
         o3_or_p[idx] = -1.0;
 }
 
@@ -1990,42 +2074,46 @@ void base_info(long num_residue, char *bseq, long **seidx, long *RY,
     strcat(BDIR, PAR_FILE);
     fpar = fopen(BDIR, "r");
 
-    if((fpar=fopen(BDIR, "r"))==NULL){
-        printf("I can not open file %s (routine:base_info)\n",BDIR);
+    if ((fpar = fopen(BDIR, "r")) == NULL)
+    {
+        printf("I can not open file %s (routine:base_info)\n", BDIR);
         exit(0);
     }
-    
-        /* printf( " ...... reading file: %s ...... \n", PAR_FILE);*/
+
+    /* printf( " ...... reading file: %s ...... \n", PAR_FILE);*/
     for (i = 1; i <= 6; i++)
         if ((fgets(str, sizeof str, fpar) == NULL) ||
             (sscanf(str, "%lf", &BPRS[i]) != 1))
             nrerror("error reading base-pair criterion parameters");
     BPRS[4] = 90.0 - fabs(fabs(BPRS[4]) - 90.0);
     if (BPRS[6] > 12.0)
-        BPRS[6] = 12.0;                /* maximum 12.0 A */
+        BPRS[6] = 12.0; /* maximum 12.0 A */
     fclose(fpar);
 
-    for (i = 1; i <= num_residue; i++) {
+    for (i = 1; i <= num_residue; i++)
+    {
         ib = seidx[i][1];
         ie = seidx[i][2];
         if (RY[i] == 1)
-            j = find_1st_atom(" N9 ", AtomName, ib, ie,"");
-        else if (RY[i] == 0){
-            if(bseq[i] == 'P' || bseq[i] == 'p')
-/* suppose C5 is in the position of N1 for PSU  */
+            j = find_1st_atom(" N9 ", AtomName, ib, ie, "");
+        else if (RY[i] == 0)
+        {
+            if (bseq[i] == 'P' || bseq[i] == 'p')
+                /* suppose C5 is in the position of N1 for PSU  */
                 j = find_1st_atom(" C5 ", AtomName, ib, ie, "");
             else
                 j = find_1st_atom(" N1 ", AtomName, ib, ie, "");
         }
-        if (RY[i] >= 0) {
-              
-         /* 
-            j =
-                (RY[i] == 1) ?
-                find_1st_atom(" N9 ", AtomName, ib, ie,
-                              "") :find_1st_atom(" N1 ", AtomName, ib, ie, "");
-         */   
-            for (k = 1; k <= 3; k++)       
+        if (RY[i] >= 0)
+        {
+
+            /*
+               j =
+                   (RY[i] == 1) ?
+                   find_1st_atom(" N9 ", AtomName, ib, ie,
+                                 "") :find_1st_atom(" N1 ", AtomName, ib, ie, "");
+            */
+            for (k = 1; k <= 3; k++)
                 Nxyz[i][k] = xyz[j][k];
             o3_p_xyz(ib, ie, " O3'", AtomName, xyz, o3_p[i], 4);
             o3_p_xyz(ib, ie, " P  ", AtomName, xyz, o3_p[i], 8);
@@ -2036,7 +2124,7 @@ void base_info(long num_residue, char *bseq, long **seidx, long *RY,
 void bp_network(long num_residue, long *RY, long **seidx, char **AtomName,
                 char **ResName, char *ChainID, long *ResSeq, char **Miscs,
                 double **xyz, char *bseq, long **pair_info, double **Nxyz,
-                double **orien, double **org, double *BPRS, FILE * fp,
+                double **orien, double **org, double *BPRS, FILE *fp,
                 long *num_multi, long *multi_idx, long **multi)
 /* get the base-pair networking system: triple, etc */
 {
@@ -2047,14 +2135,15 @@ void bp_network(long num_residue, long *RY, long **seidx, char **AtomName,
 
     for (i = 1; i <= num_residue; i++)
         if (RY[i] >= 0)
-            tnum_base++;        /* total number of bases */
+            tnum_base++; /* total number of bases */
 
     ivec = lvector(1, tnum_base);
     idx1 = lvector(1, tnum_base);
     idx2 = lvector(1, tnum_base);
 
-        /* fprintf(fp, "\nDetailed pairing information for each base\n"); */
-    for (i = 1; i <= num_residue; i++) {
+    /* fprintf(fp, "\nDetailed pairing information for each base\n"); */
+    for (i = 1; i <= num_residue; i++)
+    {
         if (RY[i] < 0)
             continue;
 
@@ -2062,7 +2151,7 @@ void bp_network(long num_residue, long *RY, long **seidx, char **AtomName,
         baseinfo(ChainID[ir], ResSeq[ir], Miscs[ir][2], ResName[ir],
                  bseq[i], 1, b1);
 
-        /* list of direct pairing 
+        /* list of direct pairing
         fprintf(fp, "%5ld %s: [%2ld]", i, b1, pair_info[i][NP]);
         for (j = 1; j <= pair_info[i][NP]; j++)
             fprintf(fp, "%5ld", pair_info[i][j]);
@@ -2075,43 +2164,51 @@ void bp_network(long num_residue, long *RY, long **seidx, char **AtomName,
         inum_base = 1;
 
         m = 1;
-        while (ivec[m] && m <= tnum_base) {
+        while (ivec[m] && m <= tnum_base)
+        {
             ir = ivec[m++];
-            for (j = 1; j <= pair_info[ir][NP]; j++) {
+            for (j = 1; j <= pair_info[ir][NP]; j++)
+            {
                 for (k = 1; k <= inum_base; k++)
                     if (pair_info[ir][j] == ivec[k])
                         break;
-                if (k > inum_base)        /* not in the list yet */
+                if (k > inum_base) /* not in the list yet */
                     ivec[++inum_base] = pair_info[ir][j];
             }
         }
 
-        /* list of networked pairing 
+        /* list of networked pairing
         fprintf(fp, "                      [%2ld]", inum_base - 1);
         for (j = 2; j <= inum_base; j++)
             fprintf(fp, "%5ld", ivec[j]);
         fprintf(fp, "\n");*/
 
         /* keep only the ones that have {dv, angle, and dNN} in range */
-        for (j = 1; j <= inum_base - 1; j++) {
+        for (j = 1; j <= inum_base - 1; j++)
+        {
             if (ivec[j] < 0)
                 continue;
             m = 0;
-            for (k = j + 1; k <= inum_base; k++) {
+            for (k = j + 1; k <= inum_base; k++)
+            {
                 m++;
-                if (ivec[k] < 0) {
+                if (ivec[k] < 0)
+                {
                     idx1[m] = 1000000 - ivec[k];
                     continue;
                 }
                 check_pair(ivec[j], ivec[k], bseq, seidx, xyz, Nxyz,
-                           orien, org,AtomName , BPRS, rtn_val, &bpid, 1, criteria);
-                if (!bpid) {        /* not in a network yet */
+                           orien, org, AtomName, BPRS, rtn_val, &bpid, 1, criteria);
+                if (!bpid)
+                { /* not in a network yet */
                     idx1[m] = 1000000 + ivec[k];
                     ivec[k] = -ivec[k];
-                } else
-                    idx1[m] = get_round(MFACTOR * rtn_val[2]);        /* vertical distance */
+                }
+                else
+                    idx1[m] = get_round(MFACTOR * rtn_val[2]); /* vertical distance */
             }
-            if (m > 1) {
+            if (m > 1)
+            {
                 lsort(m, idx1, idx2);
                 for (k = 1; k <= m; k++)
                     idx1[k] = ivec[j + idx2[k]];
@@ -2122,33 +2219,37 @@ void bp_network(long num_residue, long *RY, long **seidx, char **AtomName,
 
         k = 0;
         for (j = 2; j <= inum_base; j++)
-            if (ivec[j] > 0) {
-                if (++k >= NP) {
-                    printf( "residue %s has over %ld pairs\n", b1,
-                            NP - 1);
+            if (ivec[j] > 0)
+            {
+                if (++k >= NP)
+                {
+                    printf("residue %s has over %ld pairs\n", b1,
+                           NP - 1);
                     --k;
                     break;
-                } else
+                }
+                else
                     pair_info[i][k] = ivec[j];
             }
-        pair_info[i][NP] = k;        /* total number of pairs for residue i */
-        if (k++ > 1) {
+        pair_info[i][NP] = k; /* total number of pairs for residue i */
+        if (k++ > 1)
+        {
             num_ple++;
             if (k > max_ple)
                 max_ple = k;
         }
-            /*
-        fprintf(fp, "                      [%2ld]", pair_info[i][NP]);
-        for (j = 1; j <= pair_info[i][NP]; j++)
-            fprintf(fp, "%5ld", pair_info[i][j]);
-        fprintf(fp, "\n");
-            */
+        /*
+    fprintf(fp, "                      [%2ld]", pair_info[i][NP]);
+    for (j = 1; j <= pair_info[i][NP]; j++)
+        fprintf(fp, "%5ld", pair_info[i][j]);
+    fprintf(fp, "\n");
+        */
     }
 
     if (num_ple)
         multiplets(num_ple, max_ple, num_residue, pair_info, ivec, idx1,
                    AtomName, ResName, ChainID, ResSeq, Miscs, xyz, orien,
-                   org, seidx, bseq, fp, num_multi,multi_idx,multi);
+                   org, seidx, bseq, fp, num_multi, multi_idx, multi);
 
     free_lvector(ivec, 1, tnum_base);
     free_lvector(idx1, 1, tnum_base);
@@ -2158,21 +2259,21 @@ void multiplets(long num_ple, long max_ple, long num_residue,
                 long **pair_info, long *ivec, long *idx1, char **AtomName,
                 char **ResName, char *ChainID, long *ResSeq, char **Miscs,
                 double **xyz, double **orien, double **org, long **seidx,
-                char *bseq, FILE * fp, long *num_multi, long *multi_idx,
+                char *bseq, FILE *fp, long *num_multi, long *multi_idx,
                 long **multi)
 /* print out multiplets information and write out the coordinates */
 {
-    char  pairstr[BUF512], pairnum[BUF512],tmp[BUF512];
+    char pairstr[BUF512], pairnum[BUF512], tmp[BUF512];
     double z[4] =
-    {EMPTY_NUMBER, 0.0, 0.0, 1.0};
+        {EMPTY_NUMBER, 0.0, 0.0, 1.0};
     double hinge[4], zave[4], pave[4], **ztot, **ptot, **rotmat, **xyz_residue;
     long i, inum_base, inum, is_exist, j, jr, k, m, n_unique = 0, **mtxple;
- /*   FILE *mfp;*/
- /*   
-    mfp = open_file("multiplets.pdb", "w");
+    /*   FILE *mfp;*/
+    /*
+       mfp = open_file("multiplets.pdb", "w");
 
-    fprintf(fp, "\n_________________________________________________________\n");
-*/
+       fprintf(fp, "\n_________________________________________________________\n");
+   */
     fprintf(fp, "\nSummary of triplets and higher multiplets\n");
     fprintf(fp, "BEGIN_multiplets\n");
     mtxple = lmatrix(1, num_ple, 0, max_ple);
@@ -2181,53 +2282,59 @@ void multiplets(long num_ple, long max_ple, long num_residue,
     rotmat = dmatrix(1, 3, 1, 3);
     xyz_residue = dmatrix(1, NUM_RESIDUE_ATOMS, 1, 3);
 
-    for (i = 1; i <= num_residue; i++) {
-        if (pair_info[i][NP] > 1) {
+    for (i = 1; i <= num_residue; i++)
+    {
+        if (pair_info[i][NP] > 1)
+        {
             inum_base = pair_info[i][NP] + 1;
             ivec[1] = i;
             for (j = 1; j <= pair_info[i][NP]; j++)
                 ivec[j + 1] = pair_info[i][j];
-            lsort(inum_base, ivec, idx1);        /* sort into order */
-            is_exist = 0;        /* check if already counted */
+            lsort(inum_base, ivec, idx1); /* sort into order */
+            is_exist = 0;                 /* check if already counted */
             for (j = 1; j <= n_unique && !is_exist; j++)
-                if (inum_base == mtxple[j][0]) {        /* same base # */
+                if (inum_base == mtxple[j][0])
+                { /* same base # */
                     for (k = 1; k <= mtxple[j][0]; k++)
                         if (ivec[k] != mtxple[j][k])
                             break;
                     if (k > mtxple[j][0])
-                        is_exist = 1;        /* already there */
+                        is_exist = 1; /* already there */
                 }
-            if(inum_base >=20)
+            if (inum_base >= 20)
                 printf("Too many network interactions, Increse Memery");
 
-            if (!is_exist) {
+            if (!is_exist)
+            {
                 mtxple[++n_unique][0] = inum_base;
                 pairstr[0] = '\0';
                 pairnum[0] = '\0';
                 multi_idx[n_unique] = inum_base;
-                
-                for (j = 1; j <= inum_base; j++) {
+
+                for (j = 1; j <= inum_base; j++)
+                {
                     jr = ivec[j];
                     multi[n_unique][j] = jr;
-                    mtxple[n_unique][j] = jr;        /* a copy of unique case */
+                    mtxple[n_unique][j] = jr; /* a copy of unique case */
                     k = seidx[jr][1];
                     /*
                     baseinfo(ChainID[k], ResSeq[k], Miscs[k][2],
                              ResName[k], bseq[jr], 1, b1);
-                        
+
                     sprintf(tmp, "[%ld]%s%s", jr, b1,
                             (j == inum_base) ? "" : " + ");
                         */
                     sprintf(tmp, "%c: %d %c%s", ChainID[k], ResSeq[k], bseq[jr],
                             (j == inum_base) ? "" : "  +  ");
-                    
+
                     strcat(pairstr, tmp);
-                    
-                    sprintf(tmp, "%d_",jr);
-                    
+
+                    sprintf(tmp, "%d_", jr);
+
                     strcat(pairnum, tmp);
-                    
-                    for (k = 1; k <= 3; k++) {
+
+                    for (k = 1; k <= 3; k++)
+                    {
                         if (j > 1 && dot(ztot[1], &orien[jr][6]) < 0.0)
                             ztot[j][k] = -orien[jr][6 + k];
                         else
@@ -2235,7 +2342,7 @@ void multiplets(long num_ple, long max_ple, long num_residue,
                         ptot[j][k] = org[jr][k];
                     }
                 }
-                fprintf(fp,"%s| [%d %d]  %s\n", pairnum,n_unique, inum_base, pairstr);
+                fprintf(fp, "%s| [%d %d]  %s\n", pairnum, n_unique, inum_base, pairstr);
 
                 /* write out coordinates in PDB format */
                 ave_dmatrix(ptot, inum_base, 3, pave);
@@ -2244,40 +2351,41 @@ void multiplets(long num_ple, long max_ple, long num_residue,
                 arb_rotation(hinge, magang(zave, z), rotmat);
 
                 inum = 0;
-                    /*
-                fprintf(mfp, "REMARK    Section #%4.4ld %ld\n", n_unique,
-                        inum_base);
-                fprintf(mfp, "REMARK    %s\n", pairstr);
-                    */
-                for (j = 1; j <= inum_base; j++) {        /* for each residue */
+                /*
+            fprintf(mfp, "REMARK    Section #%4.4ld %ld\n", n_unique,
+                    inum_base);
+            fprintf(mfp, "REMARK    %s\n", pairstr);
+                */
+                for (j = 1; j <= inum_base; j++)
+                { /* for each residue */
                     jr = ivec[j];
-                    for (k = seidx[jr][1]; k <= seidx[jr][2]; k++) {
+                    for (k = seidx[jr][1]; k <= seidx[jr][2]; k++)
+                    {
                         for (m = 1; m <= 3; m++)
                             zave[m] = xyz[k][m] - pave[m];
                         multi_vec_Tmatrix(zave, 3, rotmat, 3, 3,
                                           xyz_residue[k - seidx[jr][1] +
                                                       1]);
                     }
-                        /*
-                    pdb_record(seidx[jr][1], seidx[jr][2], &inum, 1,
-                               AtomName, ResName, ChainID, ResSeq,
-                               xyz_residue, Miscs, mfp);
-                        */
-                }
                     /*
-                fprintf(mfp, "END\n");
+                pdb_record(seidx[jr][1], seidx[jr][2], &inum, 1,
+                           AtomName, ResName, ChainID, ResSeq,
+                           xyz_residue, Miscs, mfp);
                     */
+                }
+                /*
+            fprintf(mfp, "END\n");
+                */
             }
         }
     }
-        
+
     fprintf(fp, "END_multiplets\n\n");
-        
-   
-    *num_multi =  n_unique;
-        /*
-    close_file(mfp);
-        */
+
+    *num_multi = n_unique;
+    /*
+close_file(mfp);
+    */
     free_lmatrix(mtxple, 1, num_ple, 0, max_ple);
     free_dmatrix(ztot, 1, max_ple, 1, 3);
     free_dmatrix(ptot, 1, max_ple, 1, 3);
@@ -2285,11 +2393,10 @@ void multiplets(long num_ple, long max_ple, long num_residue,
     free_dmatrix(xyz_residue, 1, NUM_RESIDUE_ATOMS, 1, 3);
 }
 
-
 void multi_vec_Tmatrix(double *a, long n, double **b, long nr, long nc, double *o)
 /* vector - transpose-of-matrix multiplication */
 {
-    double **tb;                /* transpose of b */
+    double **tb; /* transpose of b */
 
     tb = dmatrix(1, nc, 1, nr);
 
@@ -2307,7 +2414,8 @@ void lsort(long n, long *a, long *idx)
     long i, inc, iv, j;
 
     inc = 1;
-    do {
+    do
+    {
         inc *= 3;
         inc++;
     } while (inc <= n);
@@ -2315,13 +2423,16 @@ void lsort(long n, long *a, long *idx)
     for (i = 1; i <= n; i++)
         idx[i] = i;
 
-    do {
+    do
+    {
         inc /= 3;
-        for (i = inc + 1; i <= n; i++) {
+        for (i = inc + 1; i <= n; i++)
+        {
             v = a[i];
             iv = idx[i];
             j = i;
-            while (a[j - inc] > v) {
+            while (a[j - inc] > v)
+            {
                 a[j] = a[j - inc];
                 idx[j] = idx[j - inc];
                 j -= inc;
@@ -2338,11 +2449,12 @@ void get_chi(long i, long ii, long n, long **bs_1, long **seidx, char **AtomName
              char *bseq, long *RY, long **chi)
 /* get the chi number for helix */
 {
-    long j, n1, ib, ie, ioffset, c1,  o4;
-    char c2c4[5],   n1n9[5];
-    
-    for (j = 1; j <= n; j++){
-        n1=bs_1[ii][j];
+    long j, n1, ib, ie, ioffset, c1, o4;
+    char c2c4[5], n1n9[5];
+
+    for (j = 1; j <= n; j++)
+    {
+        n1 = bs_1[ii][j];
         ib = seidx[n1][1];
         ie = seidx[n1][2];
         o4 = find_1st_atom(" O4'", AtomName, ib, ie, "");
@@ -2350,166 +2462,169 @@ void get_chi(long i, long ii, long n, long **bs_1, long **seidx, char **AtomName
         ioffset = (j - 1) * 4;
         chi[i][ioffset + 1] = o4;
         chi[i][ioffset + 2] = c1;
-        if (RY[n1] == 1) {
+        if (RY[n1] == 1)
+        {
             strcpy(n1n9, " N9 ");
             strcpy(c2c4, " C4 ");
-        } else if (RY[n1] == 0) {
+        }
+        else if (RY[n1] == 0)
+        {
             strcpy(n1n9, " N1 ");
             strcpy(c2c4, " C2 ");
-            if (bseq[n1] == 'P' || bseq[n1] == 'p') {
+            if (bseq[n1] == 'P' || bseq[n1] == 'p')
+            {
                 strcpy(n1n9, " C5 ");
                 strcpy(c2c4, " C4 ");
             }
         }
         chi[i][ioffset + 3] = find_1st_atom(n1n9, AtomName, ib, ie, "");
         chi[i][ioffset + 4] = find_1st_atom(c2c4, AtomName, ib, ie, "");
-        
     }
 }
-                    
+
 void rot_2_lsplane(long num, char **AtomName, double **xyz)
 
 {
-    double *adist,  /* distances away from the ls-plane */
-        odist,      /* distance of the plane away from the origin */
-        ppos[4],    /* the averaged xyz for all the atoms */
-        z[4];       /* the unit normal vector of the plane (on Z positive)*/
+    double *adist, /* distances away from the ls-plane */
+        odist,     /* distance of the plane away from the origin */
+        ppos[4],   /* the averaged xyz for all the atoms */
+        z[4];      /* the unit normal vector of the plane (on Z positive)*/
     double **nxyz, **rotmat, hinge[4];
     double zphy[4] = {EMPTY_NUMBER, 0.0, 0.0, 1.0}; /* the physical axis (z) */
-    
-    long j,k,atmnum, inum=0;
+
+    long j, k, atmnum, inum = 0;
 
     nxyz = dmatrix(1, num, 1, 3);
-    adist=dvector(1,num);
+    adist = dvector(1, num);
     rotmat = dmatrix(1, 3, 1, 3);
-    
-    atmnum=0;    /* only use the backbone atoms for LS fitting */
-        for(j=1; j<=num; j++){
-            if(!strcmp(AtomName[j], " P  ") || !strcmp(AtomName[j], " O5'") ||
-               !strcmp(AtomName[j], " C5'") || !strcmp(AtomName[j], " C4'") ||
-               !strcmp(AtomName[j], " C3'") || !strcmp(AtomName[j], " O3'" ) )
-               {
-                   atmnum++;
-                   for (k=1; k<=3; k++)
-                       nxyz[atmnum][k] = xyz[j][k];
-               }
-                   
-        }        
-    
-    ls_plane(nxyz, atmnum, z, ppos, &odist, adist);  /* the best plane */
-    cross(z, zphy, hinge);       
-    arb_rotation(hinge, magang(zphy, z), rotmat);
 
-/* rotate the new coordinates (or ls-plane) to the physical (view) system  */
-    for(j=1; j<=num; j++){
-        for (k=1; k<=3; k++)
-            nxyz[j][k] = dot(xyz[j], rotmat[k]);
-        for (k=1; k<=3; k++)
-            xyz[j][k] = nxyz[j][k];            
-    }
-
-
-    free_dvector(adist,1,atmnum);
-    free_dmatrix(nxyz, 1, atmnum, 1, 3);
-    free_dmatrix(rotmat, 1, 3, 1, 3);
-    
-    
-}
-
-void rot_2_Yaxis (long num_residue,  double *z, long **seidx, double **xyz )
-{
-     /*  z  : the unit vector along the axis*/
-    double **nxyz, **rotmat, hinge[4];
-    double Yphy[4] = {EMPTY_NUMBER, 0.0, 1.0, 0.0}; /* the physical axis (z) */
-    long i,j,k, atmnum;
-
-    rotmat = dmatrix(1, 3, 1, 3);
-    cross(z, Yphy, hinge);       
-    arb_rotation(hinge, magang(Yphy, z), rotmat);
-
- /* rotate the new coordinates (or ls-plane) to the physical (view) system   */
-    nxyz = dmatrix(1, num_residue*100, 1, 3);
-    atmnum=0;    
-    for (i=1; i<=num_residue; i++){     
-        for(j=seidx[i][1]; j<=seidx[i][2]; j++){            
+    atmnum = 0; /* only use the backbone atoms for LS fitting */
+    for (j = 1; j <= num; j++)
+    {
+        if (!strcmp(AtomName[j], " P  ") || !strcmp(AtomName[j], " O5'") ||
+            !strcmp(AtomName[j], " C5'") || !strcmp(AtomName[j], " C4'") ||
+            !strcmp(AtomName[j], " C3'") || !strcmp(AtomName[j], " O3'"))
+        {
             atmnum++;
-            for (k=1; k<=3; k++)                
-                nxyz[atmnum][k] = dot(xyz[j], rotmat[k]);
-                
-            for (k=1; k<=3; k++)                
-                xyz[j][k] = nxyz[atmnum][k];            
-                
+            for (k = 1; k <= 3; k++)
+                nxyz[atmnum][k] = xyz[j][k];
         }
     }
-    free_dmatrix(nxyz, 1, num_residue*100, 1, 3);
-    
+
+    ls_plane(nxyz, atmnum, z, ppos, &odist, adist); /* the best plane */
+    cross(z, zphy, hinge);
+    arb_rotation(hinge, magang(zphy, z), rotmat);
+
+    /* rotate the new coordinates (or ls-plane) to the physical (view) system  */
+    for (j = 1; j <= num; j++)
+    {
+        for (k = 1; k <= 3; k++)
+            nxyz[j][k] = dot(xyz[j], rotmat[k]);
+        for (k = 1; k <= 3; k++)
+            xyz[j][k] = nxyz[j][k];
+    }
+
+    free_dvector(adist, 1, atmnum);
+    free_dmatrix(nxyz, 1, atmnum, 1, 3);
+    free_dmatrix(rotmat, 1, 3, 1, 3);
 }
 
-void rot_mol (long num_residue,  char **AtomName,char **ResName, char *ChainID,
-              long *ResSeq, double **xyz, long **seidx, long *RY)
+void rot_2_Yaxis(long num_residue, double *z, long **seidx, double **xyz)
 {
-    double *adist,  /* distances away from the ls-plane */
-        odist,      /* distance of the plane away from the origin */
-        ppos[4],    /* the averaged xyz for all the atoms */
-        z[4];       /* the unit normal vector of the plane (on Z positive)*/
+    /*  z  : the unit vector along the axis*/
+    double **nxyz, **rotmat, hinge[4];
+    double Yphy[4] = {EMPTY_NUMBER, 0.0, 1.0, 0.0}; /* the physical axis (z) */
+    long i, j, k, atmnum;
+
+    rotmat = dmatrix(1, 3, 1, 3);
+    cross(z, Yphy, hinge);
+    arb_rotation(hinge, magang(Yphy, z), rotmat);
+
+    /* rotate the new coordinates (or ls-plane) to the physical (view) system   */
+    nxyz = dmatrix(1, num_residue * 100, 1, 3);
+    atmnum = 0;
+    for (i = 1; i <= num_residue; i++)
+    {
+        for (j = seidx[i][1]; j <= seidx[i][2]; j++)
+        {
+            atmnum++;
+            for (k = 1; k <= 3; k++)
+                nxyz[atmnum][k] = dot(xyz[j], rotmat[k]);
+
+            for (k = 1; k <= 3; k++)
+                xyz[j][k] = nxyz[atmnum][k];
+        }
+    }
+    free_dmatrix(nxyz, 1, num_residue * 100, 1, 3);
+}
+
+void rot_mol(long num_residue, char **AtomName, char **ResName, char *ChainID,
+             long *ResSeq, double **xyz, long **seidx, long *RY)
+{
+    double *adist, /* distances away from the ls-plane */
+        odist,     /* distance of the plane away from the origin */
+        ppos[4],   /* the averaged xyz for all the atoms */
+        z[4];      /* the unit normal vector of the plane (on Z positive)*/
     double **Pxyz, **vxyz, **nxyz, **rotmat, hinge[4];
     double Yphy[4] = {EMPTY_NUMBER, 0.0, 1.0, 0.0}; /* the physical axis (z) */
-    long i,j,k,Pnum, atmnum, inum=0;
-   /* FILE *fp;
+    long i, j, k, Pnum, atmnum, inum = 0;
+    /* FILE *fp;
 
-        fp = fopen("Ydirect.pdb","w");*/
+         fp = fopen("Ydirect.pdb","w");*/
 
-    Pxyz = dmatrix(1,  num_residue, 1, 3);
-    Pnum= 0;    
-    for(i=1; i<=num_residue; i++) {   /* get the xyz coord for the P atoms */
-        if(RY[i] < 0 )
-            continue;    
-        for(j=seidx[i][1]; j<=seidx[i][2]; j++)
-            if(!strcmp(AtomName[j], " P  ")){
-                Pnum++;                
-                for(k=1; k<=3; k++)
-                    Pxyz[Pnum][k]=xyz[j][k];
-                break;                
+    Pxyz = dmatrix(1, num_residue, 1, 3);
+    Pnum = 0;
+    for (i = 1; i <= num_residue; i++)
+    { /* get the xyz coord for the P atoms */
+        if (RY[i] < 0)
+            continue;
+        for (j = seidx[i][1]; j <= seidx[i][2]; j++)
+            if (!strcmp(AtomName[j], " P  "))
+            {
+                Pnum++;
+                for (k = 1; k <= 3; k++)
+                    Pxyz[Pnum][k] = xyz[j][k];
+                break;
             }
     }
     vxyz = dmatrix(1, Pnum, 1, 3);
 
     for (i = 2; i <= Pnum; i++)
-         for (j = 1; j <= 3; j++)
-              vxyz[i-1][j] = Pxyz[i][j] - Pxyz[i-1][j];
-    
+        for (j = 1; j <= 3; j++)
+            vxyz[i - 1][j] = Pxyz[i][j] - Pxyz[i - 1][j];
+
     rotmat = dmatrix(1, 3, 1, 3);
-    adist=dvector(1,Pnum);
-    ls_plane(vxyz, Pnum-1, z, ppos, &odist, adist); 
-    cross(z, Yphy, hinge);       
+    adist = dvector(1, Pnum);
+    ls_plane(vxyz, Pnum - 1, z, ppos, &odist, adist);
+    cross(z, Yphy, hinge);
     arb_rotation(hinge, magang(Yphy, z), rotmat);
 
- /* rotate the new coordinates (or ls-plane) to the physical (view) system   */
-    nxyz = dmatrix(1, Pnum*100, 1, 3);
-    atmnum=0;    
-    for (i=1; i<=num_residue; i++){     
+    /* rotate the new coordinates (or ls-plane) to the physical (view) system   */
+    nxyz = dmatrix(1, Pnum * 100, 1, 3);
+    atmnum = 0;
+    for (i = 1; i <= num_residue; i++)
+    {
         if (RY[i] < 0)
             continue;
-        for(j=seidx[i][1]; j<=seidx[i][2]; j++){            
+        for (j = seidx[i][1]; j <= seidx[i][2]; j++)
+        {
             atmnum++;
-            for (k=1; k<=3; k++)                
+            for (k = 1; k <= 3; k++)
                 nxyz[atmnum][k] = dot(xyz[j], rotmat[k]);
-                
-            for (k=1; k<=3; k++)                
-                xyz[j][k] = nxyz[atmnum][k];            
-                
+
+            for (k = 1; k <= 3; k++)
+                xyz[j][k] = nxyz[atmnum][k];
         }
     }
-        /*
-    pdb_record(1, atmnum, &inum, 0, AtomName, ResName, ChainID, ResSeq,
-               nxyz, NULL, fp);
-        */
-    free_dvector(adist,  1, Pnum);
-     
-    free_dmatrix(nxyz, 1, Pnum*100, 1, 3);
+    /*
+pdb_record(1, atmnum, &inum, 0, AtomName, ResName, ChainID, ResSeq,
+           nxyz, NULL, fp);
+    */
+    free_dvector(adist, 1, Pnum);
+
+    free_dmatrix(nxyz, 1, Pnum * 100, 1, 3);
     free_dmatrix(Pxyz, 1, Pnum, 1, 3);
-    free_dmatrix(vxyz, 1, Pnum-1, 1, 3);
-    
+    free_dmatrix(vxyz, 1, Pnum - 1, 1, 3);
 }
 void re_ordering(long num_bp, long **base_pairs, long *bp_idx,
                  long *helix_marker, long **helix_idx, double *BPRS,
@@ -2521,7 +2636,8 @@ void re_ordering(long num_bp, long **base_pairs, long *bp_idx,
     double **bp_xyz;
     long i, i_order, j, j_order, num_ends = 0;
     long **bp_order, **end_list;
-    for (i = 1; i <= num_bp; i++) {
+    for (i = 1; i <= num_bp; i++)
+    {
         sprintf(wc, "%c%c", (base_pairs[i][3] == 2) ? '-' : '*',
                 (base_pairs[i][3] > 0) ? '-' : '*');
         i_order = base_pairs[i][1];
@@ -2534,7 +2650,7 @@ void re_ordering(long num_bp, long **base_pairs, long *bp_idx,
                  bseq[j_order], 2, b2);
     }
 
-    bp_xyz = dmatrix(1, num_bp, 1, 9);        /* bp origin + base I/II normals: 9 - 17 */
+    bp_xyz = dmatrix(1, num_bp, 1, 9); /* bp origin + base I/II normals: 9 - 17 */
     for (i = 1; i <= num_bp; i++)
         for (j = 1; j <= 9; j++)
             bp_xyz[i][j] = base_pairs[i][j + 8] / MFACTOR;
@@ -2543,10 +2659,10 @@ void re_ordering(long num_bp, long **base_pairs, long *bp_idx,
     end_list = lmatrix(1, num_bp, 1, 3);
 
     bp_context1(num_bp, base_pairs, BPRS[6], bp_xyz, bp_order, end_list,
-               &num_ends);
+                &num_ends);
 
     locate_helix1(num_bp, helix_idx, num_ends, num_helix, end_list,
-                 bp_order, bp_idx, helix_marker);
+                  bp_order, bp_idx, helix_marker);
 
     five2three(num_bp, num_helix, helix_idx, bp_idx, bp_xyz, base_pairs,
                o3_p);
@@ -2558,30 +2674,35 @@ void re_ordering(long num_bp, long **base_pairs, long *bp_idx,
     free_lmatrix(end_list, 1, num_bp, 1, 3);
 }
 void bp_context1(long num_bp, long **base_pairs, double HELIX_CHG,
-                double **bp_xyz, long **bp_order, long **end_list,
-                long *num_ends)
+                 double **bp_xyz, long **bp_order, long **end_list,
+                 long *num_ends)
 /* find base-pair neighbors using simple geometric criterion for re_ordering */
 {
     double temp = 0.0, ddmin[9], txyz[4], txyz2[4];
     long i, j, k, m, n = 0, overlap = 0, cnum = 8, ddidx[9];
-/*
-    fprintf(tfp, "\nBase-pair context information\n");
-*/
-    for (i = 1; i <= num_bp; i++) {
-        for (j = 1; j <= cnum; j++) {
+    /*
+        fprintf(tfp, "\nBase-pair context information\n");
+    */
+    for (i = 1; i <= num_bp; i++)
+    {
+        for (j = 1; j <= cnum; j++)
+        {
             ddmin[j] = XBIG;
             ddidx[j] = 0;
         }
-        for (j = 1; j <= num_bp; j++) {
+        for (j = 1; j <= num_bp; j++)
+        {
             if (j == i)
                 continue;
             for (k = 1; k <= 3; k++)
                 txyz[k] = bp_xyz[i][k] - bp_xyz[j][k];
             temp = veclen(txyz);
             for (k = 1; k <= cnum; k++)
-                if (temp < ddmin[k]) {
+                if (temp < ddmin[k])
+                {
                     for (m = cnum; m > k; m--)
-                        if (ddidx[n = m - 1]) {
+                        if (ddidx[n = m - 1])
+                        {
                             ddmin[m] = ddmin[n];
                             ddidx[m] = ddidx[n];
                         }
@@ -2590,32 +2711,39 @@ void bp_context1(long num_bp, long **base_pairs, double HELIX_CHG,
                     break;
                 }
         }
-        if (ddidx[1] && ddidx[2]) {        /* at least 2 nearest neighbors */
-            if (ddmin[1] > HELIX_CHG)        /* isolated bp */
-                end_list[++*num_ends][1] = i;        /* [i 0 0] */
-            else {
+        if (ddidx[1] && ddidx[2])
+        {                                     /* at least 2 nearest neighbors */
+            if (ddmin[1] > HELIX_CHG)         /* isolated bp */
+                end_list[++*num_ends][1] = i; /* [i 0 0] */
+            else
+            {
                 if (ddmin[1] < 1.25)
                     overlap++;
                 n = 0;
-                for (j = 1; j <= 3; j++)        /* i's nearest neighbor */
+                for (j = 1; j <= 3; j++) /* i's nearest neighbor */
                     txyz[j] = bp_xyz[i][j] - bp_xyz[ddidx[1]][j];
                 vec_norm(txyz);
-                for (j = 2; j <= cnum && ddidx[j]; j++) {
+                for (j = 2; j <= cnum && ddidx[j]; j++)
+                {
                     for (k = 1; k <= 3; k++)
                         txyz2[k] = bp_xyz[i][k] - bp_xyz[ddidx[j]][k];
                     vec_norm(txyz2);
-                    if (dot(txyz, txyz2) < HLXANG) {        /* as in zdf038 */
-                        if (ddmin[j] <= HELIX_CHG) {
+                    if (dot(txyz, txyz2) < HLXANG)
+                    { /* as in zdf038 */
+                        if (ddmin[j] <= HELIX_CHG)
+                        {
                             n = j;
-                            bp_order[i][1] = -1;        /* middle base-pair */
+                            bp_order[i][1] = -1; /* middle base-pair */
                             bp_order[i][2] = ddidx[1];
                             bp_order[i][3] = ddidx[j];
-                        } else        /* break as in example h3.pdb */
+                        }
+                        else /* break as in example h3.pdb */
                             n = 9999;
                         break;
                     }
                 }
-                if (!n || n == 9999) {        /* terminal bp */
+                if (!n || n == 9999)
+                { /* terminal bp */
                     n = 2;
                     end_list[++*num_ends][1] = i;
                     end_list[*num_ends][2] = ddidx[1];
@@ -2623,8 +2751,8 @@ void bp_context1(long num_bp, long **base_pairs, double HELIX_CHG,
                     for (j = 1; j <= 3; j++)
                         txyz2[j] =
                             bp_xyz[ddidx[2]][j] - bp_xyz[ddidx[1]][j];
-                    if (dot(txyz, txyz2) < 0.0
-                        && veclen(txyz2) <= HELIX_CHG) {
+                    if (dot(txyz, txyz2) < 0.0 && veclen(txyz2) <= HELIX_CHG)
+                    {
                         end_list[*num_ends][3] = ddidx[2];
                         bp_order[i][3] = ddidx[2];
                     }
@@ -2633,25 +2761,29 @@ void bp_context1(long num_bp, long **base_pairs, double HELIX_CHG,
         }
     }
 
-    if (!*num_ends) {                /* num_bp == 1 || 2 */
+    if (!*num_ends)
+    { /* num_bp == 1 || 2 */
         end_list[++*num_ends][1] = 1;
-        if (num_bp == 2) {
-            if (temp <= HELIX_CHG) {
-                end_list[*num_ends][2] = 2;        /* 1 2 0 && 2 1 0 */
+        if (num_bp == 2)
+        {
+            if (temp <= HELIX_CHG)
+            {
+                end_list[*num_ends][2] = 2; /* 1 2 0 && 2 1 0 */
                 end_list[++*num_ends][1] = 2;
                 end_list[*num_ends][2] = 1;
-            } else
-                end_list[++*num_ends][1] = 2;        /* 1 0 0 && 2 0 0 */
+            }
+            else
+                end_list[++*num_ends][1] = 2; /* 1 0 0 && 2 0 0 */
         }
     }
     if (overlap)
         printf(
-                "***Warning: structure with overlapped base-pairs***\n");
+            "***Warning: structure with overlapped base-pairs***\n");
 }
 
 void locate_helix1(long num_bp, long **helix_idx, long num_ends,
-                  long *num_helix, long **end_list, long **bp_order,
-                  long *bp_idx, long *helix_marker)
+                   long *num_helix, long **end_list, long **bp_order,
+                   long *bp_idx, long *helix_marker)
 /* locate all possible helical regions, including isolated base-pairs */
 {
     long i, ip = 0, j, k, k0, k2, k3, m;
@@ -2659,58 +2791,71 @@ void locate_helix1(long num_bp, long **helix_idx, long num_ends,
 
     helix_idx[*num_helix][1] = 1;
 
-    matched_idx = lvector(1, num_bp);        /* indicator for used bps */
+    matched_idx = lvector(1, num_bp); /* indicator for used bps */
 
-    for (i = 1; i <= num_ends && ip < num_bp; i++) {
+    for (i = 1; i <= num_ends && ip < num_bp; i++)
+    {
         k = 0;
         k0 = 0;
         for (j = 1; j <= 3; j++)
-            if (end_list[i][j]) {
+            if (end_list[i][j])
+            {
                 k += matched_idx[end_list[i][j]];
                 k0++;
             }
         if (k == k0)
-            continue;                /* end point of a processed helix */
-        for (j = 1; j <= 3 && ip < num_bp; j++) {
+            continue; /* end point of a processed helix */
+        for (j = 1; j <= 3 && ip < num_bp; j++)
+        {
             k = end_list[i][j];
-            if (k && !matched_idx[k]) {
+            if (k && !matched_idx[k])
+            {
                 bp_idx[++ip] = k;
                 matched_idx[k] = 1;
             }
         }
-        for (j = 1; j <= num_bp; j++) {
+        for (j = 1; j <= num_bp; j++)
+        {
             k = bp_idx[ip];
             k2 = bp_order[k][2];
             k3 = bp_order[k][3];
-            if (!bp_order[k][1]) {        /* end-point */
-                if (k2 && !matched_idx[k2] && !k3) {
+            if (!bp_order[k][1])
+            { /* end-point */
+                if (k2 && !matched_idx[k2] && !k3)
+                {
                     bp_idx[++ip] = k2;
                     matched_idx[k2] = 1;
                 }
-                break;                /* normal case */
+                break; /* normal case */
             }
             m = matched_idx[k2] + matched_idx[k3];
             if (m == 2 || m == 0)
-                break;                /* chain terminates */
-            if (k2 == bp_idx[ip - 1]) {
+                break; /* chain terminates */
+            if (k2 == bp_idx[ip - 1])
+            {
                 bp_idx[++ip] = k3;
                 matched_idx[k3] = 1;
-            } else if (k3 == bp_idx[ip - 1]) {
+            }
+            else if (k3 == bp_idx[ip - 1])
+            {
                 bp_idx[++ip] = k2;
                 matched_idx[k2] = 1;
-            } else
-                break;                /* no direct connection */
+            }
+            else
+                break; /* no direct connection */
         }
         helix_idx[*num_helix][2] = ip;
-        helix_marker[ip] = 1;        /* helix_marker & bp_idx are parallel */
+        helix_marker[ip] = 1; /* helix_marker & bp_idx are parallel */
         if (ip < num_bp)
             helix_idx[++*num_helix][1] = ip + 1;
     }
 
-    if (ip < num_bp) {                /* all un-classified bps */
-        printf( "[%ld %ld]: complicated structure, left over"
-           " base-pairs put into the last region [%ld]\n", ip, num_bp, *num_helix);
-        helix_idx[*num_helix][7] = 1;        /* special case */
+    if (ip < num_bp)
+    { /* all un-classified bps */
+        printf("[%ld %ld]: complicated structure, left over"
+               " base-pairs put into the last region [%ld]\n",
+               ip, num_bp, *num_helix);
+        helix_idx[*num_helix][7] = 1; /* special case */
         helix_idx[*num_helix][2] = num_bp;
         helix_marker[num_bp] = 1;
         for (j = 1; j <= num_bp; j++)
@@ -2726,7 +2871,8 @@ double distance_ab(double **o3_p, long ia, long ib, long ipa, long ipb)
     double dist = -1.0, txyz[4];
     long i;
 
-    if (o3_p[ia][ipa] > 0.0 && o3_p[ib][ipb] > 0.0) {
+    if (o3_p[ia][ipa] > 0.0 && o3_p[ib][ipb] > 0.0)
+    {
         for (i = 1; i <= 3; i++)
             txyz[i] = o3_p[ia][ipa - 4 + i] - o3_p[ib][ipb - 4 + i];
         dist = veclen(txyz);
@@ -2737,10 +2883,13 @@ double distance_ab(double **o3_p, long ia, long ib, long ipa, long ipb)
 void get_ij(long m, long *swapped, long **base_pairs, long *n1, long *n2)
 /* get the two base indices [*n1 and *n2] of base-pair m */
 {
-    if (swapped[m]) {
+    if (swapped[m])
+    {
         *n1 = base_pairs[m][2];
         *n2 = base_pairs[m][1];
-    } else {
+    }
+    else
+    {
         *n1 = base_pairs[m][1];
         *n2 = base_pairs[m][2];
     }
@@ -2752,7 +2901,8 @@ void get_d1_d2(long m, long n, long *swapped, double **bp_xyz, double *d1, doubl
     double dm[4], dn[4], zave[4], dorg[4];
     long i, idx1, idx2;
 
-    for (i = 1; i <= 3; i++) {
+    for (i = 1; i <= 3; i++)
+    {
         dorg[i] = bp_xyz[n][i] - bp_xyz[m][i];
         idx1 = swapped[m] ? 6 : 3;
         idx2 = swapped[m] ? 3 : 6;
@@ -2764,10 +2914,13 @@ void get_d1_d2(long m, long n, long *swapped, double **bp_xyz, double *d1, doubl
     vec_norm(dm);
     vec_norm(dn);
     *d1 = dot(dm, dn);
-    if (*d1 < 0.0 && *d1 > -HLXANG) {        /* kinked step: 105 degrees */
+    if (*d1 < 0.0 && *d1 > -HLXANG)
+    { /* kinked step: 105 degrees */
         *d1 = 1.0;
         *d2 = 3.4;
-    } else {
+    }
+    else
+    {
         for (i = 1; i <= 3; i++)
             zave[i] = dm[i] + ((*d1 > 0.0) ? dn[i] : -dn[i]);
         vec_norm(zave);
@@ -2790,32 +2943,41 @@ void five2three(long num_bp, long *num_helix, long **helix_idx,
 
     /* check if O3'[i] is wrongly connected to P[i] */
     for (i = 1; i <= *num_helix; i++)
-        for (j = helix_idx[i][1]; j <= helix_idx[i][2]; j++) {
+        for (j = helix_idx[i][1]; j <= helix_idx[i][2]; j++)
+        {
             i1 = base_pairs[bp_idx[j]][1];
             di1_i2 = distance_ab(o3_p, i1, i1, 4, 8);
-            if (di1_i2 > 0.0 && di1_i2 <= 2.5) {
-                printf( "Wrong: O3'[i] connected to P[i]\n");
-                return;                /* ignore 5'-->3' re-arrangement */
+            if (di1_i2 > 0.0 && di1_i2 <= 2.5)
+            {
+                printf("Wrong: O3'[i] connected to P[i]\n");
+                return; /* ignore 5'-->3' re-arrangement */
             }
         }
 
-        /*   fprintf(tfp, "\nHelix region information\n");*/
+    /*   fprintf(tfp, "\nHelix region information\n");*/
     swapped = lvector(1, num_bp);
-    for (i = 1; i <= *num_helix; i++) {
+    for (i = 1; i <= *num_helix; i++)
+    {
         helix_idx[i][3] = helix_idx[i][2] - helix_idx[i][1] + 1;
         nwc = 0;
-        for (j = helix_idx[i][1]; j < helix_idx[i][2]; j++) {
+        for (j = helix_idx[i][1]; j < helix_idx[i][2]; j++)
+        {
             m = bp_idx[j];
             n = bp_idx[j + 1];
-            if (base_pairs[m][3] > 0 && base_pairs[n][3] > 0) {                /* WC geometry */
+            if (base_pairs[m][3] > 0 && base_pairs[n][3] > 0)
+            { /* WC geometry */
                 nwc++;
                 get_d1_d2(m, n, swapped, bp_xyz, &d1, &d2);
-                if (d1 < 0.0) {
+                if (d1 < 0.0)
+                {
                     swapped[n] = !swapped[n];
                     if (d2 < 0.0)
                         swapped[m] = !swapped[m];
-                } else {
-                    if (d2 < 0.0) {
+                }
+                else
+                {
+                    if (d2 < 0.0)
+                    {
                         swapped[n] = !swapped[n];
                         if (nwc == 1)
                             swapped[m] = !swapped[m];
@@ -2824,9 +2986,11 @@ void five2three(long num_bp, long *num_helix, long **helix_idx,
                 get_d1_d2(m, n, swapped, bp_xyz, &d1, &d2);
                 if (d1 < 0.0)
                     swapped[n] = !swapped[n];
-                if (d2 < 0.0)        /* weird: normally only d1 < 0.0 */
-                    printf( "====> weird [%ld] %ld %ld %7.2f %7.2f\n", i, m, n, d1, d2);
-            } else {                /* O3' distance criterion for non-WC geometry */
+                if (d2 < 0.0) /* weird: normally only d1 < 0.0 */
+                    printf("====> weird [%ld] %ld %ld %7.2f %7.2f\n", i, m, n, d1, d2);
+            }
+            else
+            { /* O3' distance criterion for non-WC geometry */
                 /*    I       II ============
                  *    i2 ---- j2
                  *    |       |
@@ -2847,57 +3011,65 @@ void five2three(long num_bp, long *num_helix, long **helix_idx,
         /* check if strand I is in 5'-->3' direction */
         for (j = 1; j <= 8; j++)
             direction[j] = 0;
-        for (j = helix_idx[i][1]; j < helix_idx[i][2]; j++) {
+        for (j = helix_idx[i][1]; j < helix_idx[i][2]; j++)
+        {
             m = bp_idx[j];
             get_ij(m, swapped, base_pairs, &i1, &j1);
             n = bp_idx[j + 1];
             get_ij(n, swapped, base_pairs, &i2, &j2);
-            di1_i2 = distance_ab(o3_p, i1, i2, 4, 8);        /* O3'[i]-P[i+1] of I */
-            dj2_j1 = distance_ab(o3_p, j2, j1, 4, 8);        /* O3'[i+1]-P[i] of II */
+            di1_i2 = distance_ab(o3_p, i1, i2, 4, 8); /* O3'[i]-P[i+1] of I */
+            dj2_j1 = distance_ab(o3_p, j2, j1, 4, 8); /* O3'[i+1]-P[i] of II */
             if (di1_i2 > O3P)
-                ++direction[1];        /* 3'---> 5' */
+                ++direction[1]; /* 3'---> 5' */
             else if (di1_i2 > 0.0)
-                ++direction[2];        /* 5' --> 3' */
+                ++direction[2]; /* 5' --> 3' */
             if (dj2_j1 > O3P)
-                ++direction[3];        /* 3' ---> 5' */
+                ++direction[3]; /* 3' ---> 5' */
             else if (dj2_j1 > 0.0)
-                ++direction[4];        /* 5' ---> 3' */
+                ++direction[4]; /* 5' ---> 3' */
 
-            di2_i1 = distance_ab(o3_p, i2, i1, 4, 8);        /* O3'[i+1]-P[i] of I */
-            dj1_j2 = distance_ab(o3_p, j1, j2, 4, 8);        /* O3'[i]-P[i+1] of II */
+            di2_i1 = distance_ab(o3_p, i2, i1, 4, 8); /* O3'[i+1]-P[i] of I */
+            dj1_j2 = distance_ab(o3_p, j1, j2, 4, 8); /* O3'[i]-P[i+1] of II */
             if (di2_i1 > O3P)
-                ++direction[5];        /* 3'---> 5' */
+                ++direction[5]; /* 3'---> 5' */
             else if (di2_i1 > 0.0)
-                ++direction[6];        /* 5' --> 3' */
+                ++direction[6]; /* 5' --> 3' */
             if (dj1_j2 > O3P)
-                ++direction[7];        /* 3' ---> 5' */
+                ++direction[7]; /* 3' ---> 5' */
             else if (dj1_j2 > 0.0)
-                ++direction[8];        /* 5' ---> 3' */
+                ++direction[8]; /* 5' ---> 3' */
         }
-        if ((direction[1] - direction[2]) * (direction[5] - direction[6]) > 0
-            || (direction[3] - direction[4]) * (direction[7] - direction[8]) > 0)
+        if ((direction[1] - direction[2]) * (direction[5] - direction[6]) > 0 || (direction[3] - direction[4]) * (direction[7] - direction[8]) > 0)
             helix_idx[i][7] = 1;
-        else {
+        else
+        {
             if ((direction[1] && direction[2]) || (direction[3] && direction[4]) ||
                 (direction[5] && direction[6]) || (direction[7] && direction[8]))
-                helix_idx[i][5] = 1;        /* broken O3'[i] to P[i+1] linkage */
-            if (direction[1] > direction[2] || direction[5] < direction[6]) {
-                if (direction[3] > direction[4] || direction[7] < direction[8]) {        /* anti-parallel */
-                    m = bp_idx[helix_idx[i][1]];        /* start bp */
+                helix_idx[i][5] = 1; /* broken O3'[i] to P[i+1] linkage */
+            if (direction[1] > direction[2] || direction[5] < direction[6])
+            {
+                if (direction[3] > direction[4] || direction[7] < direction[8])
+                {                                /* anti-parallel */
+                    m = bp_idx[helix_idx[i][1]]; /* start bp */
                     get_ij(m, swapped, base_pairs, &i1, &j1);
-                    n = bp_idx[helix_idx[i][2]];        /* end bp */
+                    n = bp_idx[helix_idx[i][2]]; /* end bp */
                     get_ij(n, swapped, base_pairs, &i2, &j2);
-                    if (i2 < j1)        /* reverse the two strands */
+                    if (i2 < j1) /* reverse the two strands */
                         lreverse(helix_idx[i][1], helix_idx[i][3], bp_idx);
-                    else {        /* swap the two strands */
+                    else
+                    { /* swap the two strands */
                         for (j = helix_idx[i][1]; j <= helix_idx[i][2]; j++)
                             swapped[bp_idx[j]] = !swapped[bp_idx[j]];
                     }
-                } else {        /* parallel: reverse the two strands */
+                }
+                else
+                { /* parallel: reverse the two strands */
                     helix_idx[i][6] = 1;
                     lreverse(helix_idx[i][1], helix_idx[i][3], bp_idx);
                 }
-            } else {                /* leading strand already in 5'---> 3' */
+            }
+            else
+            { /* leading strand already in 5'---> 3' */
                 if (direction[3] > direction[4] || direction[7] < direction[8])
                     helix_idx[i][6] = 1;
             }
@@ -2909,11 +3081,14 @@ void five2three(long num_bp, long *num_helix, long **helix_idx,
                 nswap++;
 
         if (nswap)
-            for (j = helix_idx[i][1]; j <= helix_idx[i][2]; j++) {
+            for (j = helix_idx[i][1]; j <= helix_idx[i][2]; j++)
+            {
                 m = bp_idx[j];
-                if (swapped[m]) {
+                if (swapped[m])
+                {
                     lswap(&base_pairs[m][1], &base_pairs[m][2]);
-                    for (k = 1; k <= 3; k++) {        /* swap base normals */
+                    for (k = 1; k <= 3; k++)
+                    { /* swap base normals */
                         dswap(&bp_xyz[m][k + 3], &bp_xyz[m][k + 6]);
                         lswap(&base_pairs[m][k + 11],
                               &base_pairs[m][k + 14]);
@@ -2931,35 +3106,40 @@ void check_zdna(long *num_helix, long **helix_idx, long *bp_idx,
     double txyz[4];
     long i, j, k, m, n, nwired = 0, nrev, mixed_rl = 0;
 
-    for (i = 1; i <= *num_helix; i++) {
+    for (i = 1; i <= *num_helix; i++)
+    {
         if (helix_idx[i][5] || helix_idx[i][6] || helix_idx[i][7] ||
-            helix_idx[i][3] <= 1) {
+            helix_idx[i][3] <= 1)
+        {
             nwired++;
-            continue;                /* break/parallel/wired/only one pair */
+            continue; /* break/parallel/wired/only one pair */
         }
         nrev = 0;
-        for (j = helix_idx[i][1]; j <= helix_idx[i][2]; j++) {
+        for (j = helix_idx[i][1]; j <= helix_idx[i][2]; j++)
+        {
             m = bp_idx[j];
             if (helix_idx[i][3] == 1)
                 continue;
-            if (j < helix_idx[i][2]) {
+            if (j < helix_idx[i][2])
+            {
                 n = bp_idx[j + 1];
                 for (k = 1; k <= 3; k++)
                     txyz[k] = bp_xyz[n][k] - bp_xyz[m][k];
             }
-            if (dot(txyz, &bp_xyz[m][3]) < 0.0)                /* with base 1 normal */
+            if (dot(txyz, &bp_xyz[m][3]) < 0.0) /* with base 1 normal */
                 nrev++;
             else
                 break;
         }
-        if (nrev == helix_idx[i][3]) {
+        if (nrev == helix_idx[i][3])
+        {
             helix_idx[i][4] = 1;
             mixed_rl++;
         }
     }
 
     if (!nwired && mixed_rl && mixed_rl != *num_helix)
-        printf( "This structure has right-/left-handed helical regions\n");
+        printf("This structure has right-/left-handed helical regions\n");
 }
 
 void lreverse(long ia, long n, long *lvec)
@@ -2975,5 +3155,3 @@ void lreverse(long ia, long n, long *lvec)
 
     free_lvector(ltmp, 1, n);
 }
-
-
