@@ -330,7 +330,7 @@ void usage(void)
         "|     This will auth for parsing because it is default        |\n"
         "|                                                             |\n"
         "| For further information please contact:                     |\n"
-        "| hyang@rcsb.rutgers.edu                                      |\n"
+        "| ndbadmin@ndbserver.rutgers.edu                              |\n"
         "+-------------------------------------------------------------+\n");
     exit(1);
 }
@@ -568,11 +568,11 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
             cifparse(pdbfile, "_pdbx_nmr_ensemble.");
             representativeConformer = parse_value("_pdbx_nmr_ensemble.representative_conformer");
 
-            if (conformerId != NULL)
+            if (strlen(conformerId) != 0)
             {
                 bestModel = conformerId;
             }
-            else if (representativeConformer != NULL)
+            else if (strlen(representativeConformer) != 0)
             {
                 bestModel = representativeConformer;
             }
@@ -581,6 +581,8 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
                 bestModel = "1";
             }
         }
+
+        printf("NMR: %d, Best Model is %s\n", isCifNMR, bestModel);
 
         cifparse(pdbfile, "_atom_site.");
         // Extract Columns AtomName, ResName, ChainID, ResSeq
@@ -933,12 +935,11 @@ void work_horse(char *pdbfile, FILE *fout, long num_residue, long num,
               seidx, xyz, AtomName, ResName, ChainID, ResSeq, Miscs, bseq,
               &num_pair_tot, pair_type, bs_pairs_tot, &num_single_base,
               single_base, &num_multi, multi_idx, multi_pair, sugar_syn);
-    /*
-        for(i=1; i<=num_pair_tot; i++){
-            printf("pair-type %4d %4d %4d %s\n", i, bs_pairs_tot[i][1], bs_pairs_tot[i][2],
-            pair_type[i]);
-        }
-    */
+    for (i = 1; i <= num_pair_tot; i++)
+    {
+        printf("pair-type %4d %4d %4d %s\n", i, bs_pairs_tot[i][1], bs_pairs_tot[i][2],
+               pair_type[i]);
+    }
 
     fprintf(fout, "  The total base pairs =%4d (from %4d bases)\n",
             num_pair_tot, num_residue);
