@@ -1,0 +1,10 @@
+BEGIN_base-pair
+     4_23, A:     4 G-C    23 A: +/+ cis         XIX
+     5_22, A:     5 T-T    22 A: W/W cis         XVI
+      7_9, A:     7 T-G     9 A: S/S cis         n/a
+     7_15, A:     7 T-C    15 A: W/W tran        XVII
+     9_15, A:     9 G-C    15 A: +/+ cis         XIX
+     9_15,-
+4_23_5_22_7_9_7_15_9_15_0, click this line to see above pattern
+0_0,---------
+END_base-pair

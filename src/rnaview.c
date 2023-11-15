@@ -518,7 +518,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
     num = 0;
     curr_index = 1;
     static long base_all;
-    FILE *fout, *prot_out, *fileCsv;
+    FILE *fout, *prot_out;
 
     /*    sprintf(outfile, "%s.out", pdbfile);*/
     sprintf(outfile, "%s.out", FILEOUT);
@@ -527,12 +527,9 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
     /* read in H-bond length upper limit etc from <misc_rna.par> */
     hb_crt_alt(HB_UPPER, HB_ATOM, ALT_LIST);
 
-    printf("Chain: %s\n", chain_in);
-
     /* read in the PDB file */
     if (PDB)
     {
-        fileCsv = fopen("test_pdb.csv", "w");
         num = number_of_atoms(pdbfile);
         AtomName = cmatrix(1, num, 0, 4);
         ResName = cmatrix(1, num, 0, 3);
@@ -548,7 +545,6 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
     }
     else
     {
-        fileCsv = fopen("test_cif.csv", "w");
         /*
             if _exptl.method contains 'NMR', then
                 _pdbx_nmr_representative.conformer_id         1
@@ -581,8 +577,6 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
                 bestModel = "1";
             }
         }
-
-        printf("NMR: %d, Best Model is %s\n", isCifNMR, bestModel);
 
         cifparse(pdbfile, "_atom_site.");
         // Extract Columns AtomName, ResName, ChainID, ResSeq
@@ -744,13 +738,6 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
 
         num = curr_index - 1;
     }
-
-    for (i = 1; i <= num; i++)
-    {
-        fprintf(fileCsv, "%s,%s,%c,%ld,%lf,%lf,%lf\n", AtomName[i], ResName[i], ChainID[i], ResSeq[i], xyz[i][1], xyz[i][2], xyz[i][3]);
-    }
-
-    fclose(fileCsv);
 
     /* get the numbering information of each residue.
        seidx[i][j]; i = 1-num_residue  j=1,2

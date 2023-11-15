@@ -1,0 +1,156 @@
+BEGIN_base-pair
+  194_236, B:   138 C-G   180 B: +/+ cis         XIX
+  195_220, B:   139 A-G   164 B: H/S tran        XI
+  196_219, B:   140 A-G   163 B: H/S tran        XI
+  197_218, B:   141 G-U   162 B: W/W cis         XXVIII
+  198_217, B:   142 U-A   161 B: -/- cis         XX
+  198_217,-
+194_236_195_220_196_219_197_218_198_217_0, click this line to see above pattern
+0_0,---------
+    36_78, A:   138 C-G   180 A: +/+ cis         XIX
+    37_62, A:   139 A-G   164 A: H/S tran        XI
+    38_61, A:   140 A-G   163 A: H/S tran        XI
+    39_60, A:   141 G-U   162 A: W/W cis         XXVIII
+    40_59, A:   142 U-A   161 A: -/- cis         XX
+    40_59,-
+36_78_37_62_38_61_39_60_40_59_0, click this line to see above pattern
+0_0,---------
+  168_264, B:   112 G-C   208 B: +/+ cis         XIX
+  169_263, B:   113 A-A   207 B: S/H tran        n/a
+  170_262, B:   114 A-A   206 B: H/S tran        n/a
+  172_261, B:   116 G-U   205 B: W/W cis         XXVIII
+  173_260, B:   117 G-C   204 B: +/+ cis         XIX
+  173_260,-
+168_264_169_263_170_262_172_261_173_260_0, click this line to see above pattern
+0_0,---------
+   10_106, A:   112 G-C   208 A: +/+ cis         XIX
+   11_105, A:   113 A-A   207 A: S/H tran        n/a
+   12_104, A:   114 A-A   206 A: H/S tran        n/a
+   14_103, A:   116 G-U   205 A: W/W cis         XXVIII
+   15_102, A:   117 G-C   204 A: +/+ cis         XIX
+   15_102,-
+10_106_11_105_12_104_14_103_15_102_0, click this line to see above pattern
+0_0,---------
+    19_98, A:   121 C-G   200 A: +/+ cis         XIX
+    21_96, A:   123 A-A   198 A: W/H tran   syn    V
+    22_99, A:   124 C-G   201 A: W/S tran        n/a
+    24_94, A:   126 G-A   196 A: W/W cis         VIII
+    25_93, A:   127 C-G   195 A: W/W cis         n/a
+    25_94, A:   127 C-A   196 A: W/W cis         n/a
+    26_92, A:   128 C-G   194 A: +/+ cis         XIX
+    26_92,-
+19_98_21_96_22_99_24_94_25_93_25_94_26_92_0, click this line to see above pattern
+0_0,---------
+  121_148, A:   223 C-G   250 A: +/+ cis         XIX
+  122_146, A:   224 U-A   248 A: W/H tran        XXIV
+  123_124, A:   225 A-A   226 A: S/H cis         n/a
+  124_147, A:   226 A-U   249 A: W/W cis         n/a
+  125_145, A:   227 G-U   247 A: W/W cis         XXVIII
+  126_144, A:   228 U-A   246 A: -/- cis         XX
+  126_144,-
+121_148_122_146_123_124_124_147_125_145_126_144_0, click this line to see above pattern
+0_0,---------
+  279_306, B:   223 C-G   250 B: +/+ cis         XIX
+  280_304, B:   224 U-A   248 B: W/H tran        XXIV
+  281_282, B:   225 A-A   226 B: S/H cis         n/a
+  282_305, B:   226 A-U   249 B: W/W cis         n/a
+  283_303, B:   227 G-U   247 B: W/W cis         XXVIII
+  284_302, B:   228 U-A   246 B: -/- cis         XX
+  284_302,-
+279_306_280_304_281_282_282_305_283_303_284_302_0, click this line to see above pattern
+0_0,---------
+   68_310, A:   170 C-G   254 B: +/+ cis         XIX
+    79_84, A:   181 G-A   186 A: S/S tran        n/a
+   82_110, A:   184 A-G   212 A: S/S tran        n/a
+    95_98, A:   197 C-G   200 A: s/S cis         n/a
+  116_117, A:   218 A-A   219 A: S/H cis         n/a
+  118_151, A:   220 G-U   253 A: W/W cis         XXVIII
+  119_150, A:   221 U-A   252 A: -/- cis         XX
+  119_150,-
+68_310_79_84_82_110_95_98_116_117_118_151_119_150_0, click this line to see above pattern
+0_0,---------
+  222_230, B:   166 C-G   174 B: +/+ cis         XIX
+  224_244, B:   168 U-G   188 B: H/W tran        n/a
+  237_242, B:   181 G-A   186 B: S/S tran        n/a
+  240_268, B:   184 A-G   212 B: S/S tran        n/a
+  253_256, B:   197 C-G   200 B: s/S cis         n/a
+  274_275, B:   218 A-A   219 B: S/H cis         n/a
+  276_309, B:   220 G-U   253 B: W/W cis         XXVIII
+  277_308, B:   221 U-A   252 B: -/- cis         XX
+  277_308,-
+222_230_224_244_237_242_240_268_253_256_274_275_276_309_277_308_0, click this line to see above pattern
+0_0,---------
+    47_52, A:   149 G-C   154 A: +/+ cis         XIX
+    48_51, A:   150 G-A   153 A: S/H tran        XI
+   49_146, A:   151 A-A   248 A: W/W tran        I
+   51_148, A:   153 A-G   250 A: S/S tran        n/a
+    63_73, A:   165 C-G   175 A: +/+ cis         XIX
+    63_73,-
+47_52_48_51_49_146_51_148_63_73_0, click this line to see above pattern
+0_0,---------
+  205_210, B:   149 G-C   154 B: +/+ cis         XIX
+  206_209, B:   150 G-A   153 B: S/H tran        XI
+  207_304, B:   151 A-A   248 B: W/W tran        I
+  209_306, B:   153 A-G   250 B: S/S tran        n/a
+  221_231, B:   165 C-G   175 B: +/+ cis         XIX
+  221_231,-
+205_210_206_209_207_304_209_306_221_231_0, click this line to see above pattern
+0_0,---------
+    1_115, A:   103 G-C   217 A: +/+ cis         XIX
+    1_154, A:   103 G-A   256 A: H/W cis         IX
+    2_114, A:   104 A-C   216 A: W/W cis         n/a
+    2_155, A:   104 A-G   257 A: H/W cis         IX
+    3_113, A:   105 A-G   215 A: W/W cis         VIII
+    3_156, A:   105 A-U   258 A: H/W cis         XXIII
+    5_112, A:   107 U-A   214 A: -/- cis         XX
+    5_112,-
+1_115_1_154_2_114_2_155_3_113_3_156_5_112_0, click this line to see above pattern
+0_0,---------
+  159_273, B:   103 G-C   217 B: +/+ cis         XIX
+  159_312, B:   103 G-A   256 B: H/W cis         IX
+  160_272, B:   104 A-C   216 B: W/W cis         n/a
+  160_313, B:   104 A-G   257 B: H/W cis         IX
+  161_271, B:   105 A-G   215 B: W/W cis         VIII
+  161_314, B:   105 A-U   258 B: H/W cis         XXIII
+  163_270, B:   107 U-A   214 B: -/- cis         XX
+  163_270,-
+159_273_159_312_160_272_160_313_161_271_161_314_163_270_0, click this line to see above pattern
+0_0,---------
+  202_213, B:   146 A-U   157 B: -/- cis         XX
+  203_212, B:   147 G-U   156 B: W/W cis         XXVIII
+  204_211, B:   148 G-U   155 B: W/W cis         XXVIII
+  205_210, B:   149 G-C   154 B: +/+ cis         XIX
+  205_210,-
+202_213_203_212_204_211_205_210_0, click this line to see above pattern
+0_0,---------
+  174_259, B:   118 G-C   203 B: +/+ cis         XIX
+  175_258, B:   119 G-U   202 B: W/W cis         XXVIII
+  176_257, B:   120 U-G   201 B: W/W cis         XXVIII
+  177_256, B:   121 C-G   200 B: +/+ cis         XIX
+  177_256,-
+174_259_175_258_176_257_177_256_0, click this line to see above pattern
+0_0,---------
+  177_256, B:   121 C-G   200 B: +/+ cis         XIX
+  179_254, B:   123 A-A   198 B: W/H tran        V
+  180_253, B:   124 C-C   197 B: H/W tran        n/a
+  180_257, B:   124 C-G   201 B: W/S tran        n/a
+  182_252, B:   126 G-A   196 B: W/W cis         VIII
+  183_251, B:   127 C-G   195 B: +/+ cis         XIX
+  183_251,-
+177_256_179_254_180_253_180_257_182_252_183_251_0, click this line to see above pattern
+0_0,---------
+   16_101, A:   118 G-C   203 A: +/+ cis         XIX
+   17_100, A:   119 G-U   202 A: W/W cis         XXVIII
+    18_99, A:   120 U-G   201 A: W/W cis         XXVIII
+    19_98, A:   121 C-G   200 A: +/+ cis         XIX
+    19_98,-
+16_101_17_100_18_99_19_98_0, click this line to see above pattern
+0_0,---------
+    44_55, A:   146 A-U   157 A: -/- cis         XX
+    45_54, A:   147 G-U   156 A: W/W cis         XXVIII
+    46_53, A:   148 G-U   155 A: W/W cis         XXVIII
+    47_52, A:   149 G-C   154 A: +/+ cis         XIX
+    47_52,-
+44_55_45_54_46_53_47_52_0, click this line to see above pattern
+0_0,---------
+END_base-pair

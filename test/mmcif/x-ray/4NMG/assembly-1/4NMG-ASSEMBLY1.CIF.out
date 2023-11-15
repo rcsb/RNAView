@@ -1,0 +1,67 @@
+PDB data file name: mmcif-test/x-ray/4NMG/assembly-1/4nmg-assembly1.cif
+uncommon residue 6FU 2656? on chain A [#10] assigned to: u
+-----------------------------------------------------------
+CRITERIA USED TO GENERATE BASE-PAIR: 
+  3.40 --> upper H-bond length limits (ON..ON).
+ 26.00 --> max. distance between paired base origins.
+  2.50 --> max. vertical distance between paired base origins.
+ 65.00 --> max. angle between paired bases [0-90].
+  5.40 --> min. distance between RN9/YN1 atoms.
+  8.00 --> max. distance criterion for helix break[0-12]
+-----------------------------------------------------------
+BASE-PAIR INSTRUCTIONS: 
+Column 1 is rnaview assigned base numbers n1_n2, start from 1.
+Column 2 & 3 are chain ID & residue number in input PDB file.
+Column 4 is for base pair. The left & right are the bases as 
+         identified by column 2 & 3 and 5 & 6.
+Column 5 & 6 are residue number & chain ID in input PDB file.
+Column 7 is for base pair annotation. The standard Watson-Crick
+         (W.C.) pairs are annotated as -/- (AU,AT) or +/+ (GC).
+         Other pairs are annotated as Leontis_Westhof Classification.
+         The three edges: W(Watson-Crick); H(Hoogsteen); S(suger).
+         e.g. W/H means the pair is edge of Watson-Crick & Hoogsteen.
+Column 8 is glycosidic bond orientation (either cis or trans).
+         e.g. 'W/H cis' means the pair is interaction on Watson-Crick
+         and Hoogsteen side, glycosidic bond orientation is 'cis'.
+Column 9 corresponds to Saenger Classification.
+
+Other columns: 
+        Syn sugar-base conformations are annotated as (syn).
+        Stacked base pairs are annotated as (stack).
+        Non-identified edges are annotated as (.) or (?)
+        Tertiary interactions are marked by (!) in the line.
+Reference:
+Yang et al (2003) Nucleic Acids Research, Vol31,No13,p3450-3461.
+-----------------------------------------------------------
+BEGIN_base-pair
+     2_26, A:  2648 G-U  2672 A: W/W cis         XXVIII
+      3_4, A:  2649 C-U  2650 A:      stacked
+     3_25, A:  2649 C-G  2671 A: +/+ cis         XIX
+     4_24, A:  2650 U-A  2670 A: -/- cis         XX
+     5_23, A:  2651 C-G  2669 A: +/+ cis         XIX
+     6_22, A:  2652 C-G  2668 A: +/+ cis         XIX
+     9_10, A:  2655 G-u  2656 A: S/H cis    syn    n/a
+    10_19, A:  2656 u-A  2665 A: W/H tran        XXIV
+    11_18, A:  2657 A-G  2664 A: H/S tran        XI
+    12_17, A:  2658 C-G  2663 A: +/+ cis         XIX
+    13_16, A:  2659 G-A  2662 A: S/H tran        XI
+    16_17, A:  2662 A-G  2663 A:      stacked
+    26_27, A:  2672 U-G  2673 A:      stacked
+     7_21, A:  2653 U-C  2667 A: W/W cis         !1H(b_b)
+      1_2, A:  2647 U-G  2648 A: S/. cis         !(s_s)
+     8_20, A:  2654 A-C  2666 A: W/H tran        !(s_s)
+     9_19, A:  2655 G-A  2665 A: W/? tran   syn    !(s_s)
+END_base-pair
+
+Summary of triplets and higher multiplets
+BEGIN_multiplets
+9_10_19_| [1 3]  A: 2655 G  +  A: 2656 u  +  A: 2665 A
+END_multiplets
+
+  The total base pairs =  10 (from   27 bases)
+------------------------------------------------
+ Standard  WW--cis  WW-tran  HH--cis  HH-tran  SS--cis  SS-tran
+        5        1        0        0        0        0        0
+  WH--cis  WH-tran  WS--cis  WS-tran  HS--cis  HS-tran
+        0        1        0        0        1        2
+------------------------------------------------
