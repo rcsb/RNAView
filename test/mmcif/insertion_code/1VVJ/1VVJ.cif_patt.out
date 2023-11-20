@@ -1,0 +1,3027 @@
+BEGIN_base-pair
+5182_5212, X:   604 G-C   634 X: +/+ cis         XIX
+5183_5211, X:   605 U-G   633 X: W/W cis         XXVIII
+5184_5210, X:   606 G-A   632 X: S/H tran        XI
+5189_5207, X:   611 A-G   629 X: W/W cis         VIII
+5189_5208, X:   611 A-G   630 X: W/W cis         VIII
+5190_5206, X:   612 C-G   628 X: W/W cis         n/a
+5191_5205, X:   613 C-G   627 X: +/+ cis         XIX
+5191_5205,-
+5182_5212_5183_5211_5184_5210_5189_5207_5189_5208_5190_5206_5191_5205_0, click this line to see above pattern
+0_0,---------
+5701_5726, X:  1124 G-C  1149 X: +/+ cis         XIX
+5704_5722, X:  1127 G-C  1145 X: W/S cis         n/a
+5704_5724, X:  1127 G-C  1147 X: S/W cis         n/a
+5705_5707, X:  1128 C-A  1130 X: S/H cis         n/a
+5705_5721, X:  1128 C-G  1144 X: W/W cis         n/a
+5706_5720, X:  1129 C-G  1143 X: W/W cis         n/a
+5709_5719, X:  1132 C-G  1142 X: +/+ cis         XIX
+5709_5719,-
+5701_5726_5704_5722_5704_5724_5705_5707_5705_5721_5706_5720_5709_5719_0, click this line to see above pattern
+0_0,---------
+5239_5322, X:   661 G-C   744 X: +/+ cis         XIX
+5240_5321, X:   662 G-U   743 X: W/W cis         XXVIII
+5241_5320, X:   663 A-G   742 X: W/W cis         VIII
+5242_5319, X:   664 G-G   741 X: W/W cis         n/a
+5243_5302, X:   665 A-G   724 X: H/W cis         IX
+5244_5318, X:   666 G-U   740 X: W/W cis         XXVIII
+5245_5317, X:   667 G-C   739 X: +/+ cis         XIX
+5245_5317,-
+5239_5322_5240_5321_5241_5320_5242_5319_5243_5302_5244_5318_5245_5317_0, click this line to see above pattern
+0_0,---------
+6116_6126, X:    13 C-G    22 X: +/+ cis         XIX
+6117_6125, X:    14 A-A    21 X: W/S cis         n/a
+6118_6152, X:    15 G-C    48 X: W/W tran        XXII
+6120_6121, X:    17 C-U    17 X: S/H cis         n/a
+6122_6159, X:    18 G-U    55 X: W/S tran        n/a
+6123_6160, X:    19 G-C    56 X: W/W cis         n/a
+6126_6150, X:    22 G-G    46 X: H/W tran        VII
+6130_6148, X:    26 G-A    44 X: W/W cis         VIII
+6131_6147, X:    27 U-A    43 X: -/- cis         XX
+6131_6147,-
+6116_6126_6117_6125_6118_6152_6120_6121_6122_6159_6123_6160_6126_6150_6130_6148_6131_6147_0, click this line to see above pattern
+0_0,---------
+3148_3169, R:  1526 G-C  1546 R: +/+ cis         XIX
+3149_3168, R:  1527 G-A  1545 R: S/H tran        XI
+3151_3164, R:  1529 A-G  1542 R: H/S tran        XI
+3152_3163, R:  1530 G-U  1541 R: W/W cis         XXVIII
+3153_3162, R:  1531 C-G  1540 R: +/+ cis         XIX
+3153_3162,-
+3148_3169_3149_3168_3151_3164_3152_3163_3153_3162_0, click this line to see above pattern
+0_0,---------
+6603_6613, Y:   382 G-C   392 Y: +/+ cis         XIX
+6604_6612, Y:   383 U-G   391 Y: W/W cis         XXVIII
+6606_6632, Y:   385 C-G   411 Y: W/W cis         n/a
+6622_6643, Y:   401 A-A   422 Y: W/W tran        I
+6623_6644, Y:   402 A-A   423 Y: W/W tran        I
+6627_6642, Y:   406 G-U   421 Y: W/W cis         XXVIII
+6628_6641, Y:   407 G-C   420 Y: +/+ cis         XIX
+6628_6641,-
+6603_6613_6604_6612_6606_6632_6622_6643_6623_6644_6627_6642_6628_6641_0, click this line to see above pattern
+0_0,---------
+6221_6735, Y:    24 G-C   516 Y: +/+ cis         XIX
+6223_6733, Y:    26 G-A   514 Y: S/H tran        XI
+6224_6732, Y:    27 G-A   513 Y: S/H tran        XI
+6225_6731, Y:    28 A-G   512 Y: H/S tran        XI
+6226_6730, Y:    29 U-U   511 Y: W/W cis         XVI
+6227_6729, Y:    30 G-C   510 Y: +/+ cis         XIX
+6227_6729,-
+6221_6735_6223_6733_6224_6732_6225_6731_6226_6730_6227_6729_0, click this line to see above pattern
+0_0,---------
+5993_6056, X:  1416 G-C  1484 X: +/+ cis         XIX
+5994_6055, X:  1417 G-A  1483 X: S/H tran        XI
+5995_6054, X:  1418 A-G  1482 X: H/S tran        XI
+5995_8148, X:  1418 A-G  1948 Y: S/S tran        n/a
+5996_6053, X:  1419 G-U  1481 X: W/W cis         XXVIII
+5997_6052, X:  1420 C-G  1480 X: +/+ cis         XIX
+5997_6052,-
+5993_6056_5994_6055_5995_6054_5995_8148_5996_6053_5997_6052_0, click this line to see above pattern
+0_0,---------
+3046_3197, R:  1424 G-C  1574 R: +/+ cis         XIX
+3047_3196, R:  1425 G-G  1573 R: S/H tran        n/a
+3048_3195, R:  1426 G-A  1572 R: S/H tran        XI
+3049_3194, R:  1427 A-A  1571 R: W/H tran        V
+3051_3187, R:  1429 G-C  1564 R: W/W cis         n/a
+3052_3186, R:  1430 C-G  1563 R: +/+ cis         XIX
+3052_3186,-
+3046_3197_3047_3196_3048_3195_3049_3194_3051_3187_3052_3186_0, click this line to see above pattern
+0_0,---------
+5989_6060, X:  1412 C-G  1488 X: +/+ cis         XIX
+5990_6059, X:  1413 A-G  1487 X: W/W cis         VIII
+5991_6058, X:  1414 U-G  1486 X: W/W cis         XXVIII
+5992_6057, X:  1415 G-U  1485 X: W/W cis         XXVIII
+5993_6056, X:  1416 G-C  1484 X: +/+ cis         XIX
+5993_6056,-
+5989_6060_5990_6059_5991_6058_5992_6057_5993_6056_0, click this line to see above pattern
+0_0,---------
+3101_3137, R:  1478 G-C  1515 R: +/+ cis         XIX
+3102_3136, R:  1479 G-U  1514 R: W/W cis         XXVIII
+3103_3135, R:  1480 G-C  1513 R: W/W cis         n/a
+3104_3134, R:  1482 U-G  1512 R: W/W cis         XXVIII
+3105_3128, R:  1483 G-C  1506 R: +/+ cis         XIX
+3105_3128,-
+3101_3137_3102_3136_3103_3135_3104_3134_3105_3128_0, click this line to see above pattern
+0_0,---------
+1390_1453, Q:  1416 G-C  1484 Q: +/+ cis         XIX
+1391_1452, Q:  1417 G-A  1483 Q: S/H tran        XI
+1392_1451, Q:  1418 A-G  1482 Q: H/S tran        XI
+1392_3546, Q:  1418 A-G  1948 R: S/S tran        n/a
+1393_1450, Q:  1419 G-U  1481 Q: W/W cis         XXVIII
+1394_1449, Q:  1420 C-G  1480 Q: +/+ cis         XIX
+1394_1449,-
+1390_1453_1391_1452_1392_1451_1392_3546_1393_1450_1394_1449_0, click this line to see above pattern
+0_0,---------
+  981_988, Q:  1011 G-C  1018 Q: +/+ cis         XIX
+  982_987, Q:  1012 U-G  1017 Q: W/W cis         XXVIII
+  983_986, Q:  1013 G-A  1016 Q: S/H tran        XI
+ 996_1010, Q:  1026 G-G  1036 Q: H/S tran        n/a
+ 997_1008, Q:  1027 C-G  1034 Q: W/W cis         n/a
+ 997_1009, Q:  1027 C-A  1035 Q: W/W cis         n/a
+ 998_1007, Q:  1028 C-G  1033 Q: +/+ cis         XIX
+ 998_1007,-
+981_988_982_987_983_986_996_1010_997_1008_997_1009_998_1007_0, click this line to see above pattern
+0_0,---------
+  648_692, Q:   673 G-C   717 Q: +/+ cis         XIX
+  649_691, Q:   674 G-A   716 Q: W/W cis         VIII
+  649_692, Q:   674 G-C   717 Q: W/W cis         n/a
+  650_690, Q:   675 A-A   715 Q: W/W cis         n/a
+  651_689, Q:   676 A-G   714 Q: W/W cis         VIII
+  652_688, Q:   677 U-G   713 Q: W/W cis         XXVIII
+  653_687, Q:   678 U-A   712 Q: -/- cis         XX
+  653_687,-
+648_692_649_691_649_692_650_690_651_689_652_688_653_687_0, click this line to see above pattern
+0_0,---------
+4999_5023, X:   409 G-C   433 X: +/+ cis         XIX
+5000_5021, X:   410 G-A   431 X: W/H tran        n/a
+5000_5022, X:   410 G-A   432 X: S/H tran        XI
+5001_5020, X:   411 A-A   430 X: W/H tran        V
+5004_5020, X:   414 A-A   430 X: H/W tran        V
+5006_5017, X:   416 G-U   427 X: W/W cis         XXVIII
+5007_5016, X:   417 C-G   426 X: +/+ cis         XIX
+5007_5016,-
+4999_5023_5000_5021_5000_5022_5001_5020_5004_5020_5006_5017_5007_5016_0, click this line to see above pattern
+0_0,---------
+     7_19, Q:    11 G-C    23 Q: +/+ cis         XIX
+     8_18, Q:    12 U-G    22 Q: W/W cis         XXVIII
+     9_16, Q:    13 U-U    20 Q: H/W tran   syn    n/a
+    9_884, Q:    13 U-A   915 Q: W/H cis    syn    XXIII
+   11_889, Q:    15 G-U   920 Q: W/W cis         XXVIII
+   12_888, Q:    16 A-A   919 Q: W/W cis         n/a
+   13_887, Q:    17 U-A   918 Q: -/- cis         XX
+   13_887,-
+7_19_8_18_9_16_9_884_11_889_12_888_13_887_0, click this line to see above pattern
+0_0,---------
+5879_5910, X:  1303 C-G  1334 X: +/+ cis         XIX
+5880_5909, X:  1304 G-A  1333 X: S/H tran        XI
+5882_5907, X:  1306 A-G  1331 X: H/S tran        XI
+5883_5906, X:  1307 U-U  1330 X: W/W cis         XVI
+5884_5905, X:  1308 U-A  1329 X: -/- cis         XX
+5884_5905,-
+5879_5910_5880_5909_5882_5907_5883_5906_5884_5905_0, click this line to see above pattern
+0_0,---------
+ 912_1313, Q:   943 U-A  1340 Q: -/- cis         XX
+ 912_1314, Q:   943 U-U  1341 Q: W/W cis         XVI
+ 913_1312, Q:   944 G-A  1339 Q: S/H tran        XI
+ 914_1209, Q:   945 G-A  1236 Q: W/W cis         VIII
+ 915_1208, Q:   946 A-U  1235 Q: -/- cis         XX
+ 915_1208,-
+912_1313_912_1314_913_1312_914_1209_915_1208_0, click this line to see above pattern
+0_0,---------
+5584_5591, X:  1011 G-C  1018 X: +/+ cis         XIX
+5585_5590, X:  1012 U-G  1017 X: W/W cis         XXVIII
+5586_5589, X:  1013 G-A  1016 X: S/H tran        XI
+5599_5612, X:  1026 G-A  1035 X: W/W cis         VIII
+5599_5613, X:  1026 G-G  1036 X: H/S tran        n/a
+5600_5611, X:  1027 C-G  1034 X: W/W cis         n/a
+5601_5610, X:  1028 C-G  1033 X: +/+ cis         XIX
+5601_5610,-
+5584_5591_5585_5590_5586_5589_5599_5612_5599_5613_5600_5611_5601_5610_0, click this line to see above pattern
+0_0,---------
+5157_5340, X:   579 G-C   762 X: +/+ cis         XIX
+5158_5339, X:   580 U-G   761 X: W/W cis         XXVIII
+5159_5338, X:   581 G-G   760 X: S/H tran        n/a
+5160_5337, X:   582 U-A   759 X: W/H tran        XXIV
+5161_5336, X:   583 A-G   758 X: H/S tran        XI
+5162_5335, X:   584 G-U   757 X: W/W cis         XXVIII
+5163_5334, X:   585 G-C   756 X: +/+ cis         XIX
+5163_5334,-
+5157_5340_5158_5339_5159_5338_5160_5337_5161_5336_5162_5335_5163_5334_0, click this line to see above pattern
+0_0,---------
+  636_719, Q:   661 G-C   744 Q: +/+ cis         XIX
+  637_718, Q:   662 G-U   743 Q: W/W cis         XXVIII
+  638_717, Q:   663 A-G   742 Q: W/W cis         VIII
+  639_716, Q:   664 G-G   741 Q: W/W cis         n/a
+  640_699, Q:   665 A-G   724 Q: H/W cis         IX
+  641_715, Q:   666 G-U   740 Q: W/W cis         XXVIII
+  642_714, Q:   667 G-C   739 Q: +/+ cis         XIX
+  642_714,-
+636_719_637_718_638_717_639_716_640_699_641_715_642_714_0, click this line to see above pattern
+0_0,---------
+  554_737, Q:   579 G-C   762 Q: +/+ cis         XIX
+  555_736, Q:   580 U-G   761 Q: W/W cis         XXVIII
+  556_735, Q:   581 G-G   760 Q: S/H tran        n/a
+  559_732, Q:   584 G-U   757 Q: W/W cis         XXVIII
+  560_731, Q:   585 G-C   756 Q: +/+ cis         XIX
+  560_731,-
+554_737_555_736_556_735_559_732_560_731_0, click this line to see above pattern
+0_0,---------
+4334_4348, R:  2745 C-G  2759 R: +/+ cis         XIX
+4335_4345, R:  2746 U-U  2756 R: W/H tran        n/a
+4335_4348, R:  2746 U-G  2759 R: W/W cis         XXVIII
+4336_4346, R:  2747 G-A  2757 R: S/H tran        XI
+4337_4343, R:  2748 A-U  2754 R: H/W tran        XXIV
+4338_4342, R:  2749 A-A  2753 R: H/W tran        V
+4345_4347, R:  2756 U-A  2758 R: W/H cis         XXIII
+4378_4479, R:  2789 C-G  2894 R: W/W cis      syn  n/a
+4380_4392, R:  2791 C-G  2805 R: +/+ cis    syn    XIX
+4380_4392,-
+4334_4348_4335_4345_4335_4348_4336_4346_4337_4343_4338_4342_4345_4347_4378_4479_4380_4392_0, click this line to see above pattern
+0_0,---------
+5515_5916, X:   943 U-A  1340 X: -/- cis         XX
+5516_5914, X:   944 G-G  1338 X: S/H tran        n/a
+5516_5915, X:   944 G-A  1339 X: S/H tran        XI
+5517_5812, X:   945 G-A  1236 X: W/W cis         VIII
+5518_5811, X:   946 A-U  1235 X: -/- cis         XX
+5518_5811,-
+5515_5916_5516_5914_5516_5915_5517_5812_5518_5811_0, click this line to see above pattern
+0_0,---------
+  396_420, Q:   409 G-C   433 Q: +/+ cis         XIX
+  397_418, Q:   410 G-A   431 Q: W/H tran        n/a
+  397_419, Q:   410 G-A   432 Q: S/H tran        XI
+  398_417, Q:   411 A-A   430 Q: W/H tran        V
+  401_417, Q:   414 A-A   430 Q: H/W tran        V
+  403_414, Q:   416 G-U   427 Q: W/W cis         XXVIII
+  404_413, Q:   417 C-G   426 Q: +/+ cis         XIX
+  404_413,-
+396_420_397_418_397_419_398_417_401_417_403_414_404_413_0, click this line to see above pattern
+0_0,---------
+1618_2133, R:    24 G-C   516 R: +/+ cis         XIX
+1620_2131, R:    26 G-A   514 R: S/H tran        XI
+1621_2130, R:    27 G-A   513 R: S/H tran        XI
+1622_2129, R:    28 A-G   512 R: H/S tran        XI
+1623_2128, R:    29 U-U   511 R: W/W cis         XVI
+1624_2127, R:    30 G-C   510 R: +/+ cis         XIX
+1624_2127,-
+1618_2133_1620_2131_1621_2130_1622_2129_1623_2128_1624_2127_0, click this line to see above pattern
+0_0,---------
+6927_6955, Y:   702 G-C   730 Y: +/+ cis         XIX
+6928_6953, Y:   703 U-G   728 Y: W/W cis         XXVIII
+6929_6952, Y:   704 G-A   727 Y: S/H tran        XI
+6930_6951, Y:   705 A-G   726 Y: H/S tran     syn  XI
+6931_6950, Y:   706 A-G   725 Y: H/S tran        XI
+6932_6949, Y:   707 G-U   724 Y: W/W cis         XXVIII
+6933_6948, Y:   708 C-G   723 Y: +/+ cis         XIX
+6933_6948,-
+6927_6955_6928_6953_6929_6952_6930_6951_6931_6950_6932_6949_6933_6948_0, click this line to see above pattern
+0_0,---------
+2325_2353, R:   702 G-C   730 R: +/+ cis         XIX
+2326_2351, R:   703 U-G   728 R: W/W cis         XXVIII
+2327_2350, R:   704 G-A   727 R: S/H tran        XI
+2328_2349, R:   705 A-G   726 R: H/S tran     syn  XI
+2329_2348, R:   706 A-G   725 R: H/S tran        XI
+2330_2347, R:   707 G-U   724 R: W/W cis         XXVIII
+2331_2346, R:   708 C-G   723 R: +/+ cis         XIX
+2331_2346,-
+2325_2353_2326_2351_2327_2350_2328_2349_2329_2348_2330_2347_2331_2346_0, click this line to see above pattern
+0_0,---------
+1513_1523, Q:    13 C-G    22 Q: +/+ cis         XIX
+1514_1522, Q:    14 A-A    21 Q: W/S cis         n/a
+1515_1549, Q:    15 G-C    48 Q: W/W tran        XXII
+1517_1518, Q:    17 C-U    17 Q: S/H cis         n/a
+1519_1556, Q:    18 G-U    55 Q: W/S tran        n/a
+1520_1557, Q:    19 G-C    56 Q: W/W cis         n/a
+1523_1547, Q:    22 G-G    46 Q: H/W tran        VII
+1527_1545, Q:    26 G-A    44 Q: W/W cis         VIII
+1528_1544, Q:    27 U-A    43 Q: -/- cis         XX
+1528_1544,-
+1513_1523_1514_1522_1515_1549_1517_1518_1519_1556_1520_1557_1523_1547_1527_1545_1528_1544_0, click this line to see above pattern
+0_0,---------
+1386_1457, Q:  1412 C-G  1488 Q: +/+ cis         XIX
+1387_1456, Q:  1413 A-G  1487 Q: W/W cis         VIII
+1388_1455, Q:  1414 U-G  1486 Q: W/W cis         XXVIII
+1388_1456, Q:  1414 U-G  1487 Q: W/W cis         XXVIII
+1389_1454, Q:  1415 G-U  1485 Q: W/W cis         XXVIII
+1390_1453, Q:  1416 G-C  1484 Q: +/+ cis         XIX
+1390_1453,-
+1386_1457_1387_1456_1388_1455_1388_1456_1389_1454_1390_1453_0, click this line to see above pattern
+0_0,---------
+5932_5943, X:  1356 G-C  1366 X: +/+ cis         XIX
+5933_5942, X:  1357 A-G  1365 X: W/W cis         VIII
+5934_5940, X:  1358 U-A  1363 X: W/W tran        XXI
+5970_5972, X:  1393 U-C  1395 X: W/W cis         XVIII
+5976_6076, X:  1399 C-G  1504 X: W/W cis         n/a
+5978_6073, X:  1401 G-C  1501 X: +/+ cis         XIX
+5978_6073,-
+5932_5943_5933_5942_5934_5940_5970_5972_5976_6076_5978_6073_0, click this line to see above pattern
+0_0,---------
+2829_2860, R:  1208 C-G  1238 R: +/+ cis         XIX
+2833_2859, R:  1212 G-A  1237 R: S/H tran        XI
+2834_2858, R:  1213 A-G  1236 R: H/S tran     syn  XI
+2835_2857, R:  1214 A-G  1235 R: H/S tran        XI
+2836_2856, R:  1215 G-U  1234 R: W/W cis         XXVIII
+2837_2855, R:  1216 G-C  1233 R: +/+ cis         XIX
+2837_2855,-
+2829_2860_2833_2859_2834_2858_2835_2857_2836_2856_2837_2855_0, click this line to see above pattern
+0_0,---------
+5249_5313, X:   671 G-C   735 X: +/+ cis         XIX
+5250_5312, X:   672 U-G   734 X: W/W cis         XXVIII
+5251_5295, X:   673 G-C   717 X: W/W cis         n/a
+5252_5294, X:   674 G-A   716 X: W/W cis         VIII
+5253_5293, X:   675 A-A   715 X: W/W cis         n/a
+5254_5292, X:   676 A-G   714 X: W/W cis         VIII
+5255_5291, X:   677 U-G   713 X: W/W cis         XXVIII
+5256_5290, X:   678 U-A   712 X: -/- cis         XX
+5256_5290,-
+5249_5313_5250_5312_5251_5295_5252_5294_5253_5293_5254_5292_5255_5291_5256_5290_0, click this line to see above pattern
+0_0,---------
+2361_2381, R:   738 G-C   758 R: +/+ cis         XIX
+2362_2363, R:   739 G-U   740 R: S/H cis         n/a
+2362_2380, R:   739 G-U   757 R: W/W cis         XXVIII
+2362_2381, R:   739 G-C   758 R: W/W cis         n/a
+2363_2380, R:   740 U-U   757 R: W/W cis         XVI
+2364_2379, R:   741 G-C   756 R: +/+ cis         XIX
+2364_2379,-
+2361_2381_2362_2363_2362_2380_2362_2381_2363_2380_2364_2379_0, click this line to see above pattern
+0_0,---------
+6505_6572, Y:   287 C-G   354 Y: +/+ cis         XIX
+6506_6571, Y:   288 C-G   353 Y: W/W cis         n/a
+6507_6569, Y:   289 A-G   351 Y: H/S tran        XI
+6508_6568, Y:   290 G-U   350 Y: W/W cis         XXVIII
+6509_6567, Y:   291 C-G   349 Y: +/+ cis         XIX
+6509_6567,-
+6505_6572_6506_6571_6507_6569_6508_6568_6509_6567_0, click this line to see above pattern
+0_0,---------
+7694_7747, Y:  1469 A-U  1523 Y: -/- cis         XX
+7695_7746, Y:  1470 G-G  1522 Y: S/H tran        n/a
+7697_7745, Y:  1472 A-G  1521 Y: H/S tran        XI
+7698_7744, Y:  1473 G-U  1520 Y: W/W cis         XXVIII
+7699_7743, Y:  1474 C-G  1519 Y: +/+ cis         XIX
+7699_7743,-
+7694_7747_7695_7746_7697_7745_7698_7744_7699_7743_0, click this line to see above pattern
+0_0,---------
+4432_4456, R:  2846 G-C  2870 R: +/+ cis         XIX
+4433_4455, R:  2847 U-G  2869 R: W/W cis         XXVIII
+4434_4454, R:  2848 G-A  2868 R: S/H tran   syn    XI
+4438_4451, R:  2852 G-U  2865 R: W/W cis         XXVIII
+4439_4450, R:  2853 C-G  2864 R: +/+ cis         XIX
+4439_4450,-
+4432_4456_4433_4455_4434_4454_4438_4451_4439_4450_0, click this line to see above pattern
+0_0,---------
+7431_7462, Y:  1208 C-G  1238 Y: +/+ cis         XIX
+7432_7461, Y:  1209 G-A  1237 Y: S/S tran        n/a
+7435_7461, Y:  1212 G-A  1237 Y: S/H tran        XI
+7436_7460, Y:  1213 A-G  1236 Y: H/S tran     syn  XI
+7437_7459, Y:  1214 A-G  1235 Y: H/S tran        XI
+7438_7458, Y:  1215 G-U  1234 Y: W/W cis         XXVIII
+7439_7457, Y:  1216 G-C  1233 Y: +/+ cis         XIX
+7439_7457,-
+7431_7462_7432_7461_7435_7461_7436_7460_7437_7459_7438_7458_7439_7457_0, click this line to see above pattern
+0_0,---------
+8297_8392, Y:  2097 C-G  2192 Y: +/+ cis         XIX
+8298_8391, Y:  2098 U-G  2191 Y: W/W cis         XXVIII
+8299_8390, Y:  2099 U-G  2190 Y: W/W cis         XXVIII
+8300_8389, Y:  2100 G-U  2189 Y: W/W cis         XXVIII
+8301_8388, Y:  2101 G-C  2188 Y: +/+ cis         XIX
+8301_8388,-
+8297_8392_8298_8391_8299_8390_8300_8389_8301_8388_0, click this line to see above pattern
+0_0,---------
+3092_3145, R:  1469 A-U  1523 R: -/- cis         XX
+3093_3144, R:  1470 G-G  1522 R: S/H tran        n/a
+3095_3143, R:  1472 A-G  1521 R: H/S tran        XI
+3096_3142, R:  1473 G-U  1520 R: W/W cis         XXVIII
+3097_3141, R:  1474 C-G  1519 R: +/+ cis         XIX
+3097_3141,-
+3092_3145_3093_3144_3095_3143_3096_3142_3097_3141_0, click this line to see above pattern
+0_0,---------
+3695_3790, R:  2097 C-G  2192 R: +/+ cis         XIX
+3696_3789, R:  2098 U-G  2191 R: W/W cis         XXVIII
+3697_3788, R:  2099 U-G  2190 R: W/W cis         XXVIII
+3698_3787, R:  2100 G-U  2189 R: W/W cis         XXVIII
+3699_3786, R:  2101 G-C  2188 R: +/+ cis         XIX
+3699_3786,-
+3695_3790_3696_3789_3697_3788_3698_3787_3699_3786_0, click this line to see above pattern
+0_0,---------
+9034_9058, Y:  2846 G-C  2870 Y: +/+ cis         XIX
+9035_9057, Y:  2847 U-G  2869 Y: W/W cis         XXVIII
+9036_9056, Y:  2848 G-A  2868 Y: S/H tran        XI
+9040_9053, Y:  2852 G-U  2865 Y: W/W cis         XXVIII
+9041_9052, Y:  2853 C-G  2864 Y: +/+ cis         XIX
+9041_9052,-
+9034_9058_9035_9057_9036_9056_9040_9053_9041_9052_0, click this line to see above pattern
+0_0,---------
+1276_1307, Q:  1303 C-G  1334 Q: +/+ cis         XIX
+1278_1305, Q:  1305 G-A  1332 Q: S/H tran        XI
+1279_1304, Q:  1306 A-G  1331 Q: H/S tran        XI
+1280_1303, Q:  1307 U-U  1330 Q: W/W cis         XVI
+1281_1302, Q:  1308 U-A  1329 Q: -/- cis         XX
+1281_1302,-
+1276_1307_1278_1305_1279_1304_1280_1303_1281_1302_0, click this line to see above pattern
+0_0,---------
+  579_609, Q:   604 G-C   634 Q: +/+ cis         XIX
+  580_608, Q:   605 U-G   633 Q: W/W cis         XXVIII
+  581_607, Q:   606 G-A   632 Q: S/H tran        XI
+  586_604, Q:   611 A-G   629 Q: W/W cis         VIII
+  586_605, Q:   611 A-G   630 Q: W/W cis         VIII
+  587_603, Q:   612 C-G   628 Q: +/+ cis         XIX
+  587_603,-
+579_609_580_608_581_607_586_604_586_605_587_603_0, click this line to see above pattern
+0_0,---------
+8493_8503, Y:  2303 G-C  2313 Y: +/+ cis         XIX
+8494_8502, Y:  2304 G-U  2312 Y: W/W cis         XXVIII
+8498_8501, Y:  2308 G-A  2311 Y: W/W cis    syn syn  VIII
+8512_8525, Y:  2322 A-A  2335 Y: W/W tran     syn  I
+8513_8522, Y:  2323 G-U  2332 Y: W/W cis         XXVIII
+8514_8521, Y:  2324 C-G  2331 Y: +/+ cis         XIX
+8514_8521,-
+8493_8503_8494_8502_8498_8501_8512_8525_8513_8522_8514_8521_0, click this line to see above pattern
+0_0,---------
+5009_5014, X:   419 C-G   424 X: +/+ cis         XIX
+5019_5021, X:   429 U-A   431 X: W/H cis         XXIII
+5027_5074, X:   437 U-A   495 X: W/H tran        XXIV
+5028_5075, X:   438 G-A   496 X: S/H tran        XI
+5029_5073, X:   439 A-U   494 X: H/W tran        XXIV
+5030_5072, X:   440 A-G   493 X: H/S tran        XI
+5031_5071, X:   442 C-G   492 X: +/+ cis         XIX
+5031_5071,-
+5009_5014_5019_5021_5027_5074_5028_5075_5029_5073_5030_5072_5031_5071_0, click this line to see above pattern
+0_0,---------
+  406_411, Q:   419 C-G   424 Q: +/+ cis         XIX
+  407_410, Q:   420 U-G   423 Q: S/W tran     syn  n/a
+  416_418, Q:   429 U-A   431 Q: W/H cis         XXIII
+  424_471, Q:   437 U-A   495 Q: W/H tran        XXIV
+  426_470, Q:   439 A-U   494 Q: H/W tran        XXIV
+  427_469, Q:   440 A-G   493 Q: H/S tran        XI
+  428_468, Q:   442 C-G   492 Q: +/+ cis         XIX
+  428_468,-
+406_411_407_410_416_418_424_471_426_470_427_469_428_468_0, click this line to see above pattern
+0_0,---------
+2978_2997, R:  1356 G-C  1375 R: +/+ cis         XIX
+2979_2996, R:  1357 U-G  1374 R: W/W cis         XXVIII
+2980_2994, R:  1358 G-U  1372 R: W/W tran        XXVII
+2980_2995, R:  1358 G-A  1373 R: S/H tran        XI
+2981_2994, R:  1359 A-U  1372 R: H/W tran        XXIV
+2982_2993, R:  1360 A-G  1371 R: H/S tran        XI
+2983_2992, R:  1361 G-C  1370 R: +/+ cis         XIX
+2983_2992,-
+2978_2997_2979_2996_2980_2994_2980_2995_2981_2994_2982_2993_2983_2992_0, click this line to see above pattern
+0_0,---------
+3309_3325, R:  1686 C-G  1702 R: +/+ cis         XIX
+3310_3324, R:  1687 G-A  1701 R: S/H tran        XI
+3312_3321, R:  1689 A-A  1698 R: H/W tran     syn  V
+3313_3320, R:  1690 A-G  1697 R: H/S tran        XI
+3314_3319, R:  1691 C-G  1696 R: +/+ cis         XIX
+3314_3319,-
+3309_3325_3310_3324_3312_3321_3313_3320_3314_3319_0, click this line to see above pattern
+0_0,---------
+8985_8991, Y:  2794 C-G  2802 Y: +/+ cis         XIX
+8986_8990, Y:  2795 G-A  2801 Y: S/H tran        XI
+8994_9080, Y:  2805 G-G  2893 Y: W/H tran        VII
+8996_9079, Y:  2808 U-A  2892 Y: W/H tran        XXIV
+8998_9078, Y:  2810 A-G  2891 Y: H/S tran        XI
+8999_9077, Y:  2811 G-C  2889 Y: +/+ cis         XIX
+8999_9077,-
+8985_8991_8986_8990_8994_9080_8996_9079_8998_9078_8999_9077_0, click this line to see above pattern
+0_0,---------
+4553_4588, R:    71 C-G   105 R: +/+ cis         XIX
+4554_4587, R:    72 G-A   104 R: S/H tran        XI
+4555_4586, R:    73 A-U   103 R: H/W tran        XXIV
+4557_4585, R:    75 G-G   102 R: W/W cis         n/a
+4559_4582, R:    77 U-A    99 R: W/H tran        XXIV
+4560_4581, R:    78 A-G    98 R: H/S tran        XI
+4561_4580, R:    79 C-G    97 R: +/+ cis         XIX
+4561_4580,-
+4553_4588_4554_4587_4555_4586_4557_4585_4559_4582_4560_4581_4561_4580_0, click this line to see above pattern
+0_0,---------
+6545_6553, Y:   327 G-C   335 Y: +/+ cis         XIX
+6546_6550, Y:   328 U-A   332 Y: W/H tran        XXIV
+6549_7433, Y:   331 A-A  1210 Y: W/H tran        V
+6563_6564, Y:   345 A-A   346 Y: S/H cis         n/a
+6587_6588, Y:   363 A-C   364 Y: S/H cis         n/a
+6592_6623, Y:   371 A-A   402 Y: H/H tran        II
+6594_6622, Y:   373 U-A   401 Y: W/H tran        XXIV
+6595_6621, Y:   374 A-G   400 Y: H/S tran        XI
+6596_6620, Y:   375 C-G   399 Y: +/+ cis         XIX
+6596_6620,-
+6545_6553_6546_6550_6549_7433_6563_6564_6587_6588_6592_6623_6594_6622_6595_6621_6596_6620_0, click this line to see above pattern
+0_0,---------
+5357_5381, X:   779 C-G   803 X: +/+ cis         XIX
+5358_5380, X:   780 A-A   802 X: S/H tran        n/a
+5359_5379, X:   781 A-U   801 X: H/W tran        XXIV
+5360_5378, X:   782 A-G   800 X: H/S tran        XI
+5361_5377, X:   783 C-G   799 X: +/+ cis         XIX
+5361_5377,-
+5357_5381_5358_5380_5359_5379_5360_5378_5361_5377_0, click this line to see above pattern
+0_0,---------
+  144_149, Q:   158 G-C   163 Q: +/+ cis         XIX
+  145_148, Q:   159 G-A   162 Q: S/H tran        XI
+  165_194, Q:   179 A-A   196 Q: W/H tran        V
+  166_193, Q:   180 U-A   195 Q: W/H tran        XXIV
+  168_193, Q:   182 U-A   195 Q: H/W tran        XXIV
+  169_192, Q:   183 G-C   194 Q: +/+ cis         XIX
+  169_192,-
+144_149_145_148_165_194_166_193_168_193_169_192_0, click this line to see above pattern
+0_0,---------
+4383_4389, R:  2794 C-G  2802 R: +/+ cis         XIX
+4384_4388, R:  2795 G-A  2801 R: S/H tran        XI
+4394_4477, R:  2808 U-A  2892 R: W/H tran        XXIV
+4396_4476, R:  2810 A-G  2891 R: H/S tran        XI
+4397_4475, R:  2811 G-C  2889 R: +/+ cis         XIX
+4397_4475,-
+4383_4389_4384_4388_4394_4477_4396_4476_4397_4475_0, click this line to see above pattern
+0_0,---------
+  754_778, Q:   779 C-G   803 Q: +/+ cis         XIX
+  755_777, Q:   780 A-A   802 Q: S/H tran        n/a
+  756_776, Q:   781 A-U   801 Q: H/W tran        XXIV
+  757_775, Q:   782 A-G   800 Q: H/S tran        XI
+  758_774, Q:   783 C-G   799 Q: +/+ cis         XIX
+  758_774,-
+754_778_755_777_756_776_757_775_758_774_0, click this line to see above pattern
+0_0,---------
+1943_1951, R:   327 G-C   335 R: +/+ cis         XIX
+1944_1948, R:   328 U-A   332 R: W/H tran     syn  XXIV
+1990_2021, R:   371 A-A   402 R: H/H tran        II
+1992_2020, R:   373 U-A   401 R: W/H tran        XXIV
+1993_2019, R:   374 A-G   400 R: H/S tran        XI
+1994_2018, R:   375 C-G   399 R: +/+ cis         XIX
+1994_2018,-
+1943_1951_1944_1948_1990_2021_1992_2020_1993_2019_1994_2018_0, click this line to see above pattern
+0_0,---------
+1779_1829, R:   198 C-G   248 R: +/+ cis         XIX
+1782_1831, R:   201 C-G   250 R: S/W tran        n/a
+1786_1787, R:   205 G-U   206 R: S/H cis         n/a
+1795_1797, R:   214 G-A   216 R: S/s cis         n/a
+1797_2050, R:   216 A-U   431 R: H/W tran        XXIV
+1800_1815, R:   219 G-C   234 R: S/s cis         n/a
+1802_2046, R:   221 A-U   427 R: H/W tran        XXIV
+1803_1813, R:   222 A-G   232 R: H/S tran   syn    XI
+1804_2026, R:   223 A-G   407 R: S/S tran        n/a
+1805_1812, R:   224 G-C   231 R: +/+ cis         XIX
+1805_1812,-
+1779_1829_1782_1831_1786_1787_1795_1797_1797_2050_1800_1815_1802_2046_1803_1813_1804_2026_1805_1812_0, click this line to see above pattern
+0_0,---------
+5047_5053, X:   458 C-G   474 X: +/+ cis         XIX
+5048_5051, X:   464 G-G   467 X: S/H tran        n/a
+5048_5052, X:   464 G-A   468 X: S/H tran        XI
+5076_5125, X:   497 U-A   547 X: W/H tran        XXIV
+5078_5123, X:   500 G-C   545 X: +/+ cis         XIX
+5078_5123,-
+5047_5053_5048_5051_5048_5052_5076_5125_5078_5123_0, click this line to see above pattern
+0_0,---------
+  444_450, Q:   458 C-G   474 Q: +/+ cis         XIX
+  445_448, Q:   464 G-G   467 Q: S/H tran        n/a
+  445_449, Q:   464 G-A   468 Q: S/H tran        XI
+  473_522, Q:   497 U-A   547 Q: W/H tran        XXIV
+  475_520, Q:   500 G-C   545 Q: +/+ cis         XIX
+  475_520,-
+444_450_445_448_445_449_473_522_475_520_0, click this line to see above pattern
+0_0,---------
+4737_4763, X:   148 G-C   174 X: +/+ cis         XIX
+4738_4761, X:   149 A-A   172 X: W/H tran        V
+4739_4760, X:   150 C-A   171 X: W/H tran        XXV
+4740_4759, X:   151 A-U   170 X: H/W tran        XXIV
+4742_4757, X:   153 C-G   168 X: +/+ cis         XIX
+4742_4757,-
+4737_4763_4738_4761_4739_4760_4740_4759_4742_4757_0, click this line to see above pattern
+0_0,---------
+7042_7413, Y:   817 C-G  1190 Y: +/+ cis         XIX
+7043_7412, Y:   818 G-A  1189 Y: S/H tran        XI
+7044_7165, Y:   819 A-G   942 Y: S/S tran        n/a
+7044_7411, Y:   819 A-U  1188 Y: H/W tran        XXIV
+7045_7196, Y:   820 A-A   973 Y: H/H tran        II
+7046_7195, Y:   821 A-G   972 Y: H/S tran        XI
+7047_7060, Y:   822 U-A   835 Y: -/- cis         XX
+7047_7060,-
+7042_7413_7043_7412_7044_7165_7044_7411_7045_7196_7046_7195_7047_7060_0, click this line to see above pattern
+0_0,---------
+2884_3615, R:  1262 A-U  2017 R: -/- cis         XX
+2885_3614, R:  1263 U-U  2016 R: W/W cis         XVI
+2886_3613, R:  1264 G-A  2015 R: S/H tran        XI
+2888_2889, R:  1266 G-U  1267 R: S/H cis         n/a
+2889_3611, R:  1267 U-A  2013 R: W/H tran        XXIV
+2890_3610, R:  1268 A-G  2012 R: H/S tran        XI
+2891_3609, R:  1269 A-U  2011 R: -/- cis         XX
+2891_3609,-
+2884_3615_2885_3614_2886_3613_2888_2889_2889_3611_2890_3610_2891_3609_0, click this line to see above pattern
+0_0,---------
+7486_8217, Y:  1262 A-U  2017 Y: -/- cis         XX
+7487_8216, Y:  1263 U-U  2016 Y: W/W cis         XVI
+7488_8215, Y:  1264 G-A  2015 Y: S/H tran        XI
+7489_8214, Y:  1265 A-A  2014 Y: H/H tran        II
+7491_8213, Y:  1267 U-A  2013 Y: W/H tran        XXIV
+7492_8212, Y:  1268 A-G  2012 Y: H/S tran        XI
+7493_8211, Y:  1269 A-U  2011 Y: -/- cis         XX
+7493_8211,-
+7486_8217_7487_8216_7488_8215_7489_8214_7491_8213_7492_8212_7493_8211_0, click this line to see above pattern
+0_0,---------
+6371_6391, Y:   188 G-C   208 Y: +/+ cis         XIX
+6372_6390, Y:   189 G-A   207 Y: S/H tran        XI
+6373_6389, Y:   190 A-U   206 Y: H/W tran        XXIV
+6373_7024, Y:   190 A-G   799 Y: W/S tran        X
+6374_6387, Y:   191 A-A   204 Y: H/H tran        II
+6374_7024, Y:   191 A-G   799 Y: S/S tran        n/a
+6375_6386, Y:   192 C-C   203 Y: H/S tran        n/a
+6376_6385, Y:   193 U-U   202 Y: W/W cis         XVI
+6377_6384, Y:   194 G-C   201 Y: +/+ cis         XIX
+6377_6384,-
+6371_6391_6372_6390_6373_6389_6373_7024_6374_6387_6374_7024_6375_6386_6376_6385_6377_6384_0, click this line to see above pattern
+0_0,---------
+2199_2878, R:   584 C-G  1256 R: +/+ cis         XIX
+2200_2876, R:   585 G-A  1254 R: S/H tran        XI
+2201_2432, R:   586 A-G   809 R: S/S tran        n/a
+2201_2873, R:   586 A-C  1251 R: H/W tran        XXV
+2203_2293, R:   588 U-A   670 R: W/S tran        n/a
+2204_2291, R:   589 C-G   668 R: +/+ cis         XIX
+2204_2291,-
+2199_2878_2200_2876_2201_2432_2201_2873_2203_2293_2204_2291_0, click this line to see above pattern
+0_0,---------
+  856_879, Q:   887 G-C   910 Q: +/+ cis         XIX
+  857_878, Q:   888 G-A   909 Q: S/H tran        XI
+  858_877, Q:   889 A-A   908 Q: H/H tran        II
+  859_860, Q:   890 G-U   891 Q: S/H cis    syn    n/a
+  860_876, Q:   891 U-A   907 Q: W/H tran        XXIV
+  861_875, Q:   892 A-G   906 Q: H/S tran        XI
+  863_874, Q:   894 G-U   905 Q: W/W cis         XXVIII
+  864_873, Q:   895 G-C   904 Q: +/+ cis         XIX
+  864_873,-
+856_879_857_878_858_877_859_860_860_876_861_875_863_874_864_873_0, click this line to see above pattern
+0_0,---------
+2440_2811, R:   817 C-G  1190 R: +/+ cis         XIX
+2442_2563, R:   819 A-G   942 R: S/S tran        n/a
+2443_2594, R:   820 A-A   973 R: H/W tran        V
+2444_2593, R:   821 A-G   972 R: H/S tran        XI
+2445_2458, R:   822 U-A   835 R: -/- cis         XX
+2445_2458,-
+2440_2811_2442_2563_2443_2594_2444_2593_2445_2458_0, click this line to see above pattern
+0_0,---------
+2920_3265, R:  1298 C-G  1642 R: +/+ cis         XIX
+2921_3264, R:  1299 G-A  1641 R: S/H tran        XI
+2923_3248, R:  1301 A-G  1626 R: S/S tran   syn    n/a
+2923_3264, R:  1301 A-A  1641 R: H/W tran   syn    V
+2925_3247, R:  1303 G-C  1625 R: +/+ cis         XIX
+2925_3247,-
+2920_3265_2921_3264_2923_3248_2923_3264_2925_3247_0, click this line to see above pattern
+0_0,---------
+  658_682, Q:   683 G-C   707 Q: +/+ cis         XIX
+  659_681, Q:   684 A-A   706 Q: W/W cis         n/a
+  660_680, Q:   685 G-U   705 Q: S/H tran        n/a
+  660_681, Q:   685 G-A   706 Q: S/W cis         n/a
+  661_679, Q:   686 U-A   704 Q: W/H tran        XXIV
+  662_675, Q:   687 A-G   700 Q: S/S tran        n/a
+  662_678, Q:   687 A-G   703 Q: H/S tran        XI
+  663_674, Q:   688 G-C   699 Q: +/+ cis         XIX
+  663_674,-
+658_682_659_681_660_680_660_681_661_679_662_675_662_678_663_674_0, click this line to see above pattern
+0_0,---------
+8743_9209, Y:  2553 G-C    75 Z: +/+ cis         XIX
+8744_9208, Y:  2554 U-C    74 Z: S/H tran        n/a
+8752_8756, Y:  2562 U-A  2566 Y: W/H tran        XXIV
+8773_9210, Y:  2583 G-a    76 Z: S/S tran        n/a
+8777_8798, Y:  2587 A-G  2608 Y: H/S tran        XI
+8778_8796, Y:  2588 G-C  2606 Y: +/+ cis         XIX
+8778_8796,-
+8743_9209_8744_9208_8752_8756_8773_9210_8777_8798_8778_8796_0, click this line to see above pattern
+0_0,---------
+6801_7480, Y:   584 C-G  1256 Y: +/+ cis         XIX
+6802_7478, Y:   585 G-A  1254 Y: S/H tran        XI
+6803_7034, Y:   586 A-G   809 Y: S/S tran        n/a
+6803_7475, Y:   586 A-C  1251 Y: H/W tran        XXV
+6805_6895, Y:   588 U-A   670 Y: W/S tran        n/a
+6806_6893, Y:   589 C-G   668 Y: +/+ cis         XIX
+6806_6893,-
+6801_7480_6802_7478_6803_7034_6803_7475_6805_6895_6806_6893_0, click this line to see above pattern
+0_0,---------
+7648_7799, Y:  1424 G-C  1574 Y: +/+ cis         XIX
+7650_7797, Y:  1426 G-A  1572 Y: S/H tran        XI
+7651_7796, Y:  1427 A-A  1571 Y: W/H tran        V
+7652_7795, Y:  1428 C-A  1570 Y: H/H tran   syn    n/a
+7653_7789, Y:  1429 G-C  1564 Y: +/+ cis         XIX
+7653_7789,-
+7648_7799_7650_7797_7651_7796_7652_7795_7653_7789_0, click this line to see above pattern
+0_0,---------
+8594_8603, Y:  2404 C-G  2413 Y: +/+ cis         XIX
+8595_8602, Y:  2405 G-A  2412 Y: S/H tran        XI
+8626_8788, Y:  2436 G-A  2598 Y: S/S tran        n/a
+8640_8691, Y:  2450 A-C  2501 Y: H/W tran     syn  XXV
+8642_8694, Y:  2452 C-U  2504 Y: W/W cis         XVIII
+8643_8690, Y:  2453 A-U  2500 Y: -/- cis         XX
+8643_8690,-
+8594_8603_8595_8602_8626_8788_8640_8691_8642_8694_8643_8690_0, click this line to see above pattern
+0_0,---------
+9155_9190, Y:    71 C-G   105 Y: +/+ cis         XIX
+9156_9189, Y:    72 G-A   104 Y: S/H tran        XI
+9157_9188, Y:    73 A-U   103 Y: H/W tran        XXIV
+9160_9186, Y:    76 G-A   101 Y: W/W cis         VIII
+9162_9183, Y:    78 A-G    98 Y: H/S tran        XI
+9163_9182, Y:    79 C-G    97 Y: +/+ cis         XIX
+9163_9182,-
+9155_9190_9156_9189_9157_9188_9160_9186_9162_9183_9163_9182_0, click this line to see above pattern
+0_0,---------
+6421_6442, Y:   238 C-G   259 Y: +/+ cis         XIX
+6422_6441, Y:   239 U-G   258 Y: W/W cis         XXVIII
+6423_6440, Y:   240 G-A   257 Y: S/H tran        XI
+6424_6439, Y:   241 A-A   256 Y: H/H tran        II
+6426_6438, Y:   243 U-A   255 Y: W/H tran        XXIV
+6427_6437, Y:   244 A-G   254 Y: H/S tran        XI
+6428_6436, Y:   245 G-C   253 Y: +/+ cis         XIX
+6428_6436,-
+6421_6442_6422_6441_6423_6440_6424_6439_6426_6438_6427_6437_6428_6436_0, click this line to see above pattern
+0_0,---------
+4645_4951, X:    47 C-G   361 X: +/+ cis         XIX
+4647_4952, X:    49 U-G   362 X: W/S cis         n/a
+4647_4955, X:    49 U-U   365 X: H/W tran     syn  n/a
+4649_4702, X:    51 A-U   114 X: H/S cis         n/a
+4649_4904, X:    51 A-C   314 X: W/S cis         n/a
+4650_4949, X:    52 G-U   359 X: W/W cis         XXVIII
+4651_4948, X:    53 A-U   358 X: -/- cis         XX
+4651_4948,-
+4645_4951_4647_4952_4647_4955_4649_4702_4649_4904_4650_4949_4651_4948_0, click this line to see above pattern
+0_0,---------
+ 959_1188, Q:   990 C-G  1215 Q: +/+ cis         XIX
+ 961_1018, Q:   992 U-A  1044 Q: W/H tran        XXIV
+ 962_1019, Q:   993 G-C  1045 Q: W/W cis    syn    n/a
+ 964_1020, Q:   995 C-A  1046 Q: W/S cis         n/a
+ 965_1019, Q:   996 A-C  1045 Q: W/S cis         n/a
+ 966_1018, Q:   997 U-A  1044 Q: -/- cis         XX
+ 966_1018,-
+959_1188_961_1018_962_1019_964_1020_965_1019_966_1018_0, click this line to see above pattern
+0_0,---------
+4960_4981, X:   370 C-G   391 X: +/+ cis         XIX
+4961_4980, X:   371 G-C   390 X: W/W cis         n/a
+4962_4979, X:   372 C-A   389 X: W/H tran        XXV
+4963_4981, X:   373 A-G   391 X: W/S cis         n/a
+4964_4980, X:   374 A-C   390 X: W/S cis         n/a
+4965_4979, X:   375 U-A   389 X: -/- cis         XX
+4965_4979,-
+4960_4981_4961_4980_4962_4979_4963_4981_4964_4980_4965_4979_0, click this line to see above pattern
+0_0,---------
+5304_5309, X:   726 C-G   731 X: +/+ cis         XIX
+5305_5308, X:   727 G-G   730 X: W/H tran        VII
+5325_5327, X:   747 C-C   749 X: W/H cis         n/a
+5326_5327, X:   748 C-C   749 X: S/H cis         n/a
+5343_5394, X:   765 G-A   816 X: S/W cis         n/a
+5344_5391, X:   766 A-U   813 X: H/W tran        XXIV
+5346_5389, X:   768 A-C   811 X: W/W cis         n/a
+5347_5388, X:   769 G-C   810 X: +/+ cis         XIX
+5347_5388,-
+5304_5309_5305_5308_5325_5327_5326_5327_5343_5394_5344_5391_5346_5389_5347_5388_0, click this line to see above pattern
+0_0,---------
+3546_3556, R:  1948 G-C  1958 R: +/+ cis         XIX
+3547_3555, R:  1949 G-C  1957 R: W/W cis         n/a
+3590_3594, R:  1992 G-C  1996 R: W/S cis    syn    n/a
+3598_4277, R:  2000 G-U  2689 R: S/H cis      syn  n/a
+3611_4201, R:  2013 A-U  2613 R: W/W tran        XXI
+3612_4201, R:  2014 A-U  2613 R: W/W tran        XXI
+3617_3633, R:  2019 A-G  2035 R: W/W cis         VIII
+3618_3632, R:  2020 A-U  2034 R: -/- cis         XX
+3618_3632,-
+3546_3556_3547_3555_3590_3594_3598_4277_3611_4201_3612_4201_3617_3633_3618_3632_0, click this line to see above pattern
+0_0,---------
+5653_5658, X:  1076 C-G  1081 X: +/+ cis         XIX
+5654_5657, X:  1077 G-A  1080 X: W/H tran        n/a
+5661_5679, X:  1084 G-A  1102 X: S/H cis         n/a
+5663_5676, X:  1086 U-G  1099 X: W/W cis         XXVIII
+5664_5675, X:  1087 G-C  1098 X: +/+ cis         XIX
+5664_5675,-
+5653_5658_5654_5657_5661_5679_5663_5676_5664_5675_0, click this line to see above pattern
+0_0,---------
+9118_9132, Y:    34 U-A    48 Y: -/- cis         XX
+9122_9128, Y:    38 C-G    44 Y: W/W cis         n/a
+9123_9130, Y:    39 A-A    46 Y: S/W cis         n/a
+9124_9129, Y:    40 U-A    45 Y: S/W tran        n/a
+9128_9131, Y:    44 G-C    47 Y: S/W tran        n/a
+9139_9141, Y:    55 U-A    57 Y: S/H cis         n/a
+9151_9193, Y:    67 G-C   108 Y: H/W tran        n/a
+9153_9192, Y:    69 G-U   107 Y: W/W cis         XXVIII
+9154_9191, Y:    70 C-G   106 Y: +/+ cis         XIX
+9154_9191,-
+9118_9132_9122_9128_9123_9130_9124_9129_9128_9131_9139_9141_9151_9193_9153_9192_9154_9191_0, click this line to see above pattern
+0_0,---------
+  358_377, Q:   371 G-C   390 Q: +/+ cis         XIX
+  359_376, Q:   372 C-A   389 Q: W/H tran        XXV
+  360_378, Q:   373 A-G   391 Q: W/S cis         n/a
+  361_377, Q:   374 A-C   390 Q: W/S cis         n/a
+  362_376, Q:   375 U-A   389 Q: -/- cis         XX
+  362_376,-
+358_377_359_376_360_378_361_377_362_376_0, click this line to see above pattern
+0_0,---------
+2640_2766, R:  1018 C-G  1144 R: +/+ cis         XIX
+2641_2643, R:  1019 U-A  1021 R: S/W cis         n/a
+2643_2762, R:  1021 A-U  1141 R: H/W tran        XXIV
+2644_2645, R:  1022 G-U  1023 R: S/H cis    syn    n/a
+2644_2764, R:  1022 G-A  1142 R: W/W tran   syn    n/a
+2646_2761, R:  1024 G-C  1140 R: +/+ cis         XIX
+2646_2761,-
+2640_2766_2641_2643_2643_2762_2644_2645_2644_2764_2646_2761_0, click this line to see above pattern
+0_0,---------
+  100_299, Q:   115 G-C   312 Q: +/+ cis         XIX
+  104_274, Q:   119 A-U   287 Q: H/W tran   syn    XXIV
+  106_223, Q:   121 C-G   236 Q: W/H tran        n/a
+  107_226, Q:   122 G-U   239 Q: W/W cis         XXVIII
+  108_225, Q:   123 C-G   238 Q: +/+ cis         XIX
+  108_225,-
+100_299_104_274_106_223_107_226_108_225_0, click this line to see above pattern
+0_0,---------
+7242_7368, Y:  1018 C-G  1144 Y: +/+ cis         XIX
+7243_7245, Y:  1019 U-A  1021 Y: S/W cis         n/a
+7245_7364, Y:  1021 A-U  1141 Y: H/W tran        XXIV
+7246_7247, Y:  1022 G-U  1023 Y: S/H cis    syn    n/a
+7248_7363, Y:  1024 G-C  1140 Y: +/+ cis         XIX
+7248_7363,-
+7242_7368_7243_7245_7245_7364_7246_7247_7248_7363_0, click this line to see above pattern
+0_0,---------
+   43_348, Q:    47 C-G   361 Q: +/+ cis         XIX
+   45_352, Q:    49 U-U   365 Q: H/W tran     syn  n/a
+    47_99, Q:    51 A-U   114 Q: H/S cis         n/a
+   48_346, Q:    52 G-U   359 Q: W/W cis         XXVIII
+   49_345, Q:    53 A-U   358 Q: -/- cis         XX
+   49_345,-
+43_348_45_352_47_99_48_346_49_345_0, click this line to see above pattern
+0_0,---------
+8540_8557, Y:  2350 C-G  2367 Y: +/+ cis         XIX
+8540_8558, Y:  2350 C-C  2368 Y: W/W cis         n/a
+8541_8556, Y:  2351 G-A  2366 Y: S/H tran        XI
+8542_8555, Y:  2352 A-G  2365 Y: H/S tran        XI
+8543_8554, Y:  2353 G-C  2364 Y: +/+ cis         XIX
+8543_8554,-
+8540_8557_8540_8558_8541_8556_8542_8555_8543_8554_0, click this line to see above pattern
+0_0,---------
+8825_8974, Y:  2635 C-G  2783 Y: +/+ cis         XIX
+8826_8973, Y:  2636 U-G  2782 Y: W/W cis         XXVIII
+8827_8967, Y:  2637 U-A  2776 Y: W/H tran     syn  XXIV
+8828_8969, Y:  2638 G-A  2778 Y: S/H tran        XI
+8830_8965, Y:  2640 G-C  2774 Y: +/+ cis         XIX
+8830_8965,-
+8825_8974_8826_8973_8827_8967_8828_8969_8830_8965_0, click this line to see above pattern
+0_0,---------
+5261_5285, X:   683 G-C   707 X: +/+ cis         XIX
+5262_5284, X:   684 A-A   706 X: W/W cis         n/a
+5264_5282, X:   686 U-A   704 X: W/H tran        XXIV
+5265_5281, X:   687 A-G   703 X: H/S tran        XI
+5266_5277, X:   688 G-C   699 X: +/+ cis         XIX
+5266_5277,-
+5261_5285_5262_5284_5264_5282_5265_5281_5266_5277_0, click this line to see above pattern
+0_0,---------
+5835_5852, X:  1259 C-G  1276 X: +/+ cis         XIX
+5836_5850, X:  1260 C-G  1274 X: W/W cis         n/a
+5836_5851, X:  1260 C-A  1275 X: S/H tran        n/a
+5837_5850, X:  1261 A-G  1274 X: H/S tran        XI
+5838_5849, X:  1262 C-G  1273 X: +/+ cis         XIX
+5838_5849,-
+5835_5852_5836_5850_5836_5851_5837_5850_5838_5849_0, click this line to see above pattern
+0_0,---------
+4326_4356, R:  2737 G-C  2767 R: +/+ cis         XIX
+4327_4355, R:  2738 A-G  2766 R: W/W cis         VIII
+4328_4353, R:  2739 U-A  2764 R: W/H tran        XXIV
+4330_4352, R:  2741 A-G  2763 R: H/S tran        XI
+4331_4351, R:  2742 C-G  2762 R: +/+ cis         XIX
+4331_4351,-
+4326_4356_4327_4355_4328_4353_4330_4352_4331_4351_0, click this line to see above pattern
+0_0,---------
+7580_7599, Y:  1356 G-C  1375 Y: +/+ cis         XIX
+7581_7598, Y:  1357 U-G  1374 Y: W/W cis         XXVIII
+7582_7583, Y:  1358 G-A  1359 Y: S/H cis         n/a
+7582_7597, Y:  1358 G-A  1373 Y: S/H tran        XI
+7583_7596, Y:  1359 A-U  1372 Y: -/- cis         XX
+7583_7596,-
+7580_7599_7581_7598_7582_7583_7582_7597_7583_7596_0, click this line to see above pattern
+0_0,---------
+6822_6842, Y:   605 C-G   623 Y: +/+ cis         XIX
+6823_6841, Y:   606 U-G   622 Y: W/W cis         XXVIII
+6824_6840, Y:   607 U-A   621 Y: W/W tran     syn  XXI
+6826_6838, Y:   609 A-G   619 Y: H/S tran        XI
+6827_6837, Y:   609 G-C   618 Y: +/+ cis         XIX
+6827_6837,-
+6822_6842_6823_6841_6824_6840_6826_6838_6827_6837_0, click this line to see above pattern
+0_0,---------
+4044_4083, R:  2456 C-G  2495 R: +/+ cis         XIX
+4045_4082, R:  2457 U-G  2494 R: W/W cis         XXVIII
+4046_4047, R:  2458 G-A  2459 R: S/H cis         n/a
+4046_4080, R:  2458 G-U  2492 R: S/H tran        n/a
+4047_4081, R:  2459 A-U  2493 R: -/- cis         XX
+4047_4081,-
+4044_4083_4045_4082_4046_4047_4046_4080_4047_4081_0, click this line to see above pattern
+0_0,---------
+4617_5488, X:    19 C-G   916 X: +/+ cis         XIX
+4618_5487, X:    20 U-A   915 X: W/W cis         n/a
+4619_5486, X:    21 G-A   914 X: S/H tran        XI
+4624_5136, X:    26 A-G   558 X: H/S tran        XI
+4625_5134, X:    27 G-C   556 X: +/+ cis         XIX
+4625_5134,-
+4617_5488_4618_5487_4619_5486_4624_5136_4625_5134_0, click this line to see above pattern
+0_0,---------
+4223_4372, R:  2635 C-G  2783 R: +/+ cis         XIX
+4224_4371, R:  2636 U-G  2782 R: W/W cis         XXVIII
+4225_4365, R:  2637 U-A  2776 R: W/H tran     syn  XXIV
+4226_4367, R:  2638 G-A  2778 R: S/H tran        XI
+4228_4363, R:  2640 G-C  2774 R: +/+ cis         XIX
+4228_4363,-
+4223_4372_4224_4371_4225_4365_4226_4367_4228_4363_0, click this line to see above pattern
+0_0,---------
+2220_2240, R:   605 C-G   623 R: +/+ cis         XIX
+2221_2239, R:   606 U-G   622 R: W/W cis         XXVIII
+2222_2238, R:   607 U-A   621 R: W/W tran     syn  XXI
+2224_2236, R:   609 A-G   619 R: H/S tran        XI
+2225_2235, R:   609 G-C   618 R: +/+ cis         XIX
+2225_2235,-
+2220_2240_2221_2239_2222_2238_2224_2236_2225_2235_0, click this line to see above pattern
+0_0,---------
+3508_3518, R:  1910 G-C  1920 R: +/+ cis         XIX
+3510_3515, R:  1912 A-U  1917 R: H/W tran        XXIV
+3516_3517, R:  1918 A-A  1919 R: S/H cis         n/a
+3523_3527, R:  1925 C-G  1929 R: W/W cis         n/a
+3530_3566, R:  1932 A-G  1968 R: H/S tran        XI
+3531_3565, R:  1933 G-C  1967 R: +/+ cis         XIX
+3531_3565,-
+3508_3518_3510_3515_3516_3517_3523_3527_3530_3566_3531_3565_0, click this line to see above pattern
+0_0,---------
+6205_9082, Y:     8 A-U  2895 Y: -/- cis         XX
+6206_8819, Y:     9 U-A  2629 Y: W/H tran        XXIV
+6212_6744, Y:    15 G-U   525 Y: W/W cis         XXVIII
+6213_6743, Y:    16 G-U   524 Y: W/W cis         XXVIII
+6214_6742, Y:    17 G-C   523 Y: +/+ cis         XIX
+6214_6742,-
+6205_9082_6206_8819_6212_6744_6213_6743_6214_6742_0, click this line to see above pattern
+0_0,---------
+  229_271, Q:   242 C-G   284 Q: +/+ cis         XIX
+  230_269, Q:   243 A-A   282 Q: W/H tran   syn    V
+  231_862, Q:   244 U-C   893 Q: W/W cis         XVIII
+  232_270, Q:   245 C-C   283 Q: W/W cis         n/a
+  233_268, Q:   246 A-G   281 Q: H/S tran        XI
+  234_264, Q:   247 G-C   277 Q: +/+ cis         XIX
+  234_264,-
+229_271_230_269_231_862_232_270_233_268_234_264_0, click this line to see above pattern
+0_0,---------
+8928_8958, Y:  2737 G-C  2767 Y: +/+ cis         XIX
+8929_8957, Y:  2738 A-G  2766 Y: W/W cis         VIII
+8930_8955, Y:  2739 U-A  2764 Y: W/H tran        XXIV
+8930_8957, Y:  2739 U-G  2766 Y: W/W cis         XXVIII
+8932_8954, Y:  2741 A-G  2763 Y: H/S tran        XI
+8933_8953, Y:  2742 C-G  2762 Y: +/+ cis         XIX
+8933_8953,-
+8928_8958_8929_8957_8930_8955_8930_8957_8932_8954_8933_8953_0, click this line to see above pattern
+0_0,---------
+4832_4874, X:   242 C-G   284 X: +/+ cis         XIX
+4833_4872, X:   243 A-A   282 X: W/H tran   syn    V
+4834_5465, X:   244 U-C   893 X: W/W cis         XVIII
+4835_4873, X:   245 C-C   283 X: W/W cis         n/a
+4836_4871, X:   246 A-G   281 X: H/S tran        XI
+4837_4867, X:   247 G-C   277 X: +/+ cis         XIX
+4837_4867,-
+4832_4874_4833_4872_4834_5465_4835_4873_4836_4871_4837_4867_0, click this line to see above pattern
+0_0,---------
+8110_8120, Y:  1910 G-C  1920 Y: +/+ cis         XIX
+8111_8120, Y:  1911 U-C  1920 Y: W/W cis         XVIII
+8112_8117, Y:  1912 A-U  1917 Y: H/W tran        XXIV
+8118_8119, Y:  1918 A-A  1919 Y: S/H cis         n/a
+8132_8168, Y:  1932 A-G  1968 Y: H/S tran        XI
+8133_8167, Y:  1933 G-C  1967 Y: +/+ cis         XIX
+8133_8167,-
+8110_8120_8111_8120_8112_8117_8118_8119_8132_8168_8133_8167_0, click this line to see above pattern
+0_0,---------
+7575_7604, Y:  1351 C-G  1380 Y: +/+ cis         XIX
+7576_7602, Y:  1352 U-A  1378 Y: W/H tran        XXIV
+7576_7604, Y:  1352 U-G  1380 Y: W/W cis         XXVIII
+7578_7601, Y:  1354 A-G  1377 Y: H/S tran        XI
+7579_7600, Y:  1355 G-C  1376 Y: +/+ cis         XIX
+7579_7600,-
+7575_7604_7576_7602_7576_7604_7578_7601_7579_7600_0, click this line to see above pattern
+0_0,---------
+7986_7996, Y:  1777 U-A  1787 Y: -/- cis         XX
+7987_7994, Y:  1778 U-A  1785 Y: W/H tran        XXIV
+7988_7993, Y:  1779 U-A  1784 Y: W/H tran   syn    XXIV
+7991_8776, Y:  1782 C-C  2586 Y: W/W tran        XIV,XV
+7992_8797, Y:  1783 A-G  2607 Y: S/S cis    syn    n/a
+8000_8037, Y:  1791 A-G  1828 Y: H/S tran        XI
+8001_8036, Y:  1792 G-C  1827 Y: +/+ cis         XIX
+8001_8036,-
+7986_7996_7987_7994_7988_7993_7991_8776_7992_8797_8000_8037_8001_8036_0, click this line to see above pattern
+0_0,---------
+1769_1789, R:   188 G-C   208 R: +/+ cis         XIX
+1770_1788, R:   189 G-A   207 R: S/H tran        XI
+1771_1787, R:   190 A-U   206 R: H/W tran        XXIV
+1772_1785, R:   191 A-A   204 R: H/H tran        II
+1772_2422, R:   191 A-G   799 R: S/S tran        n/a
+1773_1784, R:   192 C-C   203 R: H/S tran        n/a
+1774_1783, R:   193 U-U   202 R: W/W cis         XVI
+1775_1782, R:   194 G-C   201 R: +/+ cis         XIX
+1775_1782,-
+1769_1789_1770_1788_1771_1787_1772_1785_1772_2422_1773_1784_1774_1783_1775_1782_0, click this line to see above pattern
+0_0,---------
+1286_1297, Q:  1313 U-A  1324 Q: -/- cis         XX
+1287_1296, Q:  1314 C-G  1323 Q: W/W cis         n/a
+1288_1292, Q:  1315 U-A  1319 Q: W/H tran        XXIV
+1292_1334, Q:  1319 A-G  1361 Q: W/S tran        X
+1311_1542, Q:  1338 G-C    41 Q: S/s cis         n/a
+1318_1350, Q:  1345 U-U  1376 Q: W/W tran   syn    XII,XIII
+1321_1348, Q:  1348 U-A  1374 Q: W/W tran     syn  XXI
+1322_1347, Q:  1349 A-G  1373 Q: H/S tran        XI
+1323_1346, Q:  1350 A-U  1372 Q: -/- cis         XX
+1323_1346,-
+1286_1297_1287_1296_1288_1292_1292_1334_1311_1542_1318_1350_1321_1348_1322_1347_1323_1346_0, click this line to see above pattern
+0_0,---------
+4141_9206, R:  2553 G-C    75 Z: +/+ cis         XIX
+4141_9207, R:  2553 G-a    76 Z: W/W cis         VIII
+4150_4154, R:  2562 U-A  2566 R: W/H tran     syn  XXIV
+4152_4234, R:  2564 A-C  2646 R: W/S cis         n/a
+4171_9207, R:  2583 G-a    76 Z: S/S tran        n/a
+4175_4196, R:  2587 A-G  2608 R: H/S tran        XI
+4176_4194, R:  2588 G-C  2606 R: +/+ cis         XIX
+4176_4194,-
+4141_9206_4141_9207_4150_4154_4152_4234_4171_9207_4175_4196_4176_4194_0, click this line to see above pattern
+0_0,---------
+3384_3394, R:  1777 U-A  1787 R: -/- cis         XX
+3385_3386, R:  1778 U-U  1779 R: S/W cis      syn  n/a
+3385_3392, R:  1778 U-A  1785 R: W/H tran        XXIV
+3386_3391, R:  1779 U-A  1784 R: W/H tran   syn    XXIV
+3389_4174, R:  1782 C-C  2586 R: W/W tran        XIV,XV
+3390_4195, R:  1783 A-G  2607 R: S/S cis         n/a
+3398_3435, R:  1791 A-G  1828 R: H/S tran        XI
+3399_3434, R:  1792 G-C  1827 R: +/+ cis         XIX
+3399_3434,-
+3384_3394_3385_3386_3385_3392_3386_3391_3389_4174_3390_4195_3398_3435_3399_3434_0, click this line to see above pattern
+0_0,---------
+6899_7031, Y:   674 G-C   806 Y: +/+ cis         XIX
+6900_7028, Y:   675 A-U   803 Y: H/W tran        XXIV
+6901_7027, Y:   676 A-A   802 Y: W/W tran   syn    I
+6902_7025, Y:   677 A-A   800 Y: W/W tran        I
+6903_7024, Y:   678 C-G   799 Y: +/+ cis         XIX
+6903_7024,-
+6899_7031_6900_7028_6901_7027_6902_7025_6903_7024_0, click this line to see above pattern
+0_0,---------
+2297_2429, R:   674 G-C   806 R: +/+ cis         XIX
+2298_2426, R:   675 A-U   803 R: H/W tran        XXIV
+2299_2425, R:   676 A-A   802 R: W/W tran   syn    I
+2300_2423, R:   677 A-A   800 R: W/W tran        I
+2301_2422, R:   678 C-G   799 R: +/+ cis         XIX
+2301_2422,-
+2297_2429_2298_2426_2299_2425_2300_2423_2301_2422_0, click this line to see above pattern
+0_0,---------
+  282_289, Q:   295 C-G   302 Q: +/+ cis         XIX
+  283_288, Q:   296 U-G   301 Q: W/W cis         XXVIII
+  286_541, Q:   299 G-G   566 Q: W/H cis         VI
+  287_539, Q:   300 A-C   564 Q: S/W cis         n/a
+  287_540, Q:   300 A-U   565 Q: S/W cis         n/a
+  296_582, Q:   309 G-A   607 Q: S/W cis         n/a
+  303_324, Q:   316 G-C   337 Q: +/+ cis         XIX
+  303_324,-
+282_289_283_288_286_541_287_539_287_540_296_582_303_324_0, click this line to see above pattern
+0_0,---------
+6908_7019, Y:   683 C-G   794 Y: +/+ cis         XIX
+6909_7000, Y:   684 G-G   775 Y: W/H tran        VII
+6910_6913, Y:   685 A-U   688 Y: S/W tran   syn    n/a
+6910_7003, Y:   685 A-G   778 Y: W/S tran   syn    X
+6911_7013, Y:   686 G-A   788 Y: S/W cis    syn    n/a
+6912_7989, Y:   687 C-A  1780 Y: S/W cis         n/a
+6914_6998, Y:   689 A-U   773 Y: -/- cis         XX
+6914_6998,-
+6908_7019_6909_7000_6910_6913_6910_7003_6911_7013_6912_7989_6914_6998_0, click this line to see above pattern
+0_0,---------
+2401_2409, R:   778 G-C   786 R: +/+ cis         XIX
+2402_2408, R:   779 U-G   785 R: W/W cis         XXVIII
+2403_2406, R:   780 G-A   783 R: S/W tran     syn  X
+2404_3383, R:   781 A-G  1776 R: S/S tran        n/a
+2415_3670, R:   792 G-G  2072 R: S/S cis         n/a
+2430_3658, R:   807 U-A  2060 R: S/W cis         n/a
+2431_2876, R:   808 G-A  1254 R: S/s cis         n/a
+2435_2816, R:   812 C-G  1195 R: +/+ cis         XIX
+2435_2816,-
+2401_2409_2402_2408_2403_2406_2404_3383_2415_3670_2430_3658_2431_2876_2435_2816_0, click this line to see above pattern
+0_0,---------
+2306_2417, R:   683 C-G   794 R: +/+ cis         XIX
+2307_2398, R:   684 G-G   775 R: W/H tran        VII
+2308_2311, R:   685 A-U   688 R: S/W tran   syn    n/a
+2308_2401, R:   685 A-G   778 R: W/S tran   syn    X
+2309_2411, R:   686 G-A   788 R: S/W cis    syn    n/a
+2310_3387, R:   687 C-A  1780 R: S/W cis         n/a
+2312_2396, R:   689 A-U   773 R: -/- cis         XX
+2312_2396,-
+2306_2417_2307_2398_2308_2311_2308_2401_2309_2411_2310_3387_2312_2396_0, click this line to see above pattern
+0_0,---------
+4115_4124, R:  2527 C-G  2536 R: +/+ cis         XIX
+4116_4123, R:  2528 U-G  2535 R: W/W cis         XXVIII
+4119_4250, R:  2531 A-A  2662 R: W/W tran        I
+4120_4251, R:  2532 G-G  2663 R: S/S tran        IV
+4129_4354, R:  2541 A-A  2765 R: S/W cis      syn  n/a
+4130_4155, R:  2542 A-G  2567 R: W/W tran        n/a
+4134_4155, R:  2546 U-G  2567 R: W/H cis         n/a
+4135_4149, R:  2547 U-A  2561 R: -/- cis         XX
+4135_4149,-
+4115_4124_4116_4123_4119_4250_4120_4251_4129_4354_4130_4155_4134_4155_4135_4149_0, click this line to see above pattern
+0_0,---------
+1097_1124, Q:  1123 A-U  1150 Q: -/- cis         XX
+1098_1123, Q:  1124 G-C  1149 Q: W/W cis         n/a
+1101_1119, Q:  1127 G-C  1145 Q: W/S cis         n/a
+1101_1121, Q:  1127 G-C  1147 Q: S/W cis         n/a
+1102_1104, Q:  1128 C-A  1130 Q: S/H cis         n/a
+1102_1118, Q:  1128 C-G  1144 Q: +/+ cis         XIX
+1102_1118,-
+1097_1124_1098_1123_1101_1119_1101_1121_1102_1104_1102_1118_0, click this line to see above pattern
+0_0,---------
+2714_2721, R:  1092 C-G  1099 R: +/+ cis         XIX
+2714_2722, R:  1092 C-C  1100 R: W/W cis         n/a
+2731_4340, R:  1109 C-G  2751 R: S/W cis         n/a
+2749_4051, R:  1127 A-C  2463 R: W/S cis         n/a
+2749_4076, R:  1127 A-A  2488 R: H/S cis         n/a
+2750_4104, R:  1128 A-G  2516 R: S/S cis    syn    n/a
+2751_4157, R:  1129 A-G  2569 R: S/S tran        n/a
+2754_3637, R:  1132 A-C  2039 R: W/S cis         n/a
+2756_2759, R:  1135 C-G  1138 R: H/H tran        n/a
+2786_2806, R:  1164 G-C  1185 R: +/+ cis         XIX
+2786_2806,-
+2714_2721_2714_2722_2731_4340_2749_4051_2749_4076_2750_4104_2751_4157_2754_3637_2756_2759_2786_2806_0, click this line to see above pattern
+0_0,---------
+  133_161, Q:   147 G-C   175 Q: +/+ cis         XIX
+  134_160, Q:   148 G-C   174 Q: W/W cis         n/a
+  135_158, Q:   149 A-A   172 Q: W/H tran        V
+  136_157, Q:   150 C-A   171 Q: W/H tran        XXV
+  137_156, Q:   151 A-U   170 Q: H/W tran        XXIV
+  138_155, Q:   152 A-C   169 Q: H/W tran        XXV
+  139_154, Q:   153 C-G   168 Q: +/+ cis         XIX
+  139_154,-
+133_161_134_160_135_158_136_157_137_156_138_155_139_154_0, click this line to see above pattern
+0_0,---------
+1819_1840, R:   238 C-G   259 R: +/+ cis         XIX
+1820_1839, R:   239 U-G   258 R: W/W cis         XXVIII
+1821_1838, R:   240 G-A   257 R: S/H tran        XI
+1822_1837, R:   241 A-A   256 R: H/H tran        II
+1823_1824, R:   242 G-U   243 R: S/H cis    syn    n/a
+1824_1836, R:   243 U-A   255 R: W/H tran        XXIV
+1825_1835, R:   244 A-G   254 R: H/S tran        XI
+1826_1834, R:   245 G-C   253 R: +/+ cis         XIX
+1826_1834,-
+1819_1840_1820_1839_1821_1838_1822_1837_1823_1824_1824_1836_1825_1835_1826_1834_0, click this line to see above pattern
+0_0,---------
+8936_8950, Y:  2745 C-G  2759 Y: +/+ cis         XIX
+8937_8947, Y:  2746 U-U  2756 Y: W/H tran        n/a
+8938_8948, Y:  2747 G-A  2757 Y: S/H tran        XI
+8939_8945, Y:  2748 A-U  2754 Y: H/W tran        XXIV
+8940_8944, Y:  2749 A-A  2753 Y: H/W tran        V
+8947_8949, Y:  2756 U-A  2758 Y: W/H cis         XXIII
+8968_8970, Y:  2777 G-U  2779 Y: S/W cis      syn  n/a
+8980_9081, Y:  2789 C-G  2894 Y: +/+ cis      syn  XIX
+8980_9081,-
+8936_8950_8937_8947_8938_8948_8939_8945_8940_8944_8947_8949_8968_8970_8980_9081_0, click this line to see above pattern
+0_0,---------
+4885_4892, X:   295 C-G   302 X: +/+ cis         XIX
+4886_4891, X:   296 U-G   301 X: W/W cis         XXVIII
+4887_4890, X:   297 G-A   300 X: S/H tran        XI
+4888_5138, X:   298 A-U   560 X: W/H tran        XXIV
+4889_5144, X:   299 G-G   566 X: W/H cis         VI
+4890_5143, X:   300 A-U   565 X: S/W cis         n/a
+4906_4927, X:   316 G-C   337 X: +/+ cis         XIX
+4906_4927,-
+4885_4892_4886_4891_4887_4890_4888_5138_4889_5144_4890_5143_4906_4927_0, click this line to see above pattern
+0_0,---------
+2035_3995, R:   416 C-G  2407 R: +/+ cis         XIX
+2061_2867, R:   443 A-G  1245 R: S/S tran        n/a
+2064_2072, R:   446 G-A   454 R: S/W tran        X
+2066_2197, R:   448 U-G   582 R: W/S tran        n/a
+2067_2072, R:   449 A-A   454 R: W/H tran        V
+2070_2075, R:   452 G-A   457 R: S/S tran        n/a
+2075_2089, R:   457 A-A   471 R: H/H tran        II
+2077_2088, R:   459 U-A   470 R: W/H tran        XXIV
+2078_2087, R:   460 A-G   469 R: H/S tran        XI
+2079_2086, R:   461 C-G   468 R: +/+ cis         XIX
+2079_2086,-
+2035_3995_2061_2867_2064_2072_2066_2197_2067_2072_2070_2075_2075_2089_2077_2088_2078_2087_2079_2086_0, click this line to see above pattern
+0_0,---------
+5822_5867, X:  1246 C-G  1291 X: +/+ cis         XIX
+5823_5866, X:  1247 U-G  1290 X: W/W cis         XXVIII
+5824_5865, X:  1248 A-A  1289 X: W/H tran        V
+5825_5864, X:  1249 C-A  1288 X: W/H tran        XXV
+5829_5860, X:  1253 G-C  1284 X: +/+ cis         XIX
+5829_5860,-
+5822_5867_5823_5866_5824_5865_5825_5864_5829_5860_0, click this line to see above pattern
+0_0,---------
+  701_706, Q:   726 C-G   731 Q: +/+ cis         XIX
+  723_724, Q:   748 C-C   749 Q: S/H cis         n/a
+  726_729, Q:   751 U-C   754 Q: W/H cis      syn  n/a
+  740_791, Q:   765 G-A   816 Q: S/W cis         n/a
+  741_788, Q:   766 A-U   813 Q: H/W tran        XXIV
+ 742_1480, Q:   767 A-G  1511 Q: S/S tran        n/a
+  743_786, Q:   768 A-C   811 Q: W/W cis         n/a
+  744_785, Q:   769 G-C   810 Q: +/+ cis         XIX
+  744_785,-
+701_706_723_724_726_729_740_791_741_788_742_1480_743_786_744_785_0, click this line to see above pattern
+0_0,---------
+2375_4197, R:   752 A-U  2609 R: -/- cis      syn  XX
+2387_3382, R:   764 A-U  1775 R: H/W cis    syn    XXIII
+2387_3396, R:   764 A-A  1789 R: W/S cis    syn    n/a
+2391_3001, R:   768 G-A  1379 R: S/H tran     syn  XI
+2393_2976, R:   770 G-A  1354 R: S/S tran        n/a
+2398_2414, R:   775 G-C   791 R: +/+ cis         XIX
+2398_2414,-
+2375_4197_2387_3382_2387_3396_2391_3001_2393_2976_2398_2414_0, click this line to see above pattern
+0_0,---------
+4910_4923, X:   320 C-G   333 X: +/+ cis         XIX
+4911_4922, X:   321 A-G   332 X: W/W cis         VIII
+4912_4919, X:   322 C-A   329 X: W/H tran        XXV
+4913_4917, X:   323 U-A   327 X: W/H tran     syn  XXIV
+4928_4941, X:   338 A-G   351 X: W/W cis      syn  VIII
+4929_4940, X:   339 C-G   350 X: +/+ cis         XIX
+4929_4940,-
+4910_4923_4911_4922_4912_4919_4913_4917_4928_4941_4929_4940_0, click this line to see above pattern
+0_0,---------
+4703_4902, X:   115 G-C   312 X: +/+ cis         XIX
+4704_4903, X:   116 A-A   313 X: W/S tran        n/a
+4707_4877, X:   119 A-U   287 X: H/W tran   syn    XXIV
+4709_4827, X:   121 C-C   237 X: W/H tran        n/a
+4710_4829, X:   122 G-U   239 X: W/W cis         XXVIII
+4711_4828, X:   123 C-G   238 X: +/+ cis         XIX
+4711_4828,-
+4703_4902_4704_4903_4707_4877_4709_4827_4710_4829_4711_4828_0, click this line to see above pattern
+0_0,---------
+  307_320, Q:   320 C-G   333 Q: +/+ cis         XIX
+  308_319, Q:   321 A-G   332 Q: W/W cis         VIII
+  309_316, Q:   322 C-A   329 Q: W/H tran        XXV
+  310_314, Q:   323 U-A   327 Q: W/H tran     syn  XXIV
+  325_338, Q:   338 A-G   351 Q: W/W cis         VIII
+  326_337, Q:   339 C-G   350 Q: +/+ cis         XIX
+  326_337,-
+307_320_308_319_309_316_310_314_325_338_326_337_0, click this line to see above pattern
+0_0,---------
+6977_8799, Y:   752 A-U  2609 Y: -/- cis      syn  XX
+6989_7984, Y:   764 A-U  1775 Y: H/W cis         XXIII
+6989_7998, Y:   764 A-A  1789 Y: W/S cis         n/a
+6995_7578, Y:   770 G-A  1354 Y: S/S tran        n/a
+7000_7016, Y:   775 G-C   791 Y: +/+ cis         XIX
+7000_7016,-
+6977_8799_6989_7984_6989_7998_6995_7578_7000_7016_0, click this line to see above pattern
+0_0,---------
+6408_6413, Y:   225 A-U   230 Y: -/- cis         XX
+6409_6411, Y:   226 G-A   228 Y: S/H tran     syn  XI
+6410_6631, Y:   227 A-G   410 Y: W/S tran        X
+6416_6650, Y:   233 A-A   429 Y: W/W tran        I
+6417_6651, Y:   234 C-G   430 Y: W/W tran        XXII
+6418_6445, Y:   235 U-A   262 Y: -/- cis         XX
+6418_6445,-
+6408_6413_6409_6411_6410_6631_6416_6650_6417_6651_6418_6445_0, click this line to see above pattern
+0_0,---------
+8661_8669, Y:  2471 C-G  2479 Y: +/+ cis         XIX
+8662_8668, Y:  2472 G-A  2478 Y: S/H tran        XI
+8665_8719, Y:  2475 C-G  2529 Y: W/W tran        XXII
+8687_8688, Y:  2497 A-C  2498 Y: S/H cis    syn    n/a
+8695_8800, Y:  2505 G-C  2610 Y: W/W tran        XXII
+8697_8772, Y:  2507 C-G  2582 Y: +/+ cis         XIX
+8697_8772,-
+8661_8669_8662_8668_8665_8719_8687_8688_8695_8800_8697_8772_0, click this line to see above pattern
+0_0,---------
+5890_5899, X:  1314 C-G  1323 X: +/+ cis         XIX
+5891_5895, X:  1315 U-A  1319 X: W/H tran        XXIV
+5895_5937, X:  1319 A-G  1361 X: W/S tran        X
+5914_6145, X:  1338 G-C    41 X: S/s cis         n/a
+5921_5953, X:  1345 U-U  1376 X: W/W tran   syn    XII,XIII
+5922_5952, X:  1346 A-A  1375 X: H/H tran        II
+5926_5949, X:  1350 A-U  1372 X: -/- cis         XX
+5926_5949,-
+5890_5899_5891_5895_5895_5937_5914_6145_5921_5953_5922_5952_5926_5949_0, click this line to see above pattern
+0_0,---------
+4059_4067, R:  2471 C-G  2479 R: +/+ cis         XIX
+4060_4066, R:  2472 G-A  2478 R: S/H tran        XI
+4060_4117, R:  2472 G-G  2529 R: S/W cis         n/a
+4063_4117, R:  2475 C-G  2529 R: W/W tran        XXII
+4093_4198, R:  2505 G-C  2610 R: W/W tran        XXII
+4095_4170, R:  2507 C-G  2582 R: +/+ cis         XIX
+4095_4170,-
+4059_4067_4060_4066_4060_4117_4063_4117_4093_4198_4095_4170_0, click this line to see above pattern
+0_0,---------
+1806_1811, R:   225 A-U   230 R: -/- cis         XX
+1807_1809, R:   226 G-A   228 R: S/W tran     syn  X
+1808_2029, R:   227 A-G   410 R: H/S tran        XI
+1814_2048, R:   233 A-A   429 R: W/W tran        I
+1815_2049, R:   234 C-G   430 R: W/W tran        XXII
+1816_1843, R:   235 U-A   262 R: -/- cis         XX
+1816_1843,-
+1806_1811_1807_1809_1808_2029_1814_2048_1815_2049_1816_1843_0, click this line to see above pattern
+0_0,---------
+6522_6531, Y:   304 G-C   313 Y: +/+ cis         XIX
+6523_6530, Y:   305 U-G   312 Y: W/W cis         XXVIII
+6524_6528, Y:   306 U-A   310 Y: W/H tran        XXIV
+6526_6547, Y:   308 G-G   329 Y: S/S tran        IV
+6535_6552, Y:   317 G-C   334 Y: +/+ cis         XIX
+6535_6552,-
+6522_6531_6523_6530_6524_6528_6526_6547_6535_6552_0, click this line to see above pattern
+0_0,---------
+3470_3477, R:  1863 G-C  1879 R: +/+ cis         XIX
+3471_3476, R:  1864 U-G  1878 R: W/W cis         XXVIII
+3472_3475, R:  1869 G-A  1872 R: W/H tran        n/a
+3488_3822, R:  1890 A-G  2234 R: S/S tran        n/a
+3497_3499, R:  1899 G-A  1901 R: S/H cis         n/a
+3502_3526, R:  1904 G-A  1928 R: S/S tran        n/a
+3504_3522, R:  1906 G-C  1924 R: +/+ cis         XIX
+3504_3522,-
+3470_3477_3471_3476_3472_3475_3488_3822_3497_3499_3502_3526_3504_3522_0, click this line to see above pattern
+0_0,---------
+1920_1929, R:   304 G-C   313 R: +/+ cis         XIX
+1921_1928, R:   305 U-G   312 R: W/W cis         XXVIII
+1922_1926, R:   306 U-A   310 R: W/H tran        XXIV
+1923_1946, R:   307 G-A   330 R: S/H cis      syn  n/a
+1924_1945, R:   308 G-G   329 R: S/S tran        IV
+1933_1950, R:   317 G-C   334 R: +/+ cis         XIX
+1933_1950,-
+1920_1929_1921_1928_1922_1926_1923_1946_1924_1945_1933_1950_0, click this line to see above pattern
+0_0,---------
+6451_6645, Y:   268 C-G   424 Y: +/+ cis         XIX
+6452_6591, Y:   269 U-G   370 Y: W/W cis         XXVIII
+6453_6479, Y:   270 A-U   270 Y: H/W tran        XXIV
+6455_6485, Y:   270 A-G   273 Y: S/S tran        n/a
+6456_6476, Y:   270 C-G   270 Y: +/+ cis         XIX
+6456_6476,-
+6451_6645_6452_6591_6453_6479_6455_6485_6456_6476_0, click this line to see above pattern
+0_0,---------
+3405_3428, R:  1798 U-A  1821 R: -/- cis         XX
+3406_3425, R:  1799 G-U  1818 R: W/S tran   syn    n/a
+3407_3424, R:  1800 C-G  1817 R: W/W tran        XXII
+3409_3422, R:  1802 A-A  1815 R: H/H tran        II
+3410_3421, R:  1803 A-G  1814 R: H/S tran        XI
+3410_3429, R:  1803 A-G  1822 R: S/S tran        n/a
+3411_3420, R:  1804 C-G  1813 R: +/+ cis         XIX
+3411_3420,-
+3405_3428_3406_3425_3407_3424_3409_3422_3410_3421_3410_3429_3411_3420_0, click this line to see above pattern
+0_0,---------
+8007_8030, Y:  1798 U-A  1821 Y: -/- cis         XX
+8008_8027, Y:  1799 G-U  1818 Y: W/S tran   syn    n/a
+8009_8026, Y:  1800 C-G  1817 Y: W/W tran        XXII
+8009_8028, Y:  1800 C-A  1819 Y: H/H tran        n/a
+8011_8024, Y:  1802 A-A  1815 Y: H/H tran        II
+8012_8023, Y:  1803 A-G  1814 Y: H/S tran        XI
+8013_8022, Y:  1804 C-G  1813 Y: +/+ cis         XIX
+8013_8022,-
+8007_8030_8008_8027_8009_8026_8009_8028_8011_8024_8012_8023_8013_8022_0, click this line to see above pattern
+0_0,---------
+7248_7363, Y:  1024 G-C  1140 Y: +/+ cis         XIX
+7249_7362, Y:  1025 G-G  1139 Y: W/W tran        III
+7252_7350, Y:  1028 A-A  1126 Y: H/H tran        II
+7253_7349, Y:  1029 A-G  1125 Y: H/S tran        XI
+7253_8675, Y:  1029 A-G  2485 Y: S/S cis         n/a
+7254_7348, Y:  1030 G-C  1124 Y: +/+ cis         XIX
+7254_7348,-
+7248_7363_7249_7362_7252_7350_7253_7349_7253_8675_7254_7348_0, click this line to see above pattern
+0_0,---------
+2646_2761, R:  1024 G-C  1140 R: +/+ cis         XIX
+2647_2760, R:  1025 G-G  1139 R: W/W tran        III
+2650_2748, R:  1028 A-A  1126 R: H/H tran        II
+2651_2747, R:  1029 A-G  1125 R: H/S tran        XI
+2651_4073, R:  1029 A-G  2485 R: S/S cis         n/a
+2652_2746, R:  1030 G-C  1124 R: +/+ cis         XIX
+2652_2746,-
+2646_2761_2647_2760_2650_2748_2651_2747_2651_4073_2652_2746_0, click this line to see above pattern
+0_0,---------
+6969_6978, Y:   744 G-C   753 Y: +/+ cis         XIX
+6970_6975, Y:   745 G-A   750 Y: S/W tran        X
+6972_8214, Y:   747 U-A  2014 Y: W/S cis         n/a
+6974_6978, Y:   749 C-C   753 Y: W/S cis         n/a
+6977_8799, Y:   752 A-U  2609 Y: -/- cis      syn  XX
+6977_8799,-
+6969_6978_6970_6975_6972_8214_6974_6978_6977_8799_0, click this line to see above pattern
+0_0,---------
+2367_2376, R:   744 G-C   753 R: +/+ cis         XIX
+2368_2373, R:   745 G-A   750 R: S/W tran        X
+2370_3612, R:   747 U-A  2014 R: W/S cis         n/a
+2372_2376, R:   749 C-C   753 R: W/S cis         n/a
+2375_4197, R:   752 A-U  2609 R: -/- cis      syn  XX
+2375_4197,-
+2367_2376_2368_2373_2370_3612_2372_2376_2375_4197_0, click this line to see above pattern
+0_0,---------
+6860_6866, Y:   641 C-G   647 Y: +/+ cis         XIX
+6862_8559, Y:   643 A-A  2369 Y: W/S cis         n/a
+6863_8539, Y:   644 A-G  2349 Y: W/S tran        X
+6874_6878, Y:   654 G-A   654 Y: W/S cis         n/a
+6896_7034, Y:   671 C-G   809 Y: +/+ cis         XIX
+6896_7034,-
+6860_6866_6862_8559_6863_8539_6874_6878_6896_7034_0, click this line to see above pattern
+0_0,---------
+1602_4480, R:     8 A-U  2895 R: -/- cis         XX
+1603_4217, R:     9 U-A  2629 R: W/H tran        XXIV
+1608_3642, R:    14 A-C  2044 R: W/S tran        n/a
+1609_2142, R:    15 G-U   525 R: W/W cis         XXVIII
+1610_2141, R:    16 G-U   524 R: W/W cis         XXVIII
+1611_2140, R:    17 G-C   523 R: +/+ cis         XIX
+1611_2140,-
+1602_4480_1603_4217_1608_3642_1609_2142_1610_2141_1611_2140_0, click this line to see above pattern
+0_0,---------
+8134_8164, Y:  1934 C-G  1964 Y: +/+ cis         XIX
+8136_8143, Y:  1936 A-U  1943 Y: H/W cis    syn    XXIII
+8136_8163, Y:  1936 A-U  1963 Y: W/W tran   syn    XXI
+8137_8164, Y:  1937 A-G  1964 Y: W/S tran   syn    X
+8145_8160, Y:  1945 G-A  1960 Y: W/W cis         VIII
+8145_8161, Y:  1945 G-C  1961 Y: +/+ cis         XIX
+8145_8161,-
+8134_8164_8136_8143_8136_8163_8137_8164_8145_8160_8145_8161_0, click this line to see above pattern
+0_0,---------
+4609_4621, X:    11 G-C    23 X: +/+ cis         XIX
+4610_4620, X:    12 U-G    22 X: W/W cis         XXVIII
+4611_4618, X:    13 U-U    20 X: H/W tran        n/a
+4611_5487, X:    13 U-A   915 X: W/H cis         XXIII
+4613_5492, X:    15 G-U   920 X: W/W cis         XXVIII
+4615_5490, X:    17 U-A   918 X: -/- cis         XX
+4615_5490,-
+4609_4621_4610_4620_4611_4618_4611_5487_4613_5492_4615_5490_0, click this line to see above pattern
+0_0,---------
+1674_1697, R:    81 G-C   105 R: +/+ cis         XIX
+1675_1696, R:    82 G-U   104 R: S/H tran        n/a
+1676_1695, R:    83 G-A   103 R: W/H tran        n/a
+1677_1691, R:    84 A-G    98 R: S/S tran        n/a
+1678_1690, R:    85 G-C    97 R: +/+ cis         XIX
+1678_1690,-
+1674_1697_1675_1696_1676_1695_1677_1691_1678_1690_0, click this line to see above pattern
+0_0,---------
+6707_6712, Y:   487 C-G   493 Y: +/+ cis         XIX
+6717_6725, Y:   498 G-G   506 Y: W/W tran     syn  III
+6718_6722, Y:   499 U-A   503 Y: W/H tran     syn  XXIV
+6719_6724, Y:   500 G-A   505 Y: S/H tran        XI
+6734_7484, Y:   515 A-G  1260 Y: S/S tran        n/a
+6745_8815, Y:   526 A-G  2625 Y: S/S tran        n/a
+6748_8241, Y:   529 A-U  2041 Y: W/W tran        XXI
+6750_8218, Y:   531 C-G  2018 Y: +/+ cis         XIX
+6750_8218,-
+6707_6712_6717_6725_6718_6722_6719_6724_6734_7484_6745_8815_6748_8241_6750_8218_0, click this line to see above pattern
+0_0,---------
+2105_2110, R:   487 C-G   493 R: +/+ cis         XIX
+2115_2123, R:   498 G-G   506 R: W/W tran     syn  III
+2116_2120, R:   499 U-A   503 R: W/H tran     syn  XXIV
+2117_2122, R:   500 G-A   505 R: S/H tran        XI
+2143_4213, R:   526 A-G  2625 R: S/S tran        n/a
+2146_3639, R:   529 A-U  2041 R: W/W tran        XXI
+2148_3616, R:   531 C-G  2018 R: +/+ cis    syn    XIX
+2148_3616,-
+2105_2110_2115_2123_2116_2120_2117_2122_2143_4213_2146_3639_2148_3616_0, click this line to see above pattern
+0_0,---------
+  113_220, Q:   128 G-C   233 Q: +/+ cis         XIX
+  114_219, Q:   129 U-G   232 Q: W/W cis         XXVIII
+  115_179, Q:   129 G-C   187 Q: W/S tran        n/a
+  116_220, Q:   130 A-C   233 Q: W/S cis         n/a
+  117_218, Q:   131 C-G   231 Q: +/+ cis         XIX
+  117_218,-
+113_220_114_219_115_179_116_220_117_218_0, click this line to see above pattern
+0_0,---------
+4716_4823, X:   128 G-C   233 X: +/+ cis         XIX
+4717_4822, X:   129 U-G   232 X: W/W cis         XXVIII
+4718_4782, X:   129 G-C   187 X: W/S tran        n/a
+4719_4823, X:   130 A-C   233 X: W/S cis         n/a
+4720_4821, X:   131 C-G   231 X: +/+ cis         XIX
+4720_4821,-
+4716_4823_4717_4822_4718_4782_4719_4823_4720_4821_0, click this line to see above pattern
+0_0,---------
+4931_4938, X:   341 C-G   348 X: +/+ cis         XIX
+4932_4937, X:   342 C-G   347 X: W/W cis         n/a
+4933_4936, X:   343 U-G   346 X: S/W tran     syn  n/a
+4956_4984, X:   366 C-G   394 X: S/W cis         n/a
+4957_4983, X:   367 U-A   393 X: -/- cis         XX
+4957_4983,-
+4931_4938_4932_4937_4933_4936_4956_4984_4957_4983_0, click this line to see above pattern
+0_0,---------
+1651_1662, R:    58 G-C    69 R: +/+ cis         XIX
+1651_1666, R:    58 G-A    73 R: S/S tran        n/a
+1652_1661, R:    59 U-G    68 R: W/W cis         XXVIII
+1652_1667, R:    59 U-A    74 R: W/H cis         XXIII
+1653_1681, R:    60 G-G    88 R: W/H cis    syn    VI
+1654_1686, R:    61 G-C    93 R: +/+ cis         XIX
+1654_1686,-
+1651_1662_1651_1666_1652_1661_1652_1667_1653_1681_1654_1686_0, click this line to see above pattern
+0_0,---------
+6254_6265, Y:    58 G-C    69 Y: +/+ cis         XIX
+6254_6269, Y:    58 G-A    73 Y: S/S tran        n/a
+6255_6264, Y:    59 U-G    68 Y: W/W cis         XXVIII
+6256_6284, Y:    60 G-G    88 Y: W/H cis    syn    VI
+6257_6289, Y:    61 G-C    93 Y: +/+ cis         XIX
+6257_6289,-
+6254_6265_6254_6269_6255_6264_6256_6284_6257_6289_0, click this line to see above pattern
+0_0,---------
+2686_2696, R:  1064 C-G  1074 R: +/+ cis         XIX
+2687_2695, R:  1065 U-A  1073 R: W/W cis         n/a
+2693_2713, R:  1071 G-G  1091 R: W/H cis         VI
+2694_2714, R:  1072 C-C  1092 R: W/H cis         n/a
+2709_2724, R:  1087 G-C  1102 R: +/+ cis         XIX
+2709_2724,-
+2686_2696_2687_2695_2693_2713_2694_2714_2709_2724_0, click this line to see above pattern
+0_0,---------
+1640_1759, R:    47 C-G   178 R: +/+ cis         XIX
+1641_1642, R:    48 G-A    49 R: S/W cis      syn  n/a
+1642_1712, R:    49 A-U   120 R: H/H cis    syn syn  n/a
+1644_1710, R:    51 G-A   118 R: S/H tran     syn  XI
+1645_1711, R:    52 A-A   119 R: H/H tran        II
+1646_1709, R:    53 A-G   117 R: H/S tran        XI
+1647_1708, R:    54 G-C   116 R: +/+ cis         XIX
+1647_1708,-
+1640_1759_1641_1642_1642_1712_1644_1710_1645_1711_1646_1709_1647_1708_0, click this line to see above pattern
+0_0,---------
+6243_6361, Y:    47 C-G   178 Y: +/+ cis         XIX
+6244_6245, Y:    48 G-A    49 Y: S/W cis      syn  n/a
+6245_6315, Y:    49 A-U   120 Y: H/H cis    syn syn  n/a
+6247_6313, Y:    51 G-A   118 Y: S/H tran     syn  XI
+6248_6314, Y:    52 A-A   119 Y: H/H tran        II
+6248_6361, Y:    52 A-G   178 Y: S/S tran        n/a
+6249_6312, Y:    53 A-G   117 Y: H/S tran        XI
+6250_6311, Y:    54 G-C   116 Y: +/+ cis         XIX
+6250_6311,-
+6243_6361_6244_6245_6245_6315_6247_6313_6248_6314_6248_6361_6249_6312_6250_6311_0, click this line to see above pattern
+0_0,---------
+8065_8086, Y:  1856 G-C  1886 Y: +/+ cis         XIX
+8066_8085, Y:  1857 G-A  1885 Y: S/H tran        XI
+8067_8084, Y:  1858 G-A  1884 Y: S/H tran        XI
+8068_8083, Y:  1859 A-G  1883 Y: H/S tran        XI
+8069_8082, Y:  1860 G-C  1882 Y: +/+ cis         XIX
+8069_8082,-
+8065_8086_8066_8085_8067_8084_8068_8083_8069_8082_0, click this line to see above pattern
+0_0,---------
+5628_5783, X:  1051 C-G  1207 X: +/+ cis         XIX
+5629_5782, X:  1052 U-G  1206 X: W/W cis         XXVIII
+5630_5634, X:  1053 G-G  1057 X: W/H cis         VI
+5632_5781, X:  1055 A-U  1205 X: W/W cis         n/a
+5633_5780, X:  1056 U-A  1204 X: -/- cis         XX
+5633_5780,-
+5628_5783_5629_5782_5630_5634_5632_5781_5633_5780_0, click this line to see above pattern
+0_0,---------
+4676_4679, X:    81 G-C    88 X: +/+ cis         XIX
+4677_4678, X:    82 U-A    87 X: W/W cis         n/a
+4699_4921, X:   111 G-G   331 X: W/H cis         VI
+4700_4905, X:   112 G-A   315 X: W/W cis         VIII
+4701_4904, X:   113 G-C   314 X: +/+ cis         XIX
+4701_4904,-
+4676_4679_4677_4678_4699_4921_4700_4905_4701_4904_0, click this line to see above pattern
+0_0,---------
+2080_2085, R:   462 C-G   467 R: +/+ cis         XIX
+2081_2084, R:   463 G-A   466 R: W/H tran        n/a
+2083_2306, R:   465 G-C   683 R: S/s cis         n/a
+2084_2305, R:   466 A-G   682 R: S/S cis         n/a
+2093_2097, R:   475 U-A   479 R: W/H tran        XXIV
+2094_2098, R:   476 G-A   480 R: S/H tran        XI
+2095_2118, R:   477 A-A   501 R: H/H tran        II
+2097_2120, R:   479 A-A   503 R: W/W tran     syn  I
+2098_2122, R:   480 A-A   505 R: W/W tran        I
+2099_2123, R:   481 G-G   506 R: S/S tran     syn  IV
+2099_2126, R:   481 G-C   509 R: +/+ cis         XIX
+2099_2126,-
+2080_2085_2081_2084_2083_2306_2084_2305_2093_2097_2094_2098_2095_2118_2097_2120_2098_2122_2099_2123_2099_2126_0, click this line to see above pattern
+0_0,---------
+6682_6687, Y:   462 C-G   467 Y: +/+ cis         XIX
+6683_6686, Y:   463 G-A   466 Y: W/H tran        n/a
+6685_6908, Y:   465 G-C   683 Y: S/s cis         n/a
+6695_6699, Y:   475 U-A   479 Y: W/H tran        XXIV
+6696_6700, Y:   476 G-A   480 Y: S/H tran        XI
+6697_6720, Y:   477 A-A   501 Y: H/H tran        II
+6699_6722, Y:   479 A-A   503 Y: W/W tran     syn  I
+6700_6724, Y:   480 A-A   505 Y: W/W tran        I
+6701_6725, Y:   481 G-G   506 Y: S/S tran     syn  IV
+6701_6728, Y:   481 G-C   509 Y: +/+ cis         XIX
+6701_6728,-
+6682_6687_6683_6686_6685_6908_6695_6699_6696_6700_6697_6720_6699_6722_6700_6724_6701_6725_6701_6728_0, click this line to see above pattern
+0_0,---------
+5267_5276, X:   689 C-G   698 X: +/+ cis         XIX
+5269_5274, X:   691 G-A   696 X: S/H tran        XI
+5280_8055, X:   702 A-G  1846 Y: W/S cis         n/a
+5300_5311, X:   722 A-A   733 X: W/W tran   syn syn  I
+5302_5311, X:   724 G-A   733 X: W/W cis      syn  VIII
+5303_5310, X:   725 G-C   732 X: +/+ cis         XIX
+5303_5310,-
+5267_5276_5269_5274_5280_8055_5300_5311_5302_5311_5303_5310_0, click this line to see above pattern
+0_0,---------
+7425_7467, Y:  1202 C-G  1243 Y: +/+ cis         XIX
+7426_7466, Y:  1203 G-A  1242 Y: S/H tran        XI
+7427_7465, Y:  1204 A-A  1241 Y: W/W tran   syn syn  I
+7429_7464, Y:  1206 G-U  1240 Y: W/W cis         XXVIII
+7430_7463, Y:  1207 C-G  1239 Y: +/+ cis         XIX
+7430_7463,-
+7425_7467_7426_7466_7427_7465_7429_7464_7430_7463_0, click this line to see above pattern
+0_0,---------
+5434_5439, X:   862 C-G   867 X: +/+ cis         XIX
+5435_5438, X:   863 U-C   866 X: S/H tran        n/a
+5436_5489, X:   864 A-G   917 X: S/S tran        n/a
+5439_5445, X:   867 G-A   873 X: S/S tran        n/a
+5457_5484, X:   885 G-C   912 X: +/+ cis         XIX
+5457_5484,-
+5434_5439_5435_5438_5436_5489_5439_5445_5457_5484_0, click this line to see above pattern
+0_0,---------
+7178_7185, Y:   955 C-G   962 Y: +/+ cis         XIX
+7183_8685, Y:   960 A-G  2495 Y: S/S tran        n/a
+7197_7214, Y:   974 G-A   990 Y: S/H tran   syn    XI
+7199_7380, Y:   975 G-A  1156 Y: S/S tran        n/a
+7200_7211, Y:   976 C-G   987 Y: +/+ cis         XIX
+7200_7211,-
+7178_7185_7183_8685_7197_7214_7199_7380_7200_7211_0, click this line to see above pattern
+0_0,---------
+8717_8726, Y:  2527 C-G  2536 Y: +/+ cis         XIX
+8718_8725, Y:  2528 U-G  2535 Y: W/W cis         XXVIII
+8721_8852, Y:  2531 A-A  2662 Y: W/W tran        I
+8721_8853, Y:  2531 A-G  2663 Y: W/W tran        n/a
+8722_8853, Y:  2532 G-G  2663 Y: S/S tran        IV
+8732_8757, Y:  2542 A-G  2567 Y: W/W tran        n/a
+8735_8755, Y:  2545 G-A  2565 Y: S/W tran        X
+8736_8757, Y:  2546 U-G  2567 Y: W/H cis         n/a
+8737_8751, Y:  2547 U-A  2561 Y: -/- cis         XX
+8737_8751,-
+8717_8726_8718_8725_8721_8852_8721_8853_8722_8853_8732_8757_8735_8755_8736_8757_8737_8751_0, click this line to see above pattern
+0_0,---------
+8072_8079, Y:  1863 G-C  1879 Y: +/+ cis         XIX
+8073_8078, Y:  1864 U-G  1878 Y: W/W cis         XXVIII
+8090_8424, Y:  1890 A-G  2234 Y: S/S tran        n/a
+8099_8101, Y:  1899 G-A  1901 Y: S/H cis         n/a
+8104_8128, Y:  1904 G-A  1928 Y: S/S tran        n/a
+8106_8124, Y:  1906 G-C  1924 Y: +/+ cis         XIX
+8106_8124,-
+8072_8079_8073_8078_8090_8424_8099_8101_8104_8128_8106_8124_0, click this line to see above pattern
+0_0,---------
+8059_8092, Y:  1850 G-C  1892 Y: +/+ cis         XIX
+8060_8091, Y:  1851 U-G  1891 Y: W/W cis         XXVIII
+8061_8090, Y:  1852 C-A  1890 Y: S/H tran        n/a
+8063_8287, Y:  1854 A-G  2087 Y: S/S tran        n/a
+8064_8087, Y:  1855 G-C  1887 Y: +/+ cis         XIX
+8064_8087,-
+8059_8092_8060_8091_8061_8090_8063_8287_8064_8087_0, click this line to see above pattern
+0_0,---------
+7003_7011, Y:   778 G-C   786 Y: +/+ cis         XIX
+7004_7010, Y:   779 U-G   785 Y: W/W cis         XXVIII
+7005_7008, Y:   780 G-A   783 Y: S/H tran     syn  XI
+7006_7985, Y:   781 A-G  1776 Y: S/S tran        n/a
+7033_7478, Y:   808 G-A  1254 Y: S/S cis         n/a
+7037_7418, Y:   812 C-G  1195 Y: +/+ cis         XIX
+7037_7418,-
+7003_7011_7004_7010_7005_7008_7006_7985_7033_7478_7037_7418_0, click this line to see above pattern
+0_0,---------
+6429_6435, Y:   246 C-G   252 Y: +/+ cis         XIX
+6430_6434, Y:   247 G-A   251 Y: S/H tran        XI
+6443_6826, Y:   260 G-A   609 Y: S/S tran        n/a
+6446_6651, Y:   263 C-G   430 Y: S/S cis         n/a
+6449_6501, Y:   266 G-A   283 Y: S/W tran        X
+6449_6647, Y:   266 G-C   426 Y: +/+ cis         XIX
+6449_6647,-
+6429_6435_6430_6434_6443_6826_6446_6651_6449_6501_6449_6647_0, click this line to see above pattern
+0_0,---------
+1827_1833, R:   246 C-G   252 R: +/+ cis         XIX
+1828_1832, R:   247 G-A   251 R: S/H tran        XI
+1841_2224, R:   260 G-A   609 R: S/S tran        n/a
+1844_2049, R:   263 C-G   430 R: S/S cis         n/a
+1847_1899, R:   266 G-A   283 R: S/W tran        X
+1847_2045, R:   266 G-C   426 R: +/+ cis         XIX
+1847_2045,-
+1827_1833_1828_1832_1841_2224_1844_2049_1847_1899_1847_2045_0, click this line to see above pattern
+0_0,---------
+5459_5482, X:   887 G-C   910 X: +/+ cis         XIX
+5460_5481, X:   888 G-A   909 X: S/H tran        XI
+5461_5480, X:   889 A-A   908 X: H/H tran        II
+5462_5463, X:   890 G-U   891 X: S/H cis         n/a
+5463_5479, X:   891 U-A   907 X: W/H tran        XXIV
+5466_5477, X:   894 G-U   905 X: W/W cis         XXVIII
+5467_5476, X:   895 G-C   904 X: +/+ cis         XIX
+5467_5476,-
+5459_5482_5460_5481_5461_5480_5462_5463_5463_5479_5466_5477_5467_5476_0, click this line to see above pattern
+0_0,---------
+3992_4001, R:  2404 C-G  2413 R: +/+ cis         XIX
+4024_4186, R:  2436 G-A  2598 R: S/S tran        n/a
+4026_4028, R:  2438 U-C  2440 R: S/H cis         n/a
+4038_4089, R:  2450 A-C  2501 R: H/W tran        XXV
+4040_4092, R:  2452 C-U  2504 R: W/W cis         XVIII
+4041_4088, R:  2453 A-U  2500 R: -/- cis         XX
+4041_4088,-
+3992_4001_4024_4186_4026_4028_4038_4089_4040_4092_4041_4088_0, click this line to see above pattern
+0_0,---------
+5711_5717, X:  1134 G-C  1140 X: +/+ cis         XIX
+5716_5720, X:  1139 G-G  1143 X: W/W tran        III
+5716_5721, X:  1139 G-G  1144 X: W/W tran        III
+5726_5856, X:  1149 C-A  1280 X: S/W cis         n/a
+5737_5753, X:  1160 G-G  1177 X: W/W cis      syn  n/a
+5738_5751, X:  1161 C-G  1175 X: +/+ cis         XIX
+5738_5751,-
+5711_5717_5716_5720_5716_5721_5726_5856_5737_5753_5738_5751_0, click this line to see above pattern
+0_0,---------
+8149_8157, Y:  1949 G-C  1957 Y: +/+ cis         XIX
+8192_8196, Y:  1992 G-C  1996 Y: W/S cis    syn    n/a
+8213_8803, Y:  2013 A-U  2613 Y: W/W tran        XXI
+8219_8235, Y:  2019 A-G  2035 Y: W/W cis      syn  VIII
+8220_8234, Y:  2020 A-U  2034 Y: W/W cis         n/a
+8223_8240, Y:  2023 G-C  2040 Y: +/+ cis         XIX
+8223_8240,-
+8149_8157_8192_8196_8213_8803_8219_8235_8220_8234_8223_8240_0, click this line to see above pattern
+0_0,---------
+8274_8625, Y:  2074 U-A  2435 Y: -/- cis         XX
+8274_8787, Y:  2074 U-G  2597 Y: s/S cis         n/a
+8275_8277, Y:  2075 U-A  2077 Y: S/H cis         n/a
+8277_8428, Y:  2077 A-G  2238 Y: H/W cis      syn  IX
+8277_8433, Y:  2077 A-U  2243 Y: -/- cis         XX
+8277_8433,-
+8274_8625_8274_8787_8275_8277_8277_8428_8277_8433_0, click this line to see above pattern
+0_0,---------
+3672_4023, R:  2074 U-A  2435 R: -/- cis         XX
+3672_4185, R:  2074 U-G  2597 R: s/S cis         n/a
+3673_3675, R:  2075 U-A  2077 R: S/H cis         n/a
+3675_3826, R:  2077 A-G  2238 R: H/W cis         IX
+3675_3831, R:  2077 A-U  2243 R: -/- cis         XX
+3675_3831,-
+3672_4023_3672_4185_3673_3675_3675_3826_3675_3831_0, click this line to see above pattern
+0_0,---------
+9007_9015, Y:  2819 G-C  2827 Y: +/+ cis         XIX
+9009_9014, Y:  2821 A-A  2826 Y: S/W cis         n/a
+9018_9071, Y:  2830 G-A  2883 Y: S/S tran        n/a
+9022_9071, Y:  2834 G-A  2883 Y: S/H tran        XI
+9023_9068, Y:  2835 A-C  2880 Y: W/H tran        XXV
+9024_9070, Y:  2836 U-A  2882 Y: -/- cis         XX
+9024_9070,-
+9007_9015_9009_9014_9018_9071_9022_9071_9023_9068_9024_9070_0, click this line to see above pattern
+0_0,---------
+4405_4413, R:  2819 G-C  2827 R: +/+ cis         XIX
+4407_4412, R:  2821 A-A  2826 R: S/W cis         n/a
+4416_4469, R:  2830 G-A  2883 R: S/S tran        n/a
+4420_4469, R:  2834 G-A  2883 R: S/H tran        XI
+4422_4468, R:  2836 U-A  2882 R: -/- cis         XX
+4422_4468,-
+4405_4413_4407_4412_4416_4469_4420_4469_4422_4468_0, click this line to see above pattern
+0_0,---------
+7316_7323, Y:  1092 C-G  1099 Y: +/+ cis         XIX
+7351_8653, Y:  1127 A-C  2463 Y: W/S cis         n/a
+7351_8678, Y:  1127 A-A  2488 Y: H/S cis         n/a
+7353_8759, Y:  1129 A-G  2569 Y: S/S tran        n/a
+7356_8239, Y:  1132 A-C  2039 Y: W/S cis         n/a
+7358_7361, Y:  1135 C-G  1138 Y: H/H tran        n/a
+7388_7408, Y:  1164 G-C  1185 Y: +/+ cis         XIX
+7388_7408,-
+7316_7323_7351_8653_7351_8678_7353_8759_7356_8239_7358_7361_7388_7408_0, click this line to see above pattern
+0_0,---------
+7109_7116, Y:   884 C-G   892 Y: +/+ cis         XIX
+7135_8467, Y:   911 A-G  2277 Y: S/S tran        n/a
+7137_7138, Y:   913 U-C   914 Y: S/H cis         n/a
+7142_8458, Y:   918 A-A  2268 Y: H/H tran        II
+7169_7194, Y:   946 G-C   971 Y: +/+ cis         XIX
+7169_7194,-
+7109_7116_7135_8467_7137_7138_7142_8458_7169_7194_0, click this line to see above pattern
+0_0,---------
+  664_673, Q:   689 C-G   698 Q: +/+ cis         XIX
+  666_671, Q:   691 G-A   696 Q: S/H tran        XI
+  697_708, Q:   722 A-A   733 Q: W/W tran   syn syn  I
+  700_707, Q:   725 G-C   732 Q: +/+ cis         XIX
+  700_707,-
+664_673_666_671_697_708_700_707_0, click this line to see above pattern
+0_0,---------
+ 893_1366, Q:   924 C-G  1392 Q: +/+ cis         XIX
+ 894_1365, Q:   925 G-U  1391 Q: W/W cis         XXVIII
+ 896_1364, Q:   927 G-U  1390 Q: W/W cis         XXVIII
+ 897_1363, Q:   928 G-C  1389 Q: +/+ cis         XIX
+ 897_1363,-
+893_1366_894_1365_896_1364_897_1363_0, click this line to see above pattern
+0_0,---------
+  812_818, Q:   837 G-C   849 Q: +/+ cis         XIX
+  813_817, Q:   838 G-C   848 Q: W/W cis         n/a
+  829_841, Q:   860 A-A   872 Q: W/H tran     syn  V
+  830_837, Q:   861 G-C   868 Q: +/+ cis         XIX
+  830_837,-
+812_818_813_817_829_841_830_837_0, click this line to see above pattern
+0_0,---------
+  497_502, Q:   522 C-G   527 Q: +/+ cis         XIX
+ 505_1461, Q:   530 G-A  1492 Q: W/W tran        n/a
+  538_853, Q:   563 A-U   884 Q: W/W tran   syn    XXI
+  542_852, Q:   567 G-C   883 Q: +/+ cis         XIX
+  542_852,-
+497_502_505_1461_538_853_542_852_0, click this line to see above pattern
+0_0,---------
+ 905_1353, Q:   936 C-G  1379 Q: +/+ cis         XIX
+ 905_1356, Q:   936 C-C  1382 Q: S/W cis         n/a
+ 907_1318, Q:   938 A-U  1345 Q: W/W cis      syn  n/a
+ 908_1317, Q:   939 G-C  1344 Q: +/+ cis         XIX
+ 908_1317,-
+905_1353_905_1356_907_1318_908_1317_0, click this line to see above pattern
+0_0,---------
+1108_1114, Q:  1134 G-C  1140 Q: +/+ cis         XIX
+1111_1112, Q:  1137 C-G  1138 Q: S/S cis      syn  n/a
+1113_1117, Q:  1139 G-G  1143 Q: W/W tran        III
+1135_1148, Q:  1161 C-G  1175 Q: +/+ cis         XIX
+1135_1148,-
+1108_1114_1111_1112_1113_1117_1135_1148_0, click this line to see above pattern
+0_0,---------
+1232_1249, Q:  1259 C-G  1276 Q: +/+ cis         XIX
+1233_1247, Q:  1260 C-G  1274 Q: W/W cis         n/a
+1234_1247, Q:  1261 A-G  1274 Q: H/S tran        XI
+1235_1246, Q:  1262 C-G  1273 Q: +/+ cis         XIX
+1235_1246,-
+1232_1249_1233_1247_1234_1247_1235_1246_0, click this line to see above pattern
+0_0,---------
+2154_2171, R:   537 C-G   556 R: +/+ cis         XIX
+2155_2170, R:   539 G-U   554 R: W/W cis         XXVIII
+2156_2169, R:   540 G-U   553 R: W/W cis         XXVIII
+2157_2168, R:   541 C-G   552 R: +/+ cis         XIX
+2157_2168,-
+2154_2171_2155_2170_2156_2169_2157_2168_0, click this line to see above pattern
+0_0,---------
+  546_834, Q:   571 U-A   865 Q: -/- cis         XX
+  547_885, Q:   572 A-G   916 Q: s/S cis         n/a
+  550_551, Q:   575 G-G   576 Q: S/H cis         n/a
+  550_849, Q:   575 G-C   880 Q: +/+ cis         XIX
+  550_849,-
+546_834_547_885_550_551_550_849_0, click this line to see above pattern
+0_0,---------
+  809_821, Q:   834 C-G   852 Q: +/+ cis         XIX
+  810_820, Q:   835 U-G   851 Q: W/W cis         XXVIII
+  811_819, Q:   836 G-U   850 Q: W/W cis         XXVIII
+  812_818, Q:   837 G-C   849 Q: +/+ cis         XIX
+  812_818,-
+809_821_810_820_811_819_812_818_0, click this line to see above pattern
+0_0,---------
+   53_342, Q:    57 G-C   355 Q: +/+ cis         XIX
+   54_341, Q:    58 C-G   354 Q: W/W cis         n/a
+    56_92, Q:    60 A-G   107 Q: S/S tran        n/a
+    57_91, Q:    61 G-C   106 Q: +/+ cis         XIX
+    57_91,-
+53_342_54_341_56_92_57_91_0, click this line to see above pattern
+0_0,---------
+    63_87, Q:    67 C-G   102 Q: +/+ cis         XIX
+    64_86, Q:    68 G-A   101 Q: W/W cis         VIII
+   64_138, Q:    68 G-A   152 Q: S/S tran        n/a
+    65_85, Q:    69 G-C    99 Q: +/+ cis         XIX
+    65_85,-
+63_87_64_86_64_138_65_85_0, click this line to see above pattern
+0_0,---------
+  235_263, Q:   248 C-G   276 Q: +/+ cis         XIX
+  236_262, Q:   249 U-G   275 Q: W/W cis         XXVIII
+  238_241, Q:   251 G-G   254 Q: W/H cis         VI
+  239_261, Q:   252 U-A   274 Q: -/- cis         XX
+  239_261,-
+235_263_236_262_238_241_239_261_0, click this line to see above pattern
+0_0,---------
+  279_295, Q:   292 G-C   308 Q: +/+ cis         XIX
+  279_583, Q:   292 G-A   608 Q: S/W tran        X
+  280_291, Q:   293 G-U   304 Q: W/W cis         XXVIII
+  281_290, Q:   294 U-A   303 Q: -/- cis         XX
+  281_290,-
+279_295_279_583_280_291_281_290_0, click this line to see above pattern
+0_0,---------
+ 918_1205, Q:   949 A-U  1232 Q: -/- cis         XX
+ 919_1204, Q:   950 U-G  1231 Q: W/W cis         XXVIII
+  920_939, Q:   951 G-C   970 Q: S/s cis         n/a
+ 920_1203, Q:   951 G-C  1230 Q: +/+ cis         XIX
+ 920_1203,-
+918_1205_919_1204_920_939_920_1203_0, click this line to see above pattern
+0_0,---------
+  436_459, Q:   450 G-C   483 Q: +/+ cis         XIX
+  438_456, Q:   452 A-U   480 Q: H/W tran        XXIV
+  439_455, Q:   453 A-C   479 Q: H/W tran        XXV
+  441_453, Q:   455 C-G   477 Q: +/+ cis         XIX
+  441_453,-
+436_459_438_456_439_455_441_453_0, click this line to see above pattern
+0_0,---------
+1025_1180, Q:  1051 C-G  1207 Q: +/+ cis         XIX
+1026_1179, Q:  1052 U-G  1206 Q: W/W cis         XXVIII
+1027_1031, Q:  1053 G-G  1057 Q: W/H cis         VI
+1029_1178, Q:  1055 A-U  1205 Q: -/- cis         XX
+1029_1178,-
+1025_1180_1026_1179_1027_1031_1029_1178_0, click this line to see above pattern
+0_0,---------
+2576_2583, R:   955 C-G   962 R: +/+ cis         XIX
+2577_2581, R:   956 G-A   960 R: S/H tran        XI
+2595_2612, R:   974 G-A   990 R: S/H tran   syn    XI
+2598_2609, R:   976 C-G   987 R: +/+ cis         XIX
+2598_2609,-
+2576_2583_2577_2581_2595_2612_2598_2609_0, click this line to see above pattern
+0_0,---------
+2600_2607, R:   978 G-C   985 R: +/+ cis         XIX
+2601_2607, R:   979 G-C   985 R: W/W cis         n/a
+2602_3635, R:   980 A-G  2037 R: S/s cis         n/a
+2613_2785, R:   991 C-G  1163 R: +/+ cis         XIX
+2613_2785,-
+2600_2607_2601_2607_2602_3635_2613_2785_0, click this line to see above pattern
+0_0,---------
+  567_622, Q:   592 G-C   647 Q: +/+ cis         XIX
+  568_621, Q:   593 G-U   646 Q: W/W cis         XXVIII
+  569_571, Q:   594 G-C   596 Q: W/H cis         n/a
+  569_620, Q:   594 G-C   645 Q: +/+ cis         XIX
+  569_620,-
+567_622_568_621_569_571_569_620_0, click this line to see above pattern
+0_0,---------
+  592_598, Q:   617 G-C   623 Q: +/+ cis         XIX
+  593_597, Q:   618 C-A   622 Q: W/H tran        XXV
+  627_728, Q:   652 U-A   753 Q: W/H tran        XXIV
+  629_729, Q:   654 G-C   754 Q: +/+ cis      syn  XIX
+  629_729,-
+592_598_593_597_627_728_629_729_0, click this line to see above pattern
+0_0,---------
+2892_3608, R:  1270 C-G  2010 R: +/+ cis         XIX
+2893_3237, R:  1271 G-C  1615 R: W/W tran        XXII
+2895_3600, R:  1273 U-G  2002 R: W/S cis         n/a
+2898_2916, R:  1276 A-U  1294 R: -/- cis         XX
+2898_2916,-
+2892_3608_2893_3237_2895_3600_2898_2916_0, click this line to see above pattern
+0_0,---------
+  801_843, Q:   826 C-G   874 Q: +/+ cis         XIX
+  802_841, Q:   827 U-A   872 Q: H/W tran   syn syn  XXIV
+  803_827, Q:   828 A-G   858 Q: H/S tran        XI
+  804_826, Q:   829 G-C   857 Q: +/+ cis         XIX
+  804_826,-
+801_843_802_841_803_827_804_826_0, click this line to see above pattern
+0_0,---------
+2928_3244, R:  1306 C-G  1622 R: +/+ cis         XIX
+2930_3228, R:  1308 A-G  1606 R: H/S tran        XI
+2930_3230, R:  1308 A-A  1608 R: W/W tran        I
+2931_3227, R:  1309 G-C  1605 R: +/+ cis         XIX
+2931_3227,-
+2928_3244_2930_3228_2930_3230_2931_3227_0, click this line to see above pattern
+0_0,---------
+2973_3002, R:  1351 C-G  1380 R: +/+ cis         XIX
+2974_3000, R:  1352 U-A  1378 R: W/H tran        XXIV
+2976_2999, R:  1354 A-G  1377 R: H/S tran        XI
+2977_2998, R:  1355 G-C  1376 R: +/+ cis         XIX
+2977_2998,-
+2973_3002_2974_3000_2976_2999_2977_2998_0, click this line to see above pattern
+0_0,---------
+  831_836, Q:   862 C-G   867 Q: +/+ cis         XIX
+  832_835, Q:   863 U-C   866 Q: S/H tran        n/a
+  833_886, Q:   864 A-G   917 Q: S/S tran        n/a
+  854_881, Q:   885 G-C   912 Q: +/+ cis         XIX
+  854_881,-
+831_836_832_835_833_886_854_881_0, click this line to see above pattern
+0_0,---------
+3059_3178, R:  1437 C-G  1555 R: +/+ cis         XIX
+3060_3176, R:  1438 U-A  1553 R: W/H tran        XXIV
+3061_3175, R:  1439 A-G  1552 R: H/S tran        XI
+3062_3174, R:  1440 G-C  1551 R: +/+ cis         XIX
+3062_3174,-
+3059_3178_3060_3176_3061_3175_3062_3174_0, click this line to see above pattern
+0_0,---------
+3075_3082, R:  1451 C-G  1459 R: +/+ cis      syn  XIX
+3076_3080, R:  1453 A-A  1457 R: H/W tran   syn    V
+3076_4291, R:  1453 A-C  2703 R: H/H tran   syn    n/a
+3078_4292, R:  1455 G-C  2704 R: +/+ cis         XIX
+3078_4292,-
+3075_3082_3076_3080_3076_4291_3078_4292_0, click this line to see above pattern
+0_0,---------
+3109_3124, R:  1487 G-C  1502 R: +/+ cis         XIX
+3110_3123, R:  1488 G-C  1501 R: W/W cis         n/a
+3111_3122, R:  1489 U-G  1500 R: W/W cis         XXVIII
+3113_3121, R:  1491 G-C  1499 R: +/+ cis         XIX
+3113_3121,-
+3109_3124_3110_3123_3111_3122_3113_3121_0, click this line to see above pattern
+0_0,---------
+  932_941, Q:   963 G-C   972 Q: +/+ cis         XIX
+ 947_1289, Q:   978 A-G  1316 Q: W/S tran        X
+ 947_1333, Q:   978 A-A  1360 Q: H/W tran        V
+ 953_1194, Q:   984 C-G  1221 Q: +/+ cis         XIX
+ 953_1194,-
+932_941_947_1289_947_1333_953_1194_0, click this line to see above pattern
+0_0,---------
+3289_3592, R:  1666 G-C  1994 R: +/+ cis         XIX
+3290_3591, R:  1667 G-U  1993 R: S/H tran        n/a
+3291_3589, R:  1668 A-U  1991 R: H/W tran        XXIV
+3292_3591, R:  1669 A-U  1993 R: -/- cis         XX
+3292_3591,-
+3289_3592_3290_3591_3291_3589_3292_3591_0, click this line to see above pattern
+0_0,---------
+1047_1076, Q:  1073 U-A  1102 Q: -/- cis         XX
+1048_1057, Q:  1074 G-U  1083 Q: W/W cis         XXVIII
+1048_1075, Q:  1074 G-A  1101 Q: S/S tran        n/a
+1049_1056, Q:  1075 C-G  1082 Q: +/+ cis         XIX
+1049_1056,-
+1047_1076_1048_1057_1048_1075_1049_1056_0, click this line to see above pattern
+0_0,---------
+3359_3363, R:  1752 C-G  1756 R: +/+ cis      syn  XIX
+3361_4305, R:  1754 C-U  2716 R: W/S cis         n/a
+3364_3369, R:  1757 U-A  1762 R: W/H tran     syn  XXIV
+3371_3586, R:  1764 G-C  1988 R: +/+ cis         XIX
+3371_3586,-
+3359_3363_3361_4305_3364_3369_3371_3586_0, click this line to see above pattern
+0_0,---------
+1210_1310, Q:  1237 C-G  1337 Q: +/+ cis      syn  XIX
+1211_1274, Q:  1238 A-U  1301 Q: H/W tran        XXIV
+1212_1272, Q:  1239 A-A  1299 Q: H/H cis      syn  n/a
+1214_1269, Q:  1241 G-C  1296 Q: +/+ cis         XIX
+1214_1269,-
+1210_1310_1211_1274_1212_1272_1214_1269_0, click this line to see above pattern
+0_0,---------
+3457_3490, R:  1850 G-C  1892 R: +/+ cis         XIX
+3458_3489, R:  1851 U-G  1891 R: W/W cis         XXVIII
+3459_3488, R:  1852 C-A  1890 R: S/H tran        n/a
+3462_3485, R:  1855 G-C  1887 R: +/+ cis         XIX
+3462_3485,-
+3457_3490_3458_3489_3459_3488_3462_3485_0, click this line to see above pattern
+0_0,---------
+1238_1243, Q:  1265 G-C  1270 Q: +/+ cis         XIX
+1247_1248, Q:  1274 G-A  1275 Q: S/H cis         n/a
+1268_1275, Q:  1295 G-U  1302 Q: S/H tran        n/a
+1276_1307, Q:  1303 C-G  1334 Q: +/+ cis         XIX
+1276_1307,-
+1238_1243_1247_1248_1268_1275_1276_1307_0, click this line to see above pattern
+0_0,---------
+1329_1340, Q:  1356 G-C  1366 Q: +/+ cis         XIX
+1330_1339, Q:  1357 A-G  1365 Q: W/W cis         VIII
+1331_1337, Q:  1358 U-A  1363 Q: W/W tran        XXI
+1373_1473, Q:  1399 C-G  1504 Q: +/+ cis         XIX
+1373_1473,-
+1329_1340_1330_1339_1331_1337_1373_1473_0, click this line to see above pattern
+0_0,---------
+1375_1470, Q:  1401 G-C  1501 Q: +/+ cis         XIX
+1376_1469, Q:  1402 C-A  1500 Q: W/W cis         n/a
+1377_1468, Q:  1403 C-A  1499 Q: S/W cis         n/a
+1378_1466, Q:  1404 C-G  1497 Q: +/+ cis         XIX
+1378_1466,-
+1375_1470_1376_1469_1377_1468_1378_1466_0, click this line to see above pattern
+0_0,---------
+1405_1438, Q:  1431 C-G  1469 Q: +/+ cis         XIX
+1407_1436, Q:  1433 A-G  1467 Q: H/S tran        XI
+1408_1436, Q:  1434 A-G  1467 Q: H/S tran        XI
+1409_1435, Q:  1435 G-C  1466 Q: +/+ cis         XIX
+1409_1435,-
+1405_1438_1407_1436_1408_1436_1409_1435_0, click this line to see above pattern
+0_0,---------
+1421_1426, Q:  1449 C-G  1454 Q: +/+ cis         XIX
+1452_3557, Q:  1483 A-G  1959 R: S/S tran        n/a
+1471_1474, Q:  1502 A-G  1505 Q: S/W cis      syn  n/a
+1476_1497, Q:  1507 A-U  1528 Q: -/- cis         XX
+1476_1497,-
+1421_1426_1452_3557_1471_1474_1476_1497_0, click this line to see above pattern
+0_0,---------
+1660_1667, R:    67 U-A    74 R: -/- cis         XX
+1668_1703, R:    75 G-A   111 R: W/W cis         VIII
+1669_1702, R:    76 C-G   110 R: W/W cis         n/a
+1670_1701, R:    77 C-G   109 R: +/+ cis         XIX
+1670_1701,-
+1660_1667_1668_1703_1669_1702_1670_1701_0, click this line to see above pattern
+0_0,---------
+1849_2043, R:   268 C-G   424 R: +/+ cis         XIX
+1850_1989, R:   269 U-G   370 R: W/W cis         XXVIII
+1851_1877, R:   270 A-U   270 R: H/W tran        XXIV
+1854_1874, R:   270 C-G   270 R: +/+ cis         XIX
+1854_1874,-
+1849_2043_1850_1989_1851_1877_1854_1874_0, click this line to see above pattern
+0_0,---------
+1904_1969, R:   288 C-G   353 R: +/+ cis         XIX
+1905_1967, R:   289 A-G   351 R: H/S tran        XI
+1906_1966, R:   290 G-U   350 R: W/W cis         XXVIII
+1907_1965, R:   291 C-G   349 R: +/+ cis         XIX
+1907_1965,-
+1904_1969_1905_1967_1906_1966_1907_1965_0, click this line to see above pattern
+0_0,---------
+1913_1957, R:   297 C-G   341 R: +/+ cis         XIX
+1915_1954, R:   299 A-G   338 R: H/W cis         IX
+1916_1949, R:   300 A-G   333 R: S/S tran        n/a
+1917_1932, R:   301 G-C   316 R: +/+ cis    syn    XIX
+1917_1932,-
+1913_1957_1915_1954_1916_1949_1917_1932_0, click this line to see above pattern
+0_0,---------
+1935_1939, R:   319 C-G   323 R: +/+ cis      syn  XIX
+1938_1955, R:   322 A-U   339 R: S/W cis         n/a
+1940_1954, R:   324 A-G   338 R: H/S tran        XI
+1941_1953, R:   325 G-C   337 R: +/+ cis         XIX
+1941_1953,-
+1935_1939_1938_1955_1940_1954_1941_1953_0, click this line to see above pattern
+0_0,---------
+2004_2030, R:   385 C-G   411 R: +/+ cis         XIX
+2021_2042, R:   402 A-A   423 R: W/W tran        I
+2025_2040, R:   406 G-U   421 R: W/W cis         XXVIII
+2026_2039, R:   407 G-C   420 R: +/+ cis         XIX
+2026_2039,-
+2004_2030_2021_2042_2025_2040_2026_2039_0, click this line to see above pattern
+0_0,---------
+2099_2126, R:   481 G-C   509 R: +/+ cis         XIX
+2100_2114, R:   482 A-A   497 R: S/W cis         n/a
+2101_2114, R:   483 A-A   497 R: H/S tran        n/a
+2102_2113, R:   484 C-G   496 R: +/+ cis         XIX
+2102_2113,-
+2099_2126_2100_2114_2101_2114_2102_2113_0, click this line to see above pattern
+0_0,---------
+4489_4596, R:     7 G-C   113 R: +/+ cis         XIX
+4490_4595, R:     8 U-G   112 R: W/W cis         XXVIII
+4491_4594, R:     9 G-U   111 R: W/W cis         XXVIII
+4492_4593, R:    10 C-G   110 R: +/+ cis         XIX
+4492_4593,-
+4489_4596_4490_4595_4491_4594_4492_4593_0, click this line to see above pattern
+0_0,---------
+2181_2190, R:   566 U-A   575 R: -/- cis         XX
+2184_2605, R:   569 U-A   983 R: S/W cis         n/a
+2187_3627, R:   572 A-G  2029 R: W/S tran        X
+2194_2883, R:   579 G-C  1261 R: +/+ cis         XIX
+2194_2883,-
+2181_2190_2184_2605_2187_3627_2194_2883_0, click this line to see above pattern
+0_0,---------
+   15_885, Q:    19 C-G   916 Q: +/+ cis         XIX
+   17_883, Q:    21 G-A   914 Q: S/H tran        XI
+   22_533, Q:    26 A-G   558 Q: H/S tran        XI
+   23_531, Q:    27 G-C   556 Q: +/+ cis         XIX
+   23_531,-
+15_885_17_883_22_533_23_531_0, click this line to see above pattern
+0_0,---------
+2335_2342, R:   712 G-C   719 R: +/+ cis         XIX
+2352_3381, R:   729 G-C  1774 R: W/W cis    syn    n/a
+2358_2384, R:   735 A-A   761 R: H/S tran        n/a
+2359_2383, R:   736 C-G   760 R: +/+ cis         XIX
+2359_2383,-
+2335_2342_2352_3381_2358_2384_2359_2383_0, click this line to see above pattern
+0_0,---------
+2448_2455, R:   825 C-G   832 R: +/+ cis         XIX
+2449_2454, R:   826 U-G   831 R: W/W cis         XXVIII
+2459_2564, R:   836 G-U   943 R: W/W cis         XXVIII
+2460_2563, R:   837 C-G   942 R: +/+ cis         XIX
+2460_2563,-
+2448_2455_2449_2454_2459_2564_2460_2563_0, click this line to see above pattern
+0_0,---------
+2469_2552, R:   846 C-G   931 R: +/+ cis         XIX
+2470_2554, R:   847 U-A   933 R: H/W cis         XXIII
+2472_2550, R:   849 A-G   929 R: H/S tran        XI
+2473_2549, R:   850 C-G   928 R: +/+ cis         XIX
+2473_2549,-
+2469_2552_2470_2554_2472_2550_2473_2549_0, click this line to see above pattern
+0_0,---------
+2480_2542, R:   857 C-G   920 R: +/+ cis         XIX
+2481_2541, R:   858 U-G   919 R: W/W cis         XXVIII
+2484_2538, R:   861 A-G   916 R: H/S tran        XI
+2485_2537, R:   862 G-C   915 R: +/+ cis         XIX
+2485_2537,-
+2480_2542_2481_2541_2484_2538_2485_2537_0, click this line to see above pattern
+0_0,---------
+  432_464, Q:   446 G-C   488 Q: +/+ cis         XIX
+  433_463, Q:   447 G-A   487 Q: S/H tran        XI
+  434_462, Q:   448 A-U   486 Q: H/W tran        XXIV
+  436_459, Q:   450 G-C   483 Q: +/+ cis         XIX
+  436_459,-
+432_464_433_463_434_462_436_459_0, click this line to see above pattern
+0_0,---------
+2498_2524, R:   875 G-C   902 R: +/+ cis         XIX
+2499_2523, R:   876 C-A   901 R: W/W cis         n/a
+2500_2521, R:   877 U-A   899 R: W/W cis         n/a
+2503_2519, R:   880 G-C   897 R: +/+ cis         XIX
+2503_2519,-
+2498_2524_2499_2523_2500_2521_2503_2519_0, click this line to see above pattern
+0_0,---------
+  490_511, Q:   515 G-C   536 Q: +/+ cis         XIX
+  491_508, Q:   516 U-A   533 Q: W/H tran     syn  XXIV
+  495_511, Q:   520 A-C   536 Q: W/S tran        n/a
+  496_503, Q:   521 G-C   528 Q: +/+ cis         XIX
+  496_503,-
+490_511_491_508_495_511_496_503_0, click this line to see above pattern
+0_0,---------
+5093_5114, X:   515 G-C   536 X: +/+ cis         XIX
+5094_5111, X:   516 U-A   533 X: W/H tran        XXIV
+5098_5107, X:   520 A-G   529 X: H/S tran        XI
+5099_5106, X:   521 G-C   528 X: +/+ cis         XIX
+5099_5106,-
+5093_5114_5094_5111_5098_5107_5099_5106_0, click this line to see above pattern
+0_0,---------
+5100_5105, X:   522 C-G   527 X: +/+ cis         XIX
+5108_6064, X:   530 G-A  1492 X: W/W tran        n/a
+5141_5456, X:   563 A-U   884 X: W/W tran   syn    XXI
+5145_5455, X:   567 G-C   883 X: +/+ cis         XIX
+5145_5455,-
+5100_5105_5108_6064_5141_5456_5145_5455_0, click this line to see above pattern
+0_0,---------
+5170_5225, X:   592 G-C   647 X: +/+ cis         XIX
+5171_5224, X:   593 G-U   646 X: W/W cis         XXVIII
+5172_5174, X:   594 G-C   596 X: W/H cis         n/a
+5172_5223, X:   594 G-C   645 X: +/+ cis         XIX
+5172_5223,-
+5170_5225_5171_5224_5172_5174_5172_5223_0, click this line to see above pattern
+0_0,---------
+5234_5328, X:   656 C-G   750 X: +/+ cis         XIX
+5235_5327, X:   657 G-C   749 X: W/W cis         n/a
+5236_5325, X:   658 G-C   747 X: W/W cis         n/a
+5237_5324, X:   659 U-A   746 X: -/- cis         XX
+5237_5324,-
+5234_5328_5235_5327_5236_5325_5237_5324_0, click this line to see above pattern
+0_0,---------
+5412_5424, X:   834 C-G   852 X: +/+ cis         XIX
+5413_5423, X:   835 U-G   851 X: W/W cis         XXVIII
+5414_5422, X:   836 G-U   850 X: W/W cis         XXVIII
+5415_5421, X:   837 G-C   849 X: +/+ cis         XIX
+5415_5421,-
+5412_5424_5413_5423_5414_5422_5415_5421_0, click this line to see above pattern
+0_0,---------
+5416_5420, X:   838 G-C   848 X: +/+ cis         XIX
+5432_5441, X:   860 A-G   869 X: H/S tran        XI
+5432_5444, X:   860 A-A   872 X: W/H tran     syn  V
+5433_5440, X:   861 G-C   868 X: +/+ cis         XIX
+5433_5440,-
+5416_5420_5432_5441_5432_5444_5433_5440_0, click this line to see above pattern
+0_0,---------
+5493_5973, X:   921 U-A  1396 X: -/- cis         XX
+5494_5972, X:   922 G-C  1395 X: W/W cis         n/a
+5494_5975, X:   922 G-A  1398 X: S/S tran        n/a
+5495_5970, X:   923 A-U  1393 X: -/- cis         XX
+5495_5970,-
+5493_5973_5494_5972_5494_5975_5495_5970_0, click this line to see above pattern
+0_0,---------
+5496_5969, X:   924 C-G  1392 X: +/+ cis         XIX
+5497_5968, X:   925 G-U  1391 X: W/W cis         XXVIII
+5499_5967, X:   927 G-U  1390 X: W/W cis         XXVIII
+5500_5966, X:   928 G-C  1389 X: +/+ cis         XIX
+5500_5966,-
+5496_5969_5497_5968_5499_5967_5500_5966_0, click this line to see above pattern
+0_0,---------
+5508_5956, X:   936 C-G  1379 X: +/+ cis         XIX
+5508_5959, X:   936 C-C  1382 X: S/W cis         n/a
+5510_5921, X:   938 A-U  1345 X: W/W tran     syn  XXI
+5511_5920, X:   939 G-C  1344 X: +/+ cis         XIX
+5511_5920,-
+5508_5956_5508_5959_5510_5921_5511_5920_0, click this line to see above pattern
+0_0,---------
+5521_5808, X:   949 A-U  1232 X: -/- cis         XX
+5522_5807, X:   950 U-G  1231 X: W/W cis         XXVIII
+5523_5542, X:   951 G-C   970 X: S/s cis         n/a
+5523_5806, X:   951 G-C  1230 X: +/+ cis         XIX
+5523_5806,-
+5521_5808_5522_5807_5523_5542_5523_5806_0, click this line to see above pattern
+0_0,---------
+5535_5544, X:   963 G-C   972 X: +/+ cis         XIX
+5550_5892, X:   978 A-G  1316 X: W/S tran        X
+5550_5936, X:   978 A-A  1360 X: H/W tran        V
+5556_5797, X:   984 C-G  1221 X: +/+ cis         XIX
+5556_5797,-
+5535_5544_5550_5892_5550_5936_5556_5797_0, click this line to see above pattern
+0_0,---------
+5640_5769, X:  1063 C-G  1193 X: +/+ cis         XIX
+5642_5644, X:  1065 U-A  1067 X: W/H cis         XXIII
+5643_5767, X:  1066 C-A  1191 X: W/H tran        XXV
+5645_5684, X:  1068 G-C  1107 X: +/+ cis         XIX
+5645_5684,-
+5640_5769_5642_5644_5643_5767_5645_5684_0, click this line to see above pattern
+0_0,---------
+5650_5679, X:  1073 U-A  1102 X: -/- cis         XX
+5651_5660, X:  1074 G-U  1083 X: W/W cis         XXVIII
+5651_5678, X:  1074 G-A  1101 X: S/S tran        n/a
+5652_5659, X:  1075 C-G  1082 X: +/+ cis         XIX
+5652_5659,-
+5650_5679_5651_5660_5651_5678_5652_5659_0, click this line to see above pattern
+0_0,---------
+5666_5673, X:  1089 G-C  1096 X: +/+ cis         XIX
+5666_5746, X:  1089 G-A  1170 X: S/S tran        n/a
+5667_5672, X:  1090 U-U  1095 X: W/W cis         XVI
+5690_5763, X:  1113 C-G  1187 X: +/+ cis         XIX
+5690_5763,-
+5666_5673_5666_5746_5667_5672_5690_5763_0, click this line to see above pattern
+0_0,---------
+5742_5747, X:  1165 C-G  1171 X: +/+ cis         XIX
+5743_5746, X:  1166 G-A  1170 X: S/H tran        XI
+5800_5939, X:  1224 G-C  1362 X: W/W cis    syn    n/a
+5813_5913, X:  1237 C-G  1337 X: +/+ cis      syn  XIX
+5813_5913,-
+5742_5747_5743_5746_5800_5939_5813_5913_0, click this line to see above pattern
+0_0,---------
+5841_5846, X:  1265 G-C  1270 X: +/+ cis         XIX
+5845_5888, X:  1269 A-G  1312 X: S/S tran        n/a
+5850_5851, X:  1274 G-A  1275 X: S/H cis         n/a
+5879_5910, X:  1303 C-G  1334 X: +/+ cis         XIX
+5879_5910,-
+5841_5846_5845_5888_5850_5851_5879_5910_0, click this line to see above pattern
+0_0,---------
+5978_6073, X:  1401 G-C  1501 X: +/+ cis         XIX
+5979_6072, X:  1402 C-A  1500 X: W/W cis         n/a
+5980_6071, X:  1403 C-A  1499 X: S/W cis         n/a
+5981_6069, X:  1404 C-G  1497 X: +/+ cis         XIX
+5981_6069,-
+5978_6073_5979_6072_5980_6071_5981_6069_0, click this line to see above pattern
+0_0,---------
+6008_6041, X:  1431 C-G  1469 X: +/+ cis         XIX
+6010_6039, X:  1433 A-G  1467 X: H/S tran        XI
+6011_6039, X:  1434 A-G  1467 X: H/S tran        XI
+6012_6038, X:  1435 G-C  1466 X: +/+ cis         XIX
+6012_6038,-
+6008_6041_6010_6039_6011_6039_6012_6038_0, click this line to see above pattern
+0_0,---------
+6232_6665, Y:    35 G-C   445 Y: +/+ cis         XIX
+6232_6666, Y:    35 G-G   446 Y: H/W cis         VI
+6232_6670, Y:    35 G-G   450 Y: S/S tran        IV
+6233_6664, Y:    36 G-C   444 Y: +/+ cis         XIX
+6233_6664,-
+6232_6665_6232_6666_6232_6670_6233_6664_0, click this line to see above pattern
+0_0,---------
+6263_6270, Y:    67 U-A    74 Y: -/- cis         XX
+6267_6309, Y:    71 A-U   114 Y: H/S tran        n/a
+6271_6306, Y:    75 G-A   111 Y: W/W cis         VIII
+6272_6305, Y:    76 C-G   110 Y: +/+ cis         XIX
+6272_6305,-
+6263_6270_6267_6309_6271_6306_6272_6305_0, click this line to see above pattern
+0_0,---------
+6277_6300, Y:    81 G-C   105 Y: +/+ cis         XIX
+6278_6299, Y:    82 G-U   104 Y: S/H tran        n/a
+6279_6298, Y:    83 G-A   103 Y: W/H tran        n/a
+6281_6293, Y:    85 G-C    97 Y: +/+ cis         XIX
+6281_6293,-
+6277_6300_6278_6299_6279_6298_6281_6293_0, click this line to see above pattern
+0_0,---------
+6498_6578, Y:   280 C-G   360 Y: +/+ cis         XIX
+6499_6577, Y:   281 G-A   359 Y: S/H tran        XI
+6500_6576, Y:   282 A-U   358 Y: H/W tran        XXIV
+6502_6575, Y:   284 U-A   357 Y: -/- cis         XX
+6502_6575,-
+6498_6578_6499_6577_6500_6576_6502_6575_0, click this line to see above pattern
+0_0,---------
+6515_6559, Y:   297 C-G   341 Y: +/+ cis         XIX
+6516_6558, Y:   298 G-A   340 Y: S/H tran        XI
+6518_6551, Y:   300 A-G   333 Y: S/S tran        n/a
+6519_6534, Y:   301 G-C   316 Y: +/+ cis    syn    XIX
+6519_6534,-
+6515_6559_6516_6558_6518_6551_6519_6534_0, click this line to see above pattern
+0_0,---------
+6756_6773, Y:   537 C-G   556 Y: +/+ cis         XIX
+6757_6772, Y:   539 G-U   554 Y: W/W cis         XXVIII
+6758_6771, Y:   540 G-U   553 Y: W/W cis         XXVIII
+6759_6770, Y:   541 C-G   552 Y: +/+ cis         XIX
+6759_6770,-
+6756_6773_6757_6772_6758_6771_6759_6770_0, click this line to see above pattern
+0_0,---------
+6783_6792, Y:   566 U-A   575 Y: -/- cis         XX
+6786_7207, Y:   569 U-A   983 Y: S/W cis         n/a
+6789_8229, Y:   572 A-G  2029 Y: W/S tran        X
+6796_7485, Y:   579 G-C  1261 Y: +/+ cis         XIX
+6796_7485,-
+6783_6792_6786_7207_6789_8229_6796_7485_0, click this line to see above pattern
+0_0,---------
+6848_6853, Y:   629 G-C   634 Y: +/+ cis         XIX
+6850_8605, Y:   631 A-G  2415 Y: S/S cis         n/a
+6856_6870, Y:   637 A-G   651 Y: S/S tran        n/a
+6857_6869, Y:   638 G-C   650 Y: +/+ cis         XIX
+6857_6869,-
+6848_6853_6850_8605_6856_6870_6857_6869_0, click this line to see above pattern
+0_0,---------
+6918_6994, Y:   693 C-G   769 Y: +/+ cis         XIX
+6919_6993, Y:   694 U-G   768 Y: W/W cis         XXVIII
+6920_6992, Y:   695 G-U   767 Y: W/W cis         XXVIII
+6921_6991, Y:   696 G-C   766 Y: +/+ cis         XIX
+6921_6991,-
+6918_6994_6919_6993_6920_6992_6921_6991_0, click this line to see above pattern
+0_0,---------
+6923_6988, Y:   698 C-G   763 Y: +/+ cis      syn  XIX
+6924_6958, Y:   699 A-G   733 Y: H/S tran        XI
+6924_7858, Y:   699 A-G  1633 Y: S/s cis         n/a
+6925_6957, Y:   700 G-C   732 Y: +/+ cis         XIX
+6925_6957,-
+6923_6988_6924_6958_6924_7858_6925_6957_0, click this line to see above pattern
+0_0,---------
+6963_6983, Y:   738 G-C   758 Y: +/+ cis         XIX
+6964_6983, Y:   739 G-C   758 Y: W/W cis         n/a
+6965_6982, Y:   740 U-U   757 Y: W/W cis         XVI
+6966_6981, Y:   741 G-C   756 Y: +/+ cis         XIX
+6966_6981,-
+6963_6983_6964_6983_6965_6982_6966_6981_0, click this line to see above pattern
+0_0,---------
+7050_7057, Y:   825 C-G   832 Y: +/+ cis         XIX
+7051_7056, Y:   826 U-G   831 Y: W/W cis         XXVIII
+7061_7166, Y:   836 G-U   943 Y: W/W cis         XXVIII
+7062_7165, Y:   837 C-G   942 Y: +/+ cis         XIX
+7062_7165,-
+7050_7057_7051_7056_7061_7166_7062_7165_0, click this line to see above pattern
+0_0,---------
+7082_7144, Y:   857 C-G   920 Y: +/+ cis         XIX
+7083_7143, Y:   858 U-G   919 Y: W/W cis         XXVIII
+7086_7140, Y:   861 A-G   916 Y: H/S tran        XI
+7087_7139, Y:   862 G-C   915 Y: +/+ cis         XIX
+7087_7139,-
+7082_7144_7083_7143_7086_7140_7087_7139_0, click this line to see above pattern
+0_0,---------
+7170_7193, Y:   947 G-C   970 Y: +/+ cis         XIX
+7170_7208, Y:   947 G-A   984 Y: S/S tran        n/a
+7171_7192, Y:   948 G-U   969 Y: W/W cis         XXVIII
+7172_7191, Y:   949 C-G   968 Y: +/+ cis         XIX
+7172_7191,-
+7170_7193_7170_7208_7171_7192_7172_7191_0, click this line to see above pattern
+0_0,---------
+7202_7209, Y:   978 G-C   985 Y: +/+ cis         XIX
+7204_8237, Y:   980 A-G  2037 Y: S/s cis         n/a
+7205_8227, Y:   981 A-G  2027 Y: S/S tran        n/a
+7215_7387, Y:   991 C-G  1163 Y: +/+ cis         XIX
+7215_7387,-
+7202_7209_7204_8237_7205_8227_7215_7387_0, click this line to see above pattern
+0_0,---------
+7222_7381, Y:   998 C-G  1157 Y: +/+ cis         XIX
+7223_7379, Y:   999 U-A  1155 Y: W/H tran        XXIV
+7225_7378, Y:  1001 A-G  1154 Y: H/S tran        XI
+7226_7377, Y:  1002 G-C  1153 Y: +/+ cis         XIX
+7226_7377,-
+7222_7381_7223_7379_7225_7378_7226_7377_0, click this line to see above pattern
+0_0,---------
+7288_7298, Y:  1064 C-G  1074 Y: +/+ cis         XIX
+7289_7297, Y:  1065 U-A  1073 Y: W/W cis         n/a
+7295_7315, Y:  1071 G-G  1091 Y: W/H cis         VI
+7311_7326, Y:  1087 G-C  1102 Y: +/+ cis         XIX
+7311_7326,-
+7288_7298_7289_7297_7295_7315_7311_7326_0, click this line to see above pattern
+0_0,---------
+7311_7326, Y:  1087 G-C  1102 Y: +/+ cis         XIX
+7313_7325, Y:  1089 G-U  1101 Y: W/W cis         XXVIII
+7314_7325, Y:  1090 U-U  1101 Y: W/W cis         XVI
+7315_7324, Y:  1091 G-C  1100 Y: +/+ cis         XIX
+7315_7324,-
+7311_7326_7313_7325_7314_7325_7315_7324_0, click this line to see above pattern
+0_0,---------
+7505_7513, Y:  1281 G-C  1289 Y: +/+ cis         XIX
+7506_7510, Y:  1282 U-A  1286 Y: W/H tran        XXIV
+7512_7550, Y:  1288 U-U  1326 Y: W/W tran        XII,XIII
+7519_7870, Y:  1295 C-G  1645 Y: +/+ cis         XIX
+7519_7870,-
+7505_7513_7506_7510_7512_7550_7519_7870_0, click this line to see above pattern
+0_0,---------
+7534_7828, Y:  1310 G-C  1604 Y: +/+ cis         XIX
+7535_7536, Y:  1311 G-U  1312 Y: S/H cis         n/a
+7535_7827, Y:  1311 G-A  1603 Y: S/H tran        XI
+7537_7827, Y:  1313 U-A  1603 Y: -/- cis    syn    XX
+7537_7827,-
+7534_7828_7535_7536_7535_7827_7537_7827_0, click this line to see above pattern
+0_0,---------
+7543_7557, Y:  1319 G-C  1333 Y: +/+ cis         XIX
+7544_7555, Y:  1320 C-A  1331 Y: W/H tran        XXV
+7546_7557, Y:  1322 A-C  1333 Y: W/S cis         n/a
+7547_7555, Y:  1323 U-A  1331 Y: -/- cis         XX
+7547_7555,-
+7543_7557_7544_7555_7546_7557_7547_7555_0, click this line to see above pattern
+0_0,---------
+7548_7554, Y:  1324 G-C  1330 Y: +/+ cis         XIX
+7566_7826, Y:  1342 A-U  1602 Y: H/W tran        XXIV
+7567_7608, Y:  1343 G-A  1384 Y: S/S tran        n/a
+7567_7628, Y:  1343 G-C  1404 Y: +/+ cis         XIX
+7567_7628,-
+7548_7554_7566_7826_7567_7608_7567_7628_0, click this line to see above pattern
+0_0,---------
+7587_7592, Y:  1363 C-G  1368 Y: +/+ cis         XIX
+7588_7591, Y:  1364 G-A  1367 Y: W/H tran        n/a
+7593_8019, Y:  1369 G-A  1810 Y: S/S tran        n/a
+7609_7626, Y:  1385 G-C  1402 Y: +/+ cis    syn    XIX
+7609_7626,-
+7587_7592_7588_7591_7593_8019_7609_7626_0, click this line to see above pattern
+0_0,---------
+7641_7806, Y:  1417 C-G  1581 Y: +/+ cis         XIX
+7642_7805, Y:  1418 G-A  1580 Y: S/H tran        XI
+7643_7803, Y:  1419 A-U  1578 Y: H/W tran        XXIV
+7645_7802, Y:  1421 G-C  1577 Y: +/+ cis         XIX
+7645_7802,-
+7641_7806_7642_7805_7643_7803_7645_7802_0, click this line to see above pattern
+0_0,---------
+7645_7802, Y:  1421 G-C  1577 Y: +/+ cis         XIX
+7646_7722, Y:  1422 G-C  1498 Y: S/S tran        n/a
+7646_7801, Y:  1422 G-U  1576 Y: W/W cis         XXVIII
+7647_7800, Y:  1423 G-C  1575 Y: +/+ cis         XIX
+7647_7800,-
+7645_7802_7646_7722_7646_7801_7647_7800_0, click this line to see above pattern
+0_0,---------
+7661_7780, Y:  1437 C-G  1555 Y: +/+ cis         XIX
+7662_7778, Y:  1438 U-A  1553 Y: W/H tran        XXIV
+7663_7777, Y:  1439 A-G  1552 Y: H/S tran        XI
+7664_7776, Y:  1440 G-C  1551 Y: +/+ cis         XIX
+7664_7776,-
+7661_7780_7662_7778_7663_7777_7664_7776_0, click this line to see above pattern
+0_0,---------
+7790_7793, Y:  1565 C-G  1568 Y: +/+ cis      syn  XIX
+7828_7834, Y:  1604 C-A  1610 Y: S/W tran        n/a
+7832_7845, Y:  1608 A-U  1621 Y: H/W tran   syn    XXIV
+7835_7844, Y:  1611 C-G  1620 Y: +/+ cis         XIX
+7835_7844,-
+7790_7793_7828_7834_7832_7845_7835_7844_0, click this line to see above pattern
+0_0,---------
+7891_8194, Y:  1666 G-C  1994 Y: +/+ cis         XIX
+7892_8193, Y:  1667 G-U  1993 Y: S/H tran        n/a
+7893_8191, Y:  1668 A-U  1991 Y: H/W tran        XXIV
+7894_8193, Y:  1669 A-U  1993 Y: -/- cis         XX
+7894_8193,-
+7891_8194_7892_8193_7893_8191_7894_8193_0, click this line to see above pattern
+0_0,---------
+7899_8190, Y:  1674 G-C  1990 Y: +/+ cis         XIX
+7907_7931, Y:  1682 G-U  1706 Y: W/W cis         XXVIII
+7908_7930, Y:  1683 C-G  1705 Y: W/W cis         n/a
+7909_7929, Y:  1684 C-G  1704 Y: +/+ cis         XIX
+7909_7929,-
+7899_8190_7907_7931_7908_7930_7909_7929_0, click this line to see above pattern
+0_0,---------
+7911_7927, Y:  1686 C-G  1702 Y: +/+ cis         XIX
+7914_7923, Y:  1689 A-A  1698 Y: H/W tran     syn  V
+7915_7922, Y:  1690 A-G  1697 Y: H/S tran        XI
+7916_7921, Y:  1691 C-G  1696 Y: +/+ cis         XIX
+7916_7921,-
+7911_7927_7914_7923_7915_7922_7916_7921_0, click this line to see above pattern
+0_0,---------
+7942_7950, Y:  1726 G-C  1734 Y: +/+ cis         XIX
+7943_7949, Y:  1727 U-G  1733 Y: W/W cis         XXVIII
+7959_9048, Y:  1750 G-A  2860 Y: S/S tran        n/a
+7961_7965, Y:  1752 C-G  1756 Y: +/+ cis      syn  XIX
+7961_7965,-
+7942_7950_7943_7949_7959_9048_7961_7965_0, click this line to see above pattern
+0_0,---------
+7961_7965, Y:  1752 C-G  1756 Y: +/+ cis      syn  XIX
+7963_8907, Y:  1754 C-U  2716 Y: W/S cis         n/a
+7964_8884, Y:  1755 A-G  2694 Y: W/S tran        X
+7973_8188, Y:  1764 G-C  1988 Y: +/+ cis         XIX
+7973_8188,-
+7961_7965_7963_8907_7964_8884_7973_8188_0, click this line to see above pattern
+0_0,---------
+7981_8179, Y:  1772 G-C  1979 Y: +/+ cis         XIX
+7982_8177, Y:  1773 A-A  1977 Y: S/W tran        n/a
+7983_7999, Y:  1774 C-C  1790 Y: H/S tran        n/a
+7985_7997, Y:  1776 G-C  1788 Y: +/+ cis         XIX
+7985_7997,-
+7981_8179_7982_8177_7983_7999_7985_7997_0, click this line to see above pattern
+0_0,---------
+8257_8801, Y:  2057 A-U  2611 Y: -/- cis         XX
+8261_8641, Y:  2061 G-A  2451 Y: W/W cis         VIII
+8263_8640, Y:  2063 C-A  2450 Y: W/W cis         n/a
+8264_8636, Y:  2064 C-G  2446 Y: +/+ cis         XIX
+8264_8636,-
+8257_8801_8261_8641_8263_8640_8264_8636_0, click this line to see above pattern
+0_0,---------
+8265_8635, Y:  2065 C-G  2445 Y: +/+ cis         XIX
+8265_8639, Y:  2065 C-U  2449 Y: S/W cis         n/a
+8266_8634, Y:  2066 C-G  2444 Y: W/W cis         n/a
+8267_8633, Y:  2067 G-C  2443 Y: +/+ cis         XIX
+8267_8633,-
+8265_8635_8265_8639_8266_8634_8267_8633_0, click this line to see above pattern
+0_0,---------
+8285_8424, Y:  2085 C-G  2234 Y: +/+ cis         XIX
+8286_8423, Y:  2086 U-U  2233 Y: W/W cis         XVI
+8287_8422, Y:  2087 G-U  2232 Y: W/W cis         XXVIII
+8288_8421, Y:  2088 G-C  2231 Y: +/+ cis         XIX
+8288_8421,-
+8285_8424_8286_8423_8287_8422_8288_8421_0, click this line to see above pattern
+0_0,---------
+8295_8394, Y:  2095 C-G  2194 Y: +/+ cis         XIX
+8296_8393, Y:  2096 U-G  2193 Y: W/W cis         XXVIII
+8296_8394, Y:  2096 U-G  2194 Y: W/W cis         XXVIII
+8297_8392, Y:  2097 C-G  2192 Y: +/+ cis         XIX
+8297_8392,-
+8295_8394_8296_8393_8296_8394_8297_8392_0, click this line to see above pattern
+0_0,---------
+8343_8348, Y:  2143 C-G  2148 Y: +/+ cis         XIX
+8397_8415, Y:  2197 U-A  2225 Y: W/H tran        XXIV
+8399_8414, Y:  2199 A-G  2224 Y: H/S tran        XI
+8400_8413, Y:  2205 C-G  2219 Y: +/+ cis         XIX
+8400_8413,-
+8343_8348_8397_8415_8399_8414_8400_8413_0, click this line to see above pattern
+0_0,---------
+8404_8409, Y:  2209 C-G  2215 Y: +/+ cis         XIX
+8434_8625, Y:  2244 U-A  2435 Y: W/H cis         XXIII
+8435_8626, Y:  2245 U-G  2436 Y: S/H cis         n/a
+8436_8448, Y:  2246 G-C  2258 Y: +/+ cis         XIX
+8436_8448,-
+8404_8409_8434_8625_8435_8626_8436_8448_0, click this line to see above pattern
+0_0,---------
+8590_8606, Y:  2400 G-C  2416 Y: +/+ cis         XIX
+8591_8593, Y:  2401 U-C  2403 Y: W/H cis         n/a
+8591_8605, Y:  2401 U-G  2415 Y: W/W cis         XXVIII
+8593_8604, Y:  2403 C-G  2414 Y: +/+ cis         XIX
+8593_8604,-
+8590_8606_8591_8593_8591_8605_8593_8604_0, click this line to see above pattern
+0_0,---------
+8836_8864, Y:  2646 C-G  2674 Y: +/+ cis         XIX
+8837_8863, Y:  2647 U-G  2673 Y: W/W cis         XXVIII
+8837_8864, Y:  2647 U-G  2674 Y: W/W cis         XXVIII
+8838_8862, Y:  2648 C-G  2672 Y: +/+ cis         XIX
+8838_8862,-
+8836_8864_8837_8863_8837_8864_8838_8862_0, click this line to see above pattern
+0_0,---------
+8870_8918, Y:  2680 C-G  2727 Y: +/+ cis         XIX
+8871_8916, Y:  2681 C-A  2725 Y: W/H tran        XXV
+8873_8918, Y:  2683 C-G  2727 Y: W/S cis         n/a
+8874_8916, Y:  2684 U-A  2725 Y: -/- cis         XX
+8874_8916,-
+8870_8918_8871_8916_8873_8918_8874_8916_0, click this line to see above pattern
+0_0,---------
+9091_9198, Y:     7 G-C   113 Y: +/+ cis         XIX
+9092_9197, Y:     8 U-G   112 Y: W/W cis         XXVIII
+9093_9196, Y:     9 G-U   111 Y: W/W cis         XXVIII
+9094_9195, Y:    10 C-G   110 Y: +/+ cis         XIX
+9094_9195,-
+9091_9198_9092_9197_9093_9196_9094_9195_0, click this line to see above pattern
+0_0,---------
+9114_9138, Y:    30 C-G    54 Y: +/+ cis         XIX
+9115_9135, Y:    31 C-G    51 Y: W/W cis         n/a
+9115_9137, Y:    31 C-A    53 Y: S/W cis         n/a
+9116_9134, Y:    32 C-G    50 Y: +/+ cis         XIX
+9116_9134,-
+9114_9138_9115_9135_9115_9137_9116_9134_0, click this line to see above pattern
+0_0,---------
+3039_3204, R:  1417 C-G  1581 R: +/+ cis         XIX
+3040_3203, R:  1418 G-A  1580 R: S/H tran        XI
+3041_3116, R:  1419 A-A  1494 R: W/W cis         n/a
+3041_3201, R:  1419 A-U  1578 R: H/W tran        XXIV
+3043_3200, R:  1421 G-C  1577 R: +/+ cis         XIX
+3043_3200,-
+3039_3204_3040_3203_3041_3116_3041_3201_3043_3200_0, click this line to see above pattern
+0_0,---------
+4520_4526, R:    38 C-G    44 R: +/+ cis         XIX
+4521_4528, R:    39 A-A    46 R: S/W cis         n/a
+4522_4527, R:    40 U-A    45 R: S/W tran        n/a
+4551_4590, R:    69 G-U   107 R: W/W cis         XXVIII
+4552_4589, R:    70 C-G   106 R: +/+ cis         XIX
+4552_4589,-
+4520_4526_4521_4528_4522_4527_4551_4590_4552_4589_0, click this line to see above pattern
+0_0,---------
+7530_7846, Y:  1306 C-G  1622 Y: +/+ cis         XIX
+7531_7830, Y:  1307 A-G  1606 Y: H/S tran        XI
+7532_7830, Y:  1308 A-G  1606 Y: H/S tran        XI
+7532_7832, Y:  1308 A-A  1608 Y: W/W tran     syn  I
+7533_7829, Y:  1309 G-C  1605 Y: +/+ cis         XIX
+7533_7829,-
+7530_7846_7531_7830_7532_7830_7532_7832_7533_7829_0, click this line to see above pattern
+0_0,---------
+6381_6431, Y:   198 C-G   248 Y: +/+ cis         XIX
+6384_6433, Y:   201 C-G   250 Y: S/W tran        n/a
+6388_6389, Y:   205 G-U   206 Y: S/H cis         n/a
+6397_6399, Y:   214 G-A   216 Y: S/s cis         n/a
+6399_6652, Y:   216 A-U   431 Y: H/W tran        XXIV
+6402_6417, Y:   219 G-C   234 Y: S/s cis         n/a
+6403_6649, Y:   220 G-A   428 Y: W/H tran        n/a
+6404_6448, Y:   221 A-A   265 Y: W/H cis         n/a
+6404_6648, Y:   221 A-U   427 Y: H/W tran        XXIV
+6406_6628, Y:   223 A-G   407 Y: S/S tran        n/a
+6407_6414, Y:   224 G-C   231 Y: +/+ cis         XIX
+6407_6414,-
+6381_6431_6384_6433_6388_6389_6397_6399_6399_6652_6402_6417_6403_6649_6404_6448_6404_6648_6406_6628_6407_6414_0, click this line to see above pattern
+0_0,---------
+7175_7188, Y:   952 G-C   965 Y: +/+ cis         XIX
+7175_8457, Y:   952 G-A  2267 Y: S/H cis      syn  n/a
+7176_7187, Y:   953 A-C   964 Y: W/W cis         n/a
+7177_7186, Y:   954 G-U   963 Y: W/W cis         XXVIII
+7177_8464, Y:   954 G-A  2274 Y: S/S tran        n/a
+7178_7185, Y:   955 C-G   962 Y: +/+ cis         XIX
+7178_7185,-
+7175_7188_7175_8457_7176_7187_7177_7186_7177_8464_7178_7185_0, click this line to see above pattern
+0_0,---------
+6637_8597, Y:   416 C-G  2407 Y: +/+ cis         XIX
+6655_6656, Y:   434 U-C   435 Y: S/H cis         n/a
+6663_7469, Y:   443 A-G  1245 Y: S/S tran        n/a
+6666_6674, Y:   446 G-A   454 Y: S/W tran        X
+6668_6799, Y:   448 U-G   582 Y: W/S tran        n/a
+6668_6800, Y:   448 U-G   583 Y: S/S tran        n/a
+6669_6674, Y:   449 A-A   454 Y: W/H tran        V
+6672_6677, Y:   452 G-A   457 Y: S/S tran        n/a
+6677_6691, Y:   457 A-A   471 Y: H/H tran        II
+6678_6679, Y:   458 G-U   459 Y: S/H cis         n/a
+6679_6690, Y:   459 U-A   470 Y: W/H tran        XXIV
+6680_6689, Y:   460 A-G   469 Y: H/S tran        XI
+6681_6688, Y:   461 C-G   468 Y: +/+ cis         XIX
+6681_6688,-
+6637_8597_6655_6656_6663_7469_6666_6674_6668_6799_6668_6800_6669_6674_6672_6677_6677_6691_6678_6679_6679_6690_6680_6689_6681_6688_0, click this line to see above pattern
+0_0,---------
+7267_7336, Y:  1043 C-G  1112 Y: +/+ cis         XIX
+7272_7334, Y:  1048 A-G  1110 Y: H/W tran        n/a
+7273_8942, Y:  1049 C-G  2751 Y: W/H cis         n/a
+7275_7332, Y:  1051 G-U  1108 Y: W/W cis         XXVIII
+7276_7331, Y:  1052 C-G  1107 Y: +/+ cis         XIX
+7276_7331,-
+7267_7336_7272_7334_7273_8942_7275_7332_7276_7331_0, click this line to see above pattern
+0_0,---------
+2258_2264, R:   641 C-G   647 R: +/+ cis         XIX
+2261_3937, R:   644 A-G  2349 R: W/S tran        X
+2272_2276, R:   654 G-A   654 R: W/S cis         n/a
+2273_2274, R:   654 C-G   654 R: W/W cis         n/a
+2294_2432, R:   671 C-G   809 R: +/+ cis         XIX
+2294_2432,-
+2258_2264_2261_3937_2272_2276_2273_2274_2294_2432_0, click this line to see above pattern
+0_0,---------
+7071_7154, Y:   846 C-G   931 Y: +/+ cis         XIX
+7072_7156, Y:   847 U-A   933 Y: H/W cis         XXIII
+7072_7157, Y:   847 U-G   934 Y: W/S cis         n/a
+7074_7152, Y:   849 A-G   929 Y: H/S tran        XI
+7075_7151, Y:   850 C-G   928 Y: +/+ cis         XIX
+7075_7151,-
+7071_7154_7072_7156_7072_7157_7074_7152_7075_7151_0, click this line to see above pattern
+0_0,---------
+2665_2734, R:  1043 C-G  1112 R: +/+ cis         XIX
+2667_2669, R:  1045 A-G  1047 R: S/S tran        n/a
+2669_2733, R:  1047 G-A  1111 R: S/H tran        XI
+2671_4340, R:  1049 C-G  2751 R: W/H cis         n/a
+2673_2730, R:  1051 G-U  1108 R: W/W cis         XXVIII
+2674_2729, R:  1052 C-G  1107 R: +/+ cis         XIX
+2674_2729,-
+2665_2734_2667_2669_2669_2733_2671_4340_2673_2730_2674_2729_0, click this line to see above pattern
+0_0,---------
+2507_2514, R:   884 C-G   892 R: +/+ cis         XIX
+2533_3865, R:   911 A-G  2277 R: S/S tran        n/a
+2535_2536, R:   913 U-C   914 R: S/H cis         n/a
+2535_2537, R:   913 U-C   915 R: W/W cis         XVIII
+2540_3856, R:   918 A-A  2268 R: H/H tran        II
+2567_2592, R:   946 G-C   971 R: +/+ cis         XIX
+2567_2592,-
+2507_2514_2533_3865_2535_2536_2535_2537_2540_3856_2567_2592_0, click this line to see above pattern
+0_0,---------
+2316_2392, R:   693 C-G   769 R: +/+ cis         XIX
+2317_2391, R:   694 U-G   768 R: W/W cis         XXVIII
+2318_2390, R:   695 G-U   767 R: W/W cis         XXVIII
+2319_2389, R:   696 G-C   766 R: +/+ cis         XIX
+2319_2389,-
+2316_2392_2317_2391_2318_2390_2319_2389_0, click this line to see above pattern
+0_0,---------
+4054_4072, R:  2466 C-G  2484 R: +/+ cis         XIX
+4055_4071, R:  2467 C-C  2483 R: W/W cis         n/a
+4056_4064, R:  2468 G-A  2476 R: S/S tran   syn    n/a
+4057_4069, R:  2469 A-G  2481 R: W/S tran   syn    X
+4058_4068, R:  2470 G-C  2480 R: +/+ cis         XIX
+4058_4068,-
+4054_4072_4055_4071_4056_4064_4057_4069_4058_4068_0, click this line to see above pattern
+0_0,---------
+   50_344, Q:    54 C-G   357 Q: +/+ cis         XIX
+   51_344, Q:    55 A-G   357 Q: H/S tran        XI
+   51_355, Q:    55 A-U   368 Q: W/W tran        XXI
+   52_339, Q:    56 U-C   352 Q: H/W tran        n/a
+   52_343, Q:    56 U-A   356 Q: -/- cis         XX
+   52_343,-
+50_344_51_344_51_355_52_339_52_343_0, click this line to see above pattern
+0_0,---------
+7088_7137, Y:   863 A-U   913 Y: -/- cis         XX
+7089_7091, Y:   864 G-A   866 Y: S/W tran        X
+7089_7136, Y:   864 G-C   912 Y: W/W cis         n/a
+7090_7133, Y:   865 C-A   909 Y: W/H tran        XXV
+7092_7136, Y:   867 C-C   912 Y: W/S cis         n/a
+7093_7133, Y:   868 U-A   909 Y: -/- cis         XX
+7093_7133,-
+7088_7137_7089_7091_7089_7136_7090_7133_7092_7136_7093_7133_0, click this line to see above pattern
+0_0,---------
+2946_2952, R:  1324 G-C  1330 R: +/+ cis         XIX
+2949_3270, R:  1327 C-G  1647 R: W/S tran     syn  n/a
+2960_3015, R:  1338 G-A  1393 R: S/S tran        n/a
+2964_3224, R:  1342 A-U  1602 R: H/W tran        XXIV
+2965_3026, R:  1343 G-C  1404 R: +/+ cis         XIX
+2965_3026,-
+2946_2952_2949_3270_2960_3015_2964_3224_2965_3026_0, click this line to see above pattern
+0_0,---------
+2487_2534, R:   864 G-C   912 R: +/+ cis         XIX
+2488_2531, R:   865 C-A   909 R: W/H tran        XXV
+2490_2534, R:   867 C-C   912 R: W/S cis         n/a
+2491_2531, R:   868 U-A   909 R: -/- cis         XX
+2491_2531,-
+2487_2534_2488_2531_2490_2534_2491_2531_0, click this line to see above pattern
+0_0,---------
+1775_1782, R:   194 G-C   201 R: +/+ cis         XIX
+1775_1832, R:   194 G-A   251 R: S/S cis         n/a
+1776_1831, R:   195 A-G   250 R: S/S cis         n/a
+1777_2454, R:   196 A-G   831 R: W/S tran   syn    X
+1779_1829, R:   198 C-G   248 R: +/+ cis         XIX
+1779_1829,-
+1775_1782_1775_1832_1776_1831_1777_2454_1779_1829_0, click this line to see above pattern
+0_0,---------
+2568_2591, R:   947 G-C   970 R: +/+ cis         XIX
+2568_2606, R:   947 G-A   984 R: S/S tran        n/a
+2569_2590, R:   948 G-U   969 R: W/W cis         XXVIII
+2570_2589, R:   949 C-G   968 R: +/+ cis         XIX
+2570_2589,-
+2568_2591_2568_2606_2569_2590_2570_2589_0, click this line to see above pattern
+0_0,---------
+6024_6029, X:  1449 C-G  1454 X: +/+ cis         XIX
+6055_8159, X:  1483 A-G  1959 Y: S/S tran        n/a
+6065_6196, X:  1493 A-G    36 X: S/S tran        n/a
+6066_8112, X:  1494 G-A  1912 Y: S/s cis         n/a
+6070_6071, X:  1498 U-A  1499 X: S/H cis         n/a
+6074_6077, X:  1502 A-G  1505 X: S/W cis         n/a
+6079_6100, X:  1507 A-U  1528 X: -/- cis         XX
+6079_6100,-
+6024_6029_6055_8159_6065_6196_6066_8112_6070_6071_6074_6077_6079_6100_0, click this line to see above pattern
+0_0,---------
+  366_371, Q:   379 C-G   384 Q: +/+ cis         XIX
+  367_370, Q:   380 G-A   383 Q: W/H tran        n/a
+  391_473, Q:   404 U-U   497 Q: W/H cis         n/a
+  392_474, Q:   405 U-A   498 Q: W/H cis         XXIII
+  393_423, Q:   406 G-C   436 Q: +/+ cis         XIX
+  393_423,-
+366_371_367_370_391_473_392_474_393_423_0, click this line to see above pattern
+0_0,---------
+2620_2779, R:   998 C-G  1157 R: +/+ cis         XIX
+2621_2777, R:   999 U-A  1155 R: W/H tran        XXIV
+2623_2776, R:  1001 A-G  1154 R: H/S tran        XI
+2624_2775, R:  1002 G-C  1153 R: +/+ cis         XIX
+2624_2775,-
+2620_2779_2621_2777_2623_2776_2624_2775_0, click this line to see above pattern
+0_0,---------
+2823_2865, R:  1202 C-G  1243 R: +/+ cis         XIX
+2824_2864, R:  1203 G-A  1242 R: S/H tran        XI
+2827_2862, R:  1206 G-U  1240 R: W/W cis         XXVIII
+2828_2861, R:  1207 C-G  1239 R: +/+ cis         XIX
+2828_2861,-
+2823_2865_2824_2864_2827_2862_2828_2861_0, click this line to see above pattern
+0_0,---------
+8454_8466, Y:  2264 C-G  2276 Y: +/+ cis         XIX
+8456_8463, Y:  2266 A-A  2273 Y: H/H tran        II
+8457_8462, Y:  2267 A-U  2272 Y: W/W tran   syn    XXI
+8469_8517, Y:  2279 G-A  2327 Y: S/S cis         n/a
+8470_8578, Y:  2280 G-A  2388 Y: S/S tran        n/a
+8472_8617, Y:  2282 G-C  2427 Y: +/+ cis         XIX
+8472_8617,-
+8454_8466_8456_8463_8457_8462_8469_8517_8470_8578_8472_8617_0, click this line to see above pattern
+0_0,---------
+2903_2911, R:  1281 G-C  1289 R: +/+ cis         XIX
+2904_2908, R:  1282 U-A  1286 R: W/H tran        XXIV
+2910_2948, R:  1288 U-U  1326 R: W/W tran        XII,XIII
+2917_3268, R:  1295 C-G  1645 R: +/+ cis         XIX
+2917_3268,-
+2903_2911_2904_2908_2910_2948_2917_3268_0, click this line to see above pattern
+0_0,---------
+3852_3864, R:  2264 C-G  2276 R: +/+ cis         XIX
+3854_3861, R:  2266 A-A  2273 R: W/H tran        V
+3855_3860, R:  2267 A-U  2272 R: W/W tran   syn    XXI
+3867_3915, R:  2279 G-A  2327 R: S/s cis         n/a
+3870_3978, R:  2282 G-U  2390 R: S/W tran        n/a
+3870_4015, R:  2282 G-C  2427 R: +/+ cis         XIX
+3870_4015,-
+3852_3864_3854_3861_3855_3860_3867_3915_3870_3978_3870_4015_0, click this line to see above pattern
+0_0,---------
+4512_4536, R:    30 C-G    54 R: +/+ cis         XIX
+4512_4539, R:    30 C-A    57 R: S/W cis         n/a
+4513_4533, R:    31 C-G    51 R: W/W cis         n/a
+4513_4535, R:    31 C-A    53 R: S/W cis         n/a
+4514_4532, R:    32 C-G    50 R: +/+ cis         XIX
+4514_4532,-
+4512_4536_4512_4539_4513_4533_4513_4535_4514_4532_0, click this line to see above pattern
+0_0,---------
+3043_3200, R:  1421 G-C  1577 R: +/+ cis         XIX
+3044_3120, R:  1422 G-C  1498 R: S/S tran        n/a
+3044_3199, R:  1422 G-U  1576 R: W/W cis         XXVIII
+3045_3198, R:  1423 G-C  1575 R: +/+ cis         XIX
+3045_3198,-
+3043_3200_3044_3120_3044_3199_3045_3198_0, click this line to see above pattern
+0_0,---------
+1219_1264, Q:  1246 C-G  1291 Q: +/+ cis         XIX
+1220_1263, Q:  1247 U-G  1290 Q: W/W cis         XXVIII
+1221_1262, Q:  1248 A-A  1289 Q: W/H tran        V
+1225_1258, Q:  1252 A-A  1285 Q: W/W tran        I
+1226_1257, Q:  1253 G-C  1284 Q: +/+ cis         XIX
+1226_1257,-
+1219_1264_1220_1263_1221_1262_1225_1258_1226_1257_0, click this line to see above pattern
+0_0,---------
+    74_76, Q:    81 G-C    88 Q: +/+ cis         XIX
+   87_137, Q:   102 G-A   151 Q: s/S cis         n/a
+   94_311, Q:   109 A-G   324 Q: H/S tran   syn    XI
+   96_318, Q:   111 G-G   331 Q: W/H tran        VII
+   97_302, Q:   112 G-A   315 Q: W/W cis         VIII
+   98_301, Q:   113 G-C   314 Q: +/+ cis         XIX
+   98_301,-
+74_76_87_137_94_311_96_318_97_302_98_301_0, click this line to see above pattern
+0_0,---------
+8891_8896, Y:  2701 C-G  2706 Y: +/+ cis         XIX
+8910_9060, Y:  2719 G-G  2872 Y: S/W tran     syn  n/a
+8911_9061, Y:  2720 U-A  2873 Y: W/H cis      syn  XXIII
+8925_8961, Y:  2734 A-G  2770 Y: H/S tran        XI
+8926_8960, Y:  2735 G-C  2769 Y: +/+ cis         XIX
+8926_8960,-
+8891_8896_8910_9060_8911_9061_8925_8961_8926_8960_0, click this line to see above pattern
+0_0,---------
+3188_3191, R:  1565 C-G  1568 R: +/+ cis      syn  XIX
+3229_3244, R:  1607 C-G  1622 R: W/H tran        n/a
+3230_3243, R:  1608 A-U  1621 R: H/W tran        XXIV
+3233_3242, R:  1611 C-G  1620 R: +/+ cis         XIX
+3233_3242,-
+3188_3191_3229_3244_3230_3243_3233_3242_0, click this line to see above pattern
+0_0,---------
+8564_8569, Y:  2374 C-G  2379 Y: +/+ cis         XIX
+8581_8619, Y:  2391 G-G  2429 Y: S/S tran     syn  IV
+8582_8614, Y:  2392 A-C  2424 Y: W/W tran   syn    XXVI
+8583_8612, Y:  2393 A-A  2422 Y: H/W tran        V
+8584_8612, Y:  2394 C-A  2422 Y: W/W cis         n/a
+8585_8611, Y:  2395 C-G  2421 Y: +/+ cis         XIX
+8585_8611,-
+8564_8569_8581_8619_8582_8614_8583_8612_8584_8612_8585_8611_0, click this line to see above pattern
+0_0,---------
+3340_3348, R:  1726 G-C  1734 R: +/+ cis         XIX
+3341_3347, R:  1727 U-G  1733 R: W/W cis         XXVIII
+3357_4446, R:  1750 G-A  2860 R: S/W tran        X
+3359_3363, R:  1752 C-G  1756 R: +/+ cis      syn  XIX
+3359_3363,-
+3340_3348_3341_3347_3357_4446_3359_3363_0, click this line to see above pattern
+0_0,---------
+4838_4866, X:   248 C-G   276 X: +/+ cis         XIX
+4839_4865, X:   249 U-G   275 X: W/W cis         XXVIII
+4841_4844, X:   251 G-G   254 X: W/H cis         VI
+4841_4861, X:   251 G-C   271 X: W/H tran        n/a
+4842_4864, X:   252 U-A   274 X: -/- cis         XX
+4842_4864,-
+4838_4866_4839_4865_4841_4844_4841_4861_4842_4864_0, click this line to see above pattern
+0_0,---------
+3379_3577, R:  1772 G-C  1979 R: +/+ cis         XIX
+3380_3575, R:  1773 A-A  1977 R: S/W tran        n/a
+3381_3397, R:  1774 C-C  1790 R: H/S tran        n/a
+3383_3395, R:  1776 G-C  1788 R: +/+ cis         XIX
+3383_3395,-
+3379_3577_3380_3575_3381_3397_3383_3395_0, click this line to see above pattern
+0_0,---------
+  329_334, Q:   342 C-G   347 Q: +/+ cis         XIX
+  330_333, Q:   343 U-G   346 Q: S/W tran     syn  n/a
+  339_342, Q:   352 C-C   355 Q: W/H cis         n/a
+  339_343, Q:   352 C-A   356 Q: W/H cis         n/a
+  353_381, Q:   366 C-G   394 Q: S/W cis         n/a
+  354_380, Q:   367 U-A   393 Q: -/- cis         XX
+  354_380,-
+329_334_330_333_339_342_339_343_353_381_354_380_0, click this line to see above pattern
+0_0,---------
+3463_3484, R:  1856 G-C  1886 R: +/+ cis         XIX
+3465_3482, R:  1858 G-A  1884 R: S/H tran        XI
+3466_3481, R:  1859 A-G  1883 R: H/S tran        XI
+3467_3480, R:  1860 G-C  1882 R: +/+ cis         XIX
+3467_3480,-
+3463_3484_3465_3482_3466_3481_3467_3480_0, click this line to see above pattern
+0_0,---------
+3504_3522, R:  1906 G-C  1924 R: +/+ cis         XIX
+3504_3523, R:  1906 G-C  1925 R: W/W cis         n/a
+3505_3521, R:  1907 G-U  1923 R: W/W cis         XXVIII
+3506_3520, R:  1908 C-G  1922 R: +/+ cis         XIX
+3506_3520,-
+3504_3522_3504_3523_3505_3521_3506_3520_0, click this line to see above pattern
+0_0,---------
+3655_4199, R:  2057 A-U  2611 R: -/- cis         XX
+3659_4039, R:  2061 G-A  2451 R: W/W cis         VIII
+3661_4038, R:  2063 C-A  2450 R: W/W cis         n/a
+3662_4034, R:  2064 C-G  2446 R: +/+ cis         XIX
+3662_4034,-
+3655_4199_3659_4039_3661_4038_3662_4034_0, click this line to see above pattern
+0_0,---------
+3683_3822, R:  2085 C-G  2234 R: +/+ cis         XIX
+3684_3821, R:  2086 U-U  2233 R: W/W cis         XVI
+3685_3820, R:  2087 G-U  2232 R: W/W cis         XXVIII
+3686_3819, R:  2088 G-C  2231 R: +/+ cis         XIX
+3686_3819,-
+3683_3822_3684_3821_3685_3820_3686_3819_0, click this line to see above pattern
+0_0,---------
+3741_3746, R:  2143 C-G  2148 R: +/+ cis         XIX
+3795_3813, R:  2197 U-A  2225 R: W/H tran        XXIV
+3797_3812, R:  2199 A-G  2224 R: H/S tran        XI
+3798_3811, R:  2205 C-G  2219 R: +/+ cis         XIX
+3798_3811,-
+3741_3746_3795_3813_3797_3812_3798_3811_0, click this line to see above pattern
+0_0,---------
+3802_3807, R:  2209 C-G  2215 R: +/+ cis         XIX
+3832_4023, R:  2244 U-A  2435 R: W/H cis         XXIII
+3833_4024, R:  2245 U-G  2436 R: S/H cis         n/a
+3834_3846, R:  2246 G-C  2258 R: +/+ cis         XIX
+3834_3846,-
+3802_3807_3832_4023_3833_4024_3834_3846_0, click this line to see above pattern
+0_0,---------
+3938_3955, R:  2350 C-G  2367 R: +/+ cis         XIX
+3939_3954, R:  2351 G-A  2366 R: S/H tran        XI
+3940_3953, R:  2352 A-G  2365 R: H/S tran        XI
+3941_3952, R:  2353 G-C  2364 R: +/+ cis         XIX
+3941_3952,-
+3938_3955_3939_3954_3940_3953_3941_3952_0, click this line to see above pattern
+0_0,---------
+3962_3967, R:  2374 C-G  2379 R: +/+ cis         XIX
+3979_4017, R:  2391 G-G  2429 R: S/S tran     syn  IV
+3980_4012, R:  2392 A-C  2424 R: W/W tran   syn    XXVI
+3983_4009, R:  2395 C-G  2421 R: +/+ cis         XIX
+3983_4009,-
+3962_3967_3979_4017_3980_4012_3983_4009_0, click this line to see above pattern
+0_0,---------
+4234_4262, R:  2646 C-G  2674 R: +/+ cis         XIX
+4234_4263, R:  2646 C-A  2675 R: W/W cis         n/a
+4235_4261, R:  2647 U-G  2673 R: W/W cis         XXVIII
+4236_4260, R:  2648 C-G  2672 R: +/+ cis         XIX
+4236_4260,-
+4234_4262_4234_4263_4235_4261_4236_4260_0, click this line to see above pattern
+0_0,---------
+4268_4316, R:  2680 C-G  2727 R: +/+ cis         XIX
+4269_4314, R:  2681 C-A  2725 R: W/H tran        XXV
+4271_4316, R:  2683 C-G  2727 R: W/S cis         n/a
+4272_4314, R:  2684 U-A  2725 R: -/- cis         XX
+4272_4314,-
+4268_4316_4269_4314_4271_4316_4272_4314_0, click this line to see above pattern
+0_0,---------
+4289_4294, R:  2701 C-G  2706 R: +/+ cis         XIX
+4309_4459, R:  2720 U-A  2873 R: W/H cis      syn  XXIII
+4323_4359, R:  2734 A-G  2770 R: H/S tran        XI
+4324_4358, R:  2735 G-C  2769 R: +/+ cis         XIX
+4324_4358,-
+4289_4294_4309_4459_4323_4359_4324_4358_0, click this line to see above pattern
+0_0,---------
+4424_4466, R:  2838 G-C  2880 R: +/+ cis         XIX
+4425_4464, R:  2839 G-U  2878 R: W/W cis         XXVIII
+4426_4463, R:  2840 C-G  2877 R: W/W cis         n/a
+4427_4462, R:  2841 C-G  2876 R: +/+ cis         XIX
+4427_4462,-
+4424_4466_4425_4464_4426_4463_4427_4462_0, click this line to see above pattern
+0_0,---------
+3891_3901, R:  2303 G-C  2313 R: +/+ cis         XIX
+3896_3899, R:  2308 G-A  2311 R: W/W cis    syn syn  VIII
+3910_3923, R:  2322 A-A  2335 R: W/W tran        I
+3911_3920, R:  2323 G-U  2332 R: W/W cis         XXVIII
+3912_3919, R:  2324 C-G  2331 R: +/+ cis         XIX
+3912_3919,-
+3891_3901_3896_3899_3910_3923_3911_3920_3912_3919_0, click this line to see above pattern
+0_0,---------
+4516_4530, R:    34 U-A    48 R: -/- cis         XX
+4518_4531, R:    36 C-C    49 R: W/S cis         n/a
+4519_4530, R:    37 C-A    48 R: W/S cis         n/a
+4520_4526, R:    38 C-G    44 R: +/+ cis         XIX
+4520_4526,-
+4516_4530_4518_4531_4519_4530_4520_4526_0, click this line to see above pattern
+0_0,---------
+4642_4988, X:    44 G-C   398 X: +/+ cis         XIX
+4643_4986, X:    45 U-G   396 X: W/W cis         XXVIII
+4644_4985, X:    46 G-C   395 X: W/W cis         n/a
+4645_4951, X:    47 C-G   361 X: +/+ cis         XIX
+4645_4951,-
+4642_4988_4643_4986_4644_4985_4645_4951_0, click this line to see above pattern
+0_0,---------
+4652_4947, X:    54 C-G   357 X: +/+ cis         XIX
+4653_4947, X:    55 A-G   357 X: H/S tran        XI
+4653_4958, X:    55 A-U   368 X: W/W tran        XXI
+4654_4946, X:    56 U-A   356 X: -/- cis         XX
+4654_4946,-
+4652_4947_4653_4947_4653_4958_4654_4946_0, click this line to see above pattern
+0_0,---------
+4673_4682, X:    78 G-C    91 X: +/+ cis         XIX
+4674_4681, X:    79 G-C    90 X: W/W cis         n/a
+4675_4680, X:    80 G-U    89 X: W/W cis         XXVIII
+4676_4679, X:    81 G-C    88 X: +/+ cis         XIX
+4676_4679,-
+4673_4682_4674_4681_4675_4680_4676_4679_0, click this line to see above pattern
+0_0,---------
+4849_4857, X:   259 G-C   267 X: +/+ cis         XIX
+4850_4855, X:   260 G-G   265 X: W/H tran        VII
+4868_4869, X:   278 G-A   279 X: S/W cis      syn  n/a
+4879_4901, X:   289 G-C   311 X: +/+ cis         XIX
+4879_4901,-
+4849_4857_4850_4855_4868_4869_4879_4901_0, click this line to see above pattern
+0_0,---------
+4882_4898, X:   292 G-C   308 X: +/+ cis         XIX
+4882_5186, X:   292 G-A   608 X: S/W tran        X
+4883_4894, X:   293 G-U   304 X: W/W cis         XXVIII
+4884_4893, X:   294 U-A   303 X: -/- cis         XX
+4884_4893,-
+4882_4898_4882_5186_4883_4894_4884_4893_0, click this line to see above pattern
+0_0,---------
+4969_4974, X:   379 C-G   384 X: +/+ cis         XIX
+4994_5076, X:   404 U-U   497 X: W/H cis         n/a
+4995_5077, X:   405 U-A   498 X: W/H cis         XXIII
+4996_5026, X:   406 G-C   436 X: +/+ cis         XIX
+4996_5026,-
+4969_4974_4994_5076_4995_5077_4996_5026_0, click this line to see above pattern
+0_0,---------
+5035_5067, X:   446 G-C   488 X: +/+ cis         XIX
+5036_5066, X:   447 G-A   487 X: S/H tran        XI
+5037_5065, X:   448 A-U   486 X: H/W tran        XXIV
+5039_5062, X:   450 G-C   483 X: +/+ cis         XIX
+5039_5062,-
+5035_5067_5036_5066_5037_5065_5039_5062_0, click this line to see above pattern
+0_0,---------
+5039_5062, X:   450 G-C   483 X: +/+ cis         XIX
+5041_5059, X:   452 A-U   480 X: H/W tran        XXIV
+5042_5058, X:   453 A-C   479 X: H/W tran        XXV
+5044_5056, X:   455 C-G   477 X: +/+ cis         XIX
+5044_5056,-
+5039_5062_5041_5059_5042_5058_5044_5056_0, click this line to see above pattern
+0_0,---------
+END_base-pair

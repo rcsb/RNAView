@@ -693,11 +693,6 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
 
             sprintf(str_id, "%s%s%c%s", AtomName[curr_index], ResName[curr_index], ChainID[curr_index], ResSeq_uf[index_uf]);
 
-            // if (strstr(y_uf[index_uf], "53.884"))
-            // {
-            //     printf("\n %s %s %s %s\n", AtomName[curr_index], AtomName[curr_index - 1], str_id, str_id0);
-            // }
-
             if (!strcmp(str_id, str_id0) && curr_index > 1)
             {
                 continue;

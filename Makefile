@@ -61,51 +61,51 @@ all: $(RNAVIEW)
 CFLAGS  =  $(LINCLUDES) 
 
 $(RNAVIEW) : $(HFILES) $(OBJ_FILE) 
-	$(CC) $(CFLAGS) -o $@ $(OBJ_FILE) $(LDFLAGS) -lm $(MALLOCLIB)
+	$(CC) -g -Wall $(CFLAGS) -o $@ $(OBJ_FILE) $(LDFLAGS) -lm $(MALLOCLIB)
 
 
 
 $(OBJ)/rnaview.o : $(SRC)/rnaview.c 
-	$(CC) $(CFLAGS) -c $(SRC)/rnaview.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/rnaview.c -o $@
 
 $(OBJ)/fpair.o : src/fpair.c 
-	$(CC) $(CFLAGS) -c $(SRC)/fpair.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/fpair.c -o $@
 
 $(OBJ)/fpair_sub.o : $(SRC)/fpair_sub.c
-	$(CC) $(CFLAGS) -c $(SRC)/fpair_sub.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/fpair_sub.c -o $@
 
 $(OBJ)/pair_type.o : $(SRC)/pair_type.c 
-	$(CC) $(CFLAGS) -c $(SRC)/pair_type.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/pair_type.c -o $@
 
 $(OBJ)/nrutil.o : $(SRC)/nrutil.c 
-	$(CC) $(CFLAGS) -c  $(SRC)/nrutil.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/nrutil.c -o $@
 
 $(OBJ)/ps-xy.o  : $(SRC)/ps-xy.c 
-	$(CC) $(CFLAGS) -c $(SRC)/ps-xy.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/ps-xy.c -o $@
 
 $(OBJ)/ps-xy-sub.o  : $(SRC)/ps-xy-sub.c 
-	$(CC) $(CFLAGS) -c $(SRC)/ps-xy-sub.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/ps-xy-sub.c -o $@
 
 $(OBJ)/vrml.o : $(SRC)/vrml.c 
-	$(CC) $(CFLAGS) -c  $(SRC)/vrml.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/vrml.c -o $@
 
 $(OBJ)/rnaxml-new.o : $(SRC)/rnaxml-new.c 
-	$(CC) $(CFLAGS) -c  $(SRC)/rnaxml-new.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/rnaxml-new.c -o $@
 
 $(OBJ)/analyze.o :  $(SRC)/analyze.c 
-	$(CC) $(CFLAGS) -c  $(SRC)/analyze.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/analyze.c -o $@
 
 $(OBJ)/pattern.o :  $(SRC)/pattern.c 
-	$(CC) $(CFLAGS) -c  $(SRC)/pattern.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/pattern.c -o $@
 
 $(OBJ)/xml2ps.o :  $(SRC)/xml2ps.c 
-	$(CC) $(CFLAGS) -c  $(SRC)/xml2ps.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/xml2ps.c -o $@
 
 $(OBJ)/multiple.o :  $(SRC)/multiple.c
-	$(CC) $(CFLAGS) -c  $(SRC)/multiple.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/multiple.c -o $@
 
 $(OBJ)/statistics.o :  $(SRC)/statistics.c 
-	$(CC) $(CFLAGS) -c  $(SRC)/statistics.c -o $@
+	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/statistics.c -o $@
 
 
 clean:
