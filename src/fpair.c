@@ -6,8 +6,9 @@
 #include "nrutil.h"
 #include "rna.h"
 
-void  LW_Saenger_correspond(char bs1, char bs2, char *type, char *corresp);
+extern long VERB;
 
+void  LW_Saenger_correspond(char bs1, char bs2, char *type, char *corresp);
 
 
 void all_pairs(char *pdbfile, FILE *fout, long num_residue, long *RY,
@@ -56,38 +57,56 @@ void all_pairs(char *pdbfile, FILE *fout, long num_residue, long *RY,
     }
     
         
-        /*
-    fprintf(fout, "------------------------------------------------\n");    
-    fprintf(fout,"Base-pair criteria used: \n");
-    fprintf(fout, "%6.2f --> upper H-bond length limits (ON..ON).\n", BPRS[1]);    
+    if(VERB){    
+        fprintf(fout, "-----------------------------------------------------------\n");    
+        fprintf(fout,"CRITERIA USED TO GENERATE BASE-PAIR: \n");
+        fprintf(fout, "%6.2f --> upper H-bond length limits (ON..ON).\n", BPRS[1]);    
 
-    fprintf(fout, "%6.2f --> max. distance between paired base origins.\n",
-            BPRS[2]);
+        fprintf(fout, "%6.2f --> max. distance between paired base origins.\n",
+                BPRS[2]);
 
-    fprintf(fout, "%6.2f --> max. vertical distance between paired"
-            " base origins.\n", BPRS[3]);    
-    fprintf(fout, "%6.2f --> max. angle between paired bases [0-90].\n",
-            BPRS[4]);
+        fprintf(fout, "%6.2f --> max. vertical distance between paired"
+                " base origins.\n", BPRS[3]);    
+        fprintf(fout, "%6.2f --> max. angle between paired bases [0-90].\n",
+                BPRS[4]);
 
-    fprintf(fout, "%6.2f --> MIN. distance between RN9/YN1 atoms.\n",
-            BPRS[5]);
-    fprintf(fout, "%6.2f --> max. distance criterion for helix break[0-12]\n",
-            BPRS[6]);
+        fprintf(fout, "%6.2f --> min. distance between RN9/YN1 atoms.\n",
+                BPRS[5]);
+        fprintf(fout, "%6.2f --> max. distance criterion for helix break[0-12]\n",
+                BPRS[6]);
 
-    fprintf(fout,"------------------------------------------------ \n");
-    fprintf(fout,"INSTRUCTIONS: \n");
+        fprintf(fout,"-----------------------------------------------------------\n");
+        fprintf(fout,"BASE-PAIR INSTRUCTIONS: \n");
         
-    fprintf(fout,"Column 1, 2, 3 are Chain ID, Residue number, Residue name\n");
-    fprintf(fout,"W.C. pairs are annotated as -/- (AU,AT) or +/+ (GC)\n");
-    fprintf(fout,"The three edges: W(Watson-Crick); H(Hoogsteen); S(suger)\n");
-    fprintf(fout,"Glycosidic bond orientation is annotated as (cis or trans).\n");
-    fprintf(fout,"Syn sugar-base conformations are annotated as (syn).\n");
-    fprintf(fout,"Stacked base pairs are annotated as (stack).\n");
-    fprintf(fout,"Non-identified edges are annotated as (.) or (?)\n");
-    fprintf(fout,"Tertiary interactions are marked by (!) in the line.\n");
+        fprintf(fout,"Column 1 is rnaview assigned base numbers n1_n2, start from 1.\n");
+        fprintf(fout,"Column 2 & 3 are chain ID & residue number in input PDB file.\n");
+        fprintf(fout,"Column 4 is for base pair. The left & right are the bases as \n");
+        fprintf(fout,"         identified by column 2 & 3 and 5 & 6.\n");
+        fprintf(fout,"Column 5 & 6 are residue number & chain ID in input PDB file.\n");
+        fprintf(fout,"Column 7 is for base pair annotation. The standard Watson-Crick\n");
+        fprintf(fout,"         (W.C.) pairs are annotated as -/- (AU,AT) or +/+ (GC).\n");
+        fprintf(fout,"         Other pairs are annotated as Leontis_Westhof Classification.\n");
+        fprintf(fout,"         The three edges: W(Watson-Crick); H(Hoogsteen); S(suger).\n");
+        fprintf(fout,"         e.g. W/H means the pair is edge of Watson-Crick & Hoogsteen.\n");
+        
+        fprintf(fout,"Column 8 is glycosidic bond orientation (either cis or trans).\n");
+        fprintf(fout,"         e.g. 'W/H cis' means the pair is interaction on Watson-Crick\n");
+        fprintf(fout,"         and Hoogsteen side, glycosidic bond orientation is 'cis'.\n");
+        fprintf(fout,"Column 9 corresponds to Saenger Classification.\n\n");
+        fprintf(fout,"Other columns: \n");
+        fprintf(fout,"        Syn sugar-base conformations are annotated as (syn).\n");
+        fprintf(fout,"        Stacked base pairs are annotated as (stack).\n");
+        fprintf(fout,"        Non-identified edges are annotated as (.) or (?)\n");
+        fprintf(fout,"        Tertiary interactions are marked by (!) in the line.\n");
+        fprintf(fout,"Reference:\n");
+        fprintf(fout,"Yang et al (2003) Nucleic Acids Research, Vol31,No13,p3450-3461.\n");
+    }
     
-    fprintf(fout,"------------------------------------------------ \n");
-        */
+    fprintf(fout,"-----------------------------------------------------------\n");
+
+
+
+    
     
     fprintf(fout,"BEGIN_base-pair\n" );
 
@@ -101,6 +120,7 @@ void all_pairs(char *pdbfile, FILE *fout, long num_residue, long *RY,
      /* change this condition if used 
         protein_rna_interact(BPRS[1],num_residue, seidx, xyz,AtomName, prot_rna);
     */
+    
 
     syn_or_anti(num_residue, AtomName, seidx, xyz,RY, sugar_syn);
     

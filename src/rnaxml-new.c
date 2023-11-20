@@ -8,6 +8,7 @@
 #include "nrutil.h"
 
 long *POSITION_1_N;
+extern char FILEOUT[BUF512];
 
 void write_xml(char *pdbfile, long num_residue, char *bseq, long **seidx,
                char **AtomName, char **ResName, char *ChainID, long *ResSeq,
@@ -34,7 +35,10 @@ void write_xml(char *pdbfile, long num_residue, char *bseq, long **seidx,
     sing_st_end = lmatrix(1, num_residue, 1,2);
     POSITION_1_N=lvector(1, num_residue);
 
-    sprintf(outfile, "%s.xml", pdbfile);
+/*    sprintf(outfile, "%s.xml", pdbfile);*/
+    sprintf(outfile, "%s.xml", FILEOUT);
+
+    
     xml = fopen(outfile, "w");
 
     chain_idx = lmatrix(1,200, 1, 2);  /* # of chains max = 200 */    
@@ -153,7 +157,8 @@ void write_base_pair_mol(FILE *xml, long molID, char *parfile, long *chain_res,
     FILE *finp;
 
 
-    sprintf(inpfile, "%s.out", parfile);
+/*    sprintf(inpfile, "%s.out", parfile);*/
+    sprintf(inpfile, "%s.out", FILEOUT);
     finp = fopen(inpfile, "r");
     if(finp==NULL) {        
         printf("Can not open the file %s (routine: write_base_pair_mol)\n", inpfile);        

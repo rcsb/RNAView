@@ -1,0 +1,10 @@
+BEGIN_base-pair
+     6_22, A:  2652 C-G  2668 A: +/+ cis         XIX
+     9_10, A:  2655 G-u  2656 A: S/H cis    syn    n/a
+    10_19, A:  2656 u-A  2665 A: W/H tran        XXIV
+    11_18, A:  2657 A-G  2664 A: H/S tran        XI
+    12_17, A:  2658 C-G  2663 A: +/+ cis         XIX
+    12_17,-
+6_22_9_10_10_19_11_18_12_17_0, click this line to see above pattern
+0_0,---------
+END_base-pair
