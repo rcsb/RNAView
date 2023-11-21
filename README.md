@@ -73,3 +73,7 @@ Usage: executable [option] input_file
 ## NMR structures
 
 The program will automatically pick the best NMR model according to the REMARK record of the pdb file. If there is no best model in the PDB file, it will pick the first model from the ensemble.
+
+## Update
+Nov 21, 2023: RNAVIEW permits MMCIF inputs.
+
