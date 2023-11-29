@@ -1,4 +1,4 @@
-PDB data file name: mmcif-test/other/6pom/6pom.cif
+PDB data file name: test/mmcif/other/6pom/6pom.cif
 -----------------------------------------------------------
 CRITERIA USED TO GENERATE BASE-PAIR: 
   3.40 --> upper H-bond length limits (ON..ON).
@@ -33,26 +33,26 @@ Reference:
 Yang et al (2003) Nucleic Acids Research, Vol31,No13,p3450-3461.
 -----------------------------------------------------------
 BEGIN_base-pair
-    12_92, A:    24 A-U   106 A: -/- cis         XX
-    14_90, A:    26 A-U   104 A: -/- cis         XX
-    15_89, A:    27 A-U   103 A: -/- cis         XX
-    36_70, A:    49 A-U    83 A: -/- cis         XX
-    50_64, A:    63 A-U    77 A: -/- cis         XX
-  135_227, A:   158 A-U    72 B: -/- cis         XX
-  144_145, A:   167 A-U   172 A: -/- cis         XX
+    12_92, A:    12 A-U    93 A: -/- cis         XX
+    14_90, A:    14 A-U    91 A: -/- cis         XX
+    15_89, A:    15 A-U    90 A: -/- cis         XX
+    36_70, A:    36 A-U    70 A: -/- cis         XX
+    50_64, A:    50 A-U    64 A: -/- cis         XX
+  135_227, A:   145 A-U    72 B: -/- cis         XX
+  144_145, A:   154 A-U   159 A: -/- cis         XX
   160_222, B:     5 A-U    67 B: -/- cis         XX
   161_221, B:     6 A-U    66 B: -/- cis         XX
   183_195, B:    28 A-U    40 B: -/- cis         XX
-     5_96, A:    17 C-G   110 A: +/+ cis         XIX
-    27_76, A:    39 C-G    90 A: +/+ cis         XIX
-    33_73, A:    46 C-G    86 A: +/+ cis         XIX
-    35_71, A:    48 C-G    84 A: +/+ cis         XIX
-    43_62, A:    56 C-G    75 A: +/+ cis      syn  XIX
-    46_68, A:    59 C-G    81 A: +/+ cis         XIX
-    47_67, A:    60 C-G    80 A: +/+ cis         XIX
-   87_188, A:   101 C-G    33 B: +/+ cis         XIX
-  111_122, A:   128 C-G   145 A: +/+ cis         XIX
-  140_149, A:   163 C-G   176 A: +/+ cis         XIX
+     5_96, A:     5 C-G    97 A: +/+ cis         XIX
+    27_76, A:    27 C-G    77 A: +/+ cis         XIX
+    33_73, A:    33 C-G    73 A: +/+ cis         XIX
+    35_71, A:    35 C-G    71 A: +/+ cis         XIX
+    43_62, A:    43 C-G    62 A: +/+ cis      syn  XIX
+    46_68, A:    46 C-G    68 A: +/+ cis         XIX
+    47_67, A:    47 C-G    67 A: +/+ cis         XIX
+   87_188, A:    88 C-G    33 B: +/+ cis         XIX
+  111_122, A:   115 C-G   132 A: +/+ cis         XIX
+  140_149, A:   150 C-G   163 A: +/+ cis         XIX
   157_225, B:     2 C-G    70 B: +/+ cis         XIX
   168_176, B:    13 C-G    21 B: +/+ cis         XIX
   181_197, B:    26 C-G    42 B: +/+ cis         XIX
@@ -60,22 +60,22 @@ BEGIN_base-pair
   184_194, B:    29 C-G    39 B: +/+ cis         XIX
   185_193, B:    30 C-G    38 B: +/+ cis         XIX
   204_218, B:    49 C-G    63 B: +/+ cis         XIX
-     4_97, A:    16 G-C   111 A: +/+ cis         XIX
-    13_91, A:    25 G-C   105 A: +/+ cis         XIX
-    26_77, A:    38 G-C    91 A: +/+ cis         XIX
-    28_75, A:    40 G-C    89 A: +/+ cis         XIX
-    51_63, A:    64 G-C    76 A: +/+ cis         XIX
-   85_190, A:    99 G-C    35 B: +/+ cis         XIX
-   86_189, A:   100 G-C    34 B: +/+ cis         XIX
-  110_123, A:   127 G-C   146 A: +/+ cis         XIX
-  113_120, A:   130 G-C   143 A: +/+ cis         XIX
-  115_118, A:   132 G-C   141 A: +/+ cis         XIX
-  130_152, A:   153 G-C   179 A: +/+ cis         XIX
-  131_151, A:   154 G-C   178 A: +/+ cis         XIX
-  133_229, A:   156 G-C    74 B: +/+ cis         XIX
-  134_228, A:   157 G-C    73 B: +/+ cis         XIX
-  141_148, A:   164 G-C   175 A: +/+ cis         XIX
-  143_146, A:   166 G-C   173 A: +/+ cis         XIX
+     4_97, A:     4 G-C    98 A: +/+ cis         XIX
+    13_91, A:    13 G-C    92 A: +/+ cis         XIX
+    26_77, A:    26 G-C    78 A: +/+ cis         XIX
+    28_75, A:    28 G-C    76 A: +/+ cis         XIX
+    51_63, A:    51 G-C    63 A: +/+ cis         XIX
+   85_190, A:    86 G-C    35 B: +/+ cis         XIX
+   86_189, A:    87 G-C    34 B: +/+ cis         XIX
+  110_123, A:   114 G-C   133 A: +/+ cis         XIX
+  113_120, A:   117 G-C   130 A: +/+ cis         XIX
+  115_118, A:   119 G-C   128 A: +/+ cis         XIX
+  130_152, A:   140 G-C   166 A: +/+ cis         XIX
+  131_151, A:   141 G-C   165 A: +/+ cis         XIX
+  133_229, A:   143 G-C    74 B: +/+ cis         XIX
+  134_228, A:   144 G-C    73 B: +/+ cis         XIX
+  141_148, A:   151 G-C   162 A: +/+ cis         XIX
+  143_146, A:   153 G-C   160 A: +/+ cis         XIX
   156_226, B:     1 G-C    71 B: +/+ cis         XIX
   158_224, B:     3 G-C    69 B: +/+ cis         XIX
   159_223, B:     4 G-C    68 B: +/+ cis         XIX
@@ -84,53 +84,53 @@ BEGIN_base-pair
   205_217, B:    50 G-C    62 B: +/+ cis         XIX
   206_216, B:    51 G-C    61 B: +/+ cis         XIX
   207_215, B:    52 G-C    60 B: +/+ cis         XIX
-     2_99, A:    14 U-A   113 A: -/- cis         XX
-     3_98, A:    15 U-A   112 A: -/- cis         XX
-    24_79, A:    36 U-A    93 A: -/- cis         XX
-    25_78, A:    37 U-A    92 A: -/- cis         XX
-    34_72, A:    47 U-A    85 A: -/- cis         XX
-    37_69, A:    50 U-A    82 A: -/- cis         XX
-    48_66, A:    61 U-A    79 A: -/- cis         XX
-    49_65, A:    62 U-A    78 A: -/- cis         XX
-  112_121, A:   129 U-A   144 A: -/- cis         XX
-  132_230, A:   155 U-A    75 B: -/- cis         XX
+     2_99, A:     2 U-A   100 A: -/- cis         XX
+     3_98, A:     3 U-A    99 A: -/- cis         XX
+    24_79, A:    24 U-A    80 A: -/- cis         XX
+    25_78, A:    25 U-A    79 A: -/- cis         XX
+    34_72, A:    34 U-A    72 A: -/- cis         XX
+    37_69, A:    37 U-A    69 A: -/- cis         XX
+    48_66, A:    48 U-A    66 A: -/- cis         XX
+    49_65, A:    49 U-A    65 A: -/- cis         XX
+  112_121, A:   116 U-A   131 A: -/- cis         XX
+  132_230, A:   142 U-A    75 B: -/- cis         XX
   166_178, B:    11 U-A    23 B: -/- cis         XX
   167_177, B:    12 U-A    22 B: -/- cis         XX
   180_198, B:    25 A-G    43 B: W/W cis         VIII
-  116_117, A:   133 A-U   140 A: W/W cis         n/a
-  128_154, A:   151 A-U   181 A: W/W cis         n/a
-    23_80, A:    35 C-C    94 A: W/W cis         n/a
-  130_153, A:   153 G-C   180 A: W/W cis         n/a
+  116_117, A:   120 A-U   127 A: W/W cis         n/a
+  128_154, A:   138 A-U   168 A: W/W cis         n/a
+    23_80, A:    23 C-C    81 A: W/W cis         n/a
+  130_153, A:   140 G-C   167 A: W/W cis         n/a
   173_210, B:    18 G-C    55 B: W/W cis         n/a
-    11_93, A:    23 G-U   107 A: W/W cis         XXVIII
-  114_119, A:   131 G-U   142 A: W/W cis         XXVIII
-  129_154, A:   152 G-U   181 A: W/W cis         XXVIII
-  139_150, A:   162 G-U   177 A: W/W cis         XXVIII
-  142_147, A:   165 G-U   174 A: W/W cis         XXVIII
+    11_93, A:    11 G-U    94 A: W/W cis         XXVIII
+  114_119, A:   118 G-U   129 A: W/W cis         XXVIII
+  129_154, A:   139 G-U   168 A: W/W cis         XXVIII
+  139_150, A:   149 G-U   164 A: W/W cis         XXVIII
+  142_147, A:   152 G-U   161 A: W/W cis         XXVIII
   203_219, B:    48 G-U    64 B: W/W cis         XXVIII
   170_202, B:    15 G-C    47 B: W/W tran        XXII
-    21_82, A:    33 U-A    96 A: W/H tran        XXIV
-    30_72, A:    42 U-A    85 A: W/H tran        XXIV
-    57_61, A:    70 U-A    74 A: W/H tran        XXIV
+    21_82, A:    21 U-A    83 A: W/H tran        XXIV
+    30_72, A:    30 U-A    72 A: W/H tran        XXIV
+    57_61, A:    57 U-A    61 A: W/H tran        XXIV
   163_169, B:     8 U-A    14 B: W/H tran        XXIV
   208_212, B:    53 U-A    57 B: W/H tran        XXIV
-    45_58, A:    58 A-G    71 A: W/S tran        X
-  108_138, A:   125 A-C   161 A: H/W cis    syn    n/a
-    17_88, A:    29 G-A   102 A: H/W cis    syn    IX
+    45_58, A:    45 A-G    58 A: W/S tran        X
+  108_138, A:   112 A-C   148 A: H/W cis    syn    n/a
+    17_88, A:    17 G-A    89 A: H/W cis    syn    IX
   176_200, B:    21 G-G    45 B: H/W tran     syn  VII
   165_199, B:    10 G-G    44 B: H/S cis         n/a
-    10_94, A:    22 A-G   108 A: H/S tran        XI
-    22_81, A:    34 A-G    95 A: H/S tran        XI
-    42_61, A:    55 G-A    74 A: S/W tran        X
-     9_95, A:    21 G-A   109 A: S/H tran        XI
-    29_31, A:    41 U-A    44 A: S/H tran     syn  n/a
-      6_7, A:    18 A-G    19 A: S/S cis      syn  n/a
+    10_94, A:    10 A-G    95 A: H/S tran        XI
+    22_81, A:    22 A-G    82 A: H/S tran        XI
+    42_61, A:    42 G-A    61 A: S/W tran        X
+     9_95, A:     9 G-A    96 A: S/H tran        XI
+    29_31, A:    29 U-A    31 A: S/H tran     syn  n/a
+      6_7, A:     6 A-G     7 A: S/S cis      syn  n/a
 END_base-pair
 
 Summary of triplets and higher multiplets
 BEGIN_multiplets
-30_34_72_| [1 3]  A: 42 U  +  A: 47 U  +  A: 85 A
-42_57_61_| [2 3]  A: 55 G  +  A: 70 U  +  A: 74 A
+30_34_72_| [1 3]  A: 30 U  +  A: 34 U  +  A: 72 A
+42_57_61_| [2 3]  A: 42 G  +  A: 57 U  +  A: 61 A
 168_176_200_| [3 3]  B: 13 C  +  B: 21 G  +  B: 45 G
 END_multiplets
 

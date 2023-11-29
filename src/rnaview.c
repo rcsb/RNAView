@@ -752,8 +752,8 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
             for (j = seidx[i][1]; j <= seidx[i][2]; j++)
             {
                 bs_atoms++;
-                strcpy(AtomName[bs_atoms], AtomName[j]);
-                strcpy(ResName[bs_atoms], ResName[j]);
+                strncpy(AtomName[bs_atoms], AtomName[j], strlen(AtomName[j]));
+                strncpy(ResName[bs_atoms], ResName[j], strlen(ResName[j]));
                 ChainID[bs_atoms] = ChainID[j];
                 ResSeq[bs_atoms] = ResSeq[j];
                 /*                printf("%c %4s %4ld\n", ChainID[j], ResName[bs_atoms], ResSeq[bs_atoms]);*/

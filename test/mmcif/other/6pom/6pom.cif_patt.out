@@ -8,36 +8,36 @@ BEGIN_base-pair
   181_197,-
 168_176_170_202_173_210_176_200_180_198_181_197_0, click this line to see above pattern
 0_0,---------
-  115_118, A:   132 G-C   141 A: +/+ cis         XIX
-  116_117, A:   133 A-U   140 A: W/W cis         n/a
-  128_154, A:   151 A-U   181 A: W/W cis         n/a
-  129_154, A:   152 G-U   181 A: W/W cis         XXVIII
-  130_152, A:   153 G-C   179 A: +/+ cis         XIX
+  115_118, A:   119 G-C   128 A: +/+ cis         XIX
+  116_117, A:   120 A-U   127 A: W/W cis         n/a
+  128_154, A:   138 A-U   168 A: W/W cis         n/a
+  129_154, A:   139 G-U   168 A: W/W cis         XXVIII
+  130_152, A:   140 G-C   166 A: +/+ cis         XIX
   130_152,-
 115_118_116_117_128_154_129_154_130_152_0, click this line to see above pattern
 0_0,---------
-    28_75, A:    40 G-C    89 A: +/+ cis         XIX
-    29_31, A:    41 U-A    44 A: S/H tran     syn  n/a
-    30_72, A:    42 U-A    85 A: W/H tran        XXIV
-    33_73, A:    46 C-G    86 A: +/+ cis         XIX
+    28_75, A:    28 G-C    76 A: +/+ cis         XIX
+    29_31, A:    29 U-A    31 A: S/H tran     syn  n/a
+    30_72, A:    30 U-A    72 A: W/H tran        XXIV
+    33_73, A:    33 C-G    73 A: +/+ cis         XIX
     33_73,-
 28_75_29_31_30_72_33_73_0, click this line to see above pattern
 0_0,---------
-     5_96, A:    17 C-G   110 A: +/+ cis         XIX
-      6_7, A:    18 A-G    19 A: S/S cis      syn  n/a
-     9_95, A:    21 G-A   109 A: S/H tran        XI
-    10_94, A:    22 A-G   108 A: H/S tran        XI
-    11_93, A:    23 G-U   107 A: W/W cis         XXVIII
-    12_92, A:    24 A-U   106 A: -/- cis         XX
+     5_96, A:     5 C-G    97 A: +/+ cis         XIX
+      6_7, A:     6 A-G     7 A: S/S cis      syn  n/a
+     9_95, A:     9 G-A    96 A: S/H tran        XI
+    10_94, A:    10 A-G    95 A: H/S tran        XI
+    11_93, A:    11 G-U    94 A: W/W cis         XXVIII
+    12_92, A:    12 A-U    93 A: -/- cis         XX
     12_92,-
 5_96_6_7_9_95_10_94_11_93_12_92_0, click this line to see above pattern
 0_0,---------
-    15_89, A:    27 A-U   103 A: -/- cis         XX
-    17_88, A:    29 G-A   102 A: H/W cis    syn    IX
-    21_82, A:    33 U-A    96 A: W/H tran        XXIV
-    22_81, A:    34 A-G    95 A: H/S tran        XI
-    23_80, A:    35 C-C    94 A: W/W cis         n/a
-    24_79, A:    36 U-A    93 A: -/- cis         XX
+    15_89, A:    15 A-U    90 A: -/- cis         XX
+    17_88, A:    17 G-A    89 A: H/W cis    syn    IX
+    21_82, A:    21 U-A    83 A: W/H tran        XXIV
+    22_81, A:    22 A-G    82 A: H/S tran        XI
+    23_80, A:    23 C-C    81 A: W/W cis         n/a
+    24_79, A:    24 U-A    80 A: -/- cis         XX
     24_79,-
 15_89_17_88_21_82_22_81_23_80_24_79_0, click this line to see above pattern
 0_0,---------
