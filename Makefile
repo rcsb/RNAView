@@ -21,92 +21,22 @@ LINCLUDES      =  -I$(INCL)
 #----------------------------------------------------------------------------
 RNAVIEW    = $(BIN)/rnaview
 
-SRCFILES = $(SRC)/rnaview.c \
-           $(SRC)/fpair.c  \
-           $(SRC)/fpair_sub.c  \
-           $(SRC)/pair_type.c  \
-           $(SRC)/nrutil.c  \
-           $(SRC)/ps-xy.c  \
-           $(SRC)/ps-xy-sub.c  \
-           $(SRC)/vrml.c  \
-           $(SRC)/rnaxml-new.c  \
-           $(SRC)/analyze.c   \
-           $(SRC)/pattern.c  \
-           $(SRC)/xml2ps.c  \
-           $(SRC)/multiple.c \
-           $(SRC)/statistics.c
+SRC_FILES = $(wildcard $(SRC)/*.c)
 
+HEADER_FILES = $(wildcard (INCL)/*.h)
 
-HFILES = $(INCL)/rna.h $(INCL)/nrutil.h $(INCL)/rna_header.h \
-	$(INCL)/vrml.h $(INCL)/xml2ps.h
-
-
-OBJ_FILE = $(OBJ)/rnaview.o \
-           $(OBJ)/fpair.o  \
-           $(OBJ)/fpair_sub.o  \
-           $(OBJ)/pair_type.o  \
-           $(OBJ)/nrutil.o  \
-           $(OBJ)/ps-xy.o  \
-           $(OBJ)/ps-xy-sub.o  \
-           $(OBJ)/vrml.o  \
-           $(OBJ)/rnaxml-new.o  \
-           $(OBJ)/analyze.o   \
-           $(OBJ)/pattern.o  \
-           $(OBJ)/xml2ps.o  \
-           $(OBJ)/multiple.o \
-           $(OBJ)/statistics.o
+OBJ_FILES = $(patsubst $(SRC_FILES)/%.c, $(OBJ)/%.o,  $(SRC_FILES))
 
 all: $(RNAVIEW)
 
 CFLAGS  =  $(LINCLUDES) 
 
-$(RNAVIEW) : $(HFILES) $(OBJ_FILE) 
-	$(CC) -g -Wall $(CFLAGS) -o $@ $(OBJ_FILE) $(LDFLAGS) -lm $(MALLOCLIB)
+$(RNAVIEW) : $(OBJ_FILES) 
+	$(CC) -g -Wall $(CFLAGS) -o $@ $(OBJ_FILES) $(LDFLAGS) -lm $(MALLOCLIB)
 
-
-
-$(OBJ)/rnaview.o : $(SRC)/rnaview.c 
-	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/rnaview.c -o $@
-
-$(OBJ)/fpair.o : src/fpair.c 
-	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/fpair.c -o $@
-
-$(OBJ)/fpair_sub.o : $(SRC)/fpair_sub.c
-	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/fpair_sub.c -o $@
-
-$(OBJ)/pair_type.o : $(SRC)/pair_type.c 
-	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/pair_type.c -o $@
-
-$(OBJ)/nrutil.o : $(SRC)/nrutil.c 
-	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/nrutil.c -o $@
-
-$(OBJ)/ps-xy.o  : $(SRC)/ps-xy.c 
-	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/ps-xy.c -o $@
-
-$(OBJ)/ps-xy-sub.o  : $(SRC)/ps-xy-sub.c 
-	$(CC) -g -Wall $(CFLAGS) -c $(SRC)/ps-xy-sub.c -o $@
-
-$(OBJ)/vrml.o : $(SRC)/vrml.c 
-	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/vrml.c -o $@
-
-$(OBJ)/rnaxml-new.o : $(SRC)/rnaxml-new.c 
-	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/rnaxml-new.c -o $@
-
-$(OBJ)/analyze.o :  $(SRC)/analyze.c 
-	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/analyze.c -o $@
-
-$(OBJ)/pattern.o :  $(SRC)/pattern.c 
-	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/pattern.c -o $@
-
-$(OBJ)/xml2ps.o :  $(SRC)/xml2ps.c 
-	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/xml2ps.c -o $@
-
-$(OBJ)/multiple.o :  $(SRC)/multiple.c
-	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/multiple.c -o $@
-
-$(OBJ)/statistics.o :  $(SRC)/statistics.c 
-	$(CC) -g -Wall $(CFLAGS) -c  $(SRC)/statistics.c -o $@
-
+$(OBJ)/%.o : $(SRC)/%.c 
+	mkdir -o $(@D)
+	$(CC) -g -Wall $(CFLAGS) -c $^ -o $@
 
 clean:
 	@rm -f $(OBJ)/*.o
@@ -115,9 +45,9 @@ clean:
 export:
 	mkdir -p $(EXPORT_DIR)
 	@cd $(EXPORT_DIR); mkdir -p $(INCL)
-	$(EXPORT) $(EXPORT_LIST) $(HFILES) $(EXPORT_DIR)/$(INCL)
+	$(EXPORT) $(EXPORT_LIST) $(HEADER_FILES) $(EXPORT_DIR)/$(INCL)
 	@cd $(EXPORT_DIR); mkdir -p $(SRC)
-	$(EXPORT) $(EXPORT_LIST) $(SRCFILES) $(TARGETSRC) $(EXPORT_DIR)/$(SRC)
+	$(EXPORT) $(EXPORT_LIST) $(SRC_FILES) $(TARGETSRC) $(EXPORT_DIR)/$(SRC)
 	@cd $(EXPORT_DIR); mkdir -p $(BIN)
 	@cd $(EXPORT_DIR); mkdir -p $(LIB)
 	@cd $(EXPORT_DIR); mkdir -p $(OBJ)
