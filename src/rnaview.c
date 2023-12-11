@@ -1288,32 +1288,32 @@ void print_sorted_pair(long ntot, char *pdbfile)
             index[18][n] = i;
         }
         else if ((strstr(str_pair[i], "W/.") || strstr(str_pair[i], "./W")) &&
-                     strstr(str_pair[i], "cis") ||
-                 strstr(str_pair[i], "tran"))
+                     (strstr(str_pair[i], "cis") ||
+                 strstr(str_pair[i], "tran")))
         {
             n1[19]++;
             n = n1[19];
             index[19][n] = i;
         }
         else if ((strstr(str_pair[i], "H/.") || strstr(str_pair[i], "./H")) &&
-                     strstr(str_pair[i], "cis") ||
-                 strstr(str_pair[i], "tran"))
+                     (strstr(str_pair[i], "cis") ||
+                 strstr(str_pair[i], "tran")))
         {
             n1[20]++;
             n = n1[20];
             index[20][n] = i;
         }
         else if ((strstr(str_pair[i], "S/.") || strstr(str_pair[i], "./S")) &&
-                     strstr(str_pair[i], "cis") ||
-                 strstr(str_pair[i], "tran"))
+                     (strstr(str_pair[i], "cis") ||
+                 strstr(str_pair[i], "tran")))
         {
             n1[21]++;
             n = n1[21];
             index[21][n] = i;
         }
         else if ((strstr(str_pair[i], "./.") || strstr(str_pair[i], "./.")) &&
-                     strstr(str_pair[i], "cis") ||
-                 strstr(str_pair[i], "tran"))
+                     (strstr(str_pair[i], "cis") ||
+                 strstr(str_pair[i], "tran")))
         {
             n1[22]++;
             n = n1[22];
