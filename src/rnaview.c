@@ -527,6 +527,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
     /* read in H-bond length upper limit etc from <misc_rna.par> */
     hb_crt_alt(HB_UPPER, HB_ATOM, ALT_LIST);
 
+
     /* read in the PDB file */
     if (PDB)
     {
@@ -542,6 +543,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
         fprintf(fout, "PDB data file name: %s\n", pdbfile);
         num = read_pdb(pdbfile, AtomName, ResName, ChainID, ResSeq, xyz, Miscs,
                        ALT_LIST);
+        printf("\n%d %d\n", (sizeof(AtomName), sizeof(AtomName[0])));
     }
     else
     {
@@ -740,6 +742,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
     seidx = residue_idx(num, ResSeq, Miscs, ChainID, ResName, &num_residue);
 
     /* Below is only for nucleic acids ie RY >= 0*/
+    printf("\n########################################################");
     bs_atoms = 0;
     for (i = 1; i <= num_residue; i++)
     {
@@ -752,8 +755,8 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
             for (j = seidx[i][1]; j <= seidx[i][2]; j++)
             {
                 bs_atoms++;
-                strcpy(AtomName[bs_atoms], AtomName[j]);
-                strcpy(ResName[bs_atoms], ResName[j]);
+                sprintf(AtomName[bs_atoms], "%s", AtomName[j]);
+                sprintf(ResName[bs_atoms], "%s", ResName[j]);
                 ChainID[bs_atoms] = ChainID[j];
                 ResSeq[bs_atoms] = ResSeq[j];
                 /*                printf("%c %4s %4ld\n", ChainID[j], ResName[bs_atoms], ResSeq[bs_atoms]);*/
@@ -813,8 +816,8 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
                 for (j = ib; j <= ie; j++)
                 {
                     bs_atoms++;
-                    strcpy(AtomName[bs_atoms], AtomName[j]);
-                    strcpy(ResName[bs_atoms], ResName[j]);
+                    sprintf(AtomName[bs_atoms], "%s", AtomName[j]);
+                    sprintf(ResName[bs_atoms], "%s", ResName[j]);
                     ChainID[bs_atoms] = ChainID[j];
                     ResSeq[bs_atoms] = ResSeq[j];
                     for (m = 0; m <= NMISC; m++)
