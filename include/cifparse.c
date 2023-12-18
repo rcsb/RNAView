@@ -772,9 +772,9 @@ char *parse_value(const char *item)
 
 void cif2pdb(char *file, char *fpdb)
 { /*parse cif and convert to SIMPLE pdb*/
-    char **line, tmp[200], tmp1[2000], tmp2[2000], pdbid[10], *sym, **mtype;
+    char tmp[200], tmp1[2000], *sym, **mtype;
     char **m11, **m12, **m13, **t1, **m21, **m22, **m23, **t2, **m31, **m32, **m33, **t3;
-    int nline, i, j, k = 0, nn, n = 0, m = 0;
+    int i, j, nn;
     float cell[6];
     FILE *fw = NULL;
 
