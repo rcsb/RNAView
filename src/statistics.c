@@ -68,26 +68,26 @@ void print_edge_stat(FILE *fs, long *A, long *U, long *G, long *C, long *T,
     fprintf(fs, "Percentage (in parentheses) is with respect to total edge.\n");
     fprintf(fs, "base    edge(W.C.)    edge(Hoog)    edge(Sugar) \n");
 
-    fprintf(fs, "   A    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n", A[0],
+    fprintf(fs, "   A    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n", A[0],
             100 * (A[0]) / sum, A[1], 100 * (A[1]) / sum, A[2], 100 * (A[2]) / sum);
-    fprintf(fs, "   G    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n", G[0],
+    fprintf(fs, "   G    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n", G[0],
             100 * (G[0]) / sum, G[1], 100 * (G[1]) / sum, G[2], 100 * (G[2]) / sum);
-    fprintf(fs, "   U    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n", U[0],
+    fprintf(fs, "   U    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n", U[0],
             100 * (U[0]) / sum, U[1], 100 * (U[1]) / sum, U[2], 100 * (U[2]) / sum);
-    fprintf(fs, "   C    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n", C[0],
+    fprintf(fs, "   C    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n", C[0],
             100 * (C[0]) / sum, C[1], 100 * (C[1]) / sum, C[2], 100 * (C[2]) / sum);
-    fprintf(fs, "   T    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n", T[0],
+    fprintf(fs, "   T    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n", T[0],
             100 * (T[0]) / sum, T[1], 100 * (T[1]) / sum, T[2], 100 * (T[2]) / sum);
-    fprintf(fs, "   P    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n", P[0],
+    fprintf(fs, "   P    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n", P[0],
             100 * (P[0]) / sum, P[1], 100 * (P[1]) / sum, P[2], 100 * (P[2]) / sum);
-    fprintf(fs, "   T    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n", I[0],
+    fprintf(fs, "   T    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n", I[0],
             100 * (I[0]) / sum, I[1], 100 * (I[1]) / sum, I[2], 100 * (I[2]) / sum);
 
-    fprintf(fs, "\n   R    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n",
+    fprintf(fs, "\n   R    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n",
             A[0] + G[0] + I[0], 100 * (A[0] + G[0] + I[0]) / sum,
             A[1] + G[1] + I[1], 100 * (A[1] + G[1] + I[1]) / sum,
             A[2] + G[2] + I[2], 100 * (A[2] + G[2] + I[2]) / sum);
-    fprintf(fs, "   Y    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n",
+    fprintf(fs, "   Y    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n",
             U[0] + C[0] + T[0] + P[0], 100 * (U[0] + C[0] + T[0] + P[0]) / sum,
             U[1] + C[1] + T[1] + P[1], 100 * (U[1] + C[1] + T[1] + P[1]) / sum,
             U[2] + C[2] + T[2] + P[2], 100 * (U[2] + C[2] + T[2] + P[2]) / sum);
@@ -97,22 +97,22 @@ void print_edge_stat(FILE *fs, long *A, long *U, long *G, long *C, long *T,
     fprintf(fs, "Percentage (in parentheses) is with respect to three edges.\n");
 
     fprintf(fs, "base    edge(W.C.)    edge(Hoog)    edge(Sugar) \n");
-    fprintf(fs, "   A    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n",
+    fprintf(fs, "   A    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n",
             A[0], 100 * (A[0]) / sumA, A[1], 100 * (A[1]) / sumA, A[2], 100 * (A[2]) / sumA);
-    fprintf(fs, "   G    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n",
+    fprintf(fs, "   G    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n",
             G[0], 100 * (G[0]) / sumG, G[1], 100 * (G[1]) / sumG, G[2], 100 * (G[2]) / sumG);
 
-    fprintf(fs, "   U    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n",
+    fprintf(fs, "   U    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n",
             U[0], 100 * (U[0]) / sumU, U[1], 100 * (U[1]) / sumU, U[2], 100 * (U[2]) / sumU);
-    fprintf(fs, "   C    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n",
+    fprintf(fs, "   C    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n",
             C[0], 100 * (C[0]) / sumC, C[1], 100 * (C[1]) / sumC, C[2], 100 * (C[2]) / sumC);
 
-    fprintf(fs, "\n   R    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n",
+    fprintf(fs, "\n   R    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n",
             A[0] + G[0], 100 * (A[0] + G[0]) / (sumA + sumG),
             A[1] + G[1], 100 * (A[1] + G[1]) / (sumA + sumG),
             A[2] + G[2], 100 * (A[2] + G[2]) / (sumA + sumG));
 
-    fprintf(fs, "   Y    %4d(%5.1f)  %4d(%5.1f)  %4d(%5.1f)\n",
+    fprintf(fs, "   Y    %4ld(%5.1f)  %4ld(%5.1f)  %4ld(%5.1f)\n",
             U[0] + C[0], 100 * (U[0] + C[0]) / (sumU + sumC),
             U[1] + C[1], 100 * (U[1] + C[1]) / (sumU + sumC),
             U[2] + C[2], 100 * (U[2] + C[2]) / (sumU + sumC));
@@ -143,16 +143,16 @@ void print_statistic(FILE *fs, long *type_stat_tot, long **pair_stat)
 
     /* Print overall statistics */
     fprintf(fs, "\n=====Table of overall statistics =====\n");
-    fprintf(fs, "Distributions from total number of pairs (%d):\n", sum);
+    fprintf(fs, "Distributions from total number of pairs (%ld):\n", sum);
 
     percent = 100 * (type_stat_tot[1]) / (sum1);
-    fprintf(fs, "The Standard W.C pairs = %5d(%4.1f%%)\n\n", type_stat_tot[1], percent);
+    fprintf(fs, "The Standard W.C pairs = %5ld(%4.1f%%)\n\n", type_stat_tot[1], percent);
 
     fprintf(fs, "    WW--cis    WW-tran    HH--cis    HH-tran    SS--cis    SS-tran\n");
     for (j = 2; j <= 7; j++)
     {
         percent = 100 * type_stat_tot[j] / sum1;
-        fprintf(fs, "%4d(%4.1f%%)", type_stat_tot[j], percent);
+        fprintf(fs, "%4ld(%4.1f%%)", type_stat_tot[j], percent);
     }
     fprintf(fs, "\n\n");
 
@@ -160,7 +160,7 @@ void print_statistic(FILE *fs, long *type_stat_tot, long **pair_stat)
     for (j = 8; j <= 13; j++)
     {
         percent = 100 * type_stat_tot[j] / sum1;
-        fprintf(fs, "%4d(%4.1f%%)", type_stat_tot[j], percent);
+        fprintf(fs, "%4ld(%4.1f%%)", type_stat_tot[j], percent);
     }
     fprintf(fs, "\n\n");
     fprintf(fs, "std -> the standard W.C. base pairs\n\n");
@@ -190,7 +190,7 @@ void print_statistic(FILE *fs, long *type_stat_tot, long **pair_stat)
 
         for (j = 0; j < 16; j++)
         {
-            fprintf(fs, "%5d", pair_stat[j][i]);
+            fprintf(fs, "%5ld", pair_stat[j][i]);
         }
 
         sum_16 = 0;
@@ -198,7 +198,7 @@ void print_statistic(FILE *fs, long *type_stat_tot, long **pair_stat)
         {
             sum_16 = sum_16 + pair_stat[j][i];
         }
-        fprintf(fs, "%5d%5.1f\n", sum_16, 100 * sum_16 / sum2);
+        fprintf(fs, "%5ld%5.1f\n", sum_16, 100 * sum_16 / sum2);
     }
     fprintf(fs, "SUM");
     for (i = 0; i < 16; i++)
@@ -208,7 +208,7 @@ void print_statistic(FILE *fs, long *type_stat_tot, long **pair_stat)
         {
             sum_32 = sum_32 + pair_stat[i][j];
         }
-        fprintf(fs, "%5d", sum_32);
+        fprintf(fs, "%5ld", sum_32);
     }
     fprintf(fs, "\n");
     fprintf(fs, "  %%");
@@ -241,7 +241,7 @@ void print_statistic(FILE *fs, long *type_stat_tot, long **pair_stat)
 
         for (j = 0; j < 16; j++)
         {
-            fprintf(fs, "%5d", pair_stat[j][i]);
+            fprintf(fs, "%5ld", pair_stat[j][i]);
         }
 
         sum_16 = 0;
@@ -249,7 +249,7 @@ void print_statistic(FILE *fs, long *type_stat_tot, long **pair_stat)
         {
             sum_16 = sum_16 + pair_stat[j][i];
         }
-        fprintf(fs, "%5d%5.1f\n", sum_16, 100 * sum_16 / sum2);
+        fprintf(fs, "%5ld%5.1f\n", sum_16, 100 * sum_16 / sum2);
 
         fprintf(fs, "   ");
         for (j = 0; j < 16; j++)
@@ -267,7 +267,7 @@ void print_statistic(FILE *fs, long *type_stat_tot, long **pair_stat)
         {
             sum_32 = sum_32 + pair_stat[i][j];
         }
-        fprintf(fs, "%5d", sum_32);
+        fprintf(fs, "%5ld", sum_32);
     }
     fprintf(fs, "\n");
     fprintf(fs, "  %%");
@@ -461,13 +461,13 @@ C
                     pg[j]=100*gua[j]/sum2;
                     pc[j]=100*cyt[j]/sum2;
                 }
-                fprintf(fs, "   A %5d(%4.1f)%5d(%4.1f)%5d(%4.1f)%5d(%4.1f)\n",
+                fprintf(fs, "   A %5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)\n",
                         ade[0],pa[0], ade[1],pa[1],ade[2],pa[2],ade[3],pa[3]);
-                fprintf(fs, "   U %5d(%4.1f)%5d(%4.1f)%5d(%4.1f)%5d(%4.1f)\n",
+                fprintf(fs, "   U %5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)\n",
                         ura[0],pu[0],ura[1],pu[1],ura[2],pu[2],ura[3],pu[3]);
-                fprintf(fs, "   G %5d(%4.1f)%5d(%4.1f)%5d(%4.1f)%5d(%4.1f)\n",
+                fprintf(fs, "   G %5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)\n",
                         gua[0],pg[0],gua[1],pg[1],gua[2],pg[2],gua[3],pg[3]);
-                fprintf(fs, "   C %5d(%4.1f)%5d(%4.1f)%5d(%4.1f)%5d(%4.1f)\n",
+                fprintf(fs, "   C %5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)\n",
                         cyt[0],pc[0],cyt[1],pc[1],cyt[2],pc[2],cyt[3],pc[3]);
                 fprintf(fs, "\n");
 
@@ -483,24 +483,24 @@ C
             pg[j] = 100 * gua[j] / sum2;
             pu[j] = 100 * ura[j] / sum2;
         }
-        fprintf(fs, "     A %5d(%4.1f)%5d(%4.1f)%5d(%4.1f)%5d(%4.1f)\n",
+        fprintf(fs, "     A %5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)\n",
                 ade[0], pa[0], ade[1], pa[1], ade[2], pa[2], ade[3], pa[3]);
-        fprintf(fs, "     C %5d(%4.1f)%5d(%4.1f)%5d(%4.1f)%5d(%4.1f)\n",
+        fprintf(fs, "     C %5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)\n",
                 cyt[0], pc[0], cyt[1], pc[1], cyt[2], pc[2], cyt[3], pc[3]);
-        fprintf(fs, "     G %5d(%4.1f)%5d(%4.1f)%5d(%4.1f)%5d(%4.1f)\n",
+        fprintf(fs, "     G %5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)\n",
                 gua[0], pg[0], gua[1], pg[1], gua[2], pg[2], gua[3], pg[3]);
-        fprintf(fs, "     U %5d(%4.1f)%5d(%4.1f)%5d(%4.1f)%5d(%4.1f)\n",
+        fprintf(fs, "     U %5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)%5ld(%4.1f)\n",
                 ura[0], pu[0], ura[1], pu[1], ura[2], pu[2], ura[3], pu[3]);
         fprintf(fs, "\n");
 
         /*
-    fprintf(fs, "     A %5d(%3.1f%%)%5d(%3.1f%%)%5d(%3.1f%%)%5d(%3.1f%%)\n",
+    fprintf(fs, "     A %5ld(%3.1f%%)%5ld(%3.1f%%)%5ld(%3.1f%%)%5ld(%3.1f%%)\n",
             ade[0],pa[0], ade[1],pa[1],ade[2],pa[2],ade[3],pa[3]);
-    fprintf(fs, "     C %5d(%3.1f%%)%5d(%3.1f%%)%5d(%3.1f%%)%5d(%3.1f%%)\n",
+    fprintf(fs, "     C %5ld(%3.1f%%)%5ld(%3.1f%%)%5ld(%3.1f%%)%5ld(%3.1f%%)\n",
             cyt[0],pc[0],cyt[1],pc[1],cyt[2],pc[2],cyt[3],pc[3]);
-    fprintf(fs, "     G %5d(%3.1f%%)%5d(%3.1f%%)%5d(%3.1f%%)%5d(%3.1f%%)\n",
+    fprintf(fs, "     G %5ld(%3.1f%%)%5ld(%3.1f%%)%5ld(%3.1f%%)%5ld(%3.1f%%)\n",
             gua[0],pg[0],gua[1],pg[1],gua[2],pg[2],gua[3],pg[3]);
-    fprintf(fs, "     U %5d(%3.1f%%)%5d(%3.1f%%)%5d(%3.1f%%)%5d(%3.1f%%)\n",
+    fprintf(fs, "     U %5ld(%3.1f%%)%5ld(%3.1f%%)%5ld(%3.1f%%)%5ld(%3.1f%%)\n",
             ura[0],pu[0],ura[1],pu[1],ura[2],pu[2],ura[3],pu[3]);
     fprintf(fs, "\n");
 
@@ -542,13 +542,13 @@ fprintf(FOUT, "\nNEXT 18 families\n");
             pg[j]=100*gua[j]/sum1;
             pc[j]=100*cyt[j]/sum1;
         }
-        fprintf(FOUT, "  A %5d(%4.1f%%)%5d(%4.1f%%)%5d(%4.1f%%)%5d(%4.1f%%)\n",
+        fprintf(FOUT, "  A %5ld(%4.1f%%)%5ld(%4.1f%%)%5ld(%4.1f%%)%5ld(%4.1f%%)\n",
             ade[0],pa[0], ade[1],pa[1],ade[2],pa[2],ade[3],pa[3]);
-        fprintf(FOUT, "  U %5d(%4.1f%%)%5d(%4.1f%%)%5d(%4.1f%%)%5d(%4.1f%%)\n",
+        fprintf(FOUT, "  U %5ld(%4.1f%%)%5ld(%4.1f%%)%5ld(%4.1f%%)%5ld(%4.1f%%)\n",
             ura[0],pu[0],ura[1],pu[1],ura[2],pu[2],ura[3],pu[3]);
-        fprintf(FOUT, "  G %5d(%4.1f%%)%5d(%4.1f%%)%5d(%4.1f%%)%5d(%4.1f%%)\n",
+        fprintf(FOUT, "  G %5ld(%4.1f%%)%5ld(%4.1f%%)%5ld(%4.1f%%)%5ld(%4.1f%%)\n",
             gua[0],pg[0],gua[1],pg[1],gua[2],pg[2],gua[3],pg[3]);
-        fprintf(FOUT, "  C %5d(%4.1f%%)%5d(%4.1f%%)%5d(%4.1f%%)%5d(%4.1f%%)\n",
+        fprintf(FOUT, "  C %5ld(%4.1f%%)%5ld(%4.1f%%)%5ld(%4.1f%%)%5ld(%4.1f%%)\n",
             cyt[0],pc[0],cyt[1],pc[1],cyt[2],pc[2],cyt[3],pc[3]);
         fprintf(FOUT, "\n");
     }
@@ -915,22 +915,22 @@ void pair_type_statistics(FILE *fout, long num_pair_tot, char **pair_type,
         sum1= sum;
 
         fprintf(fout, "\n------------------------------------------------\n" );
-        printf("Distributions from total number of pairs (%d):\n",sum);
+        printf("Distributions from total number of pairs (%ld):\n",sum);
 
         percent = 100*(type_stat_tot[1])/(sum1);
-        printf("The Standard W.C pairs = %5d(%4.1f%%)\n\n", type_stat_tot[1], percent);
+        printf("The Standard W.C pairs = %5ld(%4.1f%%)\n\n", type_stat_tot[1], percent);
 
         printf("    WW--cis    WW-tran    HH--cis    HH-tran    SS--cis    SS-tran\n");
         for (j = 2; j <= 7; j++){
             percent = 100*type_stat_tot[j]/sum1;
-            printf("%4d(%4.1f%%)", type_stat_tot[j], percent);
+            printf("%4ld(%4.1f%%)", type_stat_tot[j], percent);
         }
         printf("\n\n" );
 
         printf("    WH--cis    WH-tran    WS--cis    WS-tran    HS--cis    HS-tran\n");
         for (j = 8; j <= 13; j++) {
             percent = 100*type_stat_tot[j]/sum1;
-            printf("%4d(%4.1f%%)", type_stat_tot[j], percent);
+            printf("%4ld(%4.1f%%)", type_stat_tot[j], percent);
         }
         printf("\n\n" );
 
@@ -939,16 +939,16 @@ void pair_type_statistics(FILE *fout, long num_pair_tot, char **pair_type,
     fprintf(fout, "------------------------------------------------\n");
     fprintf(fout, " Standard  WW--cis  WW-tran  HH--cis  HH-tran  SS--cis  SS-tran\n");
     for (j = 1; j <= 7; j++)
-        fprintf(fout, "%9d", type_stat[j]);
+        fprintf(fout, "%9ld", type_stat[j]);
     fprintf(fout, "\n");
     fprintf(fout, "  WH--cis  WH-tran  WS--cis  WS-tran  HS--cis  HS-tran\n");
     for (j = 8; j <= 13; j++)
-        fprintf(fout, "%9d", type_stat[j]);
+        fprintf(fout, "%9ld", type_stat[j]);
     fprintf(fout, "\n");
     if (type_stat[14] > 0 || type_stat[15] > 0)
     {
         fprintf(fout, "Single-bond  Bifurcated \n");
-        fprintf(fout, "%9d%9d\n", type_stat[14], type_stat[15]);
+        fprintf(fout, "%9ld%9ld\n", type_stat[14], type_stat[15]);
     }
     for (i = 1; i <= 15; i++)
         type_stat_all[i] = type_stat_all[i] + type_stat[i]; /*for all the structure*/
@@ -965,7 +965,7 @@ void sixteen_pair_statistics(long num_pair_tot, long **bs_pairs_tot, char *bseq,
         n1 = bs_pairs_tot[k][1];
         n2 = bs_pairs_tot[k][2];
         /*
-    printf("%5d %5d %s %c-%c  \n",n1,n2, pair_type[k], bseq[n1] , bseq[n2] );
+    printf("%5ld %5ld %s %c-%c  \n",n1,n2, pair_type[k], bseq[n1] , bseq[n2] );
         */
         if (n1 == 0 || n2 == 0)
             continue;
@@ -1122,7 +1122,7 @@ void write_single_Hbond_stat(char *pdbfile, char *bseq, long **pair_stat)
                     str_tmp[i] = ' ';
                 str_tmp[i] = str_tmp[i];
             }
-            sscanf(str_tmp, "%d%d", &n1, &n2);
+            sscanf(str_tmp, "%ld%ld", &n1, &n2);
             bs_pairs[nsing][1] = n1;
             bs_pairs[nsing][2] = n2;
 
