@@ -2269,7 +2269,7 @@ void multiplets(long num_ple, long max_ple, long num_residue,
     double z[4] =
         {EMPTY_NUMBER, 0.0, 0.0, 1.0};
     double hinge[4], zave[4], pave[4], **ztot, **ptot, **rotmat, **xyz_residue;
-    long i, inum_base, inum, is_exist, j, jr, k, m, n_unique = 0, **mtxple;
+    long i, inum_base, /*inum,*/ is_exist, j, jr, k, m, n_unique = 0, **mtxple;
     /*   FILE *mfp;*/
     /*
        mfp = open_file("multiplets.pdb", "w");
@@ -2352,7 +2352,8 @@ void multiplets(long num_ple, long max_ple, long num_residue,
                 cross(zave, z, hinge);
                 arb_rotation(hinge, magang(zave, z), rotmat);
 
-                inum = 0;
+                // Commented to avoid warning related to variable not used
+                //  inum = 0;
                 /*
             fprintf(mfp, "REMARK    Section #%4.4ld %ld\n", n_unique,
                     inum_base);

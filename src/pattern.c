@@ -643,7 +643,7 @@ void first_check(long **type, long *group_idx, long n1, long n2, long *yes)
 /* check if the two group n1 and n2 are similar */
 
 {
-    long i, nm, sub_yes, nnew, type_new[300], type_i, delta;
+    long i, nm, sub_yes, /*nnew,*/ type_new[300], type_i, delta;
     long n2_new, n1_new;
 
     *yes = 0;
@@ -668,7 +668,9 @@ void first_check(long **type, long *group_idx, long n1, long n2, long *yes)
         {
             type_new[i] = type[n2][i];
         }
-        nnew = group_idx[n1];
+
+        // Commented to avoid warnings related to variable unused
+        //  nnew = group_idx[n1];
 
         delta = n2_new - n1_new;
         nm = 0;
@@ -716,7 +718,9 @@ void first_check(long **type, long *group_idx, long n1, long n2, long *yes)
         {
             type_new[i] = type[n1][i];
         }
-        nnew = group_idx[n2];
+
+        // Commented to avoid warnings related to variable unused
+        // nnew = group_idx[n2];
 
         delta = n1_new - n2_new;
         nm = 0;
@@ -766,21 +770,24 @@ void first_check(long **type, long *group_idx, long n1, long n2, long *yes)
 void further_classify(FILE *fout, char **pattern)
 {
     long i, j, k, nt;
-    long **type, ng, **line, npatt;
-    long *group_idx, *patt_idx, *matched;
-    long *idx_in, *idx_in_tmp, *idx_out;
+    long **type, ng, npatt;
+    long *group_idx, *patt_idx /**matched*/;
+    // long *idx_in, *idx_in_tmp, *idx_out;
     long **pair_tot_idx;
-    char str[100], tmp[100], inpfile[100], **pair_tot;
+    char str[100], tmp[100], inpfile[100], **pair_tot /***line*/;
     FILE *finp;
 
     type = lmatrix(0, 2000, 0, 15);
     group_idx = lvector(0, 2000);
     patt_idx = lvector(0, 2000);
-    matched = lvector(0, 1000);
-    idx_in = lvector(0, 1000);
-    idx_in_tmp = lvector(0, 1000);
-    idx_out = lvector(0, 1000);
-    line = cmatrix(0, 20, 0, 30);
+    // Commented to avoid warnings related to variable unused
+    //  matched = lvector(0, 1000);
+    //  idx_in = lvector(0, 1000);
+    //  idx_in_tmp = lvector(0, 1000);
+    //  idx_out = lvector(0, 1000);
+
+    // Commented to avoid warnings related to variable unused
+    //  line = cmatrix(0, 20, 0, 30);
     pair_tot = cmatrix(0, 2000, 0, 60);
     pair_tot_idx = lmatrix(0, 2000, 0, 2);
 
@@ -882,7 +889,7 @@ void user_type_patt(long **type, long npatt, long *group_idx, char **pattern,
                 break;
             }
         }
-        fprintf(fout, "Input type:   %s (%l4d)\n", type_tmp, user_type[ng]);
+        fprintf(fout, "Input type:   %s (%4ld)\n", type_tmp, user_type[ng]);
         printf("Input type:  %4ld  %s %4ld \n", ng, type_tmp, user_type[ng]);
         ng++;
     }
@@ -1066,9 +1073,10 @@ void cycling(long *patt_idx, long **type, long *group_idx, long *nt,
 /* If the pattern is found, it will put to teh nm grounp, and this pattern
 is also deleted from the former data base */
 {
-    long n, k, j, yes, n1, n2, m;
+    long n, k, /*j,*/ yes, n1, n2, m;
 
-    j = 0;
+    // Coomented to avoid warnings related to variable unused
+    //  j = 0;
     n = 0;
     m = 0;
 

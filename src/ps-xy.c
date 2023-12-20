@@ -497,13 +497,12 @@ void rot_2D_to_Yaxis(long num_residue, double *z, double **xy_bso)
 void xy4ps(long n, double **oxy, long num, double **nxy)
 /* reset x/y coordinates to PS units */
 {
-    long default_size = 550;            /* PS  */
-    double paper_size[2] = {8.5, 11.0}; /* US letter size */
-    double max_xy[3], min_xy[3], urxy[3], temp, scale_factor;
+    long default_size = 550; /* PS  */
+    double max_xy[3], min_xy[3], /*urxy[3], */ temp, scale_factor;
     long i, j;
 
-    long boundary_offset = 20; /* frame boundary used to 5*/
-    long llxy[3], bbox[5];
+    // long boundary_offset = 20; /* frame boundary used to 5*/
+    // long llxy[3] , bbox[5];
 
     max_dmatrix(oxy, num, 2, max_xy);   /* get  max x and y */
     min_dmatrix(oxy, num, 2, min_xy);   /* get  min x and y */
@@ -519,19 +518,25 @@ void xy4ps(long n, double **oxy, long num, double **nxy)
     {
 
         max_dmatrix(nxy, num, 2, max_xy);
-        for (i = 1; i <= 2; i++)
-            urxy[i] = get_round(max_xy[i]);
+
+        // COmmented to avoid warnings related to variable unused
+        //  for (i = 1; i <= 2; i++)
+        //      urxy[i] = get_round(max_xy[i]);
 
         /* centralize the figure on a US letter (8.5in-by-11in) */
-        for (i = 1; i <= 2; i++)
-            llxy[i] = get_round(0.5 * (paper_size[i - 1] * 72 - urxy[i]));
+        // Commented to avoid warnings related to variable not used
+        // for (i = 1; i <= 2; i++)
+        //     llxy[i] = get_round(0.5 * (paper_size[i - 1] * 72 - urxy[i]));
 
-        /* boundary box */
+        // Commented to avoid warnings related to variable not used
+        /* boundary box
         for (i = 1; i <= 2; i++)
         {
+
             bbox[i] = llxy[i] - boundary_offset;
             bbox[i + 2] = urxy[i] + llxy[i] + boundary_offset;
         }
+        */
 
         /* draw a box around the figure
                if (frame_box) {

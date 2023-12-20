@@ -1009,7 +1009,8 @@ void ref_frames(long ds, long num_bp, long **pair_num, char **bp_seq,
     static char *RingAtom[9] =
         {" C4 ", " N3 ", " C2 ", " N1 ", " C6 ", " C5 ", " N7 ", " C8 ",
          " N9 "};
-    char hlx_c, BDIR[BUF512], idmsg[BUF512], sidmsg[BUF512], spdb[BUF512];
+    // Changed size of sidmsg from 512 to 600
+    char hlx_c, BDIR[BUF512], idmsg[BUF512], sidmsg[600], spdb[BUF512];
     char **sAtomName;
 
     double orgi[4], vz[4];

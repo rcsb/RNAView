@@ -794,7 +794,7 @@ void loop_xy(long i, long n, long **bs_1, long **bs_2, double *xy1, double *xy2,
 /* get the xy of base along the loop */
 {
     long m, n1, n2;
-    double x0, y0, x01, y01, x02, y02, x1, y1, x2, y2, a0, b0, sign;
+    double x0, y0, x01, y01, x02, y02, x1, y1, /*x2, y2, */ a0, b0, sign;
     double d, h, r, ap, alfa, ang, c01, c02, c11, c12;
 
     x01 = xy1[1];
@@ -806,8 +806,10 @@ void loop_xy(long i, long n, long **bs_1, long **bs_2, double *xy1, double *xy2,
     n2 = bs_2[i][n];
     x1 = xy_bs[n1][1];
     y1 = xy_bs[n1][2]; /* point at the smaller site of base 1 */
-    x2 = xy_bs[n2][1];
-    y2 = xy_bs[n2][2]; /* point at the smaller site of base 1 */
+
+    // Commented to avoid warnings related to variable unused
+    //  x2 = xy_bs[n2][1];
+    //  y2 = xy_bs[n2][2]; /* point at the smaller site of base 1 */
     m = abs(n1 - n2) - 1;
     ang = 90 - (180.0 / PI) * atan(a); /*  angle respect to local y axis */
     d = sqrt((y1 - y01) * (y1 - y01) + (x1 - x01) * (x1 - x01));

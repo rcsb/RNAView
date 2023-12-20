@@ -22,7 +22,8 @@ void write_xml(char *pdbfile, long num_residue, char *bseq, long **seidx,
     long i, j, k;
     long xml_ns_mol, *xml_bases_mol;
     long **sing_st_end, **chain_idx, nchain, *chain_res;
-    char chain_nam, chain_nam1, chain_nam2, outfile[256];
+    // Changed outfile size from 216 to 525
+    char chain_nam, /*chain_nam1, chain_nam2, */ outfile[525];
     char tag1[5], tag4[50];
     FILE *xml;
 
@@ -92,11 +93,12 @@ void write_xml(char *pdbfile, long num_residue, char *bseq, long **seidx,
 
     for (i = 1; i <= nchain; i++)
     { /* interaction */
-        chain_nam1 = ChainID[seidx[chain_idx[i][1]][1]];
+        // Commented to avoid warnings related to variable unused
+        //  chain_nam1 = ChainID[seidx[chain_idx[i][1]][1]];
 
         for (j = i + 1; j <= nchain; j++)
         {
-            chain_nam2 = ChainID[seidx[chain_idx[j][1]][1]];
+            // chain_nam2 = ChainID[seidx[chain_idx[j][1]][1]];
 
             write_base_pair_int(xml, i, j, pdbfile, chain_res); /* for all pairs */
             write_helix_mol(xml, i, j, chain_res, xml_nh, xml_helix, xml_helix_len);
@@ -155,7 +157,8 @@ void write_base_pair_mol(FILE *xml, long molID, char *parfile, long *chain_res,
                          char *tag5, char *tag6, char *tag7)
 /* write the base pairs from the output file */
 {
-    char inpfile[256], str[200];
+    // Changed size of inpfile from 256 to 525
+    char inpfile[525], str[200];
     long nres1, nres2;
     FILE *finp;
 

@@ -179,7 +179,7 @@ Westhof' nomenclature */
 
 {
     long k, max1, max2, max, Watson = 0, Hoogsteen = 0, Suger = 0;
-    long s = 0, h = 0, w = 0;
+    // long s = 0, h = 0, w = 0;
 
     if (bseq[i] == 'A' || bseq[i] == 'a')
     {
@@ -359,9 +359,11 @@ Westhof' nomenclature */
                 Suger++;
         };
     }
-    w = Watson;
-    h = Hoogsteen;
-    s = Suger;
+
+    // Commented to avoid warnings related to variable not used
+    //  w = Watson;
+    //  h = Hoogsteen;
+    //  s = Suger;
 
     max1 = (Watson >= Hoogsteen) ? Watson : Hoogsteen;
 

@@ -561,7 +561,8 @@ void base_edge_stat(char *pdbfile, long *A, long *U, long *G, long *C, long *T,
                     long *P, long *I)
 /* have a statistics for each base on each edge*/
 {
-    char **str_pair, inpfile[100];
+    // Changed inpfile size from 100 to 525
+    char **str_pair, inpfile[525];
     long i, nl, nl_tot = 0;
 
     /*    del_extension(pdbfile, parfile); */
@@ -1091,7 +1092,8 @@ void statistics(long i, long k, char **pair_type, long **type_stat)
 void write_single_Hbond_stat(char *pdbfile, char *bseq, long **pair_stat)
 /* do statistics only for the single - H bonded (base-base) pairs */
 {
-    char inpfile[100];
+    // Changed inpfile size from 100 to 525
+    char inpfile[525];
     char str[120], str_tmp[120], **pair_type;
     long i, n1, n2, len, nsing, nl_tot = 0, num_pair, **bs_pairs;
     FILE *finp;

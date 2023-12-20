@@ -14,8 +14,9 @@ extern char FILEOUT[BUF512];
 void write_multiplets(char *pdbfile)
 
 {
-
-    char str[200], inpfile[100], outfile[100];
+    // Changed inpfile size from 100 to 600
+    // Changed outfile size from 100 to 600
+    char str[200], inpfile[600], outfile[600];
     char **pair_name, **pair_type, **line, tmp[100];
 
     long **work_num;
@@ -146,9 +147,10 @@ void token_str(char *str, char *token, long *nstr, char **line)
 /* token the string and put them into line[][] */
 {
     char *tokenPtr;
-    int k, i;
+    int /*k,*/ i;
 
-    k = strlen(str);
+    // Commented to avoid warnings related to variable unused
+    //  k = strlen(str);
 
     tokenPtr = strtok(str, token);
     i = 0;
