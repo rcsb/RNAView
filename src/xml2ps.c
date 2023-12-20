@@ -437,7 +437,7 @@ void read_O3prime_P_xyz(char *inpfile, double **o3_prime_xyz, double **p_xyz, lo
 void get_xyz_coord(FILE *inp, double *x, double *y, double *z)
 /* get the position number */
 {
-    long j, n = 0, k, m;
+    long j, n = 0, k, m=-1;
     int ch;
     char letters[200], value_ch[100], value1[100], value2[100], value3[100];
     for (j = 0; (ch = getc(inp)) != '>'; j++)
@@ -951,7 +951,7 @@ void get_value(FILE *inp, char *value)
     long j, n = 0, k;
     int ch;
     char letters[200];
-    for (j = 0; (ch = getc(inp)) != '>'; j++)
+    while((ch = getc(inp)) != '>')
     {
         if (ch == EOF)
             return;
@@ -1272,7 +1272,7 @@ void get_sequence(char *inpfile, char *resname, long *author_seq, long *nres,
 void extract_author_seq(FILE *inp, long *author_seq, long *nseq)
 /* read the author sequence (the seq may not be continuious)*/
 {
-    long j, n = 0, ns;
+    long /*j,*/ n = 0, ns;
     int ch;
     char item[100];
     ns = 0;
@@ -1307,14 +1307,16 @@ void extract_author_seq(FILE *inp, long *author_seq, long *nseq)
         }
     } while (1);
     *nseq = ns;
-    for (j = 0; (ch = getc(inp)) != '>'; j++)
-        ;
+    // Commented to avoid warnings related to variable unused
+    // for (j = 0; (ch = getc(inp)) != '>'; j++)
+    //     ;
 }
 void extract_sequence(FILE *inp, char *resname, long *nres)
 {
-    long j, n = 0;
+    // Commented to avoid warnings related to variable unused
+    long /*j*/ n = 0;
     int ch;
-    for (j = 0; (ch = getc(inp)) != '<'; j++)
+    while((ch = getc(inp)) != '<')
     {
         if (isspace(ch))
             continue;
@@ -1327,8 +1329,8 @@ void extract_sequence(FILE *inp, char *resname, long *nres)
     }
     resname[n] = '\0';
     *nres = n;
-    for (j = 0; (ch = getc(inp)) != '>'; j++)
-        ;
+    // for (j = 0; (ch = getc(inp)) != '>'; j++)
+    //     ;
 }
 void read_bs_pair(char *inpfile, long *npair, char *edge_type, char *cis_tran,
                   char *resname, long *chain_id, long *seq, long **num_idx)
@@ -1584,7 +1586,8 @@ void get_sugar_syn(FILE *inp, char *value_ch)
 void get_xy_position(FILE *inp, double *x, double *y)
 /* get the position number */
 {
-    long j, n = 0, k, m;
+    // Initialized m=0 to avoid warning of its uninitialization
+    long j, n = 0, k, m=0;
     int ch;
     char letters[200], value_ch[100], value1[100], value2[100];
     for (j = 0; (ch = getc(inp)) != '>'; j++)
@@ -1647,11 +1650,11 @@ void element_in_bracket(FILE *inp, char *item, long *size, char *lett, long *key
    lett: the total characters in <>.  key: =0 not the end, =1 end of file
 */
 {
-    int i, j, n = 1;
+    int i, n = 1;
     int c;
     *key = 0;
     /* skip every letter until < is met */
-    for (j = 0; (c = getc(inp)) != '<'; j++)
+    while ((c = getc(inp)) != '<')
     {
         if (c == EOF)
         {
@@ -1660,7 +1663,7 @@ void element_in_bracket(FILE *inp, char *item, long *size, char *lett, long *key
         }
     }
     /*take off the space between < and the first letter */
-    for (j = 0; (c = getc(inp)) == ' '; j++)
+    while ((c = getc(inp)) == ' ')
     {
         if (c == EOF)
         {
@@ -1669,7 +1672,7 @@ void element_in_bracket(FILE *inp, char *item, long *size, char *lett, long *key
         }
     }
     lett[0] = c;
-    for (j = 0; (c = getc(inp)) != '>'; j++)
+    while ((c = getc(inp)) != '>')
     {
         if (c == EOF)
         {

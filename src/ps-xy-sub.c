@@ -388,6 +388,9 @@ void add_bs_2helix(long i, long j, long n1, long n2, long num_residue,
     }
 }
 
+// n can be 1 or 2 because this function is called by link_helix
+// link_helix is called twice with n = 1 and n = 2.
+// Hence, else if (n == 2) to else
 void link_helix(long n, long n1, long n2, long num_residue, double d1,
                 double d2, double a, char *ChainID, long **seidx, double *xy1,
                 double *xy2, long *nsub, long *bs_sub, double **xy_bs)
@@ -633,6 +636,11 @@ void gen_xy_cood(long i, long num_residue, long n, double a, double *xy1,
         xy_bs[k][2] = y12[2];
     }
 
+    // n can be 1 or 2 because this function is called by link_helix
+    // link_helix is called twice with n = 1 and n = 2.
+    // Hence, else if (n == 2) to else in xy_base
+    // 
+
     if (loop[i][1] > 0)
     { /* for the head of helix */
         loop_xy(i, 1, bs_1, bs_2, xy1, xy2, a, xy_bs);
@@ -641,6 +649,7 @@ void gen_xy_cood(long i, long num_residue, long n, double a, double *xy1,
     {
         n1 = bs_1[i][1];
         n2 = bs_2[i][1];
+        // n = 1
         link_helix(1, n1, n2, num_residue, d1, d2, a, ChainID, seidx,
                    xy1, xy2, nsub, bs_sub, xy_bs);
     }
@@ -653,6 +662,7 @@ void gen_xy_cood(long i, long num_residue, long n, double a, double *xy1,
     {
         n1 = bs_1[i][n];
         n2 = bs_2[i][n];
+        // n = 2
         link_helix(2, n1, n2, num_residue, d1, d2, a, ChainID, seidx,
                    xy1, xy2, nsub, bs_sub, xy_bs);
     }
@@ -810,7 +820,7 @@ void loop_xy(long i, long n, long **bs_1, long **bs_2, double *xy1, double *xy2,
     // Commented to avoid warnings related to variable unused
     //  x2 = xy_bs[n2][1];
     //  y2 = xy_bs[n2][2]; /* point at the smaller site of base 1 */
-    m = abs(n1 - n2) - 1;
+    m = labs(n1 - n2) - 1;
     ang = 90 - (180.0 / PI) * atan(a); /*  angle respect to local y axis */
     d = sqrt((y1 - y01) * (y1 - y01) + (x1 - x01) * (x1 - x01));
     h = 0.15 * (m)*d; /* the distance from the center to the last pair */
@@ -995,6 +1005,9 @@ void xy_base(long j, long n, long n1, long n01, double a, double d1,
              double *xy1, double *xy2, double **xy_bs)
 /*  get xy for the base linking Helix. */
 {
+    // n can be 1 or 2 because this function is called by link_helix
+    // link_helix is called twice with n = 1 and n = 2.
+    // Hence, else if (n == 2) to else
     double x0, y0, x0i, y0i, xi, yi, xf, yf, c1, sign;
     double a0, b0;
 
@@ -1017,7 +1030,7 @@ void xy_base(long j, long n, long n1, long n01, double a, double d1,
         x0 = x0i - sign * a0 * (j);
         y0 = y0i - sign * b0 * (j);
     }
-    else if (n == 2)
+    else
     {
         x0 = x0i + a0 * (j);
         y0 = y0i + b0 * (j);

@@ -1040,6 +1040,9 @@ void ref_frames(long ds, long num_bp, long **pair_num, char **bp_seq,
             sprintf(idmsg, ": residue name %s, chain %c, number %4ld%c",
                     ResName[ib], ChainID[ib], ResSeq[ib], Miscs[ib][2]);
             ii = ref_idx(bp_seq[i][j]);
+            if (ii == -1) {
+                continue;
+            }
             snum = std[ii].sNatom;
 
             for (jj = 1; jj <= snum; jj++)

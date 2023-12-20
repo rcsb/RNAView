@@ -70,7 +70,7 @@ void get_reference_pdb(char *BDIR)
 long ref_idx(char resnam)
 /* get the index of reference frame */
 {
-    long ii;
+    long ii=-1;
 
     if (resnam == 'A' || resnam == 'a')
         ii = 0;
@@ -1824,6 +1824,10 @@ void base_frame(long num_residue, char *bseq, long **seidx, long *RY,
         ib = seidx[i][1];
         ie = seidx[i][2];
         ii = ref_idx(resnam);
+
+        if (ii == -1) {
+            continue;
+        }
         num = std[ii].sNatom;
         /*
     printf("\nNum = %d RES = %c",num, bseq[i]);

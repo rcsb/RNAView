@@ -297,7 +297,7 @@ void pattern_search(long max_npatt, char *inpfile, char *parfile)
 /* put all the related patterns together */
 
 {
-    long i, j, k, nstr, n, nt, m, ns;
+    long i, j, k, nstr, /*n,*/ nt, m, ns;
     long **type, ng, npatt;
     long *group_idx, *patt_idx, *matched, n_group;
     long *idx_in, *idx_in_tmp, *idx_out, **pair_idx;
@@ -413,7 +413,8 @@ void pattern_search(long max_npatt, char *inpfile, char *parfile)
                     fprintf(fout,"%4d ", matched[k]);
                 }
         */
-        n = 0;
+        // Commented to avoid warnings related to variable unused
+        // n = 0;
         pair_new_idx[ns][0] = nns;
         for (k = 0; k < m; k++)
         {
@@ -425,7 +426,8 @@ void pattern_search(long max_npatt, char *inpfile, char *parfile)
 
                 strcpy(pair_new[nns], group[i].pair[j]);
                 /*                printf("??%4d %s",n, pair_new[nns]); */
-                n++;
+                // Commented to avoid warnings related to variable unused
+                // n++;
                 nns++;
             }
             strcpy(pair_new[nns++], "\n");
