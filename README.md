@@ -1,7 +1,9 @@
 # RNAView
 
-RNAView identifies base pairs that are formed in nucleic acid structures and classifies them according to the system of Leontis and Westhof
+RNAView identifies base pairs that are formed in nucleic acid structures and classifies them according to the system of Leontis and Westhof. The software presented here was originally described in Yang, H., Jossinet, F., Leontis, N., Chen, L., Westbrook, J., Berman, H.M., Westhof, E. (2003). Tools for the automatic identification and classification of RNA base pairs. Nucleic Acids Research 31.13: 3450-3460, https://doi.org/10.1093/nar/gkg529
 
+RNAView release version 2.0.0 (Jan 2024) supports mmCIF file input, yielding results identical to PDB file input.
+ 
 ## Introduction
 
 RNAVIEW program quickly displays the secondary structure of RNA/DNA with tertiary interactions. It fully implements Leontis and Westhof's convention for the edge-to-edge hydrogen bonding interactions.
