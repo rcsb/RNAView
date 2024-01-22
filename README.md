@@ -70,7 +70,7 @@ Usage: executable [option] input_file
 4. [option] -c to select chains for calculation. -c should be followed by chain IDs. If select several chains, they should be put together, like ABC for chain A, B and C. This option is useful, when drawing a single copy of 2D structure from a dimer or trimer PDB file. Example: rnaview -pc ABC pdbfile_name
 5. [option] -a to process many pdbfiles. The pdbfile names must be put in one file (like file.list) and seperated by a space. You may give the resolution after file.list. If you do not give (or give 0), it means resolution is ignored Example: rnaview -a file.list 3.0 means that only the pdbfiles with resolution < 3.0 are selected for calculation.
 6. [option] -x to input XML (RNAML) file. Normally this option is combined with -p to generate a 2D structure. Example: rnaview -px RNAML_file_name
-7. [option] --label to process cif files using label. If not provided, then it will use auth. Example: rnaview -p --cif --label ciffile_name. This will use label for parsing. Example: rnaview -p --cif ciffile_name. This will auth for parsing because it is default.
+7. [option] --label processes mmCIF files using mmCIF atom_site.label_xxx data (database-provided chain ids, residue numbering, altcodes). If not provided, the program will use atom_site.auth_xxx data (author-provided chain ids, residue numbering, altcodes). Example: rnaview -p --cif --label ciffile_name. This will use label for parsing. Example: rnaview -p --cif ciffile_name. This will auth for parsing because it is default.
 
 ## NMR structures
 
