@@ -70,7 +70,7 @@ void get_reference_pdb(char *BDIR)
 long ref_idx(char resnam)
 /* get the index of reference frame */
 {
-    long ii;
+    long ii=-1;
 
     if (resnam == 'A' || resnam == 'a')
         ii = 0;
@@ -200,7 +200,8 @@ long number_of_atoms(char *pdbfile)
         if (str[13] == 'H')
             continue; /*get ride of H atoms */
 
-        if (nlen >= 54 && !strncmp(str, "ATOM", 4) || (!strncmp(str, "HETATM", 6) && HETA > 0))
+        // Added parenthesis across !strncmp(str, "ATOM", 4) and whole condition after nlen >= 54
+        if (nlen >= 54 && ((!strncmp(str, "ATOM", 4)) || (!strncmp(str, "HETATM", 6) && HETA > 0)))
             n++;
     }
     fclose(fp);
@@ -235,7 +236,8 @@ long read_pdb(char *pdbfile, char **AtomName, char **ResName, char *ChainID,
         if (str[13] == 'H')
             continue; /*get ride of H atoms */
 
-        if (nlen >= 54 && !strncmp(str, "ATOM", 4) || (!strncmp(str, "HETATM", 6) && HETA > 0))
+        // Added parenthesis across !strncmp(str, "ATOM", 4) and whole condition after nlen >= 54
+        if (nlen >= 54 && ((!strncmp(str, "ATOM", 4)) || (!strncmp(str, "HETATM", 6) && HETA > 0)))
         {
 
             strncpy(atomname, str + 12, 4);
@@ -1822,6 +1824,10 @@ void base_frame(long num_residue, char *bseq, long **seidx, long *RY,
         ib = seidx[i][1];
         ie = seidx[i][2];
         ii = ref_idx(resnam);
+
+        if (ii == -1) {
+            continue;
+        }
         num = std[ii].sNatom;
         /*
     printf("\nNum = %d RES = %c",num, bseq[i]);
@@ -2267,7 +2273,7 @@ void multiplets(long num_ple, long max_ple, long num_residue,
     double z[4] =
         {EMPTY_NUMBER, 0.0, 0.0, 1.0};
     double hinge[4], zave[4], pave[4], **ztot, **ptot, **rotmat, **xyz_residue;
-    long i, inum_base, inum, is_exist, j, jr, k, m, n_unique = 0, **mtxple;
+    long i, inum_base, /*inum,*/ is_exist, j, jr, k, m, n_unique = 0, **mtxple;
     /*   FILE *mfp;*/
     /*
        mfp = open_file("multiplets.pdb", "w");
@@ -2324,12 +2330,12 @@ void multiplets(long num_ple, long max_ple, long num_residue,
                     sprintf(tmp, "[%ld]%s%s", jr, b1,
                             (j == inum_base) ? "" : " + ");
                         */
-                    sprintf(tmp, "%c: %d %c%s", ChainID[k], ResSeq[k], bseq[jr],
+                    sprintf(tmp, "%c: %ld %c%s", ChainID[k], ResSeq[k], bseq[jr],
                             (j == inum_base) ? "" : "  +  ");
 
                     strcat(pairstr, tmp);
 
-                    sprintf(tmp, "%d_", jr);
+                    sprintf(tmp, "%ld_", jr);
 
                     strcat(pairnum, tmp);
 
@@ -2342,7 +2348,7 @@ void multiplets(long num_ple, long max_ple, long num_residue,
                         ptot[j][k] = org[jr][k];
                     }
                 }
-                fprintf(fp, "%s| [%d %d]  %s\n", pairnum, n_unique, inum_base, pairstr);
+                fprintf(fp, "%s| [%ld %ld]  %s\n", pairnum, n_unique, inum_base, pairstr);
 
                 /* write out coordinates in PDB format */
                 ave_dmatrix(ptot, inum_base, 3, pave);
@@ -2350,7 +2356,8 @@ void multiplets(long num_ple, long max_ple, long num_residue,
                 cross(zave, z, hinge);
                 arb_rotation(hinge, magang(zave, z), rotmat);
 
-                inum = 0;
+                // Commented to avoid warning related to variable not used
+                //  inum = 0;
                 /*
             fprintf(mfp, "REMARK    Section #%4.4ld %ld\n", n_unique,
                     inum_base);
@@ -2492,7 +2499,7 @@ void rot_2_lsplane(long num, char **AtomName, double **xyz)
     double **nxyz, **rotmat, hinge[4];
     double zphy[4] = {EMPTY_NUMBER, 0.0, 0.0, 1.0}; /* the physical axis (z) */
 
-    long j, k, atmnum, inum = 0;
+    long j, k, atmnum;
 
     nxyz = dmatrix(1, num, 1, 3);
     adist = dvector(1, num);
@@ -2567,7 +2574,7 @@ void rot_mol(long num_residue, char **AtomName, char **ResName, char *ChainID,
         z[4];      /* the unit normal vector of the plane (on Z positive)*/
     double **Pxyz, **vxyz, **nxyz, **rotmat, hinge[4];
     double Yphy[4] = {EMPTY_NUMBER, 0.0, 1.0, 0.0}; /* the physical axis (z) */
-    long i, j, k, Pnum, atmnum, inum = 0;
+    long i, j, k, Pnum, atmnum;
     /* FILE *fp;
 
          fp = fopen("Ydirect.pdb","w");*/

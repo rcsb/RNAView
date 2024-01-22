@@ -76,9 +76,3 @@ The program will automatically pick the best NMR model according to the REMARK r
 
 ## Update
 Nov 21, 2023: RNAVIEW permits MMCIF inputs.
-
-## Support
-
-It will work on OS based on Linux such as Ubuntu.
-Currently, Mac is not supported.
-

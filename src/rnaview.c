@@ -30,9 +30,10 @@ long clean_inpfile(char *inpfile, char *chain_in, float reso_in, char *file_new)
 int main(int argc, char *argv[])
 {
     clock_t start, finish;
-    char inpfile[BUF512], pdbfile_new[BUF512], chain[80], str[BUF512];
+    // Increased array size to avoid snprintf warnings
+    char inpfile[BUF512], pdbfile_new[516], chain[80], str[BUF512];
 
-    long i, j, n, key, base_all, npdb, nxml;
+    long i, j, /*n, */ base_all, npdb, nxml;
     long type_stat[20]; /* maxmum 20 different pairs */
     long **pair_stat;   /* maxmum 20 different pairs */
     static long A[4], U[4], G[4], C[4], T[4], P[4], I[4];
@@ -155,8 +156,9 @@ int main(int argc, char *argv[])
 
         if (PDB)
         {
-            sprintf(pdbfile_new, "%s_new", inpfile);
-            n = clean_inpfile(inpfile, chain, reso, pdbfile_new);
+            snprintf(pdbfile_new, sizeof(pdbfile_new), "%s_new", inpfile);
+            // n = clean_inpfile(inpfile, chain, reso, pdbfile_new);
+            clean_inpfile(inpfile, chain, reso, pdbfile_new);
         }
         else
         {
@@ -176,8 +178,9 @@ int main(int argc, char *argv[])
         {
             if (PDB)
             {
-                sprintf(pdbfile_new, "%s_new", str);
-                n = clean_inpfile(str, chain, reso, pdbfile_new);
+                snprintf(pdbfile_new, sizeof(pdbfile_new), "%s_new", str);
+                // n = clean_inpfile(str, chain, reso, pdbfile_new);
+                clean_inpfile(str, chain, reso, pdbfile_new);
             }
             else
             {
@@ -189,7 +192,7 @@ int main(int argc, char *argv[])
     }
     fclose(fp);
 
-    fprintf(fstat, "\nNumber of the total bases = %d\n", base_all);
+    fprintf(fstat, "\nNumber of the total bases = %ld\n", base_all);
     print_statistic(fstat, type_stat, pair_stat);
     print_edge_stat(fstat, A, U, G, C, T, P, I);
     fclose(fstat);
@@ -232,7 +235,7 @@ long clean_inpfile(char *inpfile, char *chain_in, float reso_in, char *inpfile_n
         {
             if (strstr(str, "REMARK   3   RESOLUTION RANGE HIGH (ANGSTROMS) :"))
             {
-                n = sscanf(strstr(str, ":") + 1, "f", &reso);
+                n = sscanf(strstr(str, ":") + 1, "%f", &reso);
                 if (n == 1 && reso > reso_in)
                 {
                     npdb = 0; /*not satisfy resolution*/
@@ -356,9 +359,10 @@ void rna_dna_bb_angle(char *pdbfile, long nchain, long **chain_idx, long **seidx
                       char **AtomName, char *ChainID, long *ResSeq, char **ResName, double **xyz)
 {
     char c2c4[5], n1n9[5], c6c8[5], *idmsg = "", torout[512];
-    long i, j, k, m, n = 0, ib, ie, nb, ne, dna_rna = 0;
+    long i, k, ib, ie, nb, ne, dna_rna = 0;
     long o3p_i0 = 0, p = 0, o5p = 0, c5p = 0, c4p = 0, c3p = 0, o3p = 0, p_i1 = 0;
-    long o5p_i1 = 0, n9 = 0, c2 = 0, c6 = 0, o4p = 0, c1p = 0;
+    // Commented c6 to prevent warning unused variable warning
+    long o5p_i1 = 0, n9 = 0, c2 = 0, /*c6 = 0,*/ o4p = 0, c1p = 0;
     double alpha, beta, gamma, delta, epsilon, zeta, chi, ini = -9999.99;
     FILE *fw = NULL;
 
@@ -437,7 +441,7 @@ Note: alpha:   O3'(i-1)-P-O5'-C5'\n\
             c1p = find_1st_atom(" C1'", AtomName, ib, ie, idmsg);
             n9 = find_1st_atom(n1n9, AtomName, ib, ie, "");
             c2 = find_1st_atom(c2c4, AtomName, ib, ie, "");
-            c6 = find_1st_atom(c6c8, AtomName, ib, ie, "");
+            // c6 = find_1st_atom(c6c8, AtomName, ib, ie, "");
 
             if (k > 1)
             {
@@ -495,21 +499,20 @@ Note: alpha:   O3'(i-1)-P-O5'-C5'\n\
 void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *chain_in, float reso_in)
 /* do all sorts of calculations */
 {
-    char outfile[BUF512], str[BUF512];
-    char HB_ATOM[BUF512], ALT_LIST[BUF512];
+    // Increased array size to avoid snprintf warnings
+    char outfile[516];
+    char HB_ATOM[516], ALT_LIST[516];
     char str_id[20], str_id0[20];
     char *ChainID, *bseq, **AtomName, **ResName, **Miscs;
-    long i, j, k, m, n, ie, ib, dna_rna, num, num_residue, nres, bs_atoms;
-    long *ResSeq, *RY, **seidx, num_modify, *modify_idx, nprot_atom = 0;
+    long i, j, k, m, /*n, */ ie, ib, dna_rna, num, num_residue, nres, bs_atoms;
+    long *ResSeq, *RY, **seidx, num_modify, *modify_idx;
     long **chain_idx, nchain;
     char **AtomName_uf, **ResName_uf, **x_uf, **y_uf, **z_uf, **ResSeq_uf, **ChainID_uf, **CurrModel_uf;
     char **AltLoc_uf, **ICode_uf, **Occupancy_uf, **TempFac_uf, **Element_uf, **Charge_uf, **Group_uf;
     char *temp_string;
     char *exptlMethod;
     char *strReso;
-    char atomname[4];
-    char resname[3];
-    int atomNameLength, resNameLength;
+    int atomNameLength, resNameLength, numCif;
     char *conformerId, *representativeConformer, *bestModel;
     double HB_UPPER[2], **xyz;
     float reso;
@@ -518,10 +521,10 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
     num = 0;
     curr_index = 1;
     static long base_all;
-    FILE *fout, *prot_out;
+    FILE *fout;
 
     /*    sprintf(outfile, "%s.out", pdbfile);*/
-    sprintf(outfile, "%s.out", FILEOUT);
+    snprintf(outfile, sizeof(outfile), "%s.out", FILEOUT);
     fout = fopen(outfile, "w");
 
     /* read in H-bond length upper limit etc from <misc_rna.par> */
@@ -582,18 +585,19 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
         // Extract Columns AtomName, ResName, ChainID, ResSeq
         if (AUTH == 0)
         {
-            AtomName_uf = parse_values("_atom_site.label_atom_id", &num);
-            ResName_uf = parse_values("_atom_site.label_comp_id", &num);
-            ChainID_uf = parse_values("_atom_site.label_asym_id", &num);
-            ResSeq_uf = parse_values("_atom_site.label_seq_id", &num);
+            AtomName_uf = parse_values("_atom_site.label_atom_id", &numCif);
+            ResName_uf = parse_values("_atom_site.label_comp_id", &numCif);
+            ChainID_uf = parse_values("_atom_site.label_asym_id", &numCif);
+            ResSeq_uf = parse_values("_atom_site.label_seq_id", &numCif);
         }
         else
         {
-            AtomName_uf = parse_values("_atom_site.auth_atom_id", &num);
-            ResName_uf = parse_values("_atom_site.auth_comp_id", &num);
-            ChainID_uf = parse_values("_atom_site.auth_asym_id", &num);
-            ResSeq_uf = parse_values("_atom_site.auth_seq_id", &num);
+            AtomName_uf = parse_values("_atom_site.auth_atom_id", &numCif);
+            ResName_uf = parse_values("_atom_site.auth_comp_id", &numCif);
+            ChainID_uf = parse_values("_atom_site.auth_asym_id", &numCif);
+            ResSeq_uf = parse_values("_atom_site.auth_seq_id", &numCif);
         }
+        num = (long)numCif;
         AtomName = cmatrix(1, num, 0, 4);
         ResName = cmatrix(1, num, 0, 3);
 
@@ -601,21 +605,23 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
         ResSeq = lvector(1, num);
 
         xyz = dmatrix(1, num, 1, 3);
-        AltLoc_uf = parse_values("_atom_site.label_alt_id", &num);
-        ICode_uf = parse_values("_atom_site.pdbx_PDB_ins_code", &num);
-        CurrModel_uf = parse_values("_atom_site.pdbx_PDB_model_num", &num);
+        AltLoc_uf = parse_values("_atom_site.label_alt_id", &numCif);
+        ICode_uf = parse_values("_atom_site.pdbx_PDB_ins_code", &numCif);
+        CurrModel_uf = parse_values("_atom_site.pdbx_PDB_model_num", &numCif);
 
-        Occupancy_uf = parse_values("_atom_site.occupancy", &num);
-        TempFac_uf = parse_values("_atom_site.B_iso_or_equiv", &num);
-        Element_uf = parse_values("_atom_site.type_symbol", &num);
-        Charge_uf = parse_values("_atom_site.pdbx_formal_charge", &num);
+        Occupancy_uf = parse_values("_atom_site.occupancy", &numCif);
+        TempFac_uf = parse_values("_atom_site.B_iso_or_equiv", &numCif);
+        Element_uf = parse_values("_atom_site.type_symbol", &numCif);
+        Charge_uf = parse_values("_atom_site.pdbx_formal_charge", &numCif);
 
-        Group_uf = parse_values("_atom_site.group_PDB", &num);
+        Group_uf = parse_values("_atom_site.group_PDB", &numCif);
+        num = (long)numCif;
         Miscs = cmatrix(1, num, 0, NMISC);
 
-        x_uf = parse_values("_atom_site.Cartn_x", &num);
-        y_uf = parse_values("_atom_site.Cartn_y", &num);
-        z_uf = parse_values("_atom_site.Cartn_z", &num);
+        x_uf = parse_values("_atom_site.Cartn_x", &numCif);
+        y_uf = parse_values("_atom_site.Cartn_y", &numCif);
+        z_uf = parse_values("_atom_site.Cartn_z", &numCif);
+        num = (long)numCif;
 
         cifparse(pdbfile, "_refine.");
         strReso = parse_value("_refine.ls_d_res_high");
@@ -740,6 +746,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
     seidx = residue_idx(num, ResSeq, Miscs, ChainID, ResName, &num_residue);
 
     /* Below is only for nucleic acids ie RY >= 0*/
+    printf("\n########################################################");
     bs_atoms = 0;
     for (i = 1; i <= num_residue; i++)
     {
@@ -752,8 +759,8 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
             for (j = seidx[i][1]; j <= seidx[i][2]; j++)
             {
                 bs_atoms++;
-                strcpy(AtomName[bs_atoms], AtomName[j]);
-                strcpy(ResName[bs_atoms], ResName[j]);
+                sprintf(AtomName[bs_atoms], "%s", AtomName[j]);
+                sprintf(ResName[bs_atoms], "%s", ResName[j]);
                 ChainID[bs_atoms] = ChainID[j];
                 ResSeq[bs_atoms] = ResSeq[j];
                 /*                printf("%c %4s %4ld\n", ChainID[j], ResName[bs_atoms], ResSeq[bs_atoms]);*/
@@ -799,7 +806,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
         ib = chain_idx[i][1];
         ie = chain_idx[i][2];
 
-        printf("RNA/DNA chain_ID:  %c  from residue %4d to %4d\n",
+        printf("RNA/DNA chain_ID:  %c  from residue %4ld to %4ld\n",
                ChainID[seidx[ib][1]], ResSeq[seidx[ib][1]], ResSeq[seidx[ie][1]]);
 
         for (k = chain_idx[i][1]; k <= chain_idx[i][2]; k++)
@@ -813,15 +820,15 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
                 for (j = ib; j <= ie; j++)
                 {
                     bs_atoms++;
-                    strcpy(AtomName[bs_atoms], AtomName[j]);
-                    strcpy(ResName[bs_atoms], ResName[j]);
+                    sprintf(AtomName[bs_atoms], "%s", AtomName[j]);
+                    sprintf(ResName[bs_atoms], "%s", ResName[j]);
                     ChainID[bs_atoms] = ChainID[j];
                     ResSeq[bs_atoms] = ResSeq[j];
                     for (m = 0; m <= NMISC; m++)
                         Miscs[bs_atoms][m] = Miscs[j][m];
                     for (m = 1; m <= 3; m++)
                         xyz[bs_atoms][m] = xyz[j][m];
-                    n = bs_atoms;
+                    // n = bs_atoms;
 
                     /*
                              printf("%s%5ld %4s%c%3s %c%4ld%c   %8.3lf%8.3lf%8.3lf\n",
@@ -919,13 +926,13 @@ void work_horse(char *pdbfile, FILE *fout, long num_residue, long num,
               single_base, &num_multi, multi_idx, multi_pair, sugar_syn);
     for (i = 1; i <= num_pair_tot; i++)
     {
-        printf("pair-type %4d %4d %4d %s\n", i, bs_pairs_tot[i][1], bs_pairs_tot[i][2],
+        printf("pair-type %4ld %4ld %4ld %s\n", i, bs_pairs_tot[i][1], bs_pairs_tot[i][2],
                pair_type[i]);
     }
 
-    fprintf(fout, "  The total base pairs =%4d (from %4d bases)\n",
+    fprintf(fout, "  The total base pairs =%4ld (from %4ld bases)\n",
             num_pair_tot, num_residue);
-    printf("  The total base pairs =%4d (from %4d bases);\n",
+    printf("  The total base pairs =%4ld (from %4ld bases);\n",
            num_pair_tot, num_residue);
 
     if (!num_pair_tot)
@@ -1095,12 +1102,13 @@ void write_tmp_pdb(char *pdbfile, long nres, long **seidx, char **AtomName,
                    char **ResName, char *ChainID, long *ResSeq, double **xyz)
 /* write a tmp pdb file for the web */
 {
-    char parfile[100];
+    // Increased array size to avoid snprintf warnings
+    char parfile[525];
     long i, j, ib, ie;
     FILE *fp;
 
     /*    sprintf(parfile, "%s_tmp.pdb", pdbfile);*/
-    sprintf(parfile, "%s_tmp.pdb", FILEOUT);
+    snprintf(parfile, sizeof(parfile), "%s_tmp.pdb", FILEOUT);
     fp = fopen(parfile, "w");
 
     for (i = 1; i <= nres; i++)
@@ -1109,7 +1117,7 @@ void write_tmp_pdb(char *pdbfile, long nres, long **seidx, char **AtomName,
         ie = seidx[i][2];
         for (j = ib; j <= ie; j++)
         {
-            fprintf(fp, "%s%5d %4s %3s %c%4d    %8.3f%8.3f%8.3f\n", "ATOM  ",
+            fprintf(fp, "%s%5ld %4s %3s %c%4ld    %8.3f%8.3f%8.3f\n", "ATOM  ",
                     i, AtomName[j], ResName[j], ChainID[j], ResSeq[j], xyz[j][1],
                     xyz[j][2], xyz[j][3]);
         }
@@ -1122,7 +1130,7 @@ void print_sorted_pair(long ntot, char *pdbfile)
     long i, j, np = 0, n, n1[25], **index;
 
     char str[200], **str_pair, **str_tmp;
-    char inpfile[80], outfile[80];
+    char inpfile[525], outfile[525];
 
     FILE *finp, *fout;
     str_pair = cmatrix(0, ntot, 0, 120);
@@ -1132,8 +1140,9 @@ void print_sorted_pair(long ntot, char *pdbfile)
         sprintf(inpfile, "%s.out", pdbfile);
         sprintf(outfile, "%s_sort.out", pdbfile);
     */
-    sprintf(inpfile, "%s.out", FILEOUT);
-    sprintf(outfile, "%s_sort.out", FILEOUT);
+    // Replaced sprintf with snprintf but still same warnings
+    snprintf(inpfile, sizeof(inpfile), "%s.out", FILEOUT);
+    snprintf(outfile, sizeof(outfile), "%s_sort.out", FILEOUT);
 
     fout = fopen(outfile, "w");
     finp = fopen(inpfile, "r");
@@ -1285,32 +1294,32 @@ void print_sorted_pair(long ntot, char *pdbfile)
             index[18][n] = i;
         }
         else if ((strstr(str_pair[i], "W/.") || strstr(str_pair[i], "./W")) &&
-                     strstr(str_pair[i], "cis") ||
-                 strstr(str_pair[i], "tran"))
+                 (strstr(str_pair[i], "cis") ||
+                  strstr(str_pair[i], "tran")))
         {
             n1[19]++;
             n = n1[19];
             index[19][n] = i;
         }
         else if ((strstr(str_pair[i], "H/.") || strstr(str_pair[i], "./H")) &&
-                     strstr(str_pair[i], "cis") ||
-                 strstr(str_pair[i], "tran"))
+                 (strstr(str_pair[i], "cis") ||
+                  strstr(str_pair[i], "tran")))
         {
             n1[20]++;
             n = n1[20];
             index[20][n] = i;
         }
         else if ((strstr(str_pair[i], "S/.") || strstr(str_pair[i], "./S")) &&
-                     strstr(str_pair[i], "cis") ||
-                 strstr(str_pair[i], "tran"))
+                 (strstr(str_pair[i], "cis") ||
+                  strstr(str_pair[i], "tran")))
         {
             n1[21]++;
             n = n1[21];
             index[21][n] = i;
         }
         else if ((strstr(str_pair[i], "./.") || strstr(str_pair[i], "./.")) &&
-                     strstr(str_pair[i], "cis") ||
-                 strstr(str_pair[i], "tran"))
+                 (strstr(str_pair[i], "cis") ||
+                  strstr(str_pair[i], "tran")))
         {
             n1[22]++;
             n = n1[22];

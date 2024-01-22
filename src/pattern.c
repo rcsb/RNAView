@@ -41,7 +41,7 @@ void motif(char *pdbfile)
 /* search paterns from rnaview optput */
 {
 
-    char **str_pair, inpfile[100], outfile[100];
+    char **str_pair, inpfile[600], outfile[600];
     char str[100], str_num[1000], working_num[40];
     long i, j, n, k, nl, nl_tot = 0;
     long np, non_wc, *npatt, **patt, max_npatt;
@@ -58,7 +58,7 @@ void motif(char *pdbfile)
     nl_tot = nline(inpfile); /* get the number of lines for memery alocation */
     if (nl_tot < 2)
     {
-        printf("There are only %d base pairs!!\n", nl_tot);
+        printf("There are only %ld base pairs!!\n", nl_tot);
         fclose(output);
         return;
     }
@@ -84,7 +84,7 @@ void motif(char *pdbfile)
             n = strlen(str_pair[i]);
             if (n > 70)
             {
-                printf("String length %d is larger than (70)\n", n);
+                printf("String length %ld is larger than (70)\n", n);
             }
             non_wc = 0;
             patt[np][non_wc] = i;
@@ -297,12 +297,12 @@ void pattern_search(long max_npatt, char *inpfile, char *parfile)
 /* put all the related patterns together */
 
 {
-    long i, j, k, nstr, yes = 0, n, nt, m, ns;
+    long i, j, k, nstr, /*n,*/ nt, m, ns;
     long **type, ng, npatt;
     long *group_idx, *patt_idx, *matched, n_group;
     long *idx_in, *idx_in_tmp, *idx_out, **pair_idx;
     long **pair_new_idx, nns = 0;
-    char str[1000], tmp[300], outfile[70], **line, **pair_new, str_num[1000];
+    char str[1000], tmp[300], outfile[525], **line, **pair_new, str_num[1000];
     long num_patt = 14;
 
     FILE *finp, *fout;
@@ -413,7 +413,8 @@ void pattern_search(long max_npatt, char *inpfile, char *parfile)
                     fprintf(fout,"%4d ", matched[k]);
                 }
         */
-        n = 0;
+        // Commented to avoid warnings related to variable unused
+        // n = 0;
         pair_new_idx[ns][0] = nns;
         for (k = 0; k < m; k++)
         {
@@ -425,7 +426,8 @@ void pattern_search(long max_npatt, char *inpfile, char *parfile)
 
                 strcpy(pair_new[nns], group[i].pair[j]);
                 /*                printf("??%4d %s",n, pair_new[nns]); */
-                n++;
+                // Commented to avoid warnings related to variable unused
+                // n++;
                 nns++;
             }
             strcpy(pair_new[nns++], "\n");
@@ -497,7 +499,7 @@ void pattern_search(long max_npatt, char *inpfile, char *parfile)
 void reorder_patt(char *inpfile, char **pattern, patterns *group)
 /* sort the pattern from large to small */
 {
-    long i, j, k, yes = 0, m, ns;
+    long i, j, k, m, ns;
     long **type, ng, npatt;
     long *group_idx, *patt_idx, n_group;
     long *idx_in, *idx_in_tmp, *idx_out;
@@ -583,7 +585,7 @@ void reorder_patt(char *inpfile, char **pattern, patterns *group)
         /*		fprintf(fout_tmp, "%4d %4d \n", k, m);*/
     }
 
-    fprintf(fout_tmp, "\n Number of groups -----------%d-----------\n", npatt);
+    fprintf(fout_tmp, "\n Number of groups -----------%ld-----------\n", npatt);
     fprintf(fout_tmp, "BEGIN_base-pair\n");
 
     lsort(ns, idx_in, idx_out);
@@ -595,7 +597,7 @@ void reorder_patt(char *inpfile, char **pattern, patterns *group)
         {
             fprintf(fout_tmp, "%s", group[i].pair[j]);
         }
-        fprintf(fout_tmp, "Number of matching for the above pattern. =%d:\n",
+        fprintf(fout_tmp, "Number of matching for the above pattern. =%ld:\n",
                 idx_in_tmp[i]);
         fprintf(fout_tmp, "0_0, ------\n");
     }
@@ -643,7 +645,7 @@ void first_check(long **type, long *group_idx, long n1, long n2, long *yes)
 /* check if the two group n1 and n2 are similar */
 
 {
-    long i, nm, sub_yes, nnew, type_new[300], type_i, delta;
+    long i, nm, sub_yes, /*nnew,*/ type_new[300], type_i, delta;
     long n2_new, n1_new;
 
     *yes = 0;
@@ -668,7 +670,9 @@ void first_check(long **type, long *group_idx, long n1, long n2, long *yes)
         {
             type_new[i] = type[n2][i];
         }
-        nnew = group_idx[n1];
+
+        // Commented to avoid warnings related to variable unused
+        //  nnew = group_idx[n1];
 
         delta = n2_new - n1_new;
         nm = 0;
@@ -716,7 +720,9 @@ void first_check(long **type, long *group_idx, long n1, long n2, long *yes)
         {
             type_new[i] = type[n1][i];
         }
-        nnew = group_idx[n2];
+
+        // Commented to avoid warnings related to variable unused
+        // nnew = group_idx[n2];
 
         delta = n1_new - n2_new;
         nm = 0;
@@ -765,22 +771,25 @@ void first_check(long **type, long *group_idx, long n1, long n2, long *yes)
 
 void further_classify(FILE *fout, char **pattern)
 {
-    long i, j, k, yes = 0, nt;
+    long i, j, k, nt;
     long **type, ng, npatt;
-    long *group_idx, *patt_idx, *matched;
-    long *idx_in, *idx_in_tmp, *idx_out;
-    long **pair_tot_idx, nns = 0;
-    char str[100], tmp[100], inpfile[100], **line, **pair_tot;
+    long *group_idx, *patt_idx /**matched*/;
+    // long *idx_in, *idx_in_tmp, *idx_out;
+    long **pair_tot_idx;
+    char str[100], tmp[100], inpfile[100], **pair_tot /***line*/;
     FILE *finp;
 
     type = lmatrix(0, 2000, 0, 15);
     group_idx = lvector(0, 2000);
     patt_idx = lvector(0, 2000);
-    matched = lvector(0, 1000);
-    idx_in = lvector(0, 1000);
-    idx_in_tmp = lvector(0, 1000);
-    idx_out = lvector(0, 1000);
-    line = cmatrix(0, 20, 0, 30);
+    // Commented to avoid warnings related to variable unused
+    //  matched = lvector(0, 1000);
+    //  idx_in = lvector(0, 1000);
+    //  idx_in_tmp = lvector(0, 1000);
+    //  idx_out = lvector(0, 1000);
+
+    // Commented to avoid warnings related to variable unused
+    //  line = cmatrix(0, 20, 0, 30);
     pair_tot = cmatrix(0, 2000, 0, 60);
     pair_tot_idx = lmatrix(0, 2000, 0, 2);
 
@@ -882,8 +891,8 @@ void user_type_patt(long **type, long npatt, long *group_idx, char **pattern,
                 break;
             }
         }
-        fprintf(fout, "Input type:   %s (%4d)\n", type_tmp, user_type[ng]);
-        printf("Input type:  %4d  %s %4d \n", ng, type_tmp, user_type[ng]);
+        fprintf(fout, "Input type:   %s (%4ld)\n", type_tmp, user_type[ng]);
+        printf("Input type:  %4ld  %s %4ld \n", ng, type_tmp, user_type[ng]);
         ng++;
     }
     fclose(patt_in);
@@ -1019,7 +1028,7 @@ void user_type_patt(long **type, long npatt, long *group_idx, char **pattern,
         }
     }
 
-    fprintf(fout, "Total number of matched patterns = %d \n", ns);
+    fprintf(fout, "Total number of matched patterns = %ld \n", ns);
     fprintf(fout, "================================================== \n\n");
 }
 
@@ -1031,7 +1040,7 @@ void write_infor(FILE *fout, long j, patterns *group, long *group_idx, long ns)
     {
         fprintf(fout, "%s", group[j].pair[i]);
     }
-    fprintf(fout, "-----------%d-----------\n", ns);
+    fprintf(fout, "-----------%ld-----------\n", ns);
 }
 
 void get_patt(long j, long ng, long *group_idx, long **type,
@@ -1066,9 +1075,10 @@ void cycling(long *patt_idx, long **type, long *group_idx, long *nt,
 /* If the pattern is found, it will put to teh nm grounp, and this pattern
 is also deleted from the former data base */
 {
-    long i, n, k, j, yes, n1, n2, m;
+    long n, k, /*j,*/ yes, n1, n2, m;
 
-    j = 0;
+    // Coomented to avoid warnings related to variable unused
+    //  j = 0;
     n = 0;
     m = 0;
 
