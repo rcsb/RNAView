@@ -179,6 +179,23 @@ long upperstr(char *a)
     return nlen;
 }
 
+long upperstr_read_pdb(char *a)
+/* change to upper case if not at chainID position and return string length */
+{
+    long nlen = 0;
+    const long chainID = 21;
+
+    while (*a)
+    {
+        if (islower((int)*a) && nlen != chainID)
+            *a = toupper(*a);
+
+        nlen++;
+        a++;
+    }
+    return nlen;
+}
+
 long number_of_atoms(char *pdbfile)
 /* number of atom records in a PDB file */
 {
@@ -229,7 +246,7 @@ long read_pdb(char *pdbfile, char **AtomName, char **ResName, char *ChainID,
     n = 1;
     while (fgets(str, sizeof str, fp) != NULL)
     {
-        nlen = upperstr(str);
+        nlen = upperstr_read_pdb(str);
         if (!strncmp(str + 17, "HOH", 3) || !strncmp(str + 17, "WAT", 3))
             continue; /*get ride of WATER */
 

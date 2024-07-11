@@ -746,7 +746,7 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
     seidx = residue_idx(num, ResSeq, Miscs, ChainID, ResName, &num_residue);
 
     /* Below is only for nucleic acids ie RY >= 0*/
-    printf("\n########################################################");
+    printf("\n########################################################\n");
     bs_atoms = 0;
     for (i = 1; i <= num_residue; i++)
     {
