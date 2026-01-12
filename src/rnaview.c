@@ -645,7 +645,9 @@ void rna(char *pdbfile, long *type_stat, long **pair_stat, long *bs_all, char *c
             if (!strncmp(ResName_uf[index_uf], "HOH", 3) || !strncmp(ResName_uf[index_uf], "WAT", 3))
                 continue; /*get ride of WATER */
 
-            if (AtomName_uf[index_uf][strlen(AtomName_uf[index_uf]) == 4] == 'H')
+            const char *atom_name = AtomName_uf[index_uf];
+            if (atom_name[0] == 'H' ||
+                (isdigit((unsigned char)atom_name[0]) && atom_name[1] == 'H'))
                 continue; /*get ride of H atoms */
 
             if (isCifNMR)
