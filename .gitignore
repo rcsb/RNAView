@@ -1,3 +1,4 @@
-docker/test
-docker/test/*
+#don't track these files
+Docker/test
+Docker/test/*
 
