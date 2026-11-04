@@ -6,7 +6,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install build dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
-    inkscape \
     git \
     && rm -rf /var/lib/apt/lists/*
 
@@ -23,6 +22,12 @@ FROM ubuntu:22.04
 WORKDIR /opt/RNAView
 COPY --from=builder /opt/rnaview-src/bin ./bin
 COPY --from=builder /opt/rnaview-src/BASEPARS ./BASEPARS
+
+# Install additional dependencies
+RUN apt-get update && apt-get install -y \
+    inkscape \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set the required RNAView environment variables
 ENV RNAVIEW=/opt/RNAView
